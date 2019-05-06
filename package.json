@@ -1,0 +1,22 @@
+{
+  "name": "openapi",
+  "version": "1.0.0",
+  "description": "开个店开放平台接口文档",
+  "main": "index.js",
+  "repository": "https://github.com/kaigedian/openapi.git",
+  "author": "kaigedian",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "vuepress": "^1.0.0-alpha.47"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.0.0-alpha.47",
+    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.47",
+    "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.47",
+    "@vuepress/plugin-nprogress": "^1.0.0-alpha.47"
+  }
+}
