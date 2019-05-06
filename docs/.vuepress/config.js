@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/openapi/',
   title: '开个店开放平台',
   description: '开个店，每个品牌都有自己的平台',
   head: [
