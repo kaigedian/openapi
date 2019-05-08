@@ -99,6 +99,15 @@
 |data/activities/id|String|活动id|
 |data/activities/name|String|活动名称|
 |data/activities/desc|String|优惠描述|
+#### 请求示例
+
+```
+{"appId":"123456",
+ "partnerId":"1864",
+ "requestBody":"{\"orderCode\":\"142858598583644715\",\"startTimestamp\":\"3456554633\",\"endTimestamp\":\"356887877\",\"orderClients\":[{1,2.3}]\",\"orderClients\":\"1862\",\"pageNum\":\"20\",\"pageSize\":\"50\"}",
+ "sign":"QN/FP+hX/JhnPTw1fHMmgcPzih7Zy3rndrvc4uU+BV+7YmWZu7IHqjmEhgY4Px/IjVoMf4ghNqlFvpNArbSOiDiKCsAD8CauQzw92DaCMJiwVMNSOGdafWRoy21UXgNCxRyZqJ6ZPwL2grjRBMvXj4MZXcfvIq2h/127XzUb5L0IBTvX5ulmZ5Jw2J4HR+PUrxka+ILsDcv/PG7zlhaCIgXDCs3s3XxcVbAeO2DtrOur1vDonT70/y42DtTiaswKlw08zo/vSr8HTCmfFg+RSJe2aUTbE5js3V3xFfVMMzsW87ihNy0dIBXUiU6aW+VDcViDYYTlIjaMdbSPPmK/1w==",
+ "ver":"1"}
+```
 
 ##  订单详情
 
@@ -191,6 +200,26 @@
 |deliverFee|Long|订单配送费|
 |packageFee|Long|订单包装费|
 
+#### 请求示例
+
+```
+{"appId":"123456",
+ "partnerId":"1864",
+ "requestBody":"{\"orderCode\":\"142858598583644715\"}",
+ "sign":"QN/FP+hX/JhnPTw1fHMmgcPzih7Zy3rndrvc4uU+BV+7YmWZu7IHqjmEhgY4Px/IjVoMf4ghNqlFvpNArbSOiDiKCsAD8CauQzw92DaCMJiwVMNSOGdafWRoy21UXgNCxRyZqJ6ZPwL2grjRBMvXj4MZXcfvIq2h/127XzUb5L0IBTvX5ulmZ5Jw2J4HR+PUrxka+ILsDcv/PG7zlhaCIgXDCs3s3XxcVbAeO2DtrOur1vDonT70/y42DtTiaswKlw08zo/vSr8HTCmfFg+RSJe2aUTbE5js3V3xFfVMMzsW87ihNy0dIBXUiU6aW+VDcViDYYTlIjaMdbSPPmK/1w==",
+ "ver":"1"}
+```
+#### 返回示例
+```
+"ver": "1",
+"statusCode": "100",
+"message": null,
+"responseBody": "{\"actualPayAmount\":2,\"barCounter\":\"\",\"cancelReason\":\"\",\"createTime\":\"1556282176000\",\"daySeq\":0,\"deliveryContactInfoList\":[{\"mobile\":\"\",\"thirdDeliveryId\":\"1\"}],\"extInfo\":\"\",\"note\":\"\",\"orderClient\":2,\"orderCode\":\"142858598583644715\",\"orderItemList\":[{\"canRefund\":true,\"ignoreInOrderClose\":false,\"productId\":\"138418632407497998\",\"productName\":\"测试商品\",\"productPicUrl\":\"https://picture.sandload.cn/1554812302704.png\",\"productPrice\":2,\"productProperty\":\"加糖\",\"productQuantity\":1,\"productSeq\":1,\"productSharePrice\":2,\"productSpecName\":\"null/\"}],\"orderState\":6,\"orderType\":0,\"partnerId\":\"1864\",\"payChannel\":\"\",\"payChannelName\":\"\",\"payRequestNo\":\"\",\"payState\":1,\"payType\":1,\"posCode\":\"\",\"storeId\":\"10087\",\"storeName\":\"测试支付\",\"thirdOrderCode\":\"\",\"updateTime\":\"1556282230000\",\"userId\":\"115560042247664714\",\"userName\":\"Griggles\"}",
+ "sign": "gJUqECJvpCj+pOXXwXrvwQpdtXdA9olVjsOhJVsam0uRLp2GQp0NEk2dDEwUMPkMeXFBIk+D+A7vJsB6gktt8LE2aWp8mp1t+00tE2BZYsSDINzdqdomwHgSmm4MIUmnAyaYFXM06nWRgCyCYs4/ZB+G1Ln0foijINd+us56VXLqGWUyFPn8badOQ76KKxvoemi9hB3iTzF+n7BC5zL6v/npkTqk2AXQxTBem1KokQklqp4HxsCyE+6C6Aj0BfvlF2pt+LpxlWqqalMjzJEb1h4gfByxtOJjyz7SE6JcG6qUiZFmmWWTVBqzTMw36MBrSkM7ja74sQCNbfy8JNA1dw=="
+}
+```
+
+
 ## 下单
 
 ### 接口说明
@@ -259,7 +288,24 @@
 | -------|  ----|  ----------------|
 | orderCode | String | 订单号（成功则有） |
 
-
+#### 请求示例
+```
+{
+ "ver":"1",
+ "partnerId":"1864",
+ "appId":"123456",
+ "requestBody":"{\"actualPayAmount\":200,\"orderClient\":1,\"orderItemList\":[{\"canRefund\":true,\"ignoreInOrderClose\":false,\"productId\":\"138418632407497998\",\"productName\":\"测试商品\",\"productPicUrl\":\"https://picture.sandload.cn/1554812302704.png\",\"productPrice\":2,\"productProperty\":\"加糖\",\"productQuantity\":1,\"productSeq\":1,\"productSharePrice\":2,\"productSpec\":\"大杯\"}],\"orderState\":5,\"orderType\":1,\"partnerId\":\"1864\",\"payChannelName\":\"微信支付\",\"payType\":1,\"retryType\":false,\"storeId\":\"10087\",\"storeName\":\"测试支付\",\"userId\":\"115380388035218205\",\"userName\":\"Griggles\"}",
+ "sign":"o8qfXTUVL4oWQCn4cuTVhzkwzQHoWE4vNlOMcpWRDWbebtJ+rm4EJrWdrnl57WoiIKCJ22j83vnuXCw4UI39iaq7SOIm8DXD0PKFk/FQ+coqW2ilUsOg6RFL9uIkyHx4E3BXzo3o9Jwv2P5Tc2Oy6Adkwm5QXPkutGG0GXj7CMNgRGz6E/JHajwtlEl19opNRtMXucchLcsGBGi7oyVlsxlaFeYf8jisCDTqvoINxU3WgIQ5+cq9Szoz2rExFTzJRwphNYPKC4VWAH1gy+jOPXXpFSfJvMITZoHYvNdN8g4f6W8tq2g1/ocRmNodCi30xXAh0MMGTOOlcTA8D4wxzg=="}
+```
+#### 返回示例
+```
+ver": "1",
+    "statusCode": "100",
+    "message": "success",
+    "responseBody": "{\"actualPayAmount\":200,\"barCounter\":\"\",\"cancelReason\":\"\",\"createTime\":\"1557043606663\",\"daySeq\":0,\"deliveryContactInfoList\":[{\"mobile\":\"\",\"thirdDeliveryId\":\"1\"}],\"extInfo\":\"\",\"note\":\"\",\"orderClient\":2,\"orderCode\":\"143657016138738708\",\"orderItemList\":[{\"canRefund\":true,\"ignoreInOrderClose\":false,\"productId\":\"138418632407497998\",\"productName\":\"测试商品\",\"productPicUrl\":\"https://picture.sandload.cn/1554812302704.png\",\"productPrice\":2,\"productProperty\":\"加糖\",\"productQuantity\":1,\"productSeq\":1,\"productSharePrice\":2,\"productSpecName\":\"null/\"}],\"orderState\":5,\"orderType\":0,\"partnerId\":\"1864\",\"payChannel\":\"\",\"payChannelName\":\"\",\"payRequestNo\":\"\",\"payState\":1,\"payType\":1,\"posCode\":\"\",\"storeId\":\"10087\",\"storeName\":\"测试支付\",\"thirdOrderCode\":\"\",\"updateTime\":\"1557043606663\",\"userId\":\"115380388035218205\",\"userName\":\"Griggles\"}",
+    "sign": "mI2PRSMW/Y/co74D4NBXSv8w7IN3ONMmh8pSXCMEkbZbDMRXiICfPLWzbGYl/GTycsGtbjBs+TfNa81r4rLtvpoWKLEX+IaD5hMFr2d636+dzJBAosVE052AQvhYP4QbXkOujH9lcTAz8Snu5BiG2luYqOTRb7fV0+Wk31ajFJUQU76/YULE3MbtsPrdEc8iiHInp9MCoRS47qcUlHiDR2DVIR8mb9CyPHoXLk+I43W+WeK+lQvgGWF1FSVpvjHcAaPOzQRhs6qzaFqHdwdskywqTNv7/StCSU8KqXNXVQI8DSdmprEpAuD/pNrlLmpDgBjsjcjyki3k5vmfl0RnKA=="
+}
+```
 
 ## 商家确认接单
 
@@ -278,6 +324,15 @@
 | timeout | Integer | 否 | 从接单开始计时，超时未制作的时间（单位：分钟）（具体见字段描述） |
 
 ### 响应参数
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"，\"operator\":\"jack\"，\"timeout\":\"30\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 
 
@@ -296,7 +351,15 @@
 | timeout | Integer | 否 | 从此时开始，超时未完成的时间（单位：分钟）（具体见字段描述） |
 
 ### 响应参数
-###
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"，\"operator\":\"jack\"，\"timeout\":\"30\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 ## 自配送完成送达(含堂食)
 
@@ -313,6 +376,15 @@
 | operator | String | 否 | 操作人 |
 
 ### 响应参数
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"，\"operator\":\"jack\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 ## 商家同意取消
 ### 请求url：/order/agreeRefund
@@ -325,6 +397,15 @@
 ### 响应参数
 
 只返回公共参数 状态码和message
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"，\"operator\":\"jack\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 ## 商家拒绝取消
 ### 请求url：/order/disagreeRefund
@@ -338,6 +419,15 @@
 ### 响应参数
 
 只返回公共参数 状态码和message
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"，\"operator\":\"jack\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 ## 商家拒单
 
@@ -353,6 +443,18 @@
 | reasonCode | int | 是 | 见取消原因列表 |
 
 ### 响应参数
+
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026，\"reasonCode\":1"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
+
+
 ## 商家取消订单
 ### 应用场景
 第三方如需要有手动接单场景，则接收到开个店新订单时，在特殊情况下可以调用取消接口，取消接收订单
@@ -365,6 +467,16 @@
 |    orderCode    | String |    是    |           订单号     |
 
 ### 响应参数
+
+#### 请求示例
+```
+{"appId":"123456","partnerId":"1900","requestBody":"{\"orderCode\":\"143777392719231026\"}","sign":"k6208H6X3bNwSWhNXFjGS2DXEiRcwfpMRJIuYEpwvI3hwSLek+9Hm4npnJhXC0XvADqNONN1m01dIwv+BPEkj29qWx40zwkcKj21BwqY5DEN9NR+ZHXY75mtPaqQvQ67WpfzjIY75wGFKvYzKk8OA73SOBrc38+JtjfGWO9tZndIwHh7BQTigfQMqvo52wWJqpc9PW1T4aU+rKtT7OcAV+hFyxMAPRgsw9HeVtCuMivK8yFBDZVSTj5uRGJGhIIjmF+ikJxzgbb7CsDEfQtGnrKvsSwlN4a+Tn/GQ1loGR6xpNhk74CCjcLAqXKciXFm5RMzUdIiywCrMpPlB/GZcQ==","ver":"1"}
+```
+
+#### 返回示例
+```
+{"ver":"1","statusCode":"100","message":null,"responseBody":null,"sign":null}
+```
 
 ## 推送新订单通知
 
