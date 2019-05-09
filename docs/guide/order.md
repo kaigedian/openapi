@@ -115,6 +115,105 @@
 |data/activities/name|String|活动名称|
 |data/activities/desc|String|优惠描述|
 
+
+#### responseBody返回示例
+
+```json
+{
+    "pageNum": 1,
+    "pageSize": 50,
+    "pages": 20,
+    "total": 1000,
+    "data": [
+        {
+            "orderCode": "1384186324074979",
+            "thirdOrderCode": "15909445",
+            "companySelfCode": "1900466",
+            "storeId": "1001",
+            "storeName": "南翔一店",
+            "actualPayAmount": 1200,
+            "originalAmount": 1200,
+            "barCounter": "10",
+            "canRefund": false,
+            "needInvoice": false,
+            "orderClient": 1,
+            "description": "不要冰",
+            "orderState": 1,
+            "orderStateDesc": "已接单",
+            "orderType": 1,
+            "payChannel": "微信",
+            "payChannelName": "微信支付",
+            "payState": 1,
+            "payType": 1,
+            "payTime": "1557367505",
+            "posCode": "1001",
+            "operator": "许磊",
+            "userId": "115380388035218205",
+            "userName": "MRX",
+            "itemList": [
+                 {
+                   "productSeq": 001,
+                   "productCode": "001001",
+                   "skuId": "19001800",
+                   "productName": "奶茶",
+                   "price": 1200,
+                   "quantity": 1,
+                   "total": 1200,
+                   "sharePrice": 0,
+                   "userPrice": 1200,
+                   "productSeq": 001,
+                   "unit": "杯",
+                   "weight": 1000,
+                   "specs":[
+                       {
+                          "name": "杯型",
+                          "value": "大杯", 
+                       }
+                   ],
+                   "attributes":[
+                       {
+                          "name": "舔度",
+                          "value": "三分糖", 
+                       }
+                   ]
+                 }
+             ],
+            "invoice": "非码",
+            "taxpayerId": "4354334443",
+            "invoiceAddress": "嘉定南翔",
+            "invoiceAmount": "12.00",
+            "bankCardNo": "568888",
+            "invoiceContent": "餐饮",
+            "invoiceBank": "工商",
+            "phoneNo": "13918456077",
+            "pickUpGoodsNo": "5446",
+            "suspendDesc": "正常",
+            "suspendState": 0,
+            "createTime": "1557367505",
+            "acceptTime": "1557368643",
+            "pickUpTime": "",
+            "deliveryTime": "1557398566",
+            "estimateDeliveryCompleteTime": "1557457545",
+            "actualArrivalTime": "1557458545",
+            "receiveTime": "1557458545",
+            "expectTime": "1557389003",
+            "consignee": "COFFER",
+            "deliveryGeo": "",
+            "deliveryPoiAddress": "田林十村",
+            "phone": "13918779099",
+            "activities": [
+                 {
+                   "id": "10099",
+                   "name": "满10减2",
+                   "desc": "优惠描述"
+                 }
+             ]
+                 
+        }
+    ]
+}
+```
+
 ##  订单详情
 
 ### 接口说明
