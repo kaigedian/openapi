@@ -88,7 +88,7 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 |    字段    |  类型  | 是否必传 |                    说明                     |
 | --------|  ----|  ------|  --------------------------------|
 |    ver     | String |    是    |             接口版本号，1              |
-| statusCode | String |    是    |         状态码 成功：100          |
+| code | String |    是    |         状态码 成功：100          |
 |   message   | String |    是    |         返回信息（失败原因）        |
 | responseBody | String | 否 | 业务响应参数，成功则有 |
 
@@ -102,4 +102,4 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 
 ## 接口地址
 * 正式环境 `https://open-store.sandload.cn/openapi`
-* 测试环境 `https://open-store-dev.sandload.cn`
+* 测试环境 `https://open-store-dev.sandload.cn/openapi`
