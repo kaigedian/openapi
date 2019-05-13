@@ -1,6 +1,6 @@
 {
   "name": "openapi",
-  "version": "1.1",
+  "version": "1.1.0",
   "description": "开个店开放平台接口文档",
   "main": "index.js",
   "repository": "https://github.com/kaigedian/openapi.git",
