@@ -467,7 +467,7 @@
 
 第三方可通过批量查询订单状态接口调用查询指定订单当前在开个店中状态
 
-###  请求url：/order/queryRefundOrders
+###  请求url：/order/batchOrderStatus
 
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
