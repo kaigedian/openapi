@@ -27,6 +27,10 @@ module.exports = {
       {
         text: '开个店商户后台',
         link: 'https://micro.sandload.cn'
+      },
+      {
+        text: 'Github',
+        link: 'https://github.com/kaigedian/openapi'
       }
     ],
     sidebar: [
