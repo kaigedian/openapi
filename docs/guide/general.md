@@ -78,8 +78,8 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 |    字段     |  类型  | 是否必传 |                    说明                     |
 | --------- |---- | ------ | --------------------------------------|
 |     ver     | String |    是    |                接口版本号，1                |
-|  partnerId  | String |    是    |           由非码颁发商户唯一标识            |
-|    appId    | String |    是    |           由非码颁发平台唯一标识            |
+|  partnerId  | String |    是    |           由开个店颁发商户唯一标识            |
+|    appId    | String |    是    |           由开个店颁发平台唯一标识            |
 | requestBody | String | 是 |                业务请求参数                 |
 |    sign     | String |    是    | API访问签名参数，请参见API调用协议-接口签名 |
 
@@ -92,5 +92,12 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 |   message   | String |    是    |         返回信息（失败原因）        |
 | responseBody | String | 否 | 业务响应参数，成功则有 |
 
+### 开个店提供参数
+* ver：接口版本
+* partnerId：户唯一标识 
+* appId：平台唯一标识 
+* access_token：固定token值
+
 ## 接口地址
 * 正式环境 `https://open-store.sandload.cn/openapi`
+* 测试环境 `https://open-store-dev.sandload.cn`
