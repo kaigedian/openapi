@@ -29,7 +29,7 @@ module.exports = {
         link: 'https://micro.sandload.cn'
       },
       {
-        text: 'Github',
+        text: 'GITHUB',
         link: 'https://github.com/kaigedian/openapi'
       }
     ],
