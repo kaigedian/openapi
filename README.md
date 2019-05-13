@@ -1,6 +1,8 @@
 # openapi
 开个店开放平台接口文档
 
+在线文档地址：https://kaigedian.github.io/openapi/
+
 1. 电脑安装node.js和yarn
 2. git clone https://github.com/kaigedian/openapi.git
 3. 命令行运行yarn, 安装依赖
