@@ -25,6 +25,10 @@ module.exports = {
         ]
       },
       {
+        text: 'DEMO示例',
+        link: 'https://github.com/kaigedian/openapi-demo'
+      },
+      {
         text: '开个店商户后台',
         link: 'https://micro.sandload.cn'
       },
