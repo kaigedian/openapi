@@ -293,7 +293,7 @@
 
 ```json
 {
-    "orderCode": {"142858598583644715"}
+    "orderCode": ["142858598583644715"]
 }
 ```
 
@@ -349,7 +349,7 @@
 #### responseBody返回示例
 
 ```json
-{
+[{
     "orderCode": "21343343",
     "thirdOrderCode": "1343534298",
     "storeId": "1001",
@@ -399,7 +399,7 @@
     "latitude": "121.3434334",
     "deliverFee": 5,
     "packageFee": 0
-}
+}]
 ```
 
 
