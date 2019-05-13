@@ -266,7 +266,7 @@
             "longitude": "31.43434",
             "latitude": "121.3434334",
             "deliverFee": 5,
-            "packageFee": 0    
+            "packageFee": 0
         }
     ]
 }
@@ -397,8 +397,8 @@
     "longitude": "31.43434",
     "latitude": "121.3434334",
     "deliverFee": 5,
-    "packageFee": 0    
-    
+    "packageFee": 0
+
 }
 ```
 
@@ -465,17 +465,18 @@
 第三方可通过批量查询订单状态接口调用查询指定订单当前在开个店中状态
 
 ###  请求url：/order/queryRefundOrders
+
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
 | ------------|  -------------|  ------|  ------------------------------|
-|  orderCodes  | Array<String> |    是   | 订单号集合 |
+|  orderCodes  | Array |    是   | 订单号集合 |
 
 #### requestBody请求示例
 
 ```json
 {
     "orderCodes": "12354545"
-    
+
 }
 ```
 
@@ -492,7 +493,7 @@
 
 ```json
 {
-    
+
     "itemList": [
         {
             "orderCode": "12355556",
@@ -531,7 +532,7 @@
     "orderStatus": "3",
     "orderStatus": "",
     "operator": "MRX"
-    
+
 }
 ```
 ```json
@@ -540,7 +541,7 @@
     "orderStatus": "7",
     "orderStatus": "超出配送返回",
     "operator": "MRX"
-    
+
 }
 ```
 
@@ -584,7 +585,7 @@
     "action": "1",
     "reason": "",
     "operator": "MRX"
-    
+
 }
 ```
 ```json
@@ -593,7 +594,7 @@
     "action": "2",
     "reason": "不能退款",
     "operator": "MRX"
-    
+
 }
 ```
 
@@ -642,7 +643,7 @@
     "timeStamp": "12354545",
     "storeId": "1001",
     "orderCode": "1494953"
-    
+
 }
 ```
 
@@ -691,7 +692,7 @@
     "orderCode": "126673345",
     "statusCode": "1",
     "timeStamp": "1494953"
-    
+
 }
 ```
 
@@ -735,7 +736,7 @@
 
 ### 订单状态
 
-默认为待支付状态，如需要则设置对应的值 
+默认为待支付状态，如需要则设置对应的值
 
 | 枚举值 | 说明             |
 | ------ | ---------------- |
@@ -761,7 +762,7 @@
 
 ### 支付状态
 
-正常情况下不要设置值，此字段仅在做订单同步时使用 
+正常情况下不要设置值，此字段仅在做订单同步时使用
 
 |      | 说明     |
 | ---- | -------- |
