@@ -399,7 +399,6 @@
     "latitude": "121.3434334",
     "deliverFee": 5,
     "packageFee": 0
-
 }
 ```
 
@@ -479,7 +478,6 @@
 ```json
 {
     "orderCodes": {"12354545"}
-
 }
 ```
 
@@ -535,7 +533,6 @@
     "orderStatus": "3",
     "orderStatus": "",
     "operator": "MRX"
-
 }
 ```
 ```json
@@ -544,7 +541,6 @@
     "orderStatus": "7",
     "orderStatus": "超出配送返回",
     "operator": "MRX"
-
 }
 ```
 
@@ -559,7 +555,6 @@
     "statusCode": "100",
     "message": "success",
     "responseBody": ""
-
 }
 ```
 
@@ -588,7 +583,6 @@
     "action": "1",
     "reason": "",
     "operator": "MRX"
-
 }
 ```
 ```json
@@ -597,7 +591,6 @@
     "action": "2",
     "reason": "不能退款",
     "operator": "MRX"
-
 }
 ```
 
@@ -611,7 +604,6 @@
     "statusCode": "100",
     "message": "success",
     "responseBody": ""
-
 }
 ```
 
@@ -646,7 +638,6 @@
     "timeStamp": "12354545",
     "storeId": "1001",
     "orderCode": "1494953"
-
 }
 ```
 
@@ -661,7 +652,6 @@
     "statusCode": "100",
     "message": "success",
     "responseBody": ""
-
 }
 ```
 
@@ -695,7 +685,6 @@
     "orderCode": "126673345",
     "statusCode": "1",
     "timeStamp": "1494953"
-
 }
 ```
 
@@ -711,7 +700,6 @@
     "statusCode": "100",
     "message": "success",
     "responseBody": ""
-
 }
 ```
 
