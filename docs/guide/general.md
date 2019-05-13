@@ -26,7 +26,7 @@
 
 #### 签名算法
 
-RSA2 （SHA256WithRSA）强制要求RSA密钥的长度至少为2048
+RSA2 （SHA256WithRSA）强制要求RSA密钥的长度至少为2048,第三方调用方需给到开个店公钥
 
 #### 签名规则
 
@@ -71,7 +71,7 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 |   Content-Type   |    是    | String | application/json;charset=utf-8 |       指定参数类型为json格式       |
 | x-transaction-id |    是    | String |                                | 请求id，每一次请求不一样请保持唯一 |
 | Accept | 是 |  | application/json;charset=utf-8 |  |
-| access_token | 是 |  | |  |请求参数
+| access_token | 是 |  | |  |网关的token,由开个店提供
 
 ### 请求参数
 
@@ -97,6 +97,8 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 * partnerId：商户唯一标识
 * appId：平台唯一标识
 * access_token：固定token值
+
+
 
 ## 接口地址
 * 正式环境 `https://open-store.sandload.cn/openapi`
