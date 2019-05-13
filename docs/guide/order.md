@@ -29,11 +29,11 @@
 |orderInvoice|Object|否|发票信息,暂不支持|
 |orderClient|Integer|是|下单渠道|
 |note|String|否|订单备注|
-|orderState|Integer|是|订单状态（见字段描述）|
+|orderStatus|Integer|是|订单状态（见字段描述）|
 |orderType|Integer|是|订单类型（见字段描述）|
 |payChannel|String|否|支付渠道|
 |payChannelName|String|否|支付渠道名称|
-|payState|Integer|否|支付状态（见字段描述）|
+|payStatus|Integer|否|支付状态（见字段描述）|
 |payType|Integer|否|支付类型（见字段描述）|
 |payTime|String|否|支付时间|
 |posCode|String|否|pos编号|
@@ -68,11 +68,11 @@
     "needInvoice": false,
     "orderClient": 1,
     "note": "订单备注",
-    "orderState": 1,
+    "orderStatus": 1,
     "orderType": 1,
     "payChannel": "测试支付",
     "payChannelName": "微信支付",
-    "payState": 1,
+    "payStatus": 1,
     "payType": 1,
     "payTime": "12545445",
     "posCode": "39938289509032322",
@@ -108,7 +108,7 @@
 ```json
 {
     "ver": "1",
-    "statusCode": "100",
+    "code": "100",
     "message": "success",
     "responseBody": {
         "orderCode": "1889943343"
@@ -135,7 +135,7 @@
 |  endTimestamp  |     Integer     |    是    |  订单创建结束时间戳（单位：秒）  |
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
-|  status  | Array[] Integer |    否    | 订单状态（见字段描述） |
+|  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
 |    pageNum     |     Integer     |    是    |               页数               |
 |    pageSize    |     Integer     |    是    |             页面大小，默认10条   |
 
@@ -149,9 +149,9 @@
     "orderCode": 142858598583644715,
     "startTimestamp": 3456554633,
     "endTimestamp": 356887877,
-    "orderClients": [{1, 2, 3}],
+    "orderClients": [1, 2, 3],
     "storeId": "1862",
-    "status": [{1, 2, 3}],
+    "orderStatus": [1, 2, 3],
     "pageNum": 20,
     "pageSize": 50
 }
@@ -175,28 +175,17 @@
 |itemList/needInvoice|Boolean|需要开发票|
 |itemList/orderClient|Integer|下单渠道|
 |itemList/note|String|订单备注|
-|itemList/orderState|Integer|订单状态（见字段描述）|
+|itemList/orderStatus|Integer|订单状态（见字段描述）|
 |itemList/orderType|Integer|订单类型（见字段描述）|
 |itemList/payChannel|String|支付渠道|
 |itemList/payChannelName|String|支付渠道名称|
-|itemList/payState|Integer|支付状态（见字段描述）|
+|itemList/payStatus|Integer|支付状态（见字段描述）|
 |itemList/payType|Integer|支付类型（见字段描述）|
 |itemList/payTime|String|支付时间|
 |itemList/posCode|String|pos编号|
 |itemList/operator|String|操作人|
 |itemList/userId|String|用户id|
 |itemList/userName|String|用户姓名|
-|itemList/orderItemList|Array|订单商品信息|
-|itemList/orderItemList/productSeq|Integer|商品序号|
-|itemList/orderItemList/productId|String|商品编号|
-|itemList/orderItemList/productName|String|商品名称|
-|itemList/orderItemList/productPrice|Integer|商品单价（分）|
-|itemList/orderItemList/productQuantity|int|数量|
-|itemList/orderItemList/sharePrice|Integer|优惠分摊金额（分）|
-|itemList/orderItemList/unit|String|商品单位|
-|itemList/orderItemList/weight|Integer|商品重量（克）|
-|itemList/orderItemList/productSpecName|String|商品规格名称（大杯）|
-|itemList/orderItemList/productProperty|String|商品属性名称（三分糖）|
 |itemList/pickUpGoodsNo|String|取餐号|
 |itemList/createTime|String|下单时间|
 |itemList/acceptTime|String|接单时间|
@@ -208,8 +197,8 @@
 |itemList/expectTime|String|用户期望送达时间|
 |itemList/longitude|String|收货地址经度|
 |itemList/latitude|String|收货地址维度|
-|itemList/deliverFee|Long|订单配送费|
-|itemList/packageFee|Long|订单包装费|
+|itemList/deliverFee|Integer|订单配送费|
+|itemList/packageFee|Integer|订单包装费|
 
 #### responseBody返回示例
 
@@ -231,29 +220,17 @@
             "needInvoice": false,
             "orderClient": 1,
             "note": "订单备注",
-            "orderState": 1,
+            "orderStatus": 1,
             "orderType": 1,
             "payChannel": "微信",
             "payChannelName": "微信支付",
-            "payState": 1,
+            "payStatus": 1,
             "payType": 1,
             "payTime": "1557367505",
             "posCode": "1001",
             "operator": "许磊",
             "userId": "115380388035218205",
             "userName": "MRX",
-            "orderItemList": [
-                 {
-                   "productSeq": 001,
-                   "productId": "001001",
-                   "productName": "奶茶",
-                   "productPrice": 1200,
-                   "unit": "杯",
-                   "weight": 1000,
-                   "productSpecName": "大杯",
-                   "productProperty": "三分糖"
-                 }
-             ],
             "pickUpGoodsNo": "4578",
             "createTime": "1557367505",
             "acceptTime": "1557368643",
@@ -310,11 +287,11 @@
 |needInvoice|Boolean|需要开发票|
 |orderClient|Integer|下单渠道|
 |note|String|订单备注|
-|orderState|Integer|订单状态（见字段描述）|
+|orderStatus|Integer|订单状态（见字段描述）|
 |orderType|Integer|订单类型（见字段描述）|
 |payChannel|String|支付渠道|
 |payChannelName|String|支付渠道名称|
-|payState|Integer|支付状态（见字段描述）|
+|payStatus|Integer|支付状态（见字段描述）|
 |payType|Integer|支付类型（见字段描述）|
 |payTime|String|支付时间|
 |posCode|String|pos编号|
@@ -360,11 +337,11 @@
     "needInvoice": false,
     "orderClient": 1,
     "note": "订单备注",
-    "orderState": 1,
+    "orderStatus": 1,
     "orderType": 1,
     "payChannel": "测试支付",
     "payChannelName": "微信支付",
-    "payState": 1,
+    "payStatus": 1,
     "payType": 1,
     "payTime": "12545445",
     "posCode": "39938289509032322",
@@ -431,7 +408,7 @@
     "startTimestamp": 3456554633,
     "endTimestamp": 356887877,
     "storeId": "1862",
-    "refundstatus": {1},
+    "refundstatus": [1],
     "pageNum": 20,
     "pageSize": 50
 }
@@ -477,7 +454,7 @@
 
 ```json
 {
-    "orderCodes": {"12354545"}
+    "orderCodes": ["12354545","34353"]
 }
 ```
 
@@ -514,7 +491,7 @@
 
 第三方可通过订单状态处理接口调用修改开个店中订单状态
 例如：1、在手动接单情况下可调用此接口接收订单
-      2、第三方完成订单流程可调用此接口完成订单状态结束订单流程，或通知用户来取餐
+​      2、第三方完成订单流程可调用此接口完成订单状态结束订单流程，或通知用户来取餐
 
 ### 请求url：/order/statusOperation
 ### 请求参数
@@ -552,7 +529,7 @@
 ```json
 {
     "ver": "1",
-    "statusCode": "100",
+    "code": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -601,7 +578,7 @@
 ```json
 {
     "ver": "1",
-    "statusCode": "100",
+    "code": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -649,7 +626,7 @@
 ```json
 {
     "ver": "1",
-    "statusCode": "100",
+    "code": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -675,7 +652,7 @@
 |   字段    |  类型  | 是否必传 |                    说明                     |
 | -------|  ----|  ------|  --------------------------------|
 | orderCode    | String |    是    | 订单号     |
-| statusCode | String | 是 | 订单状态 |
+| orderStatus | String | 是 | 订单状态 |
 | timeStamp | String | 是 | 状态变更时间戳 |
 
 #### requestBody请求示例
@@ -683,7 +660,7 @@
 ```json
 {
     "orderCode": "126673345",
-    "statusCode": "1",
+    "orderStatus": "1",
     "timeStamp": "1494953"
 }
 ```
@@ -697,7 +674,7 @@
 ```json
 {
     "ver": "1",
-    "statusCode": "100",
+    "code": "100",
     "message": "success",
     "responseBody": ""
 }
