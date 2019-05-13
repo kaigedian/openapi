@@ -94,7 +94,7 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 
 ### 开个店提供参数
 * ver：接口版本
-* partnerId：户唯一标识 
+* partnerId：商户唯一标识 
 * appId：平台唯一标识 
 * access_token：固定token值
 
