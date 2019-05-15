@@ -101,5 +101,5 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 
 
 ## 接口地址
-* 正式环境 `https://open-store.sandload.cn/openapi`
-* 测试环境 `https://open-store-dev.sandload.cn/openapi`
+* 正式环境 `https://open.kgdg.sandload.cn/openapi`
+* 联调环境 `https://open.kgdg-qa.sandload.cn/openapi`
