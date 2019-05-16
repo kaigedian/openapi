@@ -21,12 +21,17 @@ module.exports = {
           {
             text: '订单类API',
             link: '/guide/order'
+          },
+          {
+            text: '券码类API',
+            link: '/guide/coupon'
           }
         ]
       },
       {
         text: 'DEMO示例',
-        link: 'https://github.com/kaigedian/openapi-demo'
+        link: '/guide/demo'
+        // link: 'https://github.com/kaigedian/openapi-demo'
       },
       {
         text: '开个店商户后台',
@@ -40,9 +45,11 @@ module.exports = {
     sidebar: [
       '/guide/general',
       // '/guide/store',
-      '/guide/order'
+      '/guide/order',
+      '/guide/coupon',
+      '/guide/demo'
     ],
-    // displayAllHeaders: true,
+    displayAllHeaders: true,
     lastUpdated: 'Last Updated'
   },
   markdown: {
