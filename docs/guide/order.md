@@ -136,8 +136,8 @@
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
-|    pageNum     |     Integer     |    是    |               页数               |
-|    pageSize    |     Integer     |    是    |             页面大小，默认10条   |
+| count | Interger | 否 | 每次请求数量（最大10），不传入默认10 |
+| nextOrderCode |     String     |    否    |               下次拉取起始值，不传入默认从头拉取               |
 
 ### 备注
 建议订单列表查询接口时间戳时间间隔可以以随机数方式，保证接口的效率与稳定
@@ -146,24 +146,23 @@
 
 ```json
 {
-    "orderCode": 142858598583644715,
+
     "startTimestamp": 3456554633,
     "endTimestamp": 356887877,
     "orderClients": [1, 2, 3],
     "storeId": "1862",
     "orderStatus": [1, 2, 3],
-    "pageNum": 20,
-    "pageSize": 50
+    "nextOrderCode": "142858598583644715",
+    "count": 5
 }
 ```
 
 ### 响应参数
 |   字段   |  类型   |   说明   |
 | ------|  -----|  ------|
-| pageNum  | Integer | 当前页数 |
-| pageSize | Integer | 页面大小 |
-|  pages   | Integer |  总页数  |
 |  total   | Integer |   总数   |
+| count | Integer | 每次请求数量 |
+| nextOrderCode | String | 下次起始值 |
 |   itemList   |  Array  | 订单列表 |
 |itemList/orderCode  | String | 订单号 |
 |itemList/thirdOrderCode| String |第三方平台订单号|
@@ -204,10 +203,9 @@
 
 ```json
 {
-    "pageNum": 1,
-    "pageSize": 50,
-    "pages": 20,
     "total": 1000,
+    "count": 10,
+    "nextOrderCode":"1384186324074980",
     "itemList": [
         {
             "orderCode": "1384186324074979",
