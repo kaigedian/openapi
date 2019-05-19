@@ -35,7 +35,7 @@
 |payChannelName|String|否|支付渠道名称|
 |payStatus|Integer|否|支付状态（见字段描述）|
 |payType|Integer|否|支付类型（见字段描述）|
-|payTime|String|否|支付时间|
+|payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
 |posCode|String|否|pos编号|
 |operator|String|否|操作人|
 |userId|String|是|用户id|
@@ -180,20 +180,20 @@
 |itemList/payChannelName|String|支付渠道名称|
 |itemList/payStatus|Integer|支付状态（见字段描述）|
 |itemList/payType|Integer|支付类型（见字段描述）|
-|itemList/payTime|String|支付时间|
+|itemList/payTime|String|支付时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/posCode|String|pos编号|
 |itemList/operator|String|操作人|
 |itemList/userId|String|用户id|
 |itemList/userName|String|用户姓名|
 |itemList/pickUpGoodsNo|String|取餐号|
-|itemList/createTime|String|下单时间|
-|itemList/acceptTime|String|接单时间|
-|itemList/pickUpTime|String|拣货时间|
-|itemList/deliveryTime|String|配送时间|
-|itemList/estimateDeliveryCompleteTime|String|预计送达时间|
-|itemList/actualArrivalTime|String|实际到达时间|
-|itemList/receiveTime|String|签收送达时间|
-|itemList/expectTime|String|用户期望送达时间|
+|itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/longitude|String|收货地址经度|
 |itemList/latitude|String|收货地址维度|
 |itemList/deliverFee|Integer|订单配送费|
@@ -291,7 +291,7 @@
 |payChannelName|String|支付渠道名称|
 |payStatus|Integer|支付状态（见字段描述）|
 |payType|Integer|支付类型（见字段描述）|
-|payTime|String|支付时间|
+|payTime|String|支付时间（yyyy-MM-dd HH:mm:ss）|
 |posCode|String|pos编号|
 |operator|String|操作人|
 |userId|String|用户id|
@@ -308,14 +308,14 @@
 |orderItemList/productSpecName|String|商品规格名称（大杯）|
 |orderItemList/productProperty|String|商品属性名称（三分糖）|
 |pickUpGoodsNo|String|取餐号|
-|createTime|String|下单时间|
-|acceptTime|String|接单时间|
-|pickUpTime|String|拣货时间|
-|deliveryTime|String|配送时间|
-|estimateDeliveryCompleteTime|String|预计送达时间|
-|actualArrivalTime|String|实际到达时间|
-|receiveTime|String|签收送达时间|
-|expectTime|String|用户期望送达时间|
+|createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
 |longitude|String|收货地址经度|
 |latitude|String|收货地址维度|
 |deliverFee|Long|订单配送费|
