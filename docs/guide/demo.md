@@ -10,4 +10,6 @@
 
 ### [DEMO项目开源地址，欢迎PR](https://github.com/kaigedian/openapi-demo)
 
-![](/good.png)
+<!-- ![](/good.png) -->
+
+![](https://raw.githubusercontent.com/kaigedian/openapi/gh-pages/good.png)

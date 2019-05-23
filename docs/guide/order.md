@@ -35,7 +35,7 @@
 |payChannelName|String|否|支付渠道名称|
 |payStatus|Integer|否|支付状态（见字段描述）|
 |payType|Integer|否|支付类型（见字段描述）|
-|payTime|String|否|支付时间|
+|payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
 |posCode|String|否|pos编号|
 |operator|String|否|操作人|
 |userId|String|是|用户id|
@@ -136,8 +136,8 @@
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
-|    pageNum     |     Integer     |    是    |               页数               |
-|    pageSize    |     Integer     |    是    |             页面大小，默认10条   |
+| count | Interger | 否 | 每次请求数量（最大10），不传入默认10 |
+| nextOrderCode |     String     |    否    |               下次拉取起始值，不传入默认从头拉取               |
 
 ### 备注
 建议订单列表查询接口时间戳时间间隔可以以随机数方式，保证接口的效率与稳定
@@ -146,24 +146,22 @@
 
 ```json
 {
-    "orderCode": 142858598583644715,
     "startTimestamp": 3456554633,
     "endTimestamp": 356887877,
     "orderClients": [1, 2, 3],
     "storeId": "1862",
     "orderStatus": [1, 2, 3],
-    "pageNum": 20,
-    "pageSize": 50
+    "nextOrderCode": "142858598583644715",
+    "count": 5
 }
 ```
 
 ### 响应参数
 |   字段   |  类型   |   说明   |
 | ------|  -----|  ------|
-| pageNum  | Integer | 当前页数 |
-| pageSize | Integer | 页面大小 |
-|  pages   | Integer |  总页数  |
 |  total   | Integer |   总数   |
+| count | Integer | 每次请求数量 |
+| nextOrderCode | String | 下次起始值 |
 |   itemList   |  Array  | 订单列表 |
 |itemList/orderCode  | String | 订单号 |
 |itemList/thirdOrderCode| String |第三方平台订单号|
@@ -181,33 +179,33 @@
 |itemList/payChannelName|String|支付渠道名称|
 |itemList/payStatus|Integer|支付状态（见字段描述）|
 |itemList/payType|Integer|支付类型（见字段描述）|
-|itemList/payTime|String|支付时间|
+|itemList/payTime|String|支付时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/posCode|String|pos编号|
 |itemList/operator|String|操作人|
 |itemList/userId|String|用户id|
 |itemList/userName|String|用户姓名|
 |itemList/pickUpGoodsNo|String|取餐号|
-|itemList/createTime|String|下单时间|
-|itemList/acceptTime|String|接单时间|
-|itemList/pickUpTime|String|拣货时间|
-|itemList/deliveryTime|String|配送时间|
-|itemList/estimateDeliveryCompleteTime|String|预计送达时间|
-|itemList/actualArrivalTime|String|实际到达时间|
-|itemList/receiveTime|String|签收送达时间|
-|itemList/expectTime|String|用户期望送达时间|
+|itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/longitude|String|收货地址经度|
 |itemList/latitude|String|收货地址维度|
 |itemList/deliverFee|Integer|订单配送费|
 |itemList/packageFee|Integer|订单包装费|
+|itemList/mobile|String|用户手机号|
 
 #### responseBody返回示例
 
 ```json
 {
-    "pageNum": 1,
-    "pageSize": 50,
-    "pages": 20,
     "total": 1000,
+    "count": 10,
+    "nextOrderCode":"1384186324074980",
     "itemList": [
         {
             "orderCode": "1384186324074979",
@@ -293,7 +291,7 @@
 |payChannelName|String|支付渠道名称|
 |payStatus|Integer|支付状态（见字段描述）|
 |payType|Integer|支付类型（见字段描述）|
-|payTime|String|支付时间|
+|payTime|String|支付时间（yyyy-MM-dd HH:mm:ss）|
 |posCode|String|pos编号|
 |operator|String|操作人|
 |userId|String|用户id|
@@ -310,18 +308,19 @@
 |orderItemList/productSpecName|String|商品规格名称（大杯）|
 |orderItemList/productProperty|String|商品属性名称（三分糖）|
 |pickUpGoodsNo|String|取餐号|
-|createTime|String|下单时间|
-|acceptTime|String|接单时间|
-|pickUpTime|String|拣货时间|
-|deliveryTime|String|配送时间|
-|estimateDeliveryCompleteTime|String|预计送达时间|
-|actualArrivalTime|String|实际到达时间|
-|receiveTime|String|签收送达时间|
-|expectTime|String|用户期望送达时间|
+|createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
 |longitude|String|收货地址经度|
 |latitude|String|收货地址维度|
 |deliverFee|Long|订单配送费|
 |packageFee|Long|订单包装费|
+|mobile|String|用户手机号|
 
 #### responseBody返回示例
 
