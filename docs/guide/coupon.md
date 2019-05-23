@@ -9,7 +9,7 @@
 
 此接口针对线下卡券查询
 
-### 请求url：/coupon/get
+### 请求url：/coupon/query
 
 ### 请求参数
 | 字段       | 类型   | 是否必传 | 举例      | 说明          |
@@ -79,16 +79,11 @@
   		"endDate": "2016-04-15"
   	},
   	"couponType": 1
-  }{
-  	"ver": "1",
-  	"code": "100",
-  	"message": "success",
-  	"responseBody": 
   }
   ```
-
   
-
+  
+  
 - 普通商品券返回
 
   ```json
