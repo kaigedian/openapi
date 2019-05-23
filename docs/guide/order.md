@@ -146,7 +146,6 @@
 
 ```json
 {
-
     "startTimestamp": 3456554633,
     "endTimestamp": 356887877,
     "orderClients": [1, 2, 3],
@@ -198,6 +197,7 @@
 |itemList/latitude|String|收货地址维度|
 |itemList/deliverFee|Integer|订单配送费|
 |itemList/packageFee|Integer|订单包装费|
+|itemList/mobile|String|用户手机号|
 
 #### responseBody返回示例
 
@@ -320,6 +320,7 @@
 |latitude|String|收货地址维度|
 |deliverFee|Long|订单配送费|
 |packageFee|Long|订单包装费|
+|mobile|String|用户手机号|
 
 #### responseBody返回示例
 
