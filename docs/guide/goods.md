@@ -38,7 +38,7 @@
 | level         | Integer  | 是       |          | 层级                                                         |
 | categoryInfos | Array    | 是       |          | 分类信息（见categoryInfos）                                  |
 
-## categoryInfos
+#### categoryInfos
 
 | **字段**     | **类型** | **必填** | **举例** | **说明**                                                     |
 | ------------ | -------- | -------- | -------- | ------------------------------------------------------------ |
@@ -48,32 +48,40 @@
 | sequence     | Integer  | 是       | 1        | 排序                                                         |
 | productInfos | Array    | 否       |          | 商品详情（见productInfos）                                   |
 
-## productInfos
+##### productInfos
+
+| **字段**                  | **类型** | **必填** | **举例**     | **说明**                                                     |
+| ------------------------- | -------- | -------- | ------------ | ------------------------------------------------------------ |
+| level                     | Integer  | 是       |              | 层级商品详情                                                 |
+| nid                       | String   | 是       |              | 菜单节点ID以两位数字为一组，代表菜单顺序范围：01-ZZ，如果是多级菜单者在上级菜单的编号基础上增加两位顺序组。例如：一级菜单01，一级子菜单0101 |
+| sequence                  | Integer  | 是       |              | 排序                                                         |
+| barcode                   | String   |          |              | 条形码                                                       |
+| brandId                   | String   | 否       |              | 品牌ID                                                       |
+| brandName                 | String   | 是       |              | 品牌名称                                                     |
+| businessNo                | String   | 否       | TB2014032666 | 业务编号                                                     |
+| category                  | String   | 否       |              | 商品分类编码                                                 |
+| categoryName              | String   | 是       |              | 商品分类名称                                                 |
+| companyId                 | String   | 是       |              | 商户ID                                                       |
+| finalPrice                | Integer  | 是       | 1000         | 商品最终售价-卖价(单位分)                                    |
+| isSkuProduct              | Integer  | 是       | 1            | 是否sku商品，1是，0不是                                      |
+| name                      | String   | 是       | 珍珠奶茶     | 商品名称                                                     |
+| originalPrice             | Integer  | 是       | 800          | 商品标准售价-原价(单位分)                                    |
+| packPrice                 | Integer  | 是       | 100          | 包装价格(单位分)                                             |
+| picture                   | String   | 是       |              | 图片地址                                                     |
+| status                    | Integer  | 是       | 1            | 商品状态 /1下架/2上架/3售罄/4删除/5上架不可售(上架状态但是不在可售时间范围) |
+| type                      | Integer  | 是       | 1            | 商品类型 /1普通商品/3组合商品/6套餐/9虚拟商品/10多规格商品   |
+| pid                       | String   | 是       |              | 商品ID                                                       |
+| labelNames                | Array    | 否       |              | 标签（spu才有）                                              |
+| labelNames\name           | String   | 是       | 特色         | 标签名称                                                     |
+| productAttributeGroupList | Array    | 否       |              | 商品属性（spu才有，见productAttributeGroupList）             |
+| specificationGroupList    | Array    | 否       |              | 规格组列表（spu才有，见specificationGroupList）              |
+| skuList                   | Array    | 否       |              | SKU列表（见skuList）                                         |
+| skuSpecValues             | Array    | 否       |              | sku规格（sku商品才有，见skuSpecValues）                      |
+
+###### productAttributeGroupList
 
 | **字段**                                                 | **类型** | **必填** | **举例**     | **说明**                                                     |
 | -------------------------------------------------------- | -------- | -------- | ------------ | ------------------------------------------------------------ |
-| level                                                    | Integer  | 是       |              | 层级商品详情                                                 |
-| nid                                                      | String   | 是       |              | 菜单节点ID以两位数字为一组，代表菜单顺序范围：01-ZZ，如果是多级菜单者在上级菜单的编号基础上增加两位顺序组。例如：一级菜单01，一级子菜单0101 |
-| sequence                                                 | Integer  | 是       |              | 排序                                                         |
-| barcode                                                  | String   |          |              | 条形码                                                       |
-| brandId                                                  | String   | 否       |              | 品牌ID                                                       |
-| brandName                                                | String   | 是       |              | 品牌名称                                                     |
-| businessNo                                               | String   | 否       | TB2014032666 | 业务编号                                                     |
-| category                                                 | String   | 否       |              | 商品分类编码                                                 |
-| categoryName                                             | String   | 是       |              | 商品分类名称                                                 |
-| companyId                                                | String   | 是       |              | 商户ID                                                       |
-| finalPrice                                               | Integer  | 是       | 1000         | 商品最终售价-卖价(单位分)                                    |
-| isSkuProduct                                             | Integer  | 是       | 1            | 是否sku商品，1是，0不是                                      |
-| name                                                     | String   | 是       | 珍珠奶茶     | 商品名称                                                     |
-| originalPrice                                            | Integer  | 是       | 800          | 商品标准售价-原价(单位分)                                    |
-| packPrice                                                | Integer  | 是       | 100          | 包装价格(单位分)                                             |
-| picture                                                  | String   | 是       |              | 图片地址                                                     |
-| status                                                   | Integer  | 是       | 1            | 商品状态 /1下架/2上架/3售罄/4删除/5上架不可售(上架状态但是不在可售时间范围) |
-| type                                                     | Integer  | 是       | 1            | 商品类型 /1普通商品/3组合商品/6套餐/9虚拟商品/10多规格商品   |
-| pid                                                      | String   | 是       |              | 商品ID                                                       |
-| labelNames                                               | Array    | 否       |              | 标签（spu才有）                                              |
-| labelNames\name                                          | String   | 是       | 特色         | 标签名称                                                     |
-| productAttributeGroupList                                | Array    | 否       |              | 商品属性（spu才有）                                          |
 | productAttributeGroupList\attributeName                  | String   | 是       | 辣           | 商品折扣价，以分为单位                                       |
 | productAttributeGroupList\attributeType                  | Integer  | 是       | 1000         | 属性组类型                                                   |
 | productAttributeGroupList\sequence                       | Integer  | 是       | 1            | 属性组排序                                                   |
@@ -81,7 +89,11 @@
 | productAttributeGroupList\attributeValues\attributeId    | String   | 是       |              | 属性值ID                                                     |
 | productAttributeGroupList\attributeValues\attributeValue | String   | 是       |              | 属性名称                                                     |
 | productAttributeGroupList\attributeValues\sequence       | Integer  | 是       | 2            | 属性排序                                                     |
-| specificationGroupList                                   | Array    | 否       |              | 规格组列表（spu才有）                                        |
+
+###### specificationGroupList
+
+| **字段**                                                 | **类型** | **必填** | **举例**     | **说明**                                                     |
+| -------------------------------------------------------- | -------- | -------- | ------------ | ------------------------------------------------------------ |
 | specificationGroupList\sequence                          | Integer  | 是       |              | 排序                                                         |
 | specificationGroupList\specId                            | String   | 是       |              | 规格组id                                                     |
 | specificationGroupList\specName                          | String   | 是       |              | 规格组名称                                                   |
@@ -89,7 +101,10 @@
 | specificationGroupList\specValueVos\sequence             | Integer  | 是       |              | 排序号                                                       |
 | specificationGroupList\specValueVos\specValue            | String   | 是       |              | 规格值                                                       |
 | specificationGroupList\specValueVos\specValueId          | String   | 是       |              | 规格值ID                                                     |
-| skuList                                                  | Array    | 否       |              | SKU列表                                                      |
+
+###### skuList
+| **字段**                                                 | **类型** | **必填** | **举例**     | **说明**                                                     |
+| -------------------------------------------------------- | -------- | -------- | ------------ | ------------------------------------------------------------ |
 | skuList\skuId                                            | String   | 是       |              | skuId                                                        |
 | skuList\finalPrice                                       | Integer  | 是       |              | 最终价格                                                     |
 | skuList\originalPrice                                    | Integer  | 是       |              | 原价                                                         |
@@ -105,7 +120,10 @@
 | skuList\skuSpecValues\specName                           | String   | 是       |              | 规格名称                                                     |
 | skuList\skuSpecValues\specValue                          | String   | 是       |              | 规格值                                                       |
 | skuList\skuSpecValues\specValueId                        | String   | 是       |              | 规格值Id                                                     |
-| skuSpecValues                                            | Array    | 否       |              | sku规格（sku商品才有）                                       |
+
+###### skuSpecValues
+| **字段**                                                 | **类型** | **必填** | **举例**     | **说明**                                                     |
+| -------------------------------------------------------- | -------- | -------- | ------------ | ------------------------------------------------------------ |
 | skuSpecValues\productId                                  | String   | 是       |              | 商品id                                                       |
 | skuSpecValues\sequence                                   | Integer  | 是       |              | 排序                                                         |
 | skuSpecValues\specId                                     | String   | 是       |              | 规格组id                                                     |
@@ -1756,15 +1774,3 @@
   ```
   
   
-
-
-
-
-
-## 状态码
-
-| 状态码 | 描述               |
-| ------ | ------------------ |
-| 100    | 成功               |
-| 21     | 缺少必要的请求参数 |
-| 500    | 内部服务异常       |
