@@ -128,21 +128,16 @@
 接口可根据订单创建与结束时间以及订单渠道进行过滤筛选，可用于展示订单列表界面。
 
 业务说明：
-1. 开始时间、结束时间，为非必填项，如果不填，默认查询当日0点-24点订单。如果填了，则以填的时间戳范围进行查询。
-2. nextOrderCode，仍为选填项。
+1. 开始时间、结束时间如果不填，默认查询当日0点-24点订单。
+举例1： 如请求未传开始时间结束时间，则接口处理逻辑为查询当天0点至24点的所有订单，若符合条件的结果集最新时间是08:00:00:000，下一次拉单开始时间以08:00:00:000为准*
 
-举例1： 如请求的开始时间结束时间，两项都不传，nextOrderCode传123，则接口处理逻辑为查询当天0点至24点的所有订单，并从订单号123之后开始返回结果。*
-
-举例2： 如请求的开始时间结束时间，两项都不传，nextOrderCode不传，则接口处理逻辑为查询当天0点至24点的所有订单，从第一条订单开始返回结果。
-
-举例3： 如请求的开始时间结束时间传了，nextOrderCode不传，则根据传入的开始结束时间，查询，逻辑跟之前的不变。
 
 ###  请求url：/order/batchQuery
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
 | ------------|  -------------|  ------|  ------------------------------|
-| startTimestamp |     Integer     |    否    |  订单创建开始时间戳（单位：秒），如果不传，默认请求当日00:00:00  |
-|  endTimestamp  |     Integer     |    否    |  订单创建结束时间戳（单位：秒），如果不传，默认请求当日23:59:59  |
+| startTimestamp |     Long     |    否    |  订单创建开始时间戳（单位：秒），如果不传，默认请求当日00:00:00:000  |
+|  endTimestamp  |     Long     |    否    |  订单创建结束时间戳（单位：秒），如果不传，默认请求当日23:59:59:000  |
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
@@ -156,8 +151,8 @@
 
 ```json
 {
-    "startTimestamp": 3456554633,
-    "endTimestamp": 356887877,
+    "startTimestamp": 1559114908000,
+    "endTimestamp": 1559201308000,
     "orderClients": [1, 2, 3],
     "storeId": "1862",
     "orderStatus": [1, 2, 3],
@@ -171,7 +166,8 @@
 | ------|  -----|  ------|
 |  total   | Integer |   总数   |
 | count | Integer | 每次请求数量 |
-| nextOrderCode | String | 下次起始值 |
+| nextOrderCode | String | 下次起始值(即将弃用) |
+| nextStartTimestamp | Long | 下次开始时间戳(精确到毫秒) |
 |   itemList   |  Array  | 订单列表 |
 |itemList/orderCode  | String | 订单号 |
 |itemList/thirdOrderCode| String |第三方平台订单号|
@@ -216,6 +212,7 @@
     "total": 1000,
     "count": 10,
     "nextOrderCode":"1384186324074980",
+    "nextStartTimestamp":"1559201308000",
     "itemList": [
         {
             "orderCode": "1384186324074979",
