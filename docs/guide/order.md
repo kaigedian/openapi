@@ -400,23 +400,21 @@
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
 | ------------|  -------------|  ------|  ------------------------------|
-| startTimestamp |     Integer     |    是    |  订单创建开始时间戳（单位：秒）  |
-|  endTimestamp  |     Integer     |    是    |  订单创建结束时间戳（单位：秒）  |
+| startTimestamp |     Long     |    是    |  订单创建开始时间戳（单位：毫秒）  |
+|  endTimestamp  |     Long     |    是    |  订单创建结束时间戳（单位：毫秒）  |
 |   storeId    |     String      |    是    |              门店号              |
 |    refundstatus     |     Array[] Integer     |    是    |               订单退款状态(见字段描述)         |
-|    pageNum     |     Integer     |    是    |               页数               |
-|    pageSize    |     Integer     |    是    |             页面大小             |
+| count          | Interger        | 否       | 每次请求数量（最大10），不传入默认10 |
 
 #### requestBody请求示例
 
 ```json
 {
-    "startTimestamp": 3456554633,
-    "endTimestamp": 356887877,
+    "startTimestamp": 1559114908000,
+    "endTimestamp": 1559115908000,
     "storeId": "1862",
     "refundstatus": [1],
-    "pageNum": 20,
-    "pageSize": 50
+    "count": 10
 }
 ```
 
@@ -424,6 +422,7 @@
 |   字段   |  类型   |   说明   |
 | ------|  -----|  ------|
 |  total   | Integer |   总数   |
+| nextStartTimestamp | Long | 下次开始时间戳(精确到毫秒) |
 |   itemList   |  Array  | 订单列表 |
 |itemList/orderCode  | String | 订单号 |
 
@@ -432,6 +431,7 @@
 ```json
 {
     "total": "1",
+    "nextStartTimestamp":"1559201308000",
     "itemList": [
         {
             "orderCode": "12355556"
