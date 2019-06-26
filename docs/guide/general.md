@@ -102,5 +102,4 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 
 
 ## 接口地址
-* 正式环境 `https://open-kgdg.sandload.cn/openapi`
-* 联调环境 `https://open-kgdg-qa.sandload.cn/openapi`
+开个店开放平台提供正式环境和联调环境地址，商户如需联调对接，可联系开个店工作人员，索要接口地址。
