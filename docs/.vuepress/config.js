@@ -14,10 +14,10 @@ module.exports = {
             text: '接入必读',
             link: '/guide/general'
           },
-          // {
-          //   text: '门店类接口',
-          //   link: '/guide/store'
-          // },
+          {
+            text: '门店类接口',
+            link: '/guide/store'
+          },
           {
             text: '订单类API',
             link: '/guide/order'
@@ -48,7 +48,7 @@ module.exports = {
     ],
     sidebar: [
       '/guide/general',
-      // '/guide/store',
+      '/guide/store',
       '/guide/order',
       '/guide/coupon',
       '/guide/goods',

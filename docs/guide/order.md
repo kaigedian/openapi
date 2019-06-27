@@ -108,7 +108,7 @@
 ```json
 {
     "ver": "1",
-    "code": "100",
+    "statusCode": "100",
     "message": "success",
     "responseBody": {
         "orderCode": "1889943343"
