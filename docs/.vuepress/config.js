@@ -14,13 +14,17 @@ module.exports = {
             text: '接入必读',
             link: '/guide/general'
           },
-          // {
-          //   text: '门店类接口',
-          //   link: '/guide/store'
-          // },
+          {
+            text: '门店类接口',
+            link: '/guide/store'
+          },
           {
             text: '订单类API',
             link: '/guide/order'
+          },
+          {
+            text: '会员类API',
+            link: '/guide/menber'
           },
           {
             text: '券码类API',
@@ -48,8 +52,9 @@ module.exports = {
     ],
     sidebar: [
       '/guide/general',
-      // '/guide/store',
+      '/guide/store',
       '/guide/order',
+      '/guide/menber',
       '/guide/coupon',
       '/guide/goods',
       '/guide/demo'
