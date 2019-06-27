@@ -1785,7 +1785,7 @@
 | 字段    | 类型   | 是否必传 | 举例   | 说明       |
 | :------ | ------ | -------- | ------ | ---------- |
 | storeId | String | 是       | 208888 | 商家门店号 |
-| spuId   | String |          |        |            |
+| spuId   | String | 是         |        |            |
 | skuIds  | Array  | 是       |        |            |
 
 #### requestBody请求示例
