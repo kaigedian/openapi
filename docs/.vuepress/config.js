@@ -24,7 +24,7 @@ module.exports = {
           },
           {
             text: '会员类API',
-            link: '/guide/menber'
+            link: '/guide/member'
           },
           {
             text: '券码类API',
@@ -54,7 +54,7 @@ module.exports = {
       '/guide/general',
       '/guide/store',
       '/guide/order',
-      '/guide/menber',
+      '/guide/member',
       '/guide/coupon',
       '/guide/goods',
       '/guide/demo'
