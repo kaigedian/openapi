@@ -141,7 +141,7 @@
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
-| count | Interger | 否 | 每次请求数量（最大10），不传入默认10 |
+| count | Integer | 否 | 每次请求数量（最大10），不传入默认10 |
 | nextOrderCode |     String     |    否    |               下次拉取起始值，不传入默认从头拉取               |
 
 ### 备注
@@ -404,7 +404,7 @@
 |  endTimestamp  |     Long     |    是    |  订单创建结束时间戳（单位：毫秒）  |
 |   storeId    |     String      |    是    |              门店号              |
 |    refundstatus     |     Array[] Integer     |    是    |               订单退款状态(见字段描述)         |
-| count          | Interger        | 否       | 每次请求数量（最大10），不传入默认10 |
+| count          | Integer | 否       | 每次请求数量（最大10），不传入默认10 |
 
 #### requestBody请求示例
 
