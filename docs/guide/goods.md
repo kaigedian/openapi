@@ -1788,8 +1788,8 @@
 | 字段    | 类型   | 是否必传 | 举例   | 说明       |
 | :------ | ------ | -------- | ------ | ---------- |
 | storeId | String | 是       | 208888 | 商家门店号 |
-| spuId   | String | 是         |        |            |
-| skuIds  | Array  | 是       |        |            |
+| spuId   | String | 是         |        |          |
+| skuIds  | Array  |  是      |        |    sku必须全部沽清，当sku全部沽清时spu也为沽清状态        |
 
 #### requestBody请求示例
 
@@ -1822,7 +1822,7 @@
 | :------ | ------ | -------- | ------ | ---------- |
 | storeId | String | 是       | 208888 | 商家门店号 |
 | spuId   | String | 是       |        |            |
-| skuId   | String | 是       |        |            |
+| skuId   | String | 是       |        |   sku必须全部撤销沽清，spu才为撤销沽清的状态   |
 
 #### requestBody请求示例
 

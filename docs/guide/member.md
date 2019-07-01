@@ -194,18 +194,19 @@
 
 ### 请求参数
 
-| 字段                     | 类型    | 是否必传 | 举例        | 说明                                                         |
-| :----------------------- | ------- | -------- | ----------- | ------------------------------------------------------------ |
-| type                     | Integer | 是       | 1           | 1:加，15：减                                                 |
-| memberId                 | String  | 是       |             | 会员编号                                                     |
-| score                    | String  | 是/否    |             | 积分数（金额和积分数必填一项）                               |
-| operationType            | Integer | 是       |             | 操作类型{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回} |
-| operationName            | String  | 否       |             | 操作名称{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回} |
-| orderId                  | String  | 否       |             | 订单编号                                                     |
-| activityCode             | String  | 否       |             | 活动编号                                                     |
-| remark                   | String  |          |             | 备注                                                         |
-| idempotencyBussinessId   | String  | 是       |             | 业务ID{调用方保证唯一}                                       |
-| idempotencyBussinessType | String  | 否       |             | 业务类型{1注册送 2发放经验值 3等级升级 4等级降级 5积分支付 6消费送积分 7消费满赠 8生日送 9定时送 10储值支付 11储值充值 12完善资料 |
+| 字段                     | 类型    | 是否必传 | 举例 | 说明                                                         |
+| :----------------------- | ------- | -------- | ---- | ------------------------------------------------------------ |
+| type                     | Integer | 是       | 1    | 1:加，15：减                                                 |
+| memberId                 | String  | 是       |      | 会员编号                                                     |
+| score                    | Integer | 否       |      | 积分数（金额和积分数必填一项）                               |
+| amount                   | Integer | 否       |      | 金额（金额和积分数必填一项）                                 |
+| operationType            | Integer | 是       |      | 操作类型{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回} |
+| operationName            | String  | 否       |      | 操作名称{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回} |
+| orderId                  | String  | 否       |      | 订单编号                                                     |
+| activityCode             | String  | 否       |      | 活动编号                                                     |
+| remark                   | String  |          |      | 备注                                                         |
+| idempotencyBussinessId   | String  | 是       |      | 业务ID{调用方保证唯一}                                       |
+| idempotencyBussinessType | String  | 否       |      | 业务类型{1注册送 2发放经验值 3等级升级 4等级降级 5积分支付 6消费送积分 7消费满赠 8生日送 9定时送 10储值支付 11储值充值 12完善资料 |
 
 #### requestBody请求示例
 
@@ -241,7 +242,7 @@
     "sendScore":100
 }
 
-```
+ ```
 
 
 
@@ -268,7 +269,7 @@
 | birthday                         | String   | 否       |      | 生日                                                         |
 | email                            | String   | 否       |      | 邮箱                                                         |
 | idCard                           | String   | 否       |      | 身份证                                                       |
-| registerTime                     | DateTime | 否       |      | 注册时间{格式：yyyy-MM-dd HH:mm:ss}                          |
+| registerTime                     | Date | 否       |      | 注册时间{格式：yyyy-MM-dd HH:mm:ss}                          |
 | registerStoreCode                | String   | 否       |      | 注册门店                                                     |
 | memberChannels                   | Array     | 否       |      | 会员渠道列表                                                 |
 | memberChannels/cardCode          | String   | 否       |      | 卡号{原生卡卡号}                                             |
