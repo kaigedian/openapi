@@ -507,6 +507,13 @@
 |    orderStatus    | String |    是    |订单状态 3=接单，4=配送中，5=完成，7=拒单，31=制作完成 |
 | reason | String | 否 | 拒单原因，拒单时传入 |
 |    operator    | String |    否    |        操作人     |
+|    deliveryInfo    | Object |    否    |        配送信息，操作订单状态为配送中时，必传     |
+|    deliveryInfo/contactsName    | String |    是    |        配送员姓名    |
+|    deliveryInfo/mobile    | String |    是    |        配送员手机     |
+|    deliveryInfo/expressChannelCode    | String |    否    |        配送渠道编号     |
+|    deliveryInfo/expressChannelName    | String |    否    |        配送渠道名称     |
+|    deliveryInfo/expressNo    | String |    否    |        快递单号     |
+|    deliveryInfo/remark    | String |    否    |       配送员手机     |
 
 #### requestBody请求示例
 
@@ -522,6 +529,19 @@
 {
     "orderCodes": "12354545",
     "orderStatus": "7",
+    "deliveryInfo":[
+        {
+            "contactsName": "张三",
+            "mobile": "134452233"
+        }
+    ],
+    "operator": "MRX"
+}
+```
+```json
+{
+    "orderCodes": "12354545",
+    "orderStatus": "4",
     "orderStatus": "超出配送返回",
     "operator": "MRX"
 }
