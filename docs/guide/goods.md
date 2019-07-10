@@ -110,1654 +110,335 @@
 
 ### responseBody返回示例
 
--
-
-  ```json
-  {
-  	"categoryInfos": [
-		{
-  			"categoryName": "test",
-  			"level": 1,
-  			"nid": "0101",
-  			"productInfos": [
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "多规格01",
-  					"finalPrice": 1,
-  					"isSkuProduct": 0,
-  					"labelNames": [
-  						{
-  							"id": "0",
-  							"name": "特色",
-  							"type": "0"
-  						},
-  						{
-  							"id": "0",
-  							"name": "美味",
-  							"type": "0"
-  						}
-  					],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "多规格01",
-  					"nid": "010101",
-  					"options": "",
-  					"originalPrice": 1,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1554725170464.jpg",
-  					"pid": "138327334988135726",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [
-  						{
-  							"attributeName": "温度",
-  							"attributeType": 3,
-  							"attributeValues": [
-  								{
-  									"attributeId": "137174708465634585",
-  									"attributeValue": "冻",
-  									"id": 142407419635634473,
-  									"price": 0,
-  									"sequence": 0,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "125609440286271769",
-  									"attributeValue": "加少冰",
-  									"id": 142407419635634474,
-  									"price": 0,
-  									"sequence": 5,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 3
-  						},
-  						{
-  							"attributeName": "奶量",
-  							"attributeType": 6,
-  							"attributeValues": [
-  								{
-  									"attributeId": "125374222305519889",
-  									"attributeValue": "少量",
-  									"id": 142407419635634477,
-  									"price": 0,
-  									"sequence": 20,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "122493722811322375",
-  									"attributeValue": "加牛奶",
-  									"id": 142407419635634478,
-  									"price": 0,
-  									"sequence": 25,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 6
-  						},
-  						{
-  							"attributeName": "口味",
-  							"attributeType": 100013,
-  							"attributeValues": [
-  								{
-  									"attributeId": "124714737311163694",
-  									"attributeValue": "辣酱",
-  									"id": 142407419635634475,
-  									"price": 0,
-  									"sequence": 10,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "124714762753811759",
-  									"attributeValue": "番茄酱",
-  									"id": 142407419635634476,
-  									"price": 0,
-  									"sequence": 15,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 0,
-  							"minNumber": 0,
-  							"must": 0,
-  							"options": "",
-  							"sequence": 15
-  						}
-  					],
-  					"productCode": "duogg01-p",
-  					"productPictureList": [
-  						{
-  							"pictureId": "142407419660800303",
-  							"productId": "138327334988135726",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1554725170464.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "多规格01",
-  					"saleCount": 0,
-  					"sequence": 1,
-  					"skuList": [
-  						{
-  							"customerCode": "duogg01-bz",
-  							"finalPrice": 2,
-  							"originalPrice": 2,
-  							"packPrice": 1,
-  							"productName": "多规格01/大杯/珍珠",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327335005961520",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327335005961520",
-  									"sequence": 1,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "大杯",
-  									"specValueId": "126981795913787664"
-  								},
-  								{
-  									"productId": "138327335005961520",
-  									"sequence": 2,
-  									"specId": "125388160722129444",
-  									"specName": "加料",
-  									"specValue": "珍珠",
-  									"specValueId": "135985417797493052"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "duogg01-by",
-  							"finalPrice": 1,
-  							"originalPrice": 1,
-  							"packPrice": 2,
-  							"productName": "多规格01/大杯/椰果",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327335005961526",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327335005961526",
-  									"sequence": 3,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "大杯",
-  									"specValueId": "126981795913787664"
-  								},
-  								{
-  									"productId": "138327335005961526",
-  									"sequence": 4,
-  									"specId": "125388160722129444",
-  									"specName": "加料",
-  									"specValue": "椰果",
-  									"specValueId": "135985397657493819"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "duogg01-sz",
-  							"finalPrice": 1,
-  							"originalPrice": 1,
-  							"packPrice": 2,
-  							"productName": "多规格01/小杯/珍珠",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327335005961532",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327335005961532",
-  									"sequence": 5,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "小杯",
-  									"specValueId": "126981808335218961"
-  								},
-  								{
-  									"productId": "138327335005961532",
-  									"sequence": 6,
-  									"specId": "125388160722129444",
-  									"specName": "加料",
-  									"specValue": "珍珠",
-  									"specValueId": "135985417797493052"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "duogg01-sy",
-  							"finalPrice": 1,
-  							"originalPrice": 1,
-  							"packPrice": 2,
-  							"productName": "多规格01/小杯/椰果",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327335007010051",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327335007010051",
-  									"sequence": 7,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "小杯",
-  									"specValueId": "126981808335218961"
-  								},
-  								{
-  									"productId": "138327335007010051",
-  									"sequence": 8,
-  									"specId": "125388160722129444",
-  									"specName": "加料",
-  									"specValue": "椰果",
-  									"specValueId": "135985397657493819"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "126981658895313165",
-  							"specName": "杯型",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "126981658895313165",
-  									"specValue": "大杯",
-  									"specValueId": "126981795913787664"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "126981658895313165",
-  									"specValue": "小杯",
-  									"specValueId": "126981808335218961"
-  								}
-  							]
-  						},
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "125388160722129444",
-  							"specName": "加料",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "125388160722129444",
-  									"specValue": "珍珠",
-  									"specValueId": "135985417797493052"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "125388160722129444",
-  									"specValue": "椰果",
-  									"specValueId": "135985397657493819"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "单规格01",
-  					"finalPrice": 1000,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "单规格01",
-  					"nid": "010102",
-  					"options": "",
-  					"originalPrice": 1000,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1554725021612.jpg",
-  					"pid": "138327166846876963",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "dangg01-p",
-  					"productPictureList": [
-  						{
-  							"pictureId": "138327166855265572",
-  							"productId": "138327166846876963",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1554725021612.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "单规格01",
-  					"saleCount": 0,
-  					"sequence": 2,
-  					"skuList": [
-  						{
-  							"customerCode": "dangg01-b",
-  							"finalPrice": 2000,
-  							"originalPrice": 2000,
-  							"packPrice": 0,
-  							"productName": "单规格01/大杯",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327166884625701",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327166884625701",
-  									"sequence": 1,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "大杯",
-  									"specValueId": "126981795913787664"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "dangg01-s",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 0,
-  							"productName": "单规格01/小杯",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "138327166884625705",
-  							"skuSpecValues": [
-  								{
-  									"productId": "138327166884625705",
-  									"sequence": 2,
-  									"specId": "126981658895313165",
-  									"specName": "杯型",
-  									"specValue": "小杯",
-  									"specValueId": "126981808335218961"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "126981658895313165",
-  							"specName": "杯型",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "126981658895313165",
-  									"specValue": "大杯",
-  									"specValueId": "126981795913787664"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "126981658895313165",
-  									"specValue": "小杯",
-  									"specValueId": "126981808335218961"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "大虾特价限购一单",
-  					"finalPrice": 2000,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "大虾特价限购一单",
-  					"nid": "010104",
-  					"options": "",
-  					"originalPrice": 2000,
-  					"packPrice": 200,
-  					"picture": "https://picture.sandload.cn/1555745348415.png",
-  					"pid": "139419965158759461",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "dxthjxg",
-  					"productPictureList": [],
-  					"productionLocation": "",
-  					"remark": "大虾特价限购一单",
-  					"saleCount": 0,
-  					"sequence": 4,
-  					"skuList": [],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 1,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "一维规格属性+库存\n一维规格属性+库存一维规格属性+库存\n一维规格属性+库存一维规格属性+库存一维规格属性+库存",
-  					"finalPrice": 500,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "二维规格属性+库存",
-  					"nid": "010105",
-  					"options": "",
-  					"originalPrice": 500,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1556001210664.jpg",
-  					"pid": "139688320143891470",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [
-  						{
-  							"attributeName": "甜度",
-  							"attributeType": 5,
-  							"attributeValues": [
-  								{
-  									"attributeId": "127114558289705231",
-  									"attributeValue": "3分甜",
-  									"id": 142026195807043597,
-  									"price": 0,
-  									"sequence": 0,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "127114547387660558",
-  									"attributeValue": "2分甜",
-  									"id": 142026195807043598,
-  									"price": 0,
-  									"sequence": 6,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "127114535776778509",
-  									"attributeValue": "1分甜",
-  									"id": 142026195807043599,
-  									"price": 0,
-  									"sequence": 12,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 5
-  						},
-  						{
-  							"attributeName": "口味",
-  							"attributeType": 100013,
-  							"attributeValues": [
-  								{
-  									"attributeId": "124714762753811759",
-  									"attributeValue": "番茄酱",
-  									"id": 142026195807043600,
-  									"price": 0,
-  									"sequence": 18,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "124714737311163694",
-  									"attributeValue": "辣酱",
-  									"id": 142026195807043601,
-  									"price": 0,
-  									"sequence": 24,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 0,
-  							"minNumber": 0,
-  							"must": 0,
-  							"options": "",
-  							"sequence": 24
-  						},
-  						{
-  							"attributeName": "走",
-  							"attributeType": 100012,
-  							"attributeValues": [
-  								{
-  									"attributeId": "126988892823899906",
-  									"attributeValue": "啦啦啦啦啦啦啦啦啦啊了",
-  									"id": 142026195807043602,
-  									"price": 0,
-  									"sequence": 30,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "126988876239621889",
-  									"attributeValue": "啦啦啦啦啦",
-  									"id": 142026195807043603,
-  									"price": 0,
-  									"sequence": 36,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 0,
-  							"minNumber": 0,
-  							"must": 0,
-  							"options": "",
-  							"sequence": 36
-  						}
-  					],
-  					"productCode": "testProduct002",
-  					"productPictureList": [
-  						{
-  							"pictureId": "142026195815432212",
-  							"productId": "139688320143891470",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1556001210664.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "",
-  					"saleCount": 0,
-  					"sequence": 5,
-  					"skuList": [
-  						{
-  							"customerCode": "",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 3,
-  							"productName": "二维规格属性+库存/库存规格值1/啦-库存规格值2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765847",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765847",
-  									"sequence": 1,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"productId": "139688320162765847",
-  									"sequence": 2,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 500,
-  							"originalPrice": 500,
-  							"packPrice": 1,
-  							"productName": "二维规格属性+库存/库存规格值1/啦-库存规格值1",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765853",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765853",
-  									"sequence": 3,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"productId": "139688320162765853",
-  									"sequence": 4,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 2,
-  							"productName": "二维规格属性+库存/库存规格值2/啦-库存规格值2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765859",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765859",
-  									"sequence": 5,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								},
-  								{
-  									"productId": "139688320162765859",
-  									"sequence": 6,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 500,
-  							"originalPrice": 500,
-  							"packPrice": 4,
-  							"productName": "二维规格属性+库存/库存规格值2/啦-库存规格值1",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765865",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765865",
-  									"sequence": 7,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								},
-  								{
-  									"productId": "139688320162765865",
-  									"sequence": 8,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "139688137342491706",
-  							"specName": "库存规格1",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								}
-  							]
-  						},
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "139688256376839179",
-  							"specName": "库存规格2",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "139688256376839179",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "139688256376839179",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "",
-  					"finalPrice": 1000,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "咖啡套餐s",
-  					"nid": "010106",
-  					"options": "",
-  					"originalPrice": 1000,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1557903126396.png",
-  					"pid": "141710245000013076",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "咖啡套餐s",
-  					"productPictureList": [
-  						{
-  							"pictureId": "141973351439597575",
-  							"productId": "141710245000013076",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1557903126396.png"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "",
-  					"saleCount": 0,
-  					"sequence": 6,
-  					"skuList": [
-  						{
-  							"customerCode": "",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 200,
-  							"productName": "咖啡套餐s/1111",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "141710245008401686",
-  							"skuSpecValues": [
-  								{
-  									"productId": "141710245008401686",
-  									"sequence": 1,
-  									"specId": "124299075036309506",
-  									"specName": "规格3",
-  									"specValue": "1111",
-  									"specValueId": "125027181094157083"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 2000,
-  							"originalPrice": 2000,
-  							"packPrice": 0,
-  							"productName": "咖啡套餐s/222",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "141710245008401690",
-  							"skuSpecValues": [
-  								{
-  									"productId": "141710245008401690",
-  									"sequence": 2,
-  									"specId": "124299075036309506",
-  									"specName": "规格3",
-  									"specValue": "222",
-  									"specValueId": "127130249753491762"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "124299075036309506",
-  							"specName": "规格3",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "124299075036309506",
-  									"specValue": "1111",
-  									"specValueId": "125027181094157083"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "124299075036309506",
-  									"specValue": "222",
-  									"specValueId": "127130249753491762"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "",
-  					"finalPrice": 300,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "雪碧",
-  					"nid": "010107",
-  					"options": "",
-  					"originalPrice": 300,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1557394857362.jpg",
-  					"pid": "141177281811997965",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "562002",
-  					"productPictureList": [],
-  					"productionLocation": "",
-  					"remark": "",
-  					"saleCount": 0,
-  					"sequence": 7,
-  					"skuList": [],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 1,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				}
-  			],
-  			"sequence": 0
-  		},
-  		{
-  			"categoryName": "test2",
-  			"level": 1,
-  			"nid": "0102",
-  			"productInfos": [
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "一维规格属性+库存\n一维规格属性+库存一维规格属性+库存\n一维规格属性+库存一维规格属性+库存一维规格属性+库存",
-  					"finalPrice": 500,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "二维规格属性+库存",
-  					"nid": "010201",
-  					"options": "",
-  					"originalPrice": 500,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1556001210664.jpg",
-  					"pid": "139688320143891470",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [
-  						{
-  							"attributeName": "甜度",
-  							"attributeType": 5,
-  							"attributeValues": [
-  								{
-  									"attributeId": "127114558289705231",
-  									"attributeValue": "3分甜",
-  									"id": 142026195807043597,
-  									"price": 0,
-  									"sequence": 0,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "127114547387660558",
-  									"attributeValue": "2分甜",
-  									"id": 142026195807043598,
-  									"price": 0,
-  									"sequence": 6,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "127114535776778509",
-  									"attributeValue": "1分甜",
-  									"id": 142026195807043599,
-  									"price": 0,
-  									"sequence": 12,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 5
-  						},
-  						{
-  							"attributeName": "口味",
-  							"attributeType": 100013,
-  							"attributeValues": [
-  								{
-  									"attributeId": "124714762753811759",
-  									"attributeValue": "番茄酱",
-  									"id": 142026195807043600,
-  									"price": 0,
-  									"sequence": 18,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "124714737311163694",
-  									"attributeValue": "辣酱",
-  									"id": 142026195807043601,
-  									"price": 0,
-  									"sequence": 24,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 0,
-  							"minNumber": 0,
-  							"must": 0,
-  							"options": "",
-  							"sequence": 24
-  						},
-  						{
-  							"attributeName": "走",
-  							"attributeType": 100012,
-  							"attributeValues": [
-  								{
-  									"attributeId": "126988892823899906",
-  									"attributeValue": "啦啦啦啦啦啦啦啦啦啊了",
-  									"id": 142026195807043602,
-  									"price": 0,
-  									"sequence": 30,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "126988876239621889",
-  									"attributeValue": "啦啦啦啦啦",
-  									"id": 142026195807043603,
-  									"price": 0,
-  									"sequence": 36,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 0,
-  							"minNumber": 0,
-  							"must": 0,
-  							"options": "",
-  							"sequence": 36
-  						}
-  					],
-  					"productCode": "testProduct002",
-  					"productPictureList": [
-  						{
-  							"pictureId": "142026195815432212",
-  							"productId": "139688320143891470",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1556001210664.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "",
-  					"saleCount": 0,
-  					"sequence": 1,
-  					"skuList": [
-  						{
-  							"customerCode": "",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 3,
-  							"productName": "二维规格属性+库存/库存规格值1/啦-库存规格值2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765847",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765847",
-  									"sequence": 1,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"productId": "139688320162765847",
-  									"sequence": 2,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 500,
-  							"originalPrice": 500,
-  							"packPrice": 1,
-  							"productName": "二维规格属性+库存/库存规格值1/啦-库存规格值1",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765853",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765853",
-  									"sequence": 3,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"productId": "139688320162765853",
-  									"sequence": 4,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 2,
-  							"productName": "二维规格属性+库存/库存规格值2/啦-库存规格值2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765859",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765859",
-  									"sequence": 5,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								},
-  								{
-  									"productId": "139688320162765859",
-  									"sequence": 6,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "",
-  							"finalPrice": 500,
-  							"originalPrice": 500,
-  							"packPrice": 4,
-  							"productName": "二维规格属性+库存/库存规格值2/啦-库存规格值1",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688320162765865",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688320162765865",
-  									"sequence": 7,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								},
-  								{
-  									"productId": "139688320162765865",
-  									"sequence": 8,
-  									"specId": "139688256376839179",
-  									"specName": "库存规格2",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "139688137342491706",
-  							"specName": "库存规格1",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								}
-  							]
-  						},
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "139688256376839179",
-  							"specName": "库存规格2",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "139688256376839179",
-  									"specValue": "啦-库存规格值2",
-  									"specValueId": "139688270141496332"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "139688256376839179",
-  									"specValue": "啦-库存规格值1",
-  									"specValueId": "139688280502475789"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "一维规格+库存\n一维规格+库存\n一维规格+库存",
-  					"finalPrice": 1000,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "一维规格+库存",
-  					"nid": "010202",
-  					"options": "",
-  					"originalPrice": 1000,
-  					"packPrice": 1,
-  					"picture": "https://picture.sandload.cn/1556001087276.jpg",
-  					"pid": "139688209162607677",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "testProduct001",
-  					"productPictureList": [
-  						{
-  							"pictureId": "141517239091356940",
-  							"productId": "139688209162607677",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1556001087276.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "一维规格+库存一维规格+库存一维规格+库存",
-  					"saleCount": 0,
-  					"sequence": 2,
-  					"skuList": [
-  						{
-  							"customerCode": "ceshihuohao",
-  							"finalPrice": 1000,
-  							"originalPrice": 1000,
-  							"packPrice": 2,
-  							"productName": "一维规格+库存/库存规格值1",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688209172044863",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688209172044863",
-  									"sequence": 1,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								}
-  							],
-  							"status": 2
-  						},
-  						{
-  							"customerCode": "ceshihuohao",
-  							"finalPrice": 1500,
-  							"originalPrice": 1500,
-  							"packPrice": 1,
-  							"productName": "一维规格+库存/库存规格值2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "139688209173093380",
-  							"skuSpecValues": [
-  								{
-  									"productId": "139688209173093380",
-  									"sequence": 2,
-  									"specId": "139688137342491706",
-  									"specName": "库存规格1",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "139688137342491706",
-  							"specName": "库存规格1",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值1",
-  									"specValueId": "139688146022603835"
-  								},
-  								{
-  									"sequence": 0,
-  									"specId": "139688137342491706",
-  									"specValue": "库存规格值2",
-  									"specValueId": "139688154874682428"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "大虾特价限购一单",
-  					"finalPrice": 2000,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "大虾特价限购一单",
-  					"nid": "010203",
-  					"options": "",
-  					"originalPrice": 2000,
-  					"packPrice": 200,
-  					"picture": "https://picture.sandload.cn/1555745348415.png",
-  					"pid": "139419965158759461",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "dxthjxg",
-  					"productPictureList": [],
-  					"productionLocation": "",
-  					"remark": "大虾特价限购一单",
-  					"saleCount": 0,
-  					"sequence": 3,
-  					"skuList": [],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 1,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "",
-  					"finalPrice": 100,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "sjj-多规格-库存",
-  					"nid": "010204",
-  					"options": "",
-  					"originalPrice": 100,
-  					"packPrice": 0,
-  					"picture": "https://picture.sandload.cn/1557716377798.jpg",
-  					"pid": "141514633960908061",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [],
-  					"productCode": "sjj-duo1",
-  					"productPictureList": [
-  						{
-  							"pictureId": "141547741927073061",
-  							"productId": "141514633960908061",
-  							"sequence": "0",
-  							"type": "default",
-  							"url": "https://picture.sandload.cn/1557716377798.jpg"
-  						}
-  					],
-  					"productionLocation": "",
-  					"remark": "",
-  					"saleCount": 0,
-  					"sequence": 4,
-  					"skuList": [
-  						{
-  							"customerCode": "",
-  							"finalPrice": 100,
-  							"originalPrice": 100,
-  							"packPrice": 0,
-  							"productName": "sjj-多规格-库存/1/2",
-  							"productType": 1,
-  							"sequence": 0,
-  							"skuId": "141514633969296671",
-  							"skuSpecValues": [
-  								{
-  									"productId": "141514633969296671",
-  									"sequence": 1,
-  									"specId": "124299212005336578",
-  									"specName": "规格1",
-  									"specValue": "1",
-  									"specValueId": "127877117352407578"
-  								},
-  								{
-  									"productId": "141514633969296671",
-  									"sequence": 2,
-  									"specId": "124299152334082049",
-  									"specName": "规格2",
-  									"specValue": "2",
-  									"specValueId": "141514605407135004"
-  								}
-  							],
-  							"status": 2
-  						}
-  					],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "124299212005336578",
-  							"specName": "规格1",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "124299212005336578",
-  									"specValue": "1",
-  									"specValueId": "127877117352407578"
-  								}
-  							]
-  						},
-  						{
-  							"partnerId": "1864",
-  							"sequence": 0,
-  							"specId": "124299152334082049",
-  							"specName": "规格2",
-  							"specValueVos": [
-  								{
-  									"sequence": 0,
-  									"specId": "124299152334082049",
-  									"specValue": "2",
-  									"specValueId": "141514605407135004"
-  								}
-  							]
-  						}
-  					],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 10,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				},
-  				{
-  					"barcode": "",
-  					"brandId": "",
-  					"brandName": "",
-  					"businessNo": "",
-  					"businessType": "",
-  					"completeFlag": 2,
-  					"detailText": "新鲜柠檬，搭配鲜绿的金桔，自然散发这浓浓的柠檬香，入口酸甜，清新萦绕在口鼻之间。让你齿间清香，身体清爽。\n",
-  					"finalPrice": 1,
-  					"isSkuProduct": 0,
-  					"labelNames": [],
-  					"level": 2,
-  					"maxLimitNumber": 0,
-  					"maxRestrictionQty": 0,
-  					"minLimitNumber": 0,
-  					"minRestrictionQty": 0,
-  					"name": "金桔柠檬",
-  					"nid": "010205",
-  					"options": "",
-  					"originalPrice": 1,
-  					"packPrice": 1,
-  					"picture": "https://picture.sandload.cn/1556519782716.jpg",
-  					"pid": "140232044850617351",
-  					"pkNumber": 1,
-  					"priceSource": 3,
-  					"productAttributeGroupList": [
-  						{
-  							"attributeName": "温度",
-  							"attributeType": 3,
-  							"attributeValues": [
-  								{
-  									"attributeId": "125609440286271769",
-  									"attributeValue": "加少冰",
-  									"id": 141260970662192386,
-  									"price": 0,
-  									"sequence": 0,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "125505636723255573",
-  									"attributeValue": "冰",
-  									"id": 141260970662192387,
-  									"price": 0,
-  									"sequence": 4,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 3
-  						},
-  						{
-  							"attributeName": "甜度",
-  							"attributeType": 5,
-  							"attributeValues": [
-  								{
-  									"attributeId": "125610092230011191",
-  									"attributeValue": "三分甜",
-  									"id": 141260970662192388,
-  									"price": 0,
-  									"sequence": 8,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "125610069571332406",
-  									"attributeValue": "五分甜",
-  									"id": 141260970662192389,
-  									"price": 0,
-  									"sequence": 12,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "125610126515300665",
-  									"attributeValue": "正常",
-  									"id": 141260970662192390,
-  									"price": 0,
-  									"sequence": 16,
-  									"status": 2
-  								},
-  								{
-  									"attributeId": "125610057277827381",
-  									"attributeValue": "七分甜",
-  									"id": 141260970662192391,
-  									"price": 0,
-  									"sequence": 20,
-  									"status": 2
-  								}
-  							],
-  							"maxNumber": 1,
-  							"minNumber": 1,
-  							"must": 1,
-  							"options": "",
-  							"sequence": 5
-  						}
-  					],
-  					"productCode": "00013",
-  					"productPictureList": [],
-  					"productionLocation": "",
-  					"remark": "新鲜柠檬，搭配鲜绿的金桔，自然散发这浓浓的柠檬香，入口酸甜，清新萦绕在口鼻之间。让你齿间清香，身体清爽。\n",
-  					"saleCount": 0,
-  					"sequence": 5,
-  					"skuList": [],
-  					"skuSpecValues": [],
-  					"sourceChannel": "",
-  					"specificationGroupList": [],
-  					"standardGoodsFlag": 2,
-  					"status": 2,
-  					"type": 1,
-  					"unit": "",
-  					"valid": true,
-  					"version": 0,
-  					"weight": 0
-  				}
-  			],
-  			"sequence": 1
-  		}
-  	],
-  	"level": 0,
-  	"menuId": "138614756111043329",
-  	"menuName": "test-sjj",
-  	"nid": "01",
-  	"sequence": 0
-  }
+```json
+{
+    "categoryInfos": [
+        {
+            "categoryName": "test",
+            "level": 1,
+            "nid": "0101",
+            "productInfos": [
+                {
+                    "barcode": "",
+                    "brandId": "",
+                    "brandName": "",
+                    "businessNo": "",
+                    "businessType": "",
+                    "completeFlag": 2,
+                    "detailText": "多规格01",
+                    "finalPrice": 1,
+                    "isSkuProduct": 0,
+                    "labelNames": [
+                        {
+                            "id": "0",
+                            "name": "特色",
+                            "type": "0"
+                        },
+                        {
+                            "id": "0",
+                            "name": "美味",
+                            "type": "0"
+                        }
+                    ],
+                    "level": 2,
+                    "maxLimitNumber": 0,
+                    "maxRestrictionQty": 0,
+                    "minLimitNumber": 0,
+                    "minRestrictionQty": 0,
+                    "name": "多规格01",
+                    "nid": "010101",
+                    "options": "",
+                    "originalPrice": 1,
+                    "packPrice": 0,
+                    "picture": "https://picture.sandload.cn/1554725170464.jpg",
+                    "pid": "138327334988135726",
+                    "pkNumber": 1,
+                    "priceSource": 3,
+                    "productAttributeGroupList": [
+                        {
+                            "attributeName": "温度",
+                            "attributeType": 3,
+                            "attributeValues": [
+                                {
+                                    "attributeId": "137174708465634585",
+                                    "attributeValue": "冻",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 0,
+                                    "status": 2
+                                },
+                                {
+                                    "attributeId": "125609440286271769",
+                                    "attributeValue": "加少冰",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 5,
+                                    "status": 2
+                                }
+                            ],
+                            "maxNumber": 1,
+                            "minNumber": 1,
+                            "must": 1,
+                            "options": "",
+                            "sequence": 3
+                        },
+                        {
+                            "attributeName": "奶量",
+                            "attributeType": 6,
+                            "attributeValues": [
+                                {
+                                    "attributeId": "125374222305519889",
+                                    "attributeValue": "少量",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 20,
+                                    "status": 2
+                                },
+                                {
+                                    "attributeId": "122493722811322375",
+                                    "attributeValue": "加牛奶",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 25,
+                                    "status": 2
+                                }
+                            ],
+                            "maxNumber": 1,
+                            "minNumber": 1,
+                            "must": 1,
+                            "options": "",
+                            "sequence": 6
+                        },
+                        {
+                            "attributeName": "口味",
+                            "attributeType": 100013,
+                            "attributeValues": [
+                                {
+                                    "attributeId": "124714737311163694",
+                                    "attributeValue": "辣酱",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 10,
+                                    "status": 2
+                                },
+                                {
+                                    "attributeId": "124714762753811759",
+                                    "attributeValue": "番茄酱",
+                                    "id": 142407419635634480,
+                                    "price": 0,
+                                    "sequence": 15,
+                                    "status": 2
+                                }
+                            ],
+                            "maxNumber": 0,
+                            "minNumber": 0,
+                            "must": 0,
+                            "options": "",
+                            "sequence": 15
+                        }
+                    ],
+                    "productCode": "duogg01-p",
+                    "productPictureList": [
+                        {
+                            "pictureId": "142407419660800303",
+                            "productId": "138327334988135726",
+                            "sequence": "0",
+                            "type": "default",
+                            "url": "https://picture.sandload.cn/1554725170464.jpg"
+                        }
+                    ],
+                    "productionLocation": "",
+                    "remark": "多规格01",
+                    "saleCount": 0,
+                    "sequence": 1,
+                    "skuList": [
+                        {
+                            "customerCode": "duogg01-bz",
+                            "finalPrice": 2,
+                            "originalPrice": 2,
+                            "packPrice": 1,
+                            "productName": "多规格01/大杯/珍珠",
+                            "productType": 1,
+                            "sequence": 0,
+                            "skuId": "138327335005961520",
+                            "skuSpecValues": [
+                                {
+                                    "productId": "138327335005961520",
+                                    "sequence": 1,
+                                    "specId": "126981658895313165",
+                                    "specName": "杯型",
+                                    "specValue": "大杯",
+                                    "specValueId": "126981795913787664"
+                                },
+                                {
+                                    "productId": "138327335005961520",
+                                    "sequence": 2,
+                                    "specId": "125388160722129444",
+                                    "specName": "加料",
+                                    "specValue": "珍珠",
+                                    "specValueId": "135985417797493052"
+                                }
+                            ],
+                            "status": 2
+                        },
+                        {
+                            "customerCode": "duogg01-by",
+                            "finalPrice": 1,
+                            "originalPrice": 1,
+                            "packPrice": 2,
+                            "productName": "多规格01/大杯/椰果",
+                            "productType": 1,
+                            "sequence": 0,
+                            "skuId": "138327335005961526",
+                            "skuSpecValues": [
+                                {
+                                    "productId": "138327335005961526",
+                                    "sequence": 3,
+                                    "specId": "126981658895313165",
+                                    "specName": "杯型",
+                                    "specValue": "大杯",
+                                    "specValueId": "126981795913787664"
+                                },
+                                {
+                                    "productId": "138327335005961526",
+                                    "sequence": 4,
+                                    "specId": "125388160722129444",
+                                    "specName": "加料",
+                                    "specValue": "椰果",
+                                    "specValueId": "135985397657493819"
+                                }
+                            ],
+                            "status": 2
+                        },
+                        {
+                            "customerCode": "duogg01-sz",
+                            "finalPrice": 1,
+                            "originalPrice": 1,
+                            "packPrice": 2,
+                            "productName": "多规格01/小杯/珍珠",
+                            "productType": 1,
+                            "sequence": 0,
+                            "skuId": "138327335005961532",
+                            "skuSpecValues": [
+                                {
+                                    "productId": "138327335005961532",
+                                    "sequence": 5,
+                                    "specId": "126981658895313165",
+                                    "specName": "杯型",
+                                    "specValue": "小杯",
+                                    "specValueId": "126981808335218961"
+                                },
+                                {
+                                    "productId": "138327335005961532",
+                                    "sequence": 6,
+                                    "specId": "125388160722129444",
+                                    "specName": "加料",
+                                    "specValue": "珍珠",
+                                    "specValueId": "135985417797493052"
+                                }
+                            ],
+                            "status": 2
+                        },
+                        {
+                            "customerCode": "duogg01-sy",
+                            "finalPrice": 1,
+                            "originalPrice": 1,
+                            "packPrice": 2,
+                            "productName": "多规格01/小杯/椰果",
+                            "productType": 1,
+                            "sequence": 0,
+                            "skuId": "138327335007010051",
+                            "skuSpecValues": [
+                                {
+                                    "productId": "138327335007010051",
+                                    "sequence": 7,
+                                    "specId": "126981658895313165",
+                                    "specName": "杯型",
+                                    "specValue": "小杯",
+                                    "specValueId": "126981808335218961"
+                                },
+                                {
+                                    "productId": "138327335007010051",
+                                    "sequence": 8,
+                                    "specId": "125388160722129444",
+                                    "specName": "加料",
+                                    "specValue": "椰果",
+                                    "specValueId": "135985397657493819"
+                                }
+                            ],
+                            "status": 2
+                        }
+                    ],
+                    "skuSpecValues": [],
+                    "sourceChannel": "",
+                    "specificationGroupList": [
+                        {
+                            "partnerId": "1864",
+                            "sequence": 0,
+                            "specId": "126981658895313165",
+                            "specName": "杯型",
+                            "specValueVos": [
+                                {
+                                    "sequence": 0,
+                                    "specId": "126981658895313165",
+                                    "specValue": "大杯",
+                                    "specValueId": "126981795913787664"
+                                },
+                                {
+                                    "sequence": 0,
+                                    "specId": "126981658895313165",
+                                    "specValue": "小杯",
+                                    "specValueId": "126981808335218961"
+                                }
+                            ]
+                        },
+                        {
+                            "partnerId": "1864",
+                            "sequence": 0,
+                            "specId": "125388160722129444",
+                            "specName": "加料",
+                            "specValueVos": [
+                                {
+                                    "sequence": 0,
+                                    "specId": "125388160722129444",
+                                    "specValue": "珍珠",
+                                    "specValueId": "135985417797493052"
+                                },
+                                {
+                                    "sequence": 0,
+                                    "specId": "125388160722129444",
+                                    "specValue": "椰果",
+                                    "specValueId": "135985397657493819"
+                                }
+                            ]
+                        }
+                    ],
+                    "standardGoodsFlag": 2,
+                    "status": 2,
+                    "type": 10,
+                    "unit": "",
+                    "valid": true,
+                    "version": 0,
+                    "weight": 0
+                }
+            ],
+            "sequence": 0
+        }
+    ],
+    "level": 0,
+    "menuId": "138614756111043329",
+    "menuName": "test-sjj",
+    "nid": "01",
+    "sequence": 0
+}
   ```
-
-
-
 
 
 ## 商品沽清接口（非码商品ID）
 
 ### 应用场景
 
-根据非码的商品ID（SKU/SPU），对商品沽清
+根据非码商品ID，商品沽清接口
 
 ### 请求url：/goods/skuItem/sellOut
 
@@ -1789,7 +470,7 @@
 
 ### 应用场景
 
-根据非码的商品ID（SKU/SPU），对商品撤销沽清
+根据非码商品ID，商品撤销沽清接口
 
 ### 请求url：/goods/skuItem/cancelSellOut
 
@@ -1815,11 +496,11 @@
 
 无
 
-## 商品沽清接口（商户自定义商品ID）
+## 商品沽清接口（商家自定义商品ID）
 
 ### 应用场景
 
-该接口是根据商户自定义的商品ID，来对商品进行沽清的接口
+根据商家自定义商品ID，商品沽清接口
 
 ### 请求url：/goods/skuItem/sellOutByCustomerCode
 
@@ -1843,11 +524,11 @@
 
 无
 
-## 商品撤销沽清接口（商户自定义商品ID）
+## 商品撤销沽清接口（商家自定义商品ID）
 
 ### 应用场景
 
-该接口是根据商户自定义的商品ID，来对商品进行撤销沽清的接口
+根据商家自定义商品ID，商品撤销沽清接口
 
 ### 请求url：/goods/skuItem/cancelSellOutByCustomerCode
 
@@ -1912,19 +593,15 @@
 
 ### 响应参数
 
-
-
 | **字段** | **类型** | **必填** | **举例** | **说明** |
 | -------- | -------- | -------- | -------- | -------- |
 | menuId   | String   | 是       |          | 菜单ID   |
 
-responseBody返回示例
+### responseBody返回示例
 
 ```json
  "146682059538214920"
 ```
-
-###
 
 ## 创建商品菜单分类接口
 
@@ -1962,8 +639,6 @@ responseBody返回示例
 
 ### 响应参数
 
-
-
 | **字段**   | **类型** | **必填** | **举例** | **说明**                                                     |
 | ---------- | -------- | -------- | -------- | ------------------------------------------------------------ |
 | menuId     | String   | 是       |          | 菜单ID                                                       |
@@ -1990,8 +665,6 @@ responseBody返回示例
     "type":"node"
 }
 ```
-
-###
 
 ## 获取菜单列表接口
 
@@ -2024,8 +697,6 @@ responseBody返回示例
 
 ### 响应参数
 
-
-
 | **字段**      | **类型** | **必填** | **举例** | **说明**                     |
 | ------------- | -------- | -------- | -------- | ---------------------------- |
 | list/isOnline | Integer  | 是       |          | 是否在线上使用(0：否，1：是) |
@@ -2037,7 +708,7 @@ responseBody返回示例
 | totalCount    | Integer  | 是       |          | 总数量                       |
 | totalPages    | Integer  | 是       |          | 总页数                       |
 
-responseBody返回示例
+### responseBody返回示例
 
 ```json
 "list":[
@@ -2129,8 +800,6 @@ responseBody返回示例
 }
 ```
 
-###
-
 ## 查询菜单及分类信息接口
 
 ### 应用场景
@@ -2156,8 +825,6 @@ responseBody返回示例
 ```
 
 ### 响应参数
-
-
 
 | **字段**             | **类型** | **必填** | **举例** | **说明**                                                     |
 | -------------------- | -------- | -------- | -------- | ------------------------------------------------------------ |
@@ -2217,7 +884,6 @@ responseBody返回示例
 }
 ```
 
-
 ## 菜单批量绑定门店(限制300)
 
 ### 请求地址 /goods/bandingMenuToStores
@@ -2233,17 +899,15 @@ menuId|菜单编号|String|Y|菜单编号
 storeIds|门店列表|List`<String>`|Y|门店列表
 
 ### requestBody请求示例
+
 ```json
 {
-	"ver":"1.0",
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"sign":"1",
-	"partnerId":"1864",
-	"requestBody":	"{\"menuId\":\"137169131923508491\",\"storeIds\":[\"190314\"]}"
+"menuId":"137169131923508491",
+"storeIds":["190314"]
 }
 ```
 
-响应：
+### 响应：
 参数|参数含义|类型|说明
 ---|---|---|---
 code|返回码|String|返回码
@@ -2252,6 +916,7 @@ result|返回结果|Object|返回结果
 
 
 ### 响应示例
+
 ```json
 {
     "ver": "1",
@@ -2278,17 +943,16 @@ productIds|菜单编号|List`<String>`|Y|菜单编号
 status|上下架状态|String|Y|上下架状态 1:上架 ；2：下架
 
 ### requestBody请求示例
+
 ```json
 {
-	"ver":"1.0",
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"sign":"1",
-	"partnerId":"1864",
-	"requestBody":	"{\"status\":\"1\",\"productIds\":[\"146609369572911135\",\"145588001954801706\"]}"
+"status":"1",
+"productIds":["146609369572911135","145588001954801706"]
 }
+
 ```
 
-### 响应
+### 响应：
 
 参数|参数含义|类型|说明
 ---|---|---|---
@@ -2330,20 +994,16 @@ invInfos/safeQty|安全库存数|Integer|N|安全库存数
 invInfos/virtualQty|虚拟库存数|Integer|N|虚拟库存数
 
 ### requestBody请求示例
-
 ```json
 {
-	"ver":"1.0",
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"sign":"1",
-	"partnerId":"1864",
-	"requestBody":"{\"channel\":\"xcx\",\"partnerId\":\"1864\",\"storeId\":\"190314\",\"invInfos\":[{\"productId\":\"145584167419324450\",\"qty\":\"68\",\"safeQty\":\"8\"}]}"
+"channel":"xcx",
+"partnerId":"1864",
+"storeId":"190314",
+"invInfos":[{"productId":"145584167419324450","qty":"68","safeQty":"8"}]
 }
 ```
 
-
-
-### 响应
+### 响应：
 
 参数|参数含义|类型|说明
 ---|---|---|---
