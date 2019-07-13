@@ -305,7 +305,8 @@
 |userName|String|用户姓名|
 |orderItemList|Array|订单商品信息|
 |orderItemList/productSeq|Integer|商品序号|
-|orderItemList/productId|String|商品编号|
+|orderItemList/productId|String|开个店商品编号|
+|orderItemList/thirdProductId|String|第三方商品编号|
 |orderItemList/productName|String|商品名称|
 |orderItemList/productPrice|Integer|商品单价（分）|
 |orderItemList/productQuantity|int|数量|
