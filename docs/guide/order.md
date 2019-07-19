@@ -136,13 +136,12 @@
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
 | ------------|  -------------|  ------|  ------------------------------|
-| startTimestamp |     Long     |    否    |  订单创建开始时间戳（单位：毫秒），如果不传，默认请求当日00:00:00:000  |
-|  endTimestamp  |     Long     |    否    |  订单创建结束时间戳（单位：毫秒），如果不传，默认请求当日23:59:59:000  |
+| startTimestamp |     Long     |    否    |  订单更新开始时间戳（单位：毫秒），如果不传，默认请求当日00:00:00:000  |
+|  endTimestamp  |     Long     |    否    |  订单更新结束时间戳（单位：毫秒），如果不传，默认请求当日23:59:59:000  |
 |  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
 | count | Integer | 否 | 每次请求数量（最大10），不传入默认10 |
-| nextOrderCode |     String     |    否    |               下次拉取起始值，不传入默认从头拉取               |
 
 ### 备注
 建议订单列表查询接口时间戳时间间隔可以以随机数方式，保证接口的效率与稳定
@@ -156,7 +155,6 @@
     "orderClients": [1, 2, 3],
     "storeId": "1862",
     "orderStatus": [1, 2, 3],
-    "nextOrderCode": "142858598583644715",
     "count": 5
 }
 ```
@@ -395,7 +393,7 @@
 
 ### 接口说明
 
-调用此接口获取订单列表
+调用此接口获取退款订单列表
 
 ### 应用场景
 
@@ -405,10 +403,10 @@
 ### 请求参数
 |      字段      |      类型       | 是否必传 |               说明               |
 | ------------|  -------------|  ------|  ------------------------------|
-| startTimestamp |     Long     |    是    |  订单创建开始时间戳（单位：毫秒）  |
-|  endTimestamp  |     Long     |    是    |  订单创建结束时间戳（单位：毫秒）  |
-|   storeId    |     String      |    是    |              门店号              |
-|    refundstatus     |     Array[] Integer     |    是    |               订单退款状态(见字段描述)         |
+| startTimestamp |     Long     |    是    |  订单更新开始时间戳（单位：毫秒）  |
+| endTimestamp  |     Long     |    是    |  订单更新结束时间戳（单位：毫秒）  |
+| storeId    |     String      |    是    |              门店号              |
+| refundstatus     |     Array[] Integer     |    是    |               订单退款状态(见字段描述)         |
 | count          | Integer | 否       | 每次请求数量（最大10），不传入默认10 |
 
 #### requestBody请求示例
@@ -418,7 +416,7 @@
     "startTimestamp": 1559114908000,
     "endTimestamp": 1559115908000,
     "storeId": "1862",
-    "refundstatus": [1],
+    "refundStatus": [1],
     "count": 10
 }
 ```
@@ -430,6 +428,7 @@
 | nextStartTimestamp | Long | 下次开始时间戳(精确到毫秒) |
 |   itemList   |  Array  | 订单列表 |
 |itemList/orderCode  | String | 订单号 |
+|itemList/refundstatus  | Integer | 订单退款状态(见字段描述) |
 
 #### responseBody返回示例
 
@@ -439,9 +438,10 @@
     "nextStartTimestamp":"1559201308000",
     "itemList": [
         {
-            "orderCode": "12355556"
+            "orderCode": "12355556",
+            "refundstatus":1
         }
-    ],
+    ]
 }
 ```
 
