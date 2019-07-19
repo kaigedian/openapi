@@ -175,6 +175,7 @@
 |itemList/storeName|String|门店名称|
 |itemList/actualPayAmount|Integer|实际支付金额（分）|
 |itemList/originalAmount|Integer|订单原金额（分）|
+|itemList/discountAmount|Integer|订单总优惠金额（分）|
 |itemList/barCounter|String|桌台号|
 |itemList/needInvoice|Boolean|需要开发票|
 |itemList/orderClient|Integer|下单渠道|
@@ -220,7 +221,8 @@
             "storeId": "1001",
             "storeName": "南翔一店",
             "actualPayAmount": 1200,
-            "originalAmount": 1200,
+            "originalAmount": 1100,
+            "discountAmount":100,
             "barCounter": "10",
             "needInvoice": false,
             "orderClient": 1,
@@ -287,7 +289,8 @@
 |storeId|String|下单门店号|
 |storeName|String|门店名称|
 |actualPayAmount|Integer|实际支付金额（分）|
-|originalAmount|Integer|订单原金额（分）暂不支持|
+|originalAmount|Integer|订单原金额（分）|
+|discountAmount|Integer|订单总优惠金额（分）|
 |barCounter|String|桌台号|
 |needInvoice|Boolean|需要开发票|
 |orderClient|Integer|下单渠道|
@@ -310,7 +313,7 @@
 |orderItemList/productName|String|商品名称|
 |orderItemList/productPrice|Integer|商品单价（分）|
 |orderItemList/productQuantity|int|数量|
-|orderItemList/sharePrice|Integer|优惠分摊金额（分）|
+|orderItemList/sharePrice|Integer|单个商品优惠总金额|
 |orderItemList/unit|String|商品单位|
 |orderItemList/weight|Integer|商品重量（克）|
 |orderItemList/productSpecName|String|商品规格名称（大杯）|
@@ -340,6 +343,7 @@
     "storeName": "开个店徐汇店",
     "actualPayAmount": 2000,
     "originalAmount": 2500,
+    "discountAmount":500,
     "barCounter": "06",
     "needInvoice": false,
     "orderClient": 1,
@@ -361,9 +365,9 @@
             "productId": "138418632407497998",
             "thirdProductId": "188453334",
             "productName": "测试商品",
-            "productPrice": 2000,
+            "productPrice": 2500,
+            "sharePrice":500,
             "productQuantity": 1,
-            "productSharePrice": 1800,
             "unit": "杯",
             "weight": 1500,
             "productSpecName": "大杯",
