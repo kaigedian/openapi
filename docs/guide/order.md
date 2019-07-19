@@ -416,7 +416,7 @@
     "startTimestamp": 1559114908000,
     "endTimestamp": 1559115908000,
     "storeId": "1862",
-    "refundStatus": [1],
+    "refundstatus": [1],
     "count": 10
 }
 ```
