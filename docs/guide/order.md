@@ -746,6 +746,155 @@
 }
 ```
 
+## 历史订单查询
+
+### 接口说明
+获取订单列表，调用次接口，后续有调用次数限制，一次查询最多返回10条，超过10条暂不支持
+
+### 应用场景
+第三方可调用查询历史订单接口，开个店会通过此接口返回单天订单。
+
+业务说明：
+1. 查询时间传只支持一天订单查询。
+
+
+###  请求url：/order/historyOrders
+### 请求参数
+|      字段      |      类型       | 是否必传 |               说明               |
+| ------------|  -------------|  ------|  ------------------------------|
+| timestamp |     Long     |    是    |  查询时间戳（单位：毫秒） |
+| storeId   |     String      |    是    |              门店号              |
+| pageSize | Integer | 是 | 数量 |
+| pageNum | Integer |  是|第几页 |
+
+
+
+#### requestBody请求示例
+
+```json
+{
+    "timestamp": 1563724800000,
+    "storeId": "1862",
+    "pageSize": 10,
+    "pageNum": 1
+}
+```
+
+### 响应参数
+|   字段   |  类型   |   说明   |
+| ------|  -----|  ------|
+|  total   | Integer |   总数   |
+|   itemList   |  Array  | 订单列表 |
+|itemList/orderCode  | String | 订单号 |
+|itemList/thirdOrderCode| String |第三方平台订单号|
+|itemList/storeId|String|下单门店号|
+|itemList/storeName|String|门店名称|
+|itemList/actualPayAmount|Integer|实际支付金额（分）|
+|itemList/originalAmount|Integer|订单原金额（分）|
+|itemList/discountAmount|Integer|订单优惠总金额（分）|
+|itemList/barCounter|String|桌台号|
+|itemList/needInvoice|Boolean|需要开发票|
+|itemList/orderClient|Integer|下单渠道|
+|itemList/note|String|订单备注|
+|itemList/orderStatus|Integer|订单状态（见字段描述）|
+|itemList/orderType|Integer|订单类型（见字段描述）|
+|itemList/payChannel|String|支付渠道|
+|itemList/payChannelName|String|支付渠道名称|
+|itemList/payStatus|Integer|支付状态（见字段描述）|
+|itemList/payType|Integer|支付类型（见字段描述）|
+|itemList/payTime|String|支付时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/posCode|String|pos编号|
+|itemList/operator|String|操作人|
+|itemList/userId|String|用户id|
+|itemList/userName|String|用户姓名|
+|itemList/pickUpGoodsNo|String|取餐号|
+|itemList/orderItemList|Array|订单商品信息|
+|itemList/orderItemList/productSeq|Integer|商品序号|
+|itemList/orderItemList/productId|String|开个店商品编号|
+|itemList/orderItemList/thirdProductId|String|第三方商品编号|
+|itemList/orderItemList/productName|String|商品名称|
+|itemList/orderItemList/productPrice|Integer|商品单价（分）|
+|itemList/orderItemList/productQuantity|int|数量|
+|itemList/orderItemList/sharePrice|Integer|单个商品优惠总金额|
+|itemList/orderItemList/unit|String|商品单位|
+|itemList/orderItemList/weight|Integer|商品重量（克）|
+|itemList/orderItemList/productSpecName|String|商品规格名称（大杯）|
+|itemList/orderItemList/productProperty|String|商品属性名称（三分糖）|
+|itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/longitude|String|收货地址经度|
+|itemList/latitude|String|收货地址维度|
+|itemList/deliverFee|Integer|订单配送费|
+|itemList/packageFee|Integer|订单包装费|
+|itemList/mobile|String|用户手机号|
+
+#### responseBody返回示例
+
+```json
+{
+    "total":50,
+    "itemList":[
+        {
+            "orderCode":"21343343",
+            "thirdOrderCode":"1343534298",
+            "storeId":"1001",
+            "storeName":"开个店徐汇店",
+            "actualPayAmount":2000,
+            "originalAmount":2500,
+            "barCounter":"06",
+            "needInvoice":false,
+            "orderClient":1,
+            "note":"订单备注",
+            "orderStatus":1,
+            "orderType":1,
+            "payChannel":"测试支付",
+            "payChannelName":"微信支付",
+            "payStatus":1,
+            "payType":1,
+            "payTime":"12545445",
+            "posCode":"39938289509032322",
+            "operator":"MRX",
+            "userId":"198004522",
+            "userName":"MRX",
+            "orderItemList":[
+                {
+                    "productSeq":1,
+                    "productId":"138418632407497998",
+                    "thirdProductId":"188453334",
+                    "productName":"测试商品",
+                    "productPrice":2000,
+                    "productQuantity":1,
+                    "productSharePrice":1800,
+                    "unit":"杯",
+                    "weight":1500,
+                    "productSpecName":"大杯",
+                    "productProperty":"三分糖"
+                }
+            ],
+            "pickUpGoodsNo":"4578",
+            "createTime":"1557367505",
+            "acceptTime":"1557368643",
+            "pickUpTime":"",
+            "deliveryTime":"1557398566",
+            "estimateDeliveryCompleteTime":"1557457545",
+            "actualArrivalTime":"1557458545",
+            "receiveTime":"1557458545",
+            "expectTime":"1557389003",
+            "longitude":"31.43434",
+            "latitude":"121.3434334",
+            "deliverFee":5,
+            "packageFee":0
+        }
+    ]
+}
+```
+
 
 ## 字段描述
 
