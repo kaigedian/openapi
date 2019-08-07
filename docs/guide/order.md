@@ -58,7 +58,7 @@
 
 ```json
 {
-    "actualPayAmount": "1889943343",
+    "thirdOrderCode": "1889943343",
     "storeId": "10001",
     "storeName": "开个店徐汇店",
     "actualPayAmount": 2000,
@@ -588,7 +588,7 @@
 ```json
 {
     "ver": "1",
-    "code": "100",
+    "statusCode": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -630,7 +630,7 @@
 ```json
 {
     "ver": "1",
-    "code": "100",
+    "statusCode": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -687,7 +687,7 @@
 ```json
 {
     "ver": "1",
-    "code": "100",
+    "statusCode": "100",
     "message": "success",
     "responseBody": ""
 }
@@ -740,7 +740,7 @@
 ```json
 {
     "ver": "1",
-    "code": "100",
+    "statusCode": "100",
     "message": "success",
     "responseBody": ""
 }
