@@ -27,6 +27,10 @@ module.exports = {
             link: '/guide/member'
           },
           {
+            text: '活动类API',
+            link: '/guide/promotion'
+          },
+          {
             text: '券码类API',
             link: '/guide/coupon'
           },
@@ -55,6 +59,7 @@ module.exports = {
       '/guide/store',
       '/guide/order',
       '/guide/member',
+      '/guide/promotion',
       '/guide/coupon',
       '/guide/goods',
       '/guide/demo'
