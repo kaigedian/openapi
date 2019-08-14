@@ -106,14 +106,14 @@
 
 #### 字段说明
 
-| **字段**             | **类型** | **必填** | **举例**  |                  **说明**                   |
-| -------------------- | -------- | -------- | --------- | :-----------------------------------------: |
-| successNum           | Integer  | 是       | 10        |                  成功个数                   |
-| failNum              | Integer  | 是       | 0         |                  失败个数                   |
-| errorList            | Array    | 是       |           |                失败原因集合                 |
-| errorList\redeemCode | String   | 是       | 123456789 |                 兑换码编号                  |
+| **字段**             | **类型** | **必填** | **举例**  | **说明**                   |
+| -------------------- | -------- | -------- | --------- | ----------------------------------------- |
+| successNum           | Integer  | 是       | 10        | 成功个数                   |
+| failNum              | Integer  | 是       | 0         | 失败个数                   |
+| errorList            | Array    | 是       |           | 失败原因集合                 |
+| errorList\redeemCode | String   | 是       | 123456789 | 兑换码编号                  |
 | errorList\errorCode  | String   | 是       | 123456789 | 错误代码 003-兑换码不存在，004-兑换码已使用 |
-| errorList\errorMsg   | String   | 是       | 123456789 |                  失败原因                   |
+| errorList\errorMsg   | String   | 是       | 123456789 | 失败原因                   |
 
 
 #### responseBody返回示例
