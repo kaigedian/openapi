@@ -32,7 +32,7 @@
 {
     "transNo": "208888",
     "activityId": "1212311",
-    "redeems": [ "12345678", "22345678", "32345678" ]
+    "redeemCodes": [ "12345678", "22345678", "32345678" ]
 }
 ```
 
@@ -95,7 +95,7 @@
 ```json
 {
     "transNo": "1212311",
-    "redeems": [
+    "redeemCodes": [
         "249916165"
     ]
 }
@@ -111,7 +111,7 @@
 | failNum              | Integer  | 是       | 0         | 失败个数                   |
 | errorList            | Array    | 是       |           | 失败原因集合                 |
 | errorList\redeemCode | String   | 是       | 123456789 | 兑换码编号                  |
-| errorList\errorCode  | String   | 是       | 123456789 | 错误代码 003-兑换码不存在，004-兑换码已使用 |
+| errorList\errorCode  | String   | 是       | 123456789 | 错误代码 001-兑换码重复 003-兑换码不存在，004-兑换码已使用,005-兑换码已作废 |
 | errorList\errorMsg   | String   | 是       | 123456789 | 失败原因                   |
 
 
