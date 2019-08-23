@@ -15,6 +15,10 @@ module.exports = {
             link: '/guide/general'
           },
           {
+            text: '接单业务说明',
+            link: '/guide/help'
+          },
+          {
             text: '门店类接口',
             link: '/guide/store'
           },
@@ -56,6 +60,7 @@ module.exports = {
     ],
     sidebar: [
       '/guide/general',
+      '/guide/help',
       '/guide/store',
       '/guide/order',
       '/guide/member',
