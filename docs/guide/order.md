@@ -138,7 +138,7 @@
 | ------------|  -------------|  ------|  ------------------------------|
 | startTimestamp |     Long     |    否    |  订单更新开始时间戳（单位：毫秒），如果不传，默认请求当日00:00:00:000  |
 |  endTimestamp  |     Long     |    否    |  订单更新结束时间戳（单位：毫秒），如果不传，默认请求当日23:59:59:000  |
-|  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
+|  orderClients  | Array[] Integer |    是    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
 | count | Integer | 否 | 每次请求数量（最大10），不传入默认10 |
@@ -466,6 +466,7 @@
 |orderItemList/productProperty|String|商品属性名称（三分糖）|
 |orderItemList/productType|Integer|商品类型 商品类型1,"普通商品" 3,"组合商品" 6,"套餐商品" 7,"加价套餐商品" 9,"虚拟商品" 10,"过规格商品" 11,"称重商品"|
 |orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
+|orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
 |apportionDetails|Array|优惠均摊明细|
 |apportionDetails/activityCode|String|优惠活动号|
 |apportionDetails/activityName|String|优惠活动名称|
