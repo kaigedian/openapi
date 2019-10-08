@@ -1,10 +1,7 @@
 # 会员类接口
 
-## 查询
 
-### 接口说明
-
-# **1.1** 根据会员id或手机号查询会员信息接口
+## **1.1** 根据会员id或手机号查询会员信息接口
 
 ### 应用场景
 
@@ -61,11 +58,10 @@
 | memberChannels/unionId           | String   |      | unionId                                                      |
 | memberChannels/updateTime        | Date     |      | 更新时间{格式：yyyy-MM-dd HH:mm:ss}                          |
 
-##
 
 #### 返回示例
 
-```
+```json
 {
     "ver": "1",
     "statusCode": "100",
@@ -79,7 +75,7 @@
 
 
 
-# **1.2** 会员列表信息接口
+## **1.2** 会员列表信息接口
 
 ### 应用场景
 
@@ -142,7 +138,6 @@
 | memberList/currentScore              | String       |                    | 当前积分                            |
 | memberList/statusFlag                | Date         |                    | 状态标识{0禁用1激活}                |
 
-##
 
 #### 返回示例
 
@@ -160,7 +155,7 @@
 
 
 
-# **1.3** 会员加减积分
+## **1.3** 会员加减积分
 
 ### 应用场景
 
@@ -208,26 +203,25 @@
 | updateScore  | Integer  |      | 变化积分数   |
 | sendScore    | Integer  |      | 新增积分数   |
 
-##
 
 #### 返回示例
 
 -
 
-  ```
-  {
+```json
+{
       "ver": "1",
       "statusCode": "100",
       "message": "成功",
       "responseBody": "{\"currentScore\":300,\"sendScore\":100,\"updateScore\":100}",
       "sign": "sign"
-  }
+}
 
-  ```
+```
 
 
 
-# **1.4** 推送会员信息回调接口
+## **1.4** 推送会员信息回调接口
 
 ### 应用场景
 
@@ -266,7 +260,6 @@
 | memberChannels/unionId           | String   | 否       |      | unionId                                                      |
 | memberChannels/updateTime        | Date     | 否       |      | 更新时间{格式：yyyy-MM-dd HH:mm:ss}                          |
 
-##
 
 #### 请求示例
 
@@ -287,7 +280,7 @@
 无
 
 
-# **1.5** 推送会员积分变动信息接口
+## **1.5** 推送会员积分变动信息接口
 ### 应用场景
 
 会员积分变动信息推送到第三方
@@ -336,7 +329,7 @@
 
 ```
 
-# **1.6** 根据手机号注册会员
+## **1.6** 根据手机号注册会员
 ### 应用场景
 
 用户在小程序通过输入手机号的方式注册会员
