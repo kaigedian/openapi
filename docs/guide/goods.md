@@ -168,8 +168,6 @@
 
 ```
 
-##
-
 ## 商品撤销沽清接口（非码商品ID）
 
 ### 应用场景
@@ -680,7 +678,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 ```
 
 
-# 添加商品
+## 添加商品
 
 ### 请求地址 /goods/add
 
@@ -788,7 +786,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 
 #### requestBody请求示例
 
-```
+```json
 {
     "productVo": {
         "stockLimit": 2,
@@ -828,7 +826,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productId  | String   | 是       | "146682059538214920" | 商品id |
 
 #### 响应示例
-```
+```json
 {
     "message":"成功",
     "responseBody":"{"productId":"153380799549336875"}",
@@ -837,7 +835,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 }
 ```
 
-# 修改商品
+## 修改商品
 
 ### 请求地址 /goods/update
 
@@ -944,7 +942,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 
 #### requestBody请求示例
 
-```
+```json
 {
     "productVo": {
         "stockLimit": 2,
@@ -984,7 +982,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productId  | String   | 是       | "146682059538214920" | 商品id |
 
 #### 响应示例
-```
+```json
 {
     "message":"成功",
     "responseBody":"{"productId":"153380799549336875"}",
