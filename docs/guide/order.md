@@ -138,7 +138,7 @@
 | ------------|  -------------|  ------|  ------------------------------|
 | startTimestamp |     Long     |    否    |  订单更新开始时间戳（单位：毫秒），如果不传，默认请求当日00:00:00:000  |
 |  endTimestamp  |     Long     |    否    |  订单更新结束时间戳（单位：毫秒），如果不传，默认请求当日23:59:59:000  |
-|  orderClients  | Array[] Integer |    是    | 订单来源、下单渠道（见字段描述） |
+|  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
 |  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
 | count | Integer | 否 | 每次请求数量（最大10），不传入默认10 |
@@ -327,6 +327,8 @@
 |itemList/orderItemList/weight|Integer|商品重量（克）|
 |itemList/orderItemList/productSpecName|String|商品规格名称（大杯）|
 |itemList/orderItemList/productProperty|String|商品属性名称（三分糖）|
+|orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
+|orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
 |itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
 |itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
@@ -658,7 +660,7 @@
         }
     ],
 }
-``` 
+```
 
 
 ## 订单状态处理
@@ -919,7 +921,7 @@
 
 线上加菜会通过该接口进行回调，由第三方按此接口标准进行实现。
 
-### 请求方法 
+### 请求方法
 
 `POST`
 
@@ -1096,11 +1098,11 @@ responseBody响应示例
 
 针对商品线下称重的商品，可以通过该接口修改商品相关信息
 
-### 请求地址 
+### 请求地址
 
 order/updateOrderItem
 
-### 请求方法 
+### 请求方法
 
 `POST`
 
@@ -1161,11 +1163,11 @@ order/updateOrderItem
 
 线上订单在线下支付，需要将线下支付信息同步给线上订单，防止线上订单商品信息和pos订单商品信息不同步可以在同步支付信息时同时将线下订单商品信息上传。
 
-### 请求地址 
+### 请求地址
 
 order/payAfterSyncOrderInfo
 
-### 请求方法 
+### 请求方法
 
 `POST`
 
