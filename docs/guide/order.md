@@ -138,9 +138,9 @@
 | ------------|  -------------|  ------|  ------------------------------|
 | startTimestamp |     Long     |    否    |  订单更新开始时间戳（单位：毫秒），如果不传，默认请求当日00:00:00:000  |
 |  endTimestamp  |     Long     |    否    |  订单更新结束时间戳（单位：毫秒），如果不传，默认请求当日23:59:59:000  |
-|  orderClients  | Array[] Integer |    否    | 订单来源、下单渠道（见字段描述） |
+|  orderClients  | Array[] Integer |    是    | 订单来源、下单渠道（见字段描述） |
 |   storeId    |     String      |    是    |              门店号              |
-|  orderStatus  | Array[] Integer |    否    | 订单状态（见字段描述） |
+|  orderStatus  | Array[] Integer |    是    | 订单状态（见字段描述） |
 | count | Integer | 否 | 每次请求数量（最大10），不传入默认10 |
 
 ### 备注
@@ -700,7 +700,7 @@
 {
     "orderCodes": "12354545",
     "orderStatus": "3",
-    "orderStatus": "",
+    "reason": "",
     "operator": "MRX"
 }
 ```
@@ -708,7 +708,7 @@
 {
     "orderCodes": "12354545",
     "orderStatus": "7",
-    "orderStatus": "超出配送返回",
+    "reason": "超出配送返回",
     "operator": "MRX"
 }
 ```
