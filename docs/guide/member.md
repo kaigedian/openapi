@@ -16,6 +16,10 @@
 | partnerId | String | 是                              | 1864               | 商户id |
 | memberId  | String | 是/否(memberId与mobile必传一个) | 115589208394311926 | 会员id |
 | mobile    | String | 是/否                           | 18616703980        | 手机号 |
+| showScoreSwitch    | Int | 否                           |         | 是否查询积分 1：是 2：否 默认否 |
+| showCouponSwitch    | Int | 否                           |         | 是否查询优惠券 1：是 2：否 默认否 |
+
+**如果手机号和会员id都传入，优先查询会员id**
 
 #### 请求示例
 
