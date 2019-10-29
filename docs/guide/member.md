@@ -1,11 +1,11 @@
 # 会员类接口
 
 
-## **1.1** 根据会员id或手机号查询会员信息接口
+## **1.1** 查询会员信息接口
 
 ### 应用场景
 
-根据会员id查询会员信息
+根据会员id或者手机号查询会员信息
 
 ### 请求url：/member/getMemberInfoByIdOrMobile
 
@@ -19,17 +19,17 @@
 | showScoreSwitch    | Int | 否                           |         | 是否查询积分 1：是 2：否 默认否 |
 | showCouponSwitch    | Int | 否                           |         | 是否查询优惠券 1：是 2：否 默认否 |
 
-**如果手机号和会员id都传入，优先查询会员id**
+**PS:如果手机号和会员id都传入，优先以会员id作为查询条件**
 
 #### 请求示例
 
 ```json
 {
-	"ver":1,
-	"partnerId":"1000",
-	"appId":"2eb5c8f117dac313f89d",
-	"requestBody":"{\"memberId\":\"115589208394311926\"}",
-    	"sign": "sign"
+	"appId":"2eb5c8f1170246429755e6dac313f89d",
+	"partnerId":"1864",
+	"requestBody":"{'partnerId':'1864','memberId':'115632749214110108','mobile':'15623261994','showScoreSwitch':'1','showCouponSwitch':'1'}",
+	"sign":"skip",
+	"ver":1
 }
 ```
 
