@@ -16,8 +16,8 @@
 | partnerId | String | 是                              | 1864               | 商户id |
 | memberId  | String | 是/否(memberId与mobile必传一个) | 115589208394311926 | 会员id |
 | mobile    | String | 是/否                           | 18616703980        | 手机号 |
-| showScoreSwitch    | Int | 否                           |         | 是否查询积分 1：是 2：否 默认否 |
-| showCouponSwitch    | Int | 否                           |         | 是否查询优惠券 1：是 2：否 默认否 |
+| showScoreSwitch    | Int | 否        |         | 是否查询积分 1：是 2：否 默认否 |
+| showCouponSwitch    | Int | 否       |         | 是否查询优惠券 1：是 2：否 默认否 |
 
 **PS:如果手机号和会员id都传入，优先以会员id作为查询条件**
 
@@ -48,6 +48,14 @@
 | idCard                           | String   |      | 身份证                                                       |
 | registerTime                     | Date     |      | 注册时间{格式：yyyy-MM-dd HH:mm:ss}                          |
 | registerStoreCode                | String   |      | 注册门店                                                     |
+| currentScore                      | Integer  |      |当前可用积分                     |
+| totalScore                      | Integer  |      |历史累计积分                     |
+| usedScore                      | Integer  |      |已使用积分                     |
+| memberCoupons                   | List     |      | 优惠券列表       
+| memberCoupons/couponName        | String     |      |  券名称       |
+| memberCoupons/couponCode        | String     |      | 券CODE       |
+| memberCoupons/cuoponType        | Integer     |      | 券类型 0：商品 券 1：代金券 3 折扣券       |
+| memberCoupons/couponLimit        | String     |      | 如：2019-10-1 至 2019-10-10 当天有效     |
 | memberChannels                   | List     |      | 会员渠道列表                                                 |
 | memberChannels/cardCode          | String   |      | 卡号{原生卡卡号}                                             |
 | memberChannels/cardId            | String   |      | 原生卡ID{微信原生卡ID、支付宝模板ID、商户自定义原生卡ID}     |
