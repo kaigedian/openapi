@@ -1,6 +1,6 @@
 # 订单类接口
 
-## 线下订单结算接口
+## 下单
 
 ### 接口说明
 线下消费订单上传接口
@@ -490,6 +490,7 @@
 |deliverFee|Long|订单配送费|
 |packageFee|Long|订单包装费|
 |mobile|String|用户手机号|
+|desensitizedMobile|String|脱敏的手机号|
 
 #### responseBody返回示例
 
@@ -554,7 +555,9 @@
     "longitude": "31.43434",
     "latitude": "121.3434334",
     "deliverFee": 5,
-    "packageFee": 0
+    "packageFee": 0,
+    "mobile": "13602109227",
+    "desensitizedMobile": "136****9227"
 }]
 ```
 
@@ -700,7 +703,7 @@
 {
     "orderCodes": "12354545",
     "orderStatus": "3",
-    "reason": "",
+    "orderStatus": "",
     "operator": "MRX"
 }
 ```
@@ -708,7 +711,7 @@
 {
     "orderCodes": "12354545",
     "orderStatus": "7",
-    "reason": "超出配送返回",
+    "orderStatus": "超出配送返回",
     "operator": "MRX"
 }
 ```
