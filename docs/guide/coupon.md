@@ -23,8 +23,8 @@
 
 ```json
 {
-	"storeId":"208888",
-	"couponCode": "123456789"
+  "storeId":"208888",
+  "couponCode": "123456789"
 }
 ```
 
@@ -69,16 +69,16 @@
 
   ```
   {
-  	"codeInfo": {
-  		"actId": "TB2014032666",
-  		"actName": "代金券10元",
-  		"amount": 1000,
-  		"code": "785227842",
-  		"ebCode": "0000000004",
-  		"ebName": "中国移动",
-  		"endDate": "2016-04-15"
-  	},
-  	"couponType": 1
+    "codeInfo": {
+      "actId": "TB2014032666",
+      "actName": "代金券10元",
+      "amount": 1000,
+      "code": "785227842",
+      "ebCode": "0000000004",
+      "ebName": "中国移动",
+      "endDate": "2016-04-15"
+    },
+    "couponType": 1
   }
   ```
 
@@ -88,34 +88,34 @@
 
   ```json
   {
-  	"codeInfo": {
-  		"actId": "TB2014032688",
-  		"actName": "可乐二选一",
-  		"code": "249916165",
-  		"ebCode": "0000000004",
-  		"ebName": "CMCC",
-  		"products": [{
-  				"number": 3,
-  				"payment": {
-  					"paid": 500,
-  					"remaining": 0
-  				},
-  				"pid": "0079020",
-  				"priceAct": 500
-  			},
-  			{
-  				"number": 3,
-  				"payment": {
-  					"paid": 110,
-  					"remaining": 0
-  				},
-  				"pid": "0380454",
-  				"priceAct": 110
-  			}
-  		],
-  		"endDate": "2016-04-15"
-  	},
-  	"couponType": 0
+    "codeInfo": {
+      "actId": "TB2014032688",
+      "actName": "可乐二选一",
+      "code": "249916165",
+      "ebCode": "0000000004",
+      "ebName": "CMCC",
+      "products": [{
+          "number": 3,
+          "payment": {
+            "paid": 500,
+            "remaining": 0
+          },
+          "pid": "0079020",
+          "priceAct": 500
+        },
+        {
+          "number": 3,
+          "payment": {
+            "paid": 110,
+            "remaining": 0
+          },
+          "pid": "0380454",
+          "priceAct": 110
+        }
+      ],
+      "endDate": "2016-04-15"
+    },
+    "couponType": 0
   }
   ```
 
@@ -123,38 +123,38 @@
 
   ```
   {
-  	"codeInfo": {
-  		"actId": "FM2015032401",
-  		"actName": "可乐二选一",
-  		"code": "905662028",
-  		"ebCode": "0000000004",
-  		"ebName": "CMCC",
-  		"groups": [{
-  			"gid": 1,
-  			"gmax": 2,
-  			"products": [{
-  					"number": 1,
-  					"payment": {
-  						"paid": 500,
-  						"remaining": 0
-  					},
-  					"pid": "2120249",
-  					"priceAct": 500
-  				},
-  				{
-  					"number": 1,
-  					"payment": {
-  						"paid": 500,
-  						"remaining": 0
-  					},
-  					"pid": "0115001",
-  					"priceAct": 500
-  				}
-  			]
-  		}],
-  		"endDate": "2016-04-05"
-  	},
-  	"couponType": 0
+    "codeInfo": {
+      "actId": "FM2015032401",
+      "actName": "可乐二选一",
+      "code": "905662028",
+      "ebCode": "0000000004",
+      "ebName": "CMCC",
+      "groups": [{
+        "gid": 1,
+        "gmax": 2,
+        "products": [{
+            "number": 1,
+            "payment": {
+              "paid": 500,
+              "remaining": 0
+            },
+            "pid": "2120249",
+            "priceAct": 500
+          },
+          {
+            "number": 1,
+            "payment": {
+              "paid": 500,
+              "remaining": 0
+            },
+            "pid": "0115001",
+            "priceAct": 500
+          }
+        ]
+      }],
+      "endDate": "2016-04-05"
+    },
+    "couponType": 0
   }
   ```
 
@@ -204,12 +204,21 @@
 
 ### 响应参数
 
-| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
-| --------------- | -------- | -------- | ------------ | ---------- |
-| actInfo         | Array    | 是       |              |            |
-| actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
-| actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
-| actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
+| **字段**                              | **类型** | **必填** | **举例**     | **说明**   |
+| ------------------------------------- | -------- | -------- | ------------ | ---------- |
+| actInfo                               | Array    | 是       |              |            |
+| actInfo\actId                         | String   | 是       | TB2014032666 | 活动编号   |
+| actInfo\actName                       | String   | 否       | 可乐半价     | 活动名称   |
+| actInfo\code                          | String   | 是       | 785227842    | 优惠券编号 |
+|discountInfo                           |Object    |是        |优惠信息      |优惠信息
+|discountInfo\discountAmount            |Object    |是        |100           |优惠总金额,单位分|
+|discountInfo\discountProducts          |Array     |否        |享受优惠商品信息|享受优惠商品信息,如果是指定商品可用，会校验商品白名单，非必填|
+|discountInfo\discountProducts\productId|String|否|133444111|非码商品ID|
+|discountInfo\discountProducts\customerCode|String|否|product123|商家自定义商品ID|
+|discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
+
+
+
 
 #### responseBody返回示例
 
@@ -221,7 +230,12 @@
             "actName": "可乐半价",
             "code": "785227842"
         }
-    ]
+    ],
+    "discountInfo": {
+        "discountAmount": 80,
+        "discountProducts": []
+      }
+
 }
 ```
 
@@ -269,12 +283,12 @@
             "ebCode": "0000000004",
             "products": [
                 {
-                    "consumeNum": 3,
+                    "consumeNum": 1,
                     "pid": "0079020",
                     "seq": 1
                 },
                 {
-                    "consumeNum": 4,
+                    "consumeNum": 1,
                     "pid": "0077842",
                     "seq": 2
                 }
@@ -292,24 +306,121 @@
 | actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
 | actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
 | actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
+|discountInfo|Object|是|优惠信息|优惠信息|
+|discountInfo\discountAmount|Object|是|100|优惠总金额,单位分|
+|discountInfo\discountProducts|Array|是|享受优惠商品信息|享受优惠商品信息|
+|discountInfo\discountProducts\productId|String|是|133444111|非码商品ID|
+|discountInfo\discountProducts\customerCode|String|是|product123|商家自定义商品ID|
+|discountInfo\discountProducts\discountNum|String|是|1|享受优惠的商品数量|
+
 
 #### responseBody返回示例
 
 ```json
 {
-    "actInfo": [
+  "actInfo": [{
+    "actId": "TB2014032666",
+    "actName": "可乐半价",
+    "code": "785227842"
+  }],
+  "discountInfo": {
+    "discountAmount": 80,
+    "discountProducts": [{
+        "productId": "0079020",
+        "customerCode": "354352",
+        "discountNum": 1
+      },
+      {
+        "productId": "0077842",
+        "customerCode": "3543521",
+        "discountNum": 1
+      }
+    ]
+  }
+}
+```
+## 1.2.3 卡券核销接口(折扣券）
+
+### 接口说明
+
+
+
+### 应用场景
+
+
+
+### 请求url：/coupon/redeem
+
+### 请求参数
+
+| **字段**                         | **类型** | **必填** | **举例**   | **说明**              |
+| -------------------------------- | -------- | -------- | ---------- | --------------------- |
+| storeId                          | String   | 是       | 208888     | 商家门店号            |
+| transId                          | String   | 是       | 1111       | 交易流水号            |
+| stationId                        | String   | 否       | 1          | 商家POS机编号         |
+| operatorId                       | String   | 否       | 2          | 营业员编号            |
+| businessDate                     | String   | 否       | 2015-07-01 | 营业日                |
+| transactions                     | Array    | 是       |            |                       |
+| transactions\code                | String   | 是       | 123456789  | 优惠券编号            |
+| transactions\ebCode              | String   | 否       | 0000000004 | 优惠券渠道商编号      |
+|transactions\totalAmount      | String   | 否       | 100 | 实际优惠总金额，折扣券是由应用层计算，非必填    |
+| transactions\products            | Array    | 否       |            | 享受折扣的商品，如果是指定商品享受折扣券，会校验商品白名单，非必填   |
+| transactions\products\pid        | String   | 否       | 123456789  | 核销商品编号          |
+| transactions\products\seq        | Integer  | 否      | 1          | 核销顺序，从1开始记数 |
+| transactions\products\consumeNum | Integer  | 否       | 1          | 核销个数              |
+
+#### requestBody请求示例
+
+```json
+{
+    "storeId": "208888",
+    "transId": 3,
+    "businessDate": "2015-07-01",
+    "transactions": [
         {
-            "actId": "TB2014032666",
-            "actName": "可乐半价",
-            "code": "785227842"
+            "code": "249916165",
+            "ebCode": "0000000004",
+            "totalAmount":"100",
+            "products": []
         }
     ]
 }
 ```
 
+### 响应参数
+
+| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
+| --------------- | -------- | -------- | ------------ | ---------- |
+| actInfo         | Array    | 是       |              |            |
+| actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
+| actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
+| actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
+|discountInfo|Object|是|优惠信息|优惠信息|
+|discountInfo\discountAmount|Object|是|100|优惠总金额,单位分|
+|discountInfo\discountProducts|Array|否|享受优惠商品信息|享受优惠商品信息|
+|discountInfo\discountProducts\productId|String|否|133444111|非码商品ID|
+|discountInfo\discountProducts\customerCode|String|否|product123|商家自定义商品ID|
+|discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
 
 
-## 1.2.3 卡券核销接口(M选N券）
+#### responseBody返回示例
+
+```json
+{
+  "actInfo": [{
+    "actId": "TB2014032666",
+    "actName": "可乐半价",
+    "code": "785227842"
+  }],
+  "discountInfo": {
+    "discountAmount": 100,
+    "discountProducts": []
+  }
+}
+```
+
+
+## 1.2.4 卡券核销接口(M选N券）
 
 ### 接口说明
 
