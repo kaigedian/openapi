@@ -582,7 +582,7 @@ result|返回结果|Object|返回结果
 
 参数|参数含义|类型|必填|说明
 ---|---|---|---|---
-productIds|菜单编号|List`<String>`|Y|菜单编号
+productIds|菜单编号|List|Y|菜单编号
 status|上下架状态|String|Y|上下架状态 1:上架 ；2：下架
 
 ### 请求示例
@@ -628,7 +628,7 @@ result|返回结果|Object|返回结果
 ---|---|---|---|---
 channel|渠道|String|Y|渠道
 storeId|门店编号|String|Y|门店编号
-invInfos|库存信息|List`<FullInvInfoVo>`|Y|库存信息
+invInfos|库存信息|List|Y|库存信息
 invInfos/customerCode|商品编号|String|Y|商品编号, maxLength = 50 ， 与productId至少填一个
 invInfos/productId|非码商品id|String|Y|非码商品id，与customerCode至少填一个
 invInfos/productName|商品名称|String|Y|商品名称
@@ -653,7 +653,7 @@ invInfos/virtualQty|虚拟库存数|Integer|N|虚拟库存数
 
 参数|参数含义|类型|说明
 ---|---|---|---
-batchResp|返回处理失败商品信息|List<BatchSynStoreStockInfo>|返回处理失败商品信息
+batchResp|返回处理失败商品信息|List|返回处理失败商品信息
 batchResp/productId|非码商品id|String|非码商品id
 batchResp/customerCode|商户商品id|String|商户商品id
 batchResp/errorMsg|处理错误描述|String|处理错误描述
@@ -695,22 +695,22 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/categoryName     | 商品后台分类编码名称| String  | N   | 商品后台分类编码名称                              |
 | productVo/customerCode     | 客户商品编码, 对应客户的系统的商品编码| String| N   | 客户商品编码, 对应客户的系统的商品编码|
 | productVo/detailText     | 富文本描述字段     | String              | N   | 富文本描述字段                           |
-| productVo/groupVos     | 商品详情     | List`<Array>`      | N   | 商品详情                                 |
+| productVo/groupVos     | 商品详情     | List     | N   | 商品详情                                 |
 | productVo/groupVos/partnerId|商户编号| String              | N   | 商户编号                                          |
 | productVo/groupVos/sequence|排序号   | Integer($int32)     | N   | 排序号                                            |
 | productVo/groupVos/specId|规格类型ID | String              | N   | 规格类型ID                                        |
 | productVo/groupVos/specName|规格类型名称| String           | N   | 规格类型名称                                      |
-| productVo/groupVos/specValueVos |规则值列表| List`<Array>` | N   | 规则值列表                                   |
+| productVo/groupVos/specValueVos |规则值列表| List| N   | 规则值列表                                   |
 | productVo/groupVos/specValueVos/sequence |排序号| integer($int32) | N   | 排序号                                       |
 | productVo/groupVos/specValueVos/specId |规格大类ID| String              | N   | 规格大类ID                                 |
 | productVo/groupVos/specValueVos/specValue |规格值| String              | N   | 规格值                                       |
 | productVo/groupVos/specValueVos/specValueId | 规格值ID | String | N | 规格值ID |
 | productVo/isProductNameAppendSpecName | 是否拼接商品名称和规格名称 | String | N | 0 是，1 否（默认0） |
-| productVo/listLabel | 商品标签 | List`<Array>` | N |                                                   |
+| productVo/listLabel | 商品标签 | List| N |                                                   |
 | productVo/labelId | 标签id | String | N |                                                   |
 | productVo/name | 标签名称 | String | N |                                                   |
 | productVo/sequence | 标签排序 | integer($int32) | N |                                                   |
-| productVo/listPAM | 商品属性加料 | List`<Array>` | N |                                                   |
+| productVo/listPAM | 商品属性加料 | List | N |                                                   |
 | productVo/listPAM/attributeId | attributeId不能为空 | String | Y |                                                   |
 | productVo/listPAM/attributeName | 属性名称 | String | N |                                                   |
 | productVo/listPAM/attributeType | 属性类型 | integer($int32) | N |                                                   |
@@ -719,7 +719,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/listPAM/status | 属性状态 | integer($int32) | N |                                        |
 | productVo/listPAM/price | 价格 | integer($int32) | N |                                                   |
 | productVo/listPAM/sequence | 排序 | integer($int32) |      |                                                   |
-| productVo/listSku                           |                                        | List`<Array>`   |      |                                                   |
+| productVo/listSku                           |                                        | List   |      |                                                   |
 | productVo/listSku/weight | 重量 | number($double) |      | 单位kg |
 | productVo/listSku/customerCode | skuCode | String |      |                                                   |
 | productVo/listSku/finalPrice | 价格 | integer($int32) |      |                                                   |
@@ -735,7 +735,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/listSku/stockQty | 商品库存数量 | integer($int32) |      |                                                   |
 | productVo/listSku/stockRule | 库存规则 | String |      |                                                   |
 | productVo/listSku/upc | upc | String | | upc |
-| productVo/listSku/skuSpecValues | 商品规格值 | List`<Array>` | | 单位kg |
+| productVo/listSku/skuSpecValues | 商品规格值 | List | | 单位kg |
 | productVo/listSku/skuSpecValues/productId | 商品id | String | | |
 | productVo/listSku/skuSpecValues/sequence | 排序 | integer($int32) | | |
 | productVo/listSku/skuSpecValues/specId | 规格Id | String | | |
@@ -748,7 +748,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/nid | 最小限制数量 | String | | |
 | productVo/nodeName | 菜单商品分类名称 | string | | |
 | productVo/packPrice | 商品包装价格 | integer($int32) | | |
-| productVo/productType | 商品类型 | list`<Array>` | Y | |
+| productVo/productType | 商品类型 | list | Y | |
 | productVo/rawMaterial | 原材料 | String | | |
 | productVo/remark | 商品描述 | String | | |
 | productVo/sequence | 排序 | integer($int32) | | |
@@ -763,7 +763,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/updateDate | 更新时间 | String | | |
 | productVo/updator | 更新人 | string | | |
 | productVo/weight | 重量 | number($double) | | |
-| productVo/picture | 商品图片 | list`<Array>` | | |
+| productVo/picture | 商品图片 | list | | |
 | productVo/picture/pictureUrl | 商品图片 | string | Y | |
 | productVo/picture/sequence | 排序 | integer($int32) | | |
 | productVo/picture/id | id | integer($int64) | | |
@@ -851,22 +851,22 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/categoryName     | 商品后台分类编码名称| String  | N   | 商品后台分类编码名称                              |
 | productVo/customerCode     | 客户商品编码, 对应客户的系统的商品编码| String| N   | 客户商品编码, 对应客户的系统的商品编码|
 | productVo/detailText     | 富文本描述字段     | String              | N   | 富文本描述字段                           |
-| productVo/groupVos     | 商品详情     | List`<Array>`      | N   | 商品详情                                 |
+| productVo/groupVos     | 商品详情     | List      | N   | 商品详情                                 |
 | productVo/groupVos/partnerId|商户编号| String              | N   | 商户编号                                          |
 | productVo/groupVos/sequence|排序号   | Integer($int32)     | N   | 排序号                                            |
 | productVo/groupVos/specId|规格类型ID | String              | N   | 规格类型ID                                        |
 | productVo/groupVos/specName|规格类型名称| String           | N   | 规格类型名称                                      |
-| productVo/groupVos/specValueVos |规则值列表| List`<Array>` | N   | 规则值列表                                   |
+| productVo/groupVos/specValueVos |规则值列表| List | N   | 规则值列表                                   |
 | productVo/groupVos/specValueVos/sequence |排序号| integer($int32) | N   | 排序号                                       |
 | productVo/groupVos/specValueVos/specId |规格大类ID| String              | N   | 规格大类ID                                 |
 | productVo/groupVos/specValueVos/specValue |规格值| String              | N   | 规格值                                       |
 | productVo/groupVos/specValueVos/specValueId | 规格值ID | String | N | 规格值ID |
 | productVo/isProductNameAppendSpecName | 是否拼接商品名称和规格名称 | String | N | 0 是，1 否（默认0） |
-| productVo/listLabel | 商品标签 | List`<Array>` | N |                                                   |
+| productVo/listLabel | 商品标签 | List | N |                                                   |
 | productVo/labelId | 标签id | String | N |                                                   |
 | productVo/name | 标签名称 | String | N |                                                   |
 | productVo/sequence | 标签排序 | integer($int32) | N |                                                   |
-| productVo/listPAM | 商品属性加料 | List`<Array>` | N |                                                   |
+| productVo/listPAM | 商品属性加料 | List | N |                                                   |
 | productVo/listPAM/attributeId | attributeId不能为空 | String | Y |                                                   |
 | productVo/listPAM/attributeName | 属性名称 | String | N |                                                   |
 | productVo/listPAM/attributeType | 属性类型 | integer($int32) | N |                                                   |
@@ -875,7 +875,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/listPAM/status | 属性状态 | integer($int32) | N |                                        |
 | productVo/listPAM/price | 价格 | integer($int32) | N |                                                   |
 | productVo/listPAM/sequence | 排序 | integer($int32) |      |                                                   |
-| productVo/listSku                           |                                        | List`<Array>`   |      |                                                   |
+| productVo/listSku                           |                                        | List  |      |                                                   |
 | productVo/listSku/weight | 重量 | number($double) |      | 单位kg |
 | productVo/listSku/customerCode | skuCode | String |      |                                                   |
 | productVo/listSku/finalPrice | 价格 | integer($int32) |      |                                                   |
@@ -891,7 +891,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/listSku/stockQty | 商品库存数量 | integer($int32) |      |                                                   |
 | productVo/listSku/stockRule | 库存规则 | String |      |                                                   |
 | productVo/listSku/upc | upc | String | | upc |
-| productVo/listSku/skuSpecValues | 商品规格值 | List`<Array>` | | 单位kg |
+| productVo/listSku/skuSpecValues | 商品规格值 | List | | 单位kg |
 | productVo/listSku/skuSpecValues/productId | 商品id | String | | |
 | productVo/listSku/skuSpecValues/sequence | 排序 | integer($int32) | | |
 | productVo/listSku/skuSpecValues/specId | 规格Id | String | | |
@@ -904,7 +904,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/nid | 最小限制数量 | String | | |
 | productVo/nodeName | 菜单商品分类名称 | string | | |
 | productVo/packPrice | 商品包装价格 | integer($int32) | | |
-| productVo/productType | 商品类型 | list`<Array>` | Y | |
+| productVo/productType | 商品类型 | list | Y | |
 | productVo/rawMaterial | 原材料 | String | | |
 | productVo/remark | 商品描述 | String | | |
 | productVo/sequence | 排序 | integer($int32) | | |
@@ -919,7 +919,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/updateDate | 更新时间 | String | | |
 | productVo/updator | 更新人 | string | | |
 | productVo/weight | 重量 | number($double) | | |
-| productVo/picture | 商品图片 | list`<Array>` | | |
+| productVo/picture | 商品图片 | list | | |
 | productVo/picture/pictureUrl | 商品图片 | string | Y | |
 | productVo/picture/sequence | 排序 | integer($int32) | | |
 | productVo/picture/id | id | integer($int64) | | |

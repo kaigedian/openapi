@@ -14,11 +14,13 @@
 | 字段      | 类型   | 是否必传                        | 举例               | 说明   |
 | -------- | ------ | ------------------------------- | ------------------ | ------ |
 | partnerId | String | 是                              | 1864               | 商户id |
-| memberId  | String | 是/否(memberId与mobile、dynamicCode必传一个) | 115589208394311926 | 会员id |
-| mobile    | String | 是/否 (memberId与mobile、dynamicCode必传一个)                          | 18616703980        | 手机号 |
-| dynamicCode    | String | 是/否 (memberId与mobile、dynamicCode必传一个)                          | 动态码    | 动态码 |
+| memberId  | String | 是/否| 115589208394311926 | 会员id |
+| mobile    | String | 是/否                          | 18616703980        | 手机号 |
+| dynamicCode    | String | 是/否                         | 小程序动态码   | 动态码 |
 | showScoreSwitch    | Integer | 否   | | 是否查询积分 1：是；2：否  默认否|
 | showCouponSwitch    | Integer | 否  | | 是否查询优惠券 1：是；2：否 默认否|
+
+(memberId与mobile、dynamicCode必传一个)
 
 #### 请求示例
 
@@ -141,7 +143,7 @@
 | memberList/memberId                  | String       |                    | 会员编号                            |
 | memberList/nickName                  | String       |                    | 昵称                                |
 | memberList/mobile                    | String       |                    | 手机号                              |
-| memberList/labels                    | List`<String>` |                    | 会员标签集合                        |
+| memberList/labels                    | List         |                    | 会员标签集合                        |
 | memberList/registerTime              | Date         |                    | 注册时间{格式：yyyy-MM-dd HH:mm:ss} |
 | memberList/memberPaidList/paidName   | String       |                    | 付费会员卡名称                      |
 | memberList/memberPaidList/expiryTime | String       | 付费会员卡到期时间 |                                     |
