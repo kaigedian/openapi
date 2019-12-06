@@ -141,7 +141,7 @@
 | memberList/memberId                  | String       |                    | 会员编号                            |
 | memberList/nickName                  | String       |                    | 昵称                                |
 | memberList/mobile                    | String       |                    | 手机号                              |
-| memberList/labels                    | List<String> |                    | 会员标签集合                        |
+| memberList/labels                    | List`<String>` |                    | 会员标签集合                        |
 | memberList/registerTime              | Date         |                    | 注册时间{格式：yyyy-MM-dd HH:mm:ss} |
 | memberList/memberPaidList/paidName   | String       |                    | 付费会员卡名称                      |
 | memberList/memberPaidList/expiryTime | String       | 付费会员卡到期时间 |                                     |
