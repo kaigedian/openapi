@@ -181,8 +181,20 @@
 | ThirdPartCode | String |  |  | 第三方编号 |
 | StoreMobile | String |  |  | 门店手机号 |
 | customerServicePhone | String |  |  | 客服电话 021-1111111 |
-| thirdPartyStoreNumber | String |  |  | 第三方门店编号{"mt"："111","mtws":"222","dp"："333","ele":"444"} |
+| platformStoreIds | List ||| 平台门店Id{"channelCode":"mt","storeId":"231234"}
 
+### channelCode
+| 字段      | 类型   |
+| :-------- | ------ |
+| channelName|  channelCode|
+| 京东外卖|  jdwm|
+| 滴滴外卖|  ddwm|
+| 饿了么外卖|  eleme|
+| 百度外卖|  bdwm|
+| 小程序|  mall|
+| 美团外卖|  mtwm|
+| 饿百外卖|  ebwm|
+| 口碑外卖|  koubeiwaimai|
 
 #### requestBody请求示例
 
@@ -742,8 +754,9 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
 | partnerId | String | 是 |  | 商户编号 |
 | organizationCode | String | 是 |组织机构编码  |
 | organizationName | String | 是 | 组织名称 |
-| typeFlag | String | 是 | 组织类型 1：总公司2：公司3：门店|
+| typeFlag | String | 是 | 组织类型 1：总公司2：公司 |
 | activeFlag | String | 是 | 组织状态 默认为1, 0无效 1有效|
+| parentCode | String | 否 | 父级组织机构code typeFlag类型为1时parentCode可以为空，其余必填|
 
 
 #### requestBody请求示例
