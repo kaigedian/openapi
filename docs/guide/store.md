@@ -745,18 +745,14 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
 
 ## 组织机构同步(新增、修改)
 
-### 请求url: /organization/sync
+### 请求url: /store/getStoreChannels
 
 ### 请求参数
 
 | 字段      | 类型   | 是否必传 | 举例               | 说明   |
 | :-------- | ------ | -------- | ------------------ | ------ |
-| partnerId | String | 是 |  | 商户编号 |
-| organizationCode | String | 是 |组织机构编码  |
-| organizationName | String | 是 | 组织名称 |
-| typeFlag | String | 是 | 组织类型 1：总公司2：公司 |
-| activeFlag | String | 是 | 组织状态 默认为1, 0无效 1有效|
-| parentCode | String | 否 | 父级组织机构code typeFlag类型为1时parentCode可以为空，其余必填|
+| storeId | String | 是 |门店编码  |
+
 
 
 #### requestBody请求示例
@@ -765,7 +761,7 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
 {
     "appId":"2eb5c8f1170246429755e6dac313f89d",
     "partnerId":"1864",
-    "requestBody":"{\"organizationCode\":\"11111\",\"organizationName\":\"10\"}",
+    "requestBody":"{\"storeId\":\"11111\"}",
     "sign":"skip",
     "ver":"1"
 }
@@ -781,6 +777,7 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
     "ver": "1",
     "statusCode": "100",
     "message": "成功",
+    "responseBody": "{\"eleme\":1231,\"mtwm\":\"123123\"}",
     "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
 }
 ```

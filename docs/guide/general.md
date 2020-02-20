@@ -110,3 +110,4 @@ appId=2038&partnerId=2018&requestBody={"orderCode":"1023987523084","operator":"�
 | 1.1.4 | 退款订单查询返回新增refundstatus字段 | 侯书虎 | 2019年07月19日 |
 | 1.1.5 | 新增历史订单查询接口 | 伍平 | 2019年07月23日 |
 | 1.1.6 | 新增兑换码活动查询接口 | 胡敬轩 | 2019年08月14日 |
+| 1.9.11 | 删除/organization/sync，新增/store/getStoreChannels | 罗文雄 | 2020年02月20日 |
