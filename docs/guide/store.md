@@ -182,6 +182,8 @@
 | StoreMobile | String |  |  | 门店手机号 |
 | customerServicePhone | String |  |  | 客服电话 021-1111111 |
 | platformStoreIds | List ||| 平台门店Id{"channelCode":"mt","storeId":"231234"}
+| splicingStoreName | Integer |  |  | 这个字段为1会进行门店名称拼接操作 |
+| concatenateString | String |  |  | 需要拼接的字符串会用门店名称替换字符串中的英文（#） |
 
 ### channelCode
 | 字段      | 类型   |
