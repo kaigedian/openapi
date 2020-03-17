@@ -745,7 +745,7 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
 | 100    | 成功 |
 
 
-## 组织机构同步(新增、修改)
+## 查询门店外卖平台信息
 
 ### 请求url: /store/getStoreChannels
 
@@ -753,7 +753,8 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
 
 | 字段      | 类型   | 是否必传 | 举例               | 说明   |
 | :-------- | ------ | -------- | ------------------ | ------ |
-| storeId | String | 是 |门店编码  |
+| storeCode | String | 是 |门店编码  |
+| partnerId | String | 是 | 商户编号 |
 
 
 
