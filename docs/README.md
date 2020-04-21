@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /kaigedian.png
-heroText: 开个店开放平台接口文档
+heroText: 非码云开放平台接口文档
 tagline: 自助接入，对接开个店核心能力
 actionText: 快速上手 →
 actionLink: /guide/general
