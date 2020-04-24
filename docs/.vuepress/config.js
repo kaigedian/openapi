@@ -1,6 +1,6 @@
 module.exports = {
   base: '/openapi/',
-  title: '开个店开放平台',
+  title: '非码云开放平台',
   description: '开个店，每个品牌都有自己的平台',
   head: [
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/x-icon' }]
@@ -50,7 +50,7 @@ module.exports = {
         // link: 'https://github.com/kaigedian/openapi-demo'
       },
       {
-        text: '开个店商户后台',
+        text: '非码万象商户后台',
         link: 'https://micro.sandload.cn'
       },
       {

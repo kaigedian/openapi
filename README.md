@@ -1,5 +1,5 @@
 # openapi
-开个店开放平台接口文档
+非码云开放平台接口文档
 
 在线文档地址：https://kaigedian.github.io/openapi/
 
