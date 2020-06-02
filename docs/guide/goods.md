@@ -776,8 +776,7 @@ count|处理错误商品列表条数|Integer|处理错误商品列表条数
 | productVo/productComboInfos/productId | 商品id | String| || |
 | productVo/productComboInfos/quantity | 数量,默认值1 | integer| || |
 | productVo/productComboInfos/sequence | 商品排序信息 | integer| || |
-|  |  |  | | |
-|  |  |  | | |
+
 
 #### requestBody请求示例
 
