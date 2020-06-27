@@ -18,33 +18,41 @@
 ### 请求参数
 |   字段    |  类型  | 是否必传 |                    说明                     |
 | -------|  ----|  ------|  --------------------------------|
-|thirdOrderCode| String |否| 第三方平台(饿了么或者美团等)订单号|
 |storeId|String|是|下单门店号|
+|thirdStoreId   | String | 是       | 下单门店号，第三方门店编号，storeId和thirdStoreId二选一 |
 |storeName|String|是|门店名称|
-|actualPayAmount|Integer|是|实际支付金额（分）|
+|posCode|String|否|pos编号|
+|thirdOrderCode| String |否| 第三方平台(饿了么或者美团等)订单号|
 |originalAmount|Integer|是|订单原金额（分）|
+|actualPayAmount|Integer|是|实际支付金额（分）|
+|discountAmount|Int|否|折扣总金额（分）
 |barCounter|String|否|桌台号|
 |canRefund|Boolean|是|是否能退货|
 |needInvoice|Boolean|否|是否需要开发票|
 |orderInvoice|Object|否|发票信息,暂不支持|
 |orderClient|Integer|是|下单渠道|
-|note|String|否|订单备注|
 |orderStatus|Integer|是|订单状态（见字段描述）|
 |orderType|Integer|是|订单类型（见字段描述）|
-|payChannel|String|否|支付渠道|
-|payChannelName|String|否|支付渠道名称|
-|payStatus|Integer|否|支付状态（见字段描述）|
-|payType|Integer|否|支付类型（见字段描述）|
-|payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
-|posCode|String|否|pos编号|
 |operator|String|否|操作人|
 |userId|String|是|用户id|
 |userName|String|否|用户姓名|
 |needBonus|Integer|是|是否赠送积分0是1否 暂不支持保存|
+|note|String|否|订单备注|
+|couponCode|String|否|券码code|
+|payChannel|String|否|支付渠道|
+|payChannelName|String|否|支付渠道名称|
+|payStatus|Integer|否|支付状态（见字段描述）|
+|payType|Integer|否|支付类型（见字段描述）|
+|payAmount|Int|否|支付金额|
+|payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
 |orderItemList|Array||订单商品信息|
+|orderItemList/categoryId|String|否|商品分类如果商品分类有多级<br/>则表示商品上一级分类如：
+|orderItemList/categoryName|String|否|商品分类名称
+|orderItemList/thirdCateCode|String|否|商家商品分类编号
 |orderItemList/productSeq|Integer|是|商品序号|
 |orderItemList/productId|String|是|商品编号|
 |orderItemList/thirdProductId|String|否|商家商品编号|
+|orderItemList/needBonus|Int|是|是否算积分0：不加积分 1：加积分
 |orderItemList/productName|String|是|商品名称|
 |orderItemList/productPrice|Integer|是|商品单价（分）|
 |orderItemList/productQuantity|Integer|是|数量|
