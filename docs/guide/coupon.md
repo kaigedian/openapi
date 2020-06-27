@@ -1,17 +1,16 @@
 # 券码类接口
 
-## 查询
-
-### 接口说明
-# **1.1** 卡券查询接口
+## 1.1 卡券查询接口
 
 ### 应用场景
 
-此接口针对线下卡券查询
+> 此接口针对线下卡券查询
 
-### 请求url：/coupon/query
+* 请求地址
+  `/coupon/query`
 
-### 请求参数
+* 请求参数
+
 | 字段       | 类型   | 是否必传 | 举例      | 说明          |
 | :--------- | ------ | -------- | --------- | ------------- |
 | storeId    | String | 是       | 208888    | 商家门店号    |
@@ -19,7 +18,7 @@
 | stationId  | String | 否       | 1         | 商家POS机编号 |
 | operatorId | String | 否       | 2         | 营业员编号    |
 
-#### requestBody请求示例
+* requestBody请求示例
 
 ```json
 {
@@ -28,8 +27,7 @@
 }
 ```
 
-### 响应参数
-
+* 响应参数
 
 
 | **字段**                            | **类型** | **必填** | **举例**      | **说明**                                                     |
@@ -63,7 +61,7 @@
 | codeInfo\groups\gMax                | Integer  | 是       | 1             | 该组对应的所有商品总最多可选商品数量                         |
 | codeInfo\groups\products            | Array    | 是       |               | 同codeInfo\products                                          |
 
-#### responseBody返回示例
+* responseBody返回示例
 
 - 代金券返回
 
@@ -158,22 +156,71 @@
   }
   ```
 
+## 1.2 券核销
+
+### 应用场景
+> 优惠券使用接口，此接口会判断券折扣规则并返回折扣信息。
+> 调用此接口后券会被使用掉。
+> POS需要使用优惠券的场景包括:营业员模式和C端用户出示模式
+
+### 请求url
+
+  `coupon/couponApply`
+
+* 请求参数 requestBody
+
+  | 字段           | 类型   | 是否必填 | 说明               |
+  | -------------- | ------ | -------- | ------------------ |
+  |storeId        | String | 否       | 开个店对应的门店ID |
+  |thirdStoreId   | String | 是       | 第三方门店编号     |
+  |thirdOrderCode | String | 是       | 第三方订单号       |
+  |operatorId|String|否|操作人ID
+  |memberId|String|否|非码平台会员id如果没有传<br/>则需要通过券码查找会员ID|
+  |useFlag|Int|否|0-不使用 1-使用|
+  |coupons|List|||
+  |└code|String|是|优惠券Code|
+  |transactions|List|是||
+  |└productCode|String|是|商品编码（农工商）|
+  |└productName|String|是|商品名称|
+  |└productPrice|Int|是|商品价格（单位分）|
+  |└productQuantity|Int|是|商品数量|
+  |└categoryCode|String|是|商品分类编码|
+  |└categoryName|String|是|商品分类名称|
+
+* 响应参数
+
+  | 字段                          | 类型   | 是否必填 | 说明       |
+  | ----------------------------- | ------ | -------- | ---------- |
+  | memberId                      | String | 是       | 会员ID     |
+  | mobile | String | 是       | 会员手机号 |
+  |discountAmount|Int|是|券折扣的总金额<br/>如果使用多张则是多张折扣的金额总和
+  |discountInfo|Array|是|每个券使用的折扣信息|
+  |└actId|String|是|活动ID
+  |└actName|String|否|活动名称
+  |└thirdActCode|String|否|第三方活动编号
+  |└couponName|String|是|优惠券名称
+  |└couponCode|String|是|优惠券编号
+  |└couponType|Int|是|优惠券类型：0-商品券 1-代金券
+  |└discountAmount|Int|是|优惠折扣的金额
+  |└discountProducts|Array|是|享受优惠券的商品信息
+  |└└productId|String|是|非码商品ID
+  |└└customerCode|String|是|商家自定义商品编码
+  |└└discountQty|Int|否|享受优惠的商品数量
 
 
-# **1.2** 卡券核销接口
 
-****
 
 ## **1.2.1** 卡券核销（代金券）接口
 
 ### 接口说明
-###
-
-### 应用场景
+  >旧接口，不建议继续使用
 
 
-###  请求url：/coupon/redeem
-### 请求参数
+*  请求地址
+  `/coupon/redeem`
+
+* 请求参数
+
 | **字段**            | **类型** | **必填** | **举例**   | **说明**         |
 | ------------------- | -------- | -------- | ---------- | ---------------- |
 | storeId             | String   | 是       | 208888     | 商家门店号       |
@@ -202,7 +249,7 @@
 }
 ```
 
-### 响应参数
+* 响应参数
 
 | **字段**                              | **类型** | **必填** | **举例**     | **说明**   |
 | ------------------------------------- | -------- | -------- | ------------ | ---------- |
@@ -218,9 +265,7 @@
 |discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
 
 
-
-
-#### responseBody返回示例
+* responseBody返回示例
 
 ```json
 {
@@ -244,16 +289,13 @@
 ## 1.2.2 卡券核销接口(商品券）
 
 ### 接口说明
+> 旧接口，不建议继续使用
 
 
+* 请求地址
+  `/coupon/redeem`
 
-### 应用场景
-
-
-
-### 请求url：/coupon/redeem
-
-### 请求参数
+* 请求参数
 
 | **字段**                         | **类型** | **必填** | **举例**   | **说明**              |
 | -------------------------------- | -------- | -------- | ---------- | --------------------- |
@@ -270,7 +312,7 @@
 | transactions\products\seq        | Integer  | 是       | 1          | 核销顺序，从1开始记数 |
 | transactions\products\consumeNum | Integer  | 是       | 1          | 核销个数              |
 
-#### requestBody请求示例
+* requestBody请求示例
 
 ```json
 {
@@ -298,7 +340,7 @@
 }
 ```
 
-### 响应参数
+* 响应参数
 
 | **字段**        | **类型** | **必填** | **举例**     | **说明**   |
 | --------------- | -------- | -------- | ------------ | ---------- |
@@ -314,7 +356,7 @@
 |discountInfo\discountProducts\discountNum|String|是|1|享受优惠的商品数量|
 
 
-#### responseBody返回示例
+* responseBody返回示例
 
 ```json
 {
@@ -342,16 +384,13 @@
 ## 1.2.3 卡券核销接口(折扣券）
 
 ### 接口说明
+> 旧接口，不建议继续使用
 
 
+* 请求地址
+  `/coupon/redeem`
 
-### 应用场景
-
-
-
-### 请求url：/coupon/redeem
-
-### 请求参数
+* 请求参数
 
 | **字段**                         | **类型** | **必填** | **举例**   | **说明**              |
 | -------------------------------- | -------- | -------- | ---------- | --------------------- |
@@ -369,7 +408,7 @@
 | transactions\products\seq        | Integer  | 否      | 1          | 核销顺序，从1开始记数 |
 | transactions\products\consumeNum | Integer  | 否       | 1          | 核销个数              |
 
-#### requestBody请求示例
+* requestBody请求示例
 
 ```json
 {
@@ -387,7 +426,7 @@
 }
 ```
 
-### 响应参数
+* 响应参数
 
 | **字段**        | **类型** | **必填** | **举例**     | **说明**   |
 | --------------- | -------- | -------- | ------------ | ---------- |
@@ -403,7 +442,7 @@
 |discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
 
 
-#### responseBody返回示例
+* responseBody返回示例
 
 ```json
 {
@@ -423,16 +462,13 @@
 ## 1.2.4 卡券核销接口(M选N券）
 
 ### 接口说明
+> 旧接口，不建议继续使用
 
 
+* 请求地址
+  `/coupon/redeem`
 
-### 应用场景
-
-
-
-### 请求url：/coupon/redeem
-
-### 请求参数
+* 请求参数
 
 | **字段**                         | **类型** | **必填** | **举例**   | **说明**                 |
 | -------------------------------- | -------- | -------- | ---------- | ------------------------ |
@@ -450,7 +486,7 @@
 | transactions\products\consumeNum | Integer  | 是       | 1          | 核销个数                 |
 | transactions\products\gid        | Integer  | 是       | 2          | 核销对应的M选N商品组编号 |
 
-#### requestBody请求示例
+* requestBody请求示例
 
 ```json
 {
@@ -478,7 +514,7 @@
 }
 ```
 
-### 响应参数
+* 响应参数
 
 | **字段**        | **类型** | **必填** | **举例**     | **说明**   |
 | --------------- | -------- | -------- | ------------ | ---------- |
@@ -487,7 +523,7 @@
 | actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
 | actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
 
-#### responseBody返回示例
+* responseBody返回示例
 
 ```json
 {
@@ -501,19 +537,17 @@
 }
 ```
 
-# 1.3 卡券冲正接口
+## 1.3 卡券冲正接口
 
 ### 接口说明
 
-**NOTE：请求参数为核销的参数，只需要把reqType 修改为3,其他的参数不变(其他的参数一定要和之前核销的参数一样)**
-
-### 应用场景
+> **NOTE：请求参数为核销的参数，只需要把reqType 修改为3,其他的参数不变(其他的参数一定要和之前核销的参数一样)**
 
 
+* 请求地址
+  `/coupon/reverse`
 
-### 请求url：/coupon/reverse
-
-### 请求参数
+* 请求参数
 
 | **字段**          | **类型** | **必填** | **举例**  | **说明**      |
 | ----------------- | -------- | -------- | --------- | ------------- |
@@ -526,7 +560,7 @@
 
 
 
-#### requestBody请求示例
+* requestBody请求示例
 
 ```json
 {
@@ -540,18 +574,15 @@
 }
 ```
 
-### 响应参数
+* 响应参数
 
 无
 
-#### responseBody返回示例
+* responseBody返回示例
 
 ```json
 
 ```
-
-
-
 
 
 ## 状态码
