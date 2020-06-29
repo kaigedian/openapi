@@ -156,7 +156,77 @@
   }
   ```
 
-## 1.2 券核销
+
+## 1.2 券批量查询
+
+### 应用场景
+> 批量查询券的问题
+
+* 请求地址
+  ` /coupon/batch/query`
+
+* 请求参数
+  
+| **字段**          | **类型** | **必填** | **举例**  | **说明**      |
+| ----------------- | -------- | -------- | --------- | ------------- |
+| partnerId           | String | 是     | 2034    | 商户号    |
+| storeId           | String   | 非      | 208888    | 商家门店号    |
+| couponCodes       | string []   | 是   | ["123","456","789"]   | 需要查询的券码列表ID的数组     |
+
+
+* 响应参数
+
+| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
+| --------------- | -------- | -------| ----------- | ---------- |
+| couponInfos      | Array  | 是    |        |    券信息数组    |
+| couponInfos/couponType      | integer  | 是    |        |    券类型    |
+| couponInfos/channel       | string     | 是    |        |    渠道   |
+| couponInfos/codeInfo    | Object   | 是      |      | 券明细   |
+| codeInfo/code_state     | integer | 是 |      | 券状态                   |      |
+| codeInfo/act_id         | string  | 是 |      | 活动编号                 |      |
+| codeInfo/act_name       | string  | 是 |      | 活动名称                 |      |
+| codeInfo/vdata          | string  | 是 |      | 有效时间 yyyy-MM-dd      |      |
+| codeInfo/code           | string  | 是 |      | 券号                     |      |
+| codeInfo/ebcode         | string  | 是 |      | 优惠券渠道商编号         |      |
+| codeInfo/ebname         | string  | 是 |      | 优惠券渠道商名称         |      |
+| codeInfo/amount         | integer | 是 |      | 代金券金额                      |      |
+| codeInfo/salePrice      | integer | 是 |      | 活动价                   |      |
+| codeInfo/originalPrice  | integer | 是 |      | 商品原价                 |      |
+| codeInfo/paid           | integer | 是 |      | 线上已付金额，以分为单位 |      |
+| codeInfo/products     | Array  | 非 |      |           |  商品券商品信息   |
+| └products/pid                   | string  | 是 |      | 商品ID       |      |
+| └products/name                  | string  | 是 |      | 商品名称     |      |
+| 　　└products/number                | integer | 是 |      | 商品数量     |      |
+| 　　└products/price_act             | integer | 是 |      | 活动价       |      |
+| 　　└products/price_original        | integer | 是 |      | 原价         |      |
+| 　　└products/merchantdiscountprice | integer | 是 |      | 商户优惠金额 |      |
+| 　　└products/platformdiscountprice | integer | 是 |      | 平台优惠金额 |      |
+| 　　└products/otherdiscountprice    | integer | 是 |      | 其他优惠金额 |      |
+| 　　└products/pricediscount         | integer | 是 |      | 优惠总金额   |      |
+| └products/payment     | Array  | 是 |      |           |  支付信息   |
+| └└payment/paid      | integer | 是 |      | 线上已付金额，分   |      |
+| └└payment/remaining | integer | 是 |      | 线下需收取金额，分 |      |
+| codeInfo/groups     | Array  | 非 |      |        |  商品券商品组信息,只有M选N商品券时返回。商品券对应的商品组信息	|
+| └groups/gid  | integer | 是 |      |  组ID                 |      |
+| └groups/gmax | integer | 是 |      | M选N商品券，该组对应的所有商品总最多可选商品数量 |      |
+| └groups/products     | Array  | 非 |      |           |  商品券商品信息   |
+| └└products/pid                   | string  | 是 |      | 商品ID       |      |
+| └└products/name                  | string  | 是 |      | 商品名称     |      |
+| 　　└└products/number                | integer | 是 |      | 商品数量     |      |
+| 　　└└products/price_act             | integer | 是 |      | 活动价       |      |
+| 　　└└products/price_original        | integer | 是 |      | 原价         |      |
+| 　　└└products/merchantdiscountprice | integer | 是 |      | 商户优惠金额 |      |
+| 　　└└products/platformdiscountprice | integer | 是 |      | 平台优惠金额 |      |
+| 　　└└products/otherdiscountprice    | integer | 是 |      | 其他优惠金额 |      |
+| 　　└└products/pricediscount         | integer | 是 |      | 优惠总金额   |      |
+| └└products/payment     | Array  | 是 |      |           |  支付信息   |
+| └└└payment/paid      | integer | 是 |      | 线上已付金额，分   |      |
+| └└└payment/remaining | integer | 是 |      | 线下需收取金额，分 |      |
+
+
+
+
+## 1.3 券核销
 
 ### 应用场景
 > 优惠券使用接口，此接口会判断券折扣规则并返回折扣信息。
@@ -210,7 +280,7 @@
 
 
 
-## **1.2.1** 卡券核销（代金券）接口
+## **1.3.1** 卡券核销（代金券）接口
 
 ### 接口说明
   >旧接口，不建议继续使用
@@ -286,7 +356,7 @@
 
 
 
-## 1.2.2 卡券核销接口(商品券）
+## 1.3.2 卡券核销接口(商品券）
 
 ### 接口说明
 > 旧接口，不建议继续使用
@@ -381,7 +451,7 @@
   }
 }
 ```
-## 1.2.3 卡券核销接口(折扣券）
+## 1.3.3 卡券核销接口(折扣券）
 
 ### 接口说明
 > 旧接口，不建议继续使用
@@ -459,7 +529,7 @@
 ```
 
 
-## 1.2.4 卡券核销接口(M选N券）
+## 1.3.4 卡券核销接口(M选N券）
 
 ### 接口说明
 > 旧接口，不建议继续使用
@@ -537,9 +607,10 @@
 }
 ```
 
-## 1.3 卡券冲正接口
 
-### 接口说明
+## 1.4 卡券冲正接口
+
+### 应用场景
 
 > **NOTE：请求参数为核销的参数，只需要把reqType 修改为3,其他的参数不变(其他的参数一定要和之前核销的参数一样)**
 
