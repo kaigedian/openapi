@@ -41,6 +41,10 @@ module.exports = {
           {
             text: '商品类API',
             link: '/guide/goods'
+          },
+          {
+            text: '配送类API',
+            link: '/guide/distribution'
           }
         ]
       },
@@ -67,6 +71,7 @@ module.exports = {
       '/guide/promotion',
       '/guide/coupon',
       '/guide/goods',
+      '/guide/distribution',
       '/guide/demo'
     ],
     displayAllHeaders: true,
