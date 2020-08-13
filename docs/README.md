@@ -12,5 +12,5 @@ features:
   details: 面向第三方软硬件等 ISV 合作伙伴，提供标准化的应用
 - title: 定制型
   details: 面向定向邀请的开发者，提供定制化开发，或为特定行业提供行业应用
-footer: Copyright © 2013-2019 上海非码网络科技有限公司
+footer: Copyright © 2013-2020 上海非码网络科技有限公司
 ---

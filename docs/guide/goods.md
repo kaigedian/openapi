@@ -429,7 +429,6 @@
 ### 返回示例
 
 ```json
-
 {
   "ver": "1",
   "statusCode": "100",
@@ -528,7 +527,6 @@ responseBody返回示例
   "requestBody":"{\"pageNum\":1,\"pageSize\":10}",
   "sign": "sign"
 }
-
 ```
 
 ### 响应参数
@@ -581,7 +579,6 @@ responseBody返回示例
   "requestBody":"{\"menuId\":\"146682059538214920\",\"storeId\":\"101\"}",
   "sign": "sign"
 }
-
 ```
 
 ### 响应参数
@@ -708,15 +705,13 @@ responseBody返回示例
 | productVo/picture/id | id | integer($int64) | | |
 | productVo/weightType |  称重类型:1.称重菜 | integer($int64) | | |
 | productVo/isDishware | 是否是餐具商品 1:餐具商品 | integer($int64) || |
-| productVo/packageProductTypes | 套餐可选商品集合 | Object| || |
-| productVo/packageProductTypes/groupId | 商品组ID | String| || |
-| productVo/packageProductTypes/sequence | 商品组顺序 | integer| || |
-| productVo/productComboInfos | 套餐固定搭配集合 | Object| || |
-| productVo/productComboInfos/productId | 商品id | String| || |
-| productVo/productComboInfos/quantity | 数量,默认值1 | integer| || |
-| productVo/productComboInfos/sequence | 商品排序信息 | integer| || |
-|  |  |  | | |
-|  |  |  | | |
+| productVo/packageProductTypes | 套餐可选商品集合 | Object| ||
+| productVo/packageProductTypes/groupId | 商品组ID | String| ||
+| productVo/packageProductTypes/sequence | 商品组顺序 | integer| ||
+| productVo/productComboInfos | 套餐固定搭配集合 | Object| ||
+| productVo/productComboInfos/productId | 商品id | String| ||
+| productVo/productComboInfos/quantity | 数量,默认值1 | integer| ||
+| productVo/productComboInfos/sequence | 商品排序信息 | integer| ||
 
 #### 请求示例
 
@@ -841,17 +836,15 @@ responseBody返回示例
 | productVo/picture/id | id | integer($int64) | | |
 | productVo/weightType |  称重类型:1.称重菜 | integer($int64) | | |
 | productVo/isDishware | 是否是餐具商品 1:餐具商品 | integer($int64) || |
-| productVo/packageProductTypes | 套餐可选商品集合 | Object| || |
-| productVo/packageProductTypes/groupId | 商品组ID | String| || |
-| productVo/packageProductTypes/sequence | 商品组顺序 | integer| || |
-| productVo/productComboInfos | 套餐固定搭配集合 | Object| || |
-| productVo/productComboInfos/productId | 商品id | String| || |
-| productVo/productComboInfos/quantity | 数量,默认值1 | integer| || |
-| productVo/productComboInfos/sequence | 商品排序信息 | integer| || |
-|  |  |  | | |
-|  |  |  | | |
+| productVo/packageProductTypes | 套餐可选商品集合 | Object| ||
+| productVo/packageProductTypes/groupId | 商品组ID | String| ||
+| productVo/packageProductTypes/sequence | 商品组顺序 | integer| ||
+| productVo/productComboInfos | 套餐固定搭配集合 | Object| ||
+| productVo/productComboInfos/productId | 商品id | String| ||
+| productVo/productComboInfos/quantity | 数量,默认值1 | integer| ||
+| productVo/productComboInfos/sequence | 商品排序信息 | integer| ||
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
