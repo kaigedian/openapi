@@ -23,13 +23,11 @@
 
 ```json
 {
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"partnerId":"1864",
-	"requestBody":"{'partnerId':'1864','memberId':'115632749214110108'
-	
-	,'mobile':'15623261994','showScoreSwitch':'1','showCouponSwitch':'1'}",
-	"sign":"skip",
-	"ver":1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"partnerId\":\"1864\",\"memberId\":\"115632749214110108\",\"mobile\":\"15623261994\",\"showScoreSwitch\":\"1\",\"showCouponSwitch\":\"1\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -64,22 +62,22 @@
 |currentScore                      | Integer  |      |当前可用积分                     |
 |totalScore                      | Integer  |      |历史累计积分                     |
 |usedScore                      | Integer  |      |已使用积分                     |
-| memberCoupons                   | List     |      | 优惠券列表       
-| memberCoupons/couponName        | String     |      |  券名称       
-| memberCoupons/couponCode        | String     |      | 券CODE       
-| memberCoupons/cuoponType        | Integer     |      | 券类型 0：商品 券 1：代金券 3 折扣券       
-| memberCoupons/couponRule        | String     |      | 规则文字描述，支持富文本 (暂时不支持)      
-| memberCoupons/couponLimit        | String     |      | 如：2019-10-1 至 2019-10-10 当天有效 
+| memberCoupons                   | List     |      | 优惠券列表 |
+| memberCoupons/couponName        | String     |      |  券名称 |
+| memberCoupons/couponCode        | String     |      | 券CODE |
+| memberCoupons/cuoponType        | Integer     |      | 券类型 0：商品 券 1：代金券 3 折扣券 |
+| memberCoupons/couponRule        | String     |      | 规则文字描述，支持富文本 (暂时不支持) |
+| memberCoupons/couponLimit        | String     |      | 如：2019-10-1 至 2019-10-10 当天有效 |
 
 #### responseBody返回示例
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"birthday\":\"\",\"email\":\"\",\"idCard\":\"\",\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"215589208394967421\",\"createTime\":\"2019-05-27 09:33:59\",\"memberId\":\"115589208394311926\",\"partnerId\":\"2282\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"orZZ75W27gmvtJmS6qy4dOXokK6U\",\"unionId\":\"oeAlw1VjDr2hUynN5E_fQigVmcGk\",\"updateTime\":\"2019-05-27 09:33:59\"}],\"memberId\":\"115589208394311926\",\"memberName\":\"\",\"mobile\":\"\",\"nickName\":\"童百良\",\"photoUrl\":\"https://wx.qlogo.cn/mmhead/VB1rsYrhNqpEPqThmWiafBJKBSJsAtb9nPdObl2AibPib0/132\",\"sexFlag\":\"0\"}",
-    "sign": "sign"
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"birthday\":\"\",\"email\":\"\",\"idCard\":\"\",\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"215589208394967421\",\"createTime\":\"2019-05-27 09:33:59\",\"memberId\":\"115589208394311926\",\"partnerId\":\"2282\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"orZZ75W27gmvtJmS6qy4dOXokK6U\",\"unionId\":\"oeAlw1VjDr2hUynN5E_fQigVmcGk\",\"updateTime\":\"2019-05-27 09:33:59\"}],\"memberId\":\"115589208394311926\",\"memberName\":\"\",\"mobile\":\"\",\"nickName\":\"童百良\",\"photoUrl\":\"https://wx.qlogo.cn/mmhead/VB1rsYrhNqpEPqThmWiafBJKBSJsAtb9nPdObl2AibPib0/132\",\"sexFlag\":\"0\"}",
+  "sign": "sign"
 }
 ```
 
@@ -121,13 +119,12 @@
 
 ```json
 {
-	"ver":1,
-	"partnerId":"1000",
-	"appId":"2eb5c8f117dac313f89d",
-	"requestBody":"{\"memberId\":\"115589208394311926\",\"score\":\"100\",\"operationType\":\"1\",\"idempotencyBussinessId\":\"2\",\"idempotencyBussinessType\":\"6\"}",
-    	"sign": "sign"
+  "ver":1,
+  "partnerId":"1000",
+  "appId":"2eb5c8f117dac313f89d",
+  "requestBody":"{\"memberId\":\"115589208394311926\",\"score\":\"100\",\"operationType\":\"1\",\"idempotencyBussinessId\":\"2\",\"idempotencyBussinessType\":\"6\"}",
+  "sign": "sign"
 }
-
 ```
 
 ### 响应参数
@@ -139,21 +136,18 @@
 | currentScore | Integer  |      | 当前可用积分 |
 | updateScore  | Integer  |      | 变化积分数   |
 | sendScore    | Integer  |      | 新增积分数   |
- 
+
 
 #### responseBody返回示例
 
-- 
-
 ```json
 {
-      "ver": "1",
-      "statusCode": "100",
-      "message": "成功",
-      "responseBody": "{\"currentScore\":300,\"sendScore\":100,\"updateScore\":100}",
-      "sign": "sign"
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"currentScore\":300,\"sendScore\":100,\"updateScore\":100}",
+  "sign": "sign"
 }
-  
 ```
 
 
@@ -201,18 +195,16 @@
 #### 请求示例
 
 ```json
-      
 {
-	"ver":1,
-	"partnerId":"1000",
-	"appId":"2eb5c8f117dac313f89d",
-	"requestBody":"{\"birthday\":\"\",\"email\":\"\",\"idCard\":\"\",\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"215589208394967421\",\"createTime\":\"2019-05-27 09:33:59\",\"memberId\":\"115589208394311926\",\"partnerId\":\"2282\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"orZZ75W27gmvtJmS6qy4dOXokK6U\",\"unionId\":\"oeAlw1VjDr2hUynN5E_fQigVmcGk\",\"updateTime\":\"2019-05-27 09:33:59\"}],\"memberId\":\"115589208394311926\",\"memberName\":\"\",\"mobile\":\"\",\"nickName\":\"童百良\",\"photoUrl\":\"https://wx.qlogo.cn/mmhead/VB1rsYrhNqpEPqThmWiafBJKBSJsAtb9nPdObl2AibPib0/132\",\"sexFlag\":\"0\"}",
-    	"sign": "sign"
+  "ver":1,
+  "partnerId":"1000",
+  "appId":"2eb5c8f117dac313f89d",
+  "requestBody":"{\"birthday\":\"\",\"email\":\"\",\"idCard\":\"\",\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"215589208394967421\",\"createTime\":\"2019-05-27 09:33:59\",\"memberId\":\"115589208394311926\",\"partnerId\":\"2282\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"orZZ75W27gmvtJmS6qy4dOXokK6U\",\"unionId\":\"oeAlw1VjDr2hUynN5E_fQigVmcGk\",\"updateTime\":\"2019-05-27 09:33:59\"}],\"memberId\":\"115589208394311926\",\"memberName\":\"\",\"mobile\":\"\",\"nickName\":\"童百良\",\"photoUrl\":\"https://wx.qlogo.cn/mmhead/VB1rsYrhNqpEPqThmWiafBJKBSJsAtb9nPdObl2AibPib0/132\",\"sexFlag\":\"0\"}",
+  "sign": "sign"
 }
-
 ```
 
-#### 返回示例
+#### 返回示例（待补充）
 
 无
 
@@ -240,30 +232,24 @@
 #### 请求示例：
 
 ```json
-
 {
-	"ver":1,
-	"partnerId":"1000",
-	"appId":"2eb5c8f117dac313f89d",
-	"requestBody":"{\"changeScore\":\"20\",\"currentScore\":\"200\",\"changeType\":\"1\",\"operationType\":\"2\",\"memberId\":\"115589208394311926\",\"mobile\":\"13333333333\",\"transNo\":\"31231233\"}",
-    "sign": "sign"
+  "ver":1,
+  "partnerId":"1000",
+  "appId":"2eb5c8f117dac313f89d",
+  "requestBody":"{\"changeScore\":\"20\",\"currentScore\":\"200\",\"changeType\":\"1\",\"operationType\":\"2\",\"memberId\":\"115589208394311926\",\"mobile\":\"13333333333\",\"transNo\":\"31231233\"}",
+  "sign": "sign"
 }
-
 ```
 
 #### 返回示例
 
- 
-
 ```json
-
 {
-      "ver": "1",
-      "statusCode": "100",
-      "message": "成功",
-      "sign": "sign"
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "sign": "sign"
 }
-  
 ```
 
 ##  根据手机号注册会员
@@ -297,39 +283,33 @@
 #### requestBody请求示例
 
 ```json
-
 {
-	"ver":1,
-	"partnerId":"1000",
-	"appId":"2eb5c8f117dac313f89d",
-	"requestBody":"{\"cardCode\":\"001\",\"cardId\":\"001\",\"channelCode\":\"saas\"，\"appId\":\"wx001\",\"mobile\":\"13333333333\",\"mobileValidateFlag\":\"1\",\"nickName\":\"bbbb\",\"partnerId\":\"1000\",\"photoUrl\":\"\",\"registerInitData\":\"1#1#2#2#2\",\"registerStoreCode\":\"shop001\",\"registerType\":\"1\",\"sexFlag\":\"1\",\"thirdPartyCode\":\"fasdfsadfaa222\",\"unionId\":\"\",\"validCode\":\"2468\"}",
-    "sign": "sign"
+  "ver":1,
+  "partnerId":"1000",
+  "appId":"2eb5c8f117dac313f89d",
+  "requestBody":"{\"cardCode\":\"001\",\"cardId\":\"001\",\"channelCode\":\"saas\"，\"appId\":\"wx001\",\"mobile\":\"13333333333\",\"mobileValidateFlag\":\"1\",\"nickName\":\"bbbb\",\"partnerId\":\"1000\",\"photoUrl\":\"\",\"registerInitData\":\"1#1#2#2#2\",\"registerStoreCode\":\"shop001\",\"registerType\":\"1\",\"sexFlag\":\"1\",\"thirdPartyCode\":\"fasdfsadfaa222\",\"unionId\":\"\",\"validCode\":\"2468\"}",
+  "sign": "sign"
 }
-
-
 ```
 
 ### 响应参数
 
 | **字段**                         | **类型** | 举例 | **说明**                                                     |
 | -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
-| memberId                         | String   |   4545444   | 用户Id                                                            
-                                              |
+| memberId                         | String   |   4545444   | 用户Id |
 
 
 
 #### responseBody返回示例
 
 ```json
-
 {
-      "ver": "1",
-      "statusCode": "100",
-      "message": "成功",
-      "responseBody": "{\"memberId\":\"4545444\"}",
-      "sign": "sign"
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"memberId\":\"4545444\"}",
+  "sign": "sign"
 }
-  
 ```
 
 
@@ -366,11 +346,11 @@
 
 ```json
 {
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"partnerId":"1864",
-	"requestBody":"{'partnerId':'1864','memberId':'115596590488056494','changeScore':'8','idempotencyBussinessId':'q235246245234','idempotencyBussinessType':'15','operationType':'1'}",
-	"sign":"skip",
-	"ver":1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"partnerId\":\"1864\",\"memberId\":\"115596590488056494\",\"changeScore\":\"8\",\"idempotencyBussinessId\":\"q235246245234\",\"idempotencyBussinessType\":\"15\",\"operationType\":\"1\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -384,11 +364,11 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"updateScore\":0}",
-    "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"updateScore\":0}",
+  "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
 }
 ```
 
@@ -420,11 +400,11 @@
 
 ```json
 {
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"partnerId":"1864",
-	"requestBody":"{'partnerId':'1864','memberId':'115596590488056494','score':'8','idempotencyBussinessId':'q235246245234','idempotencyBussinessType':'15','operationType':'1'}",
-	"sign":"skip",
-	"ver":1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"partnerId\":\"1864\",\"memberId\":\"115596590488056494\",\"score\":\"8\",\"idempotencyBussinessId\":\"q235246245234\",\"idempotencyBussinessType\":\"15\",\"operationType\":\"1\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -435,17 +415,15 @@
 | currentScore                         | Integer   |      | 当前可用积分                                                     |
 | updateScore                         | Integer   |      | 变化积分数                                                     |
 | sendScore                         | Integer   |      | 新增积分数                                                     |
-                                              |
-
 #### responseBody返回示例
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"updateScore\":0}",
-    "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"updateScore\":0}",
+  "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
 }
 ```
 
@@ -473,11 +451,11 @@
 
 ```json
 {
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"partnerId":"1864",
-	"requestBody":"{'partnerId':'1864','memberId':'115596590488056494','score':'8','idempotencyBussinessId':'q235246245234','idempotencyBussinessType':'15','operationType':'1',,'operationName':'123'}",
-	"sign":"skip",
-	"ver":1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"partnerId\":\"1864\",\"memberId\":\"115596590488056494\",\"score\":\"8\",\"idempotencyBussinessId\":\"q235246245234\",\"idempotencyBussinessType\":\"15\",\"operationType\":\"1\",,\"operationName\":\"123\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -492,11 +470,11 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"updateScore\":0}",
-    "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"updateScore\":0}",
+  "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
 }
 ```
 
@@ -519,11 +497,11 @@
 
 ```json
 {
-	"appId":"2eb5c8f1170246429755e6dac313f89d",
-	"partnerId":"1864",
-	"requestBody":"{'partnerId':'1864','memberId':'115596590488056494'",
-	"sign":"skip",
-	"ver":1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"partnerId\":\"1864\",\"memberId\":\"115596590488056494\"",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -540,11 +518,11 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"updateScore\":0}",
-    "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"updateScore\":0}",
+  "sign": "IDXg9JvSrFFx6oQ2VHJP80+/IkJl+4zQtfDanL/KyDSZ5wZivJ43s2if0QZQcpMel26Vn0Ge4/rI2q5hIn4z8vf8xYRjK4ctKBPfkAuTN1Naba/MInridfP4PH03ztG7NPyAqxRKgjRqjldPgn1Y5UvZjkx3p3H4/nZQAgJvwswHea37BM/uuHvYobI+ERnSA8LDbvegAUPP6udNhcAqmwq1dVn/r3s9soufdQsz+9V8ihqHy+l2k53L9ykUixqxysQ0JHaJriRgnr+gFRMZ5+JWdm+BJaazHQXo02IzHTWlG0T+IHP0dWWpOdpdsJP9J3TgdVqsSZsYwrw15aVUvA=="
 }
 ```
 
@@ -573,11 +551,11 @@
 
 ```json
 {
-    "partnerId":"1864",
-    "appId":"98290e1b36634fcf953da89df9c8a527",
-    "requestBody":"{\"partnerId\":\"1864\",\"mobile\":\"13262725815\",\"nickName\":\"\",\"startTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}",
-    "ver":"1",
-    "sign":"aG3A3D4Hzt3Vq/EWbG4SfOT3LncB1moNwLJOVyQxuxMd3BkSTRsGq17MoGLTpXPDHFVkbAIypTK3hIKNOgWC6M4uSIGZTFNIU+UdjiUEWh1EqUAUvXAZjO+nTzLtNUgASor+ZVFx97EDd/h0UgA6Q0Mu2MJBVULDcl6fGPigBGqVP0AFk6hojjctUrfHzvrzKCazhArIh5mGuK7XPrn8FiZVdCnaDMZ/LDH+q3Q/ke2yZUT7vvmjW9cVHxzlyQBAX9oEOD4lMyMjNUmmffmgHqmWsY9O8/nJiEr4MDO4L7D1JFWOgcRhRvYQgCozkxvdVk3AQ8m9vCgGI5TxliMPzA=="
+  "partnerId":"1864",
+  "appId":"98290e1b36634fcf953da89df9c8a527",
+  "requestBody":"{\"partnerId\":\"1864\",\"mobile\":\"13262725815\",\"nickName\":\"\",\"startTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}",
+  "ver":"1",
+  "sign":"aG3A3D4Hzt3Vq/EWbG4SfOT3LncB1moNwLJOVyQxuxMd3BkSTRsGq17MoGLTpXPDHFVkbAIypTK3hIKNOgWC6M4uSIGZTFNIU+UdjiUEWh1EqUAUvXAZjO+nTzLtNUgASor+ZVFx97EDd/h0UgA6Q0Mu2MJBVULDcl6fGPigBGqVP0AFk6hojjctUrfHzvrzKCazhArIh5mGuK7XPrn8FiZVdCnaDMZ/LDH+q3Q/ke2yZUT7vvmjW9cVHxzlyQBAX9oEOD4lMyMjNUmmffmgHqmWsY9O8/nJiEr4MDO4L7D1JFWOgcRhRvYQgCozkxvdVk3AQ8m9vCgGI5TxliMPzA=="
 }
 ```
 
@@ -585,33 +563,33 @@
 
 | **字段**                         | **类型** | 举例 | **说明**                                                     |
 | -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
-| totalCount                         | Integer   |  1    | 总记录数                                                     
-| pageSize                         | Integer   |   1   | 一页数据大小                                                     
-| pageNum                         | Integer   |    10  | 页号                                                     
-| totalPages                         | Integer   |   1   | 总页数
-| memberList                         |    |      | 会员列表
-| memberList/partnerId                         |  String   |  1864    | 商户编号
-| memberList/memberId                         |  String   |  3595577290888658005    | 用户ID
-| memberList/nickName                         |  String   |  不像话的小孩    | 微信昵称
-| memberList/mobile                         |  String   |  13262725815    | 手机号
-| memberList/birthday                         |  String   |      | 生日
-| memberList/sexFlag                         |  String   |  1    | 性别，{0未知1男2女}
-| memberList/registerTime                         |  String   |      | 注册时间
-| memberList/channelList                         |    |      | 渠道信息
-| memberList/channelList/channelId                         |  String  |      | 渠道主键id
-| memberList/channelList/memberId                         |  String  |      | 会员编号
-| memberList/channelList/partnerId                         |  String  |      | 商户编号
-| memberList/channelList/channelCode                         |  String  |      | 渠道编码{wxgzpt:微信公众平台,xcx:会员小程序,dcxcx:点餐小程序,ptxcx:拼团小程序,dsf:第三方}
-| memberList/channelList/appId                         |  String  |      | 应用编号
-| memberList/channelList/thirdPartyCode                         |  String  |      | 第三方编码{openid、userid}
-| memberList/channelList/registerType                         |  String  |      | 注册类型
-| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号}
-| memberList/channelList/cardId                         |  String  |      | 原生卡ID{微信原生卡ID、支付宝模板ID、商户自定义原生卡ID}
-| memberList/channelList/unionId                         |  String  |      | 微信unionId
-| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号}
-| memberList/channelList/createTime                         |  String  |      | 创建时间
-| memberList/channelList/updateTime                         |  String  |      | 更新时间
-| memberList/channelList/registerStoreCode                         |  String  |      | 注册门店
+| totalCount                         | Integer   |  1    | 总记录数 |
+| pageSize                         | Integer   |   1   | 一页数据大小 |
+| pageNum                         | Integer   |    10  | 页号 |
+| totalPages                         | Integer   |   1   | 总页数 |
+| memberList                         |    |      | 会员列表 |
+| memberList/partnerId                         |  String   |  1864    | 商户编号 |
+| memberList/memberId                         |  String   |  3595577290888658005    | 用户ID |
+| memberList/nickName                         |  String   |  不像话的小孩    | 微信昵称 |
+| memberList/mobile                         |  String   |  13262725815    | 手机号 |
+| memberList/birthday                         |  String   |      | 生日 |
+| memberList/sexFlag                         |  String   |  1    | 性别，{0未知1男2女} |
+| memberList/registerTime                         |  String   |      | 注册时间 |
+| memberList/channelList                         |    |      | 渠道信息 |
+| memberList/channelList/channelId                         |  String  |      | 渠道主键id |
+| memberList/channelList/memberId                         |  String  |      | 会员编号 |
+| memberList/channelList/partnerId                         |  String  |      | 商户编号 |
+| memberList/channelList/channelCode                         |  String  |      | 渠道编码{wxgzpt:微信公众平台,xcx:会员小程序,dcxcx:点餐小程序,ptxcx:拼团小程序,dsf:第三方} |
+| memberList/channelList/appId                         |  String  |      | 应用编号 |
+| memberList/channelList/thirdPartyCode                         |  String  |      | 第三方编码{openid、userid} |
+| memberList/channelList/registerType                         |  String  |      | 注册类型 |
+| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号} |
+| memberList/channelList/cardId                         |  String  |      | 原生卡ID{微信原生卡ID、支付宝模板ID、商户自定义原生卡ID} |
+| memberList/channelList/unionId                         |  String  |      | 微信unionId |
+| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号} |
+| memberList/channelList/createTime                         |  String  |      | 创建时间 |
+| memberList/channelList/updateTime                         |  String  |      | 更新时间 |
+| memberList/channelList/registerStoreCode                         |  String  |      | 注册门店 |
 
 
 
@@ -619,10 +597,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"memberList\":[{\"birthday\":\"\",\"channelList\":[{\"appId\":\"wxb78fb7c6218cb52c\",\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"3595577290907658006\",\"createTime\":1595577291000,\"memberId\":\"3595577290888658005\",\"partnerId\":\"1864\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"oORZK5O2CRQeC6-N7xn7JXOo0abo\",\"unionId\":\"okRmn1FXwxBseieLsHJQTyu1QFCE\",\"updateTime\":1596005361000}],\"memberId\":\"3595577290888658005\",\"mobile\":\"13262725815\",\"nickName\":\"不像话的小孩\",\"partnerId\":\"1864\",\"registerTime\":1595577291000}],\"pageNum\":1,\"pageSize\":10,\"totalCount\":1,\"totalPages\":1}",
-    "sign": "hG/XiAwtOigUSB0lhTu+t0orK8TycXmtrTqcACsHeXsWCVwd0tjaGV2E/guv3gaXbus4UbppBoCbjpgh9U5vv4Jx0j26vcXbYWz/S1XPsPXN4DPlc9uxGIQChD/sxBukZobO5U8Rj78yA2rtgKebx9E4+ZlwIu5nUZvoqLcyYdFzXZ0CfoDfrqO5/NpJo4+CNcyhNr1Gw9U4j0bGSgpbzZrngwNq9Vcssufvu3tWHDXNVgoQd38bko5FmOSlpMc8yZGw74QK3kahrhnnmhExm1mVHrcwwVJdRznLHbD9oEBtLFmt9fn4aWCX0iN9C/uVI95zuXzIif0CEO10WEj+2w=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"memberList\":[{\"birthday\":\"\",\"channelList\":[{\"appId\":\"wxb78fb7c6218cb52c\",\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"3595577290907658006\",\"createTime\":1595577291000,\"memberId\":\"3595577290888658005\",\"partnerId\":\"1864\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"oORZK5O2CRQeC6-N7xn7JXOo0abo\",\"unionId\":\"okRmn1FXwxBseieLsHJQTyu1QFCE\",\"updateTime\":1596005361000}],\"memberId\":\"3595577290888658005\",\"mobile\":\"13262725815\",\"nickName\":\"不像话的小孩\",\"partnerId\":\"1864\",\"registerTime\":1595577291000}],\"pageNum\":1,\"pageSize\":10,\"totalCount\":1,\"totalPages\":1}",
+  "sign": "hG/XiAwtOigUSB0lhTu+t0orK8TycXmtrTqcACsHeXsWCVwd0tjaGV2E/guv3gaXbus4UbppBoCbjpgh9U5vv4Jx0j26vcXbYWz/S1XPsPXN4DPlc9uxGIQChD/sxBukZobO5U8Rj78yA2rtgKebx9E4+ZlwIu5nUZvoqLcyYdFzXZ0CfoDfrqO5/NpJo4+CNcyhNr1Gw9U4j0bGSgpbzZrngwNq9Vcssufvu3tWHDXNVgoQd38bko5FmOSlpMc8yZGw74QK3kahrhnnmhExm1mVHrcwwVJdRznLHbD9oEBtLFmt9fn4aWCX0iN9C/uVI95zuXzIif0CEO10WEj+2w=="
 }
 ```

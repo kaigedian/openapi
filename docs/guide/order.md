@@ -67,47 +67,15 @@
 
 
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "actualPayAmount": "1889943343",
-    "storeId": "10001",
-    "storeName": "开个店徐汇店",
-    "actualPayAmount": 2000,
-    "originalAmount": 2500,
-    "barCounter": "06",
-    "canRefund": false,
-    "needInvoice": false,
-    "orderClient": 1,
-    "note": "订单备注",
-    "orderStatus": 1,
-    "orderType": 1,
-    "payChannel": "测试支付",
-    "payChannelName": "微信支付",
-    "payStatus": 1,
-    "payType": 1,
-    "payTime": "12545445",
-    "posCode": "39938289509032322",
-    "operator": "MRX",
-    "userId": "198004522",
-    "userName": "MRX",
-    "needBonus": 1,
-    "orderItemList": [
-        {
-            "productSeq": 1,
-            "productId": "138418632407497998",
-            "thirdProductId": "188453334",
-            "productName": "测试商品",
-            "productPrice": 2000,
-            "productQuantity": 1,
-            "productSharePrice": 1800,
-            "productWeightUnit": "杯",
-            "weight": 1500,
-            "productSpecName": "大杯",
-            "productProperty": "三分糖"
-        }
-    ]
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"actualPayAmount\":\"1889943343\",\"storeId\":\"10001\",\"storeName\":\"开个店徐汇店\",\"actualPayAmount\":2000,\"originalAmount\":2500,\"barCounter\":\"06\",\"canRefund\":false,\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"测试支付\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"12545445\",\"posCode\":\"39938289509032322\",\"operator\":\"MRX\",\"userId\":\"198004522\",\"userName\":\"MRX\",\"needBonus\":1,\"orderItemList\":[{\"productSeq\":1,\"productId\":\"138418632407497998\",\"thirdProductId\":\"188453334\",\"productName\":\"测试商品\",\"productPrice\":2000,\"productQuantity\":1,\"productSharePrice\":1800,\"productWeightUnit\":\"杯\",\"weight\":1500,\"productSpecName\":\"大杯\",\"productProperty\":\"三分糖\"}]}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -120,13 +88,11 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": {
-        "orderCode": "1889943343"
-    }
-
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "{\"orderCode\":\"1889943343\"}",
+  "sign": "<sign>"
 }
 ```
 
@@ -159,16 +125,15 @@
 ### 备注
 建议订单列表查询接口时间戳时间间隔可以以随机数方式，保证接口的效率与稳定
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "startTimestamp": 1559114908000,
-    "endTimestamp": 1559201308000,
-    "orderClients": [1, 2, 3],
-    "storeId": "1862",
-    "orderStatus": [1, 2, 3],
-    "count": 5
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"startTimestamp\":1559114908000,\"endTimestamp\":1559201308000,\"orderClients\":[1,2,3],\"storeId\":\"1862\",\"orderStatus\":[1,2,3],\"count\":5}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -217,53 +182,15 @@
 |itemList/packageFee|Integer|订单包装费|
 |itemList/mobile|String|用户手机号|
 
-#### responseBody返回示例
+#### 返回示例
 
 ```json
 {
-    "total": 1000,
-    "count": 10,
-    "nextOrderCode":"1384186324074980",
-    "nextStartTimestamp":"1559201308000",
-    "itemList": [
-        {
-            "orderCode": "1384186324074979",
-            "thirdOrderCode": "15909445",
-            "storeId": "1001",
-            "storeName": "南翔一店",
-            "actualPayAmount": 1200,
-            "originalAmount": 1100,
-            "discountAmount":100,
-            "barCounter": "10",
-            "needInvoice": false,
-            "orderClient": 1,
-            "note": "订单备注",
-            "orderStatus": 1,
-            "orderType": 1,
-            "payChannel": "微信",
-            "payChannelName": "微信支付",
-            "payStatus": 1,
-            "payType": 1,
-            "payTime": "1557367505",
-            "posCode": "1001",
-            "operator": "许磊",
-            "userId": "115380388035218205",
-            "userName": "MRX",
-            "pickUpGoodsNo": "4578",
-            "createTime": "1557367505",
-            "acceptTime": "1557368643",
-            "pickUpTime": "",
-            "deliveryTime": "1557398566",
-            "estimateDeliveryCompleteTime": "1557457545",
-            "actualArrivalTime": "1557458545",
-            "receiveTime": "1557458545",
-            "expectTime": "1557389003",
-            "longitude": "31.43434",
-            "latitude": "121.3434334",
-            "deliverFee": 5,
-            "packageFee": 0
-        }
-    ]
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "{\"total\":1000,\"count\":10,\"nextOrderCode\":\"1384186324074980\",\"nextStartTimestamp\":\"1559201308000\",\"itemList\":[{\"orderCode\":\"1384186324074979\",\"thirdOrderCode\":\"15909445\",\"storeId\":\"1001\",\"storeName\":\"南翔一店\",\"actualPayAmount\":1200,\"originalAmount\":1100,\"discountAmount\":100,\"barCounter\":\"10\",\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"微信\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"1557367505\",\"posCode\":\"1001\",\"operator\":\"许磊\",\"userId\":\"115380388035218205\",\"userName\":\"MRX\",\"pickUpGoodsNo\":\"4578\",\"createTime\":\"1557367505\",\"acceptTime\":\"1557368643\",\"pickUpTime\":\"\",\"deliveryTime\":\"1557398566\",\"estimateDeliveryCompleteTime\":\"1557457545\",\"actualArrivalTime\":\"1557458545\",\"receiveTime\":\"1557458545\",\"expectTime\":\"1557389003\",\"longitude\":\"31.43434\",\"latitude\":\"121.3434334\",\"deliverFee\":5,\"packageFee\":0}]}",
+  "sign": "<sign>"
 }
 ```
 ## 历史订单查询
@@ -289,14 +216,15 @@
 
 
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "timestamp": 1563724800000,
-    "storeId": "1862",
-    "pageSize": 10,
-    "pageNum": 1
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"timestamp\":1563724800000,\"storeId\":\"1862\",\"pageSize\":10,\"pageNum\":1}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -359,67 +287,15 @@
 |itemList/packageFee|Integer|订单包装费|
 |itemList/mobile|String|用户手机号|
 
-#### responseBody返回示例
+#### 返回示例
 
 ```json
 {
-    "total":50,
-    "itemList":[
-        {
-            "orderCode":"21343343",
-            "thirdOrderCode":"1343534298",
-            "storeId":"1001",
-            "storeName":"开个店徐汇店",
-            "actualPayAmount":2000,
-            "originalAmount":2500,
-            "barCounter":"06",
-            "needInvoice":false,
-            "orderClient":1,
-            "note":"订单备注",
-            "orderStatus":1,
-            "orderType":1,
-            "payChannel":"测试支付",
-            "payChannelName":"微信支付",
-            "payStatus":1,
-            "payType":1,
-            "payTime":"12545445",
-            "posCode":"39938289509032322",
-            "operator":"MRX",
-            "userId":"198004522",
-            "userName":"MRX",
-            "orderItemList":[
-                {
-                    "productSeq":1,
-                    "productId":"138418632407497998",
-                    "skuId": "138418632407497998",
-                    "thirdProductId":"188453334",
-                    "productName":"测试商品",
-                    "productPrice":2000,
-                    "productQuantity":1,
-                    "productSharePrice":1800,
-                    "unit":"杯",
-                    "weight":1500,
-                    "productSpecName":"大杯",
-                    "productProperty":"三分糖",
-					"thirdProductSpecId":"2664,3434",
-                    "thirdProductPropertyId":"3764,3795"
-                }
-            ],
-            "pickUpGoodsNo":"4578",
-            "createTime":"1557367505",
-            "acceptTime":"1557368643",
-            "pickUpTime":"",
-            "deliveryTime":"1557398566",
-            "estimateDeliveryCompleteTime":"1557457545",
-            "actualArrivalTime":"1557458545",
-            "receiveTime":"1557458545",
-            "expectTime":"1557389003",
-            "longitude":"31.43434",
-            "latitude":"121.3434334",
-            "deliverFee":5,
-            "packageFee":0
-        }
-    ]
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "{\"total\":50,\"itemList\":[{\"orderCode\":\"21343343\",\"thirdOrderCode\":\"1343534298\",\"storeId\":\"1001\",\"storeName\":\"开个店徐汇店\",\"actualPayAmount\":2000,\"originalAmount\":2500,\"barCounter\":\"06\",\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"测试支付\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"12545445\",\"posCode\":\"39938289509032322\",\"operator\":\"MRX\",\"userId\":\"198004522\",\"userName\":\"MRX\",\"orderItemList\":[{\"productSeq\":1,\"productId\":\"138418632407497998\",\"skuId\":\"138418632407497998\",\"thirdProductId\":\"188453334\",\"productName\":\"测试商品\",\"productPrice\":2000,\"productQuantity\":1,\"productSharePrice\":1800,\"unit\":\"杯\",\"weight\":1500,\"productSpecName\":\"大杯\",\"productProperty\":\"三分糖\",					\"thirdProductSpecId\":\"2664,3434\",\"thirdProductPropertyId\":\"3764,3795\"}],\"pickUpGoodsNo\":\"4578\",\"createTime\":\"1557367505\",\"acceptTime\":\"1557368643\",\"pickUpTime\":\"\",\"deliveryTime\":\"1557398566\",\"estimateDeliveryCompleteTime\":\"1557457545\",\"actualArrivalTime\":\"1557458545\",\"receiveTime\":\"1557458545\",\"expectTime\":\"1557389003\",\"longitude\":\"31.43434\",\"latitude\":\"121.3434334\",\"deliverFee\":5,\"packageFee\":0}]}",
+  "sign": "<sign>"
 }
 ```
 
@@ -439,11 +315,15 @@
 | -------|  ----|  ------|  --------------------------------|
 |    orderCode    | Array[] String |    是    | 订单号  |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "orderCode": ["142858598583644715"]
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCode\":[\"142858598583644715\"]}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -522,77 +402,16 @@
 
 
 
-#### responseBody返回示例
+#### 返回示例
 
 ```json
-[{
-    "orderCode": "21343343",
-    "thirdOrderCode": "1343534298",
-    "storeId": "1001",
-    "storeName": "开个店徐汇店",
-    "actualPayAmount": 2000,
-    "originalAmount": 2500,
-    "discountAmount":500,
-    "barCounter": "06",
-    "needInvoice": false,
-    "orderClient": 1,
-    "note": "订单备注",
-    "orderStatus": 1,
-    "orderType": 1,
-    "payChannel": "测试支付",
-    "payChannelName": "微信支付",
-    "payStatus": 1,
-    "payType": 1,
-    "payTime": "12545445",
-    "posCode": "39938289509032322",
-    "operator": "MRX",
-    "userId": "198004522",
-    "userName": "MRX",
-    "orderItemList": [
-        {
-            "productSeq": 1,
-            "productId": "138418632407497998",
-            "skuId": "138418632407497998",
-            "thirdProductId": "188453334",
-            "productName": "测试商品",
-            "productPrice": 2500,
-            "sharePrice":500,
-            "productQuantity": 1,
-            "unit": "杯",
-            "weight": 1500,
-            "productSpecName": "大杯",
-            "productProperty": "三分糖"
-			"thirdProductSpecId":"2664,3434",
-            "thirdProductPropertyId":"3764,3795"
-        }
-    ],
-    "apportionDetails": [
-            {
-                "activityCode": "DPTJ20190812001",
-                "activityName": "单品特价",
-                "activityType": "1",
-                "productId": "138418632407497998",
-                "activityName": "测试商品",
-                "price":500
-            }
-        ],
-    "pickUpGoodsNo": "4578",
-    "createTime": "1557367505",
-    "acceptTime": "1557368643",
-    "pickUpTime": "",
-    "deliveryTime": "1557398566",
-    "estimateDeliveryCompleteTime": "1557457545",
-    "actualArrivalTime": "1557458545",
-    "receiveTime": "1557458545",
-    "expectTime": "1557389003",
-    "longitude": "31.43434",
-    "latitude": "121.3434334",
-    "deliverFee": 5,
-    "packageFee": 0,
-    "driverFee": 0,
-    "mobile": "13602109227",
-    "desensitizedMobile": "136****9227"
-}]
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "[{\"orderCode\":\"21343343\",\"thirdOrderCode\":\"1343534298\",\"storeId\":\"1001\",\"storeName\":\"开个店徐汇店\",\"actualPayAmount\":2000,\"originalAmount\":2500,\"discountAmount\":500,\"barCounter\":\"06\",\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"测试支付\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"12545445\",\"posCode\":\"39938289509032322\",\"operator\":\"MRX\",\"userId\":\"198004522\",\"userName\":\"MRX\",\"orderItemList\":[{\"productSeq\":1,\"productId\":\"138418632407497998\",\"skuId\":\"138418632407497998\",\"thirdProductId\":\"188453334\",\"productName\":\"测试商品\",\"productPrice\":2500,\"sharePrice\":500,\"productQuantity\":1,\"unit\":\"杯\",\"weight\":1500,\"productSpecName\":\"大杯\",\"productProperty\":\"三分糖\"			\"thirdProductSpecId\":\"2664,3434\",\"thirdProductPropertyId\":\"3764,3795\"}],\"apportionDetails\":[{\"activityCode\":\"DPTJ20190812001\",\"activityName\":\"单品特价\",\"activityType\":\"1\",\"productId\":\"138418632407497998\",\"activityName\":\"测试商品\",\"price\":500}],\"pickUpGoodsNo\":\"4578\",\"createTime\":\"1557367505\",\"acceptTime\":\"1557368643\",\"pickUpTime\":\"\",\"deliveryTime\":\"1557398566\",\"estimateDeliveryCompleteTime\":\"1557457545\",\"actualArrivalTime\":\"1557458545\",\"receiveTime\":\"1557458545\",\"expectTime\":\"1557389003\",\"longitude\":\"31.43434\",\"latitude\":\"121.3434334\",\"deliverFee\":5,\"packageFee\":0,\"driverFee\":0,\"mobile\":\"13602109227\",\"desensitizedMobile\":\"136****9227\"}]",
+  "sign": "<sign>"
+}
 ```
 
 
@@ -616,15 +435,15 @@
 | refundstatus     |     Array[] Integer     |    是    |               订单退款状态(见字段描述)         |
 | count          | Integer | 否       | 每次请求数量（最大10），不传入默认10 |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "startTimestamp": 1559114908000,
-    "endTimestamp": 1559115908000,
-    "storeId": "1862",
-    "refundstatus": [1],
-    "count": 10
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"startTimestamp\":1559114908000,\"endTimestamp\":1559115908000,\"storeId\":\"1862\",\"refundstatus\":[1],\"count\":10}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -637,18 +456,15 @@
 |itemList/orderCode  | String | 订单号 |
 |itemList/refundstatus  | Integer | 订单退款状态(见字段描述) |
 
-#### responseBody返回示例
+#### 返回示例
 
 ```json
 {
-    "total": "1",
-    "nextStartTimestamp":"1559201308000",
-    "itemList": [
-        {
-            "orderCode": "12355556",
-            "refundstatus":1
-        }
-    ]
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "{\"total\":\"1\",\"nextStartTimestamp\":\"1559201308000\",\"itemList\":[{\"orderCode\":\"12355556\",\"refundstatus\":1}]}",
+  "sign": "<sign>"
 }
 ```
 
@@ -668,11 +484,15 @@
 | ------------|  -------------|  ------|  ------------------------------|
 |  orderCodes  | Array[] String |    是   | 订单号集合 |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "orderCodes": ["12354545","34353"]
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCodes\":[\"12354545\",\"34353\"]}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -685,19 +505,17 @@
 |itemList/orderStatus  | String | 订单状态 |
 
 
-#### responseBody返回示例
+#### 返回示例
 
 ```json
 {
-
-    "itemList": [
-        {
-            "orderCode": "12355556",
-            "orderStatus": "1"
-        }
-    ],
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": "{\"itemList\":[{\"orderCode\":\"12355556\",\"orderStatus\":\"1\"}]}",
+  "sign": "<sign>"
 }
-``` 
+```
 
 
 ## 订单状态处理
@@ -731,22 +549,24 @@
 |    deliveryInfo/expressNo    | String |    否    |        快递单号     |
 |    deliveryInfo/remark    | String |    否    |       配送员手机     |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "orderCodes": "12354545",
-    "orderStatus": "3",
-    "orderStatus": "",
-    "operator": "MRX"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCodes\":\"12354545\",\"orderStatus\":\"3\",\"operator\":\"MRX\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 ```json
 {
-    "orderCodes": "12354545",
-    "orderStatus": "7",
-    "orderStatus": "超出配送返回",
-    "operator": "MRX"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCodes\":\"12354545\",\"orderStatus\":\"7\",\"reason\":\"超出配送返回\",\"operator\":\"MRX\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -757,10 +577,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 
@@ -781,14 +601,15 @@
 | reason | String | 否 | 拒绝原因 |
 |    operator    | String |    否    |        操作人     |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "orderCodes": "12354545",
-    "action": "1",
-    "reason": "",
-    "operator": "MRX"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCodes\":\"12354545\",\"action\":\"1\",\"reason\":\"\",\"operator\":\"MRX\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -798,10 +619,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 
@@ -826,13 +647,15 @@
 | reason | String | 是 | 拒绝原因 |
 |    operator    | String |    否    |        操作人     |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "orderCodes": "12354545",
-    "reason": "",
-    "operator": "MRX"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCodes\":\"12354545\",\"reason\":\"\",\"operator\":\"MRX\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -842,10 +665,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 
@@ -877,16 +700,15 @@
 | cancelStatus | String | 否 | 取消状态  1:申请退款  3:拒绝退款 4:退款中 5:退款完成 6:取消退款 |
 | cancelReason | String | 否 | 取消原因 |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "cancelReason": "商家取消",
-    "cancelStatus": "5",
-    "cancelType": "2",
-    "orderCode": "14947740098045346600002",
-    "orderStatus": "6",
-    "timeStamp": "1562595367000"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"cancelReason\":\"商家取消\",\"cancelStatus\":\"5\",\"cancelType\":\"2\",\"orderCode\":\"14947740098045346600002\",\"orderStatus\":\"6\",\"timeStamp\":\"1562595367000\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -897,10 +719,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 
@@ -927,15 +749,15 @@
 | refundStatus | String | 否 | 取消状态  1:申请退款  3:拒绝退款 4:退款中 5:退款完成 6:取消退款 |
 | refundReason | String | 否 | 取消原因 |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-    "refundReason": "商家取消",
-    "refundStatus": "5",
-    "refundType": "2",
-    "orderCode": "14947740098045346600002",
-    "timeStamp": "1562595367000"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"refundReason\":\"商家取消\",\"refundStatus\":\"5\",\"refundType\":\"2\",\"orderCode\":\"14947740098045346600002\",\"timeStamp\":\"1562595367000\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -946,10 +768,10 @@
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 ## 订单商品信息变更推送(围餐场景新增)
@@ -974,85 +796,15 @@
 | products/thirdProductId  | String  | 是       | 三方商品编号                     |
 | products/productQuantity | Integer | 是       | 新增商品数量                     |
 
-- 示例：
+#### 请求示例：
 
 ```json
 {
-  "version":"1",
-  "thirdOrderCode":"1232",
-  "orderCode":"342354324424",
-  "products":[
-    {
-      "spuId":"1",
-      "skuId":"",
-      "spuName":"",
-      "skuName":"",
-      "originalPrice":"",
-      "totalDiscountAmount":"",
-      "hasProductCoupon":true,
-      "nodeId":"",
-      "categoryName":"",
-      "qty":12,
-      "picture":"",
-      "parentProductId":"",
-      "productType":"7",
-      "customerCode":"",
-      "weight":10.00,
-      "productSeq":12,
-      "attributes":[
-        {
-          "attributeId":"属性名称",
-          "attributeValue":"属性名称"
-        }
-      ]
-    },
-    {
-      "spuId":"2",
-      "skuId":"",
-      "spuName":"",
-      "skuName":"",
-      "originalPrice":"",
-      "totalDiscountAmount":"",
-      "hasProductCoupon":true,
-      "nodeId":"",
-      "categoryName":"",
-      "qty":12,
-      "picture":"",
-      "parentProductId":"",
-      "productType":"6",
-      "customerCode":"",
-      "productSeq":12,
-      "attributes":[
-        {
-          "attributeId":"属性名称",
-          "attributeValue":"属性名称"
-        }
-      ]
-    },
-    {
-      "spuId":"3",
-      "skuId":"",
-      "spuName":"",
-      "skuName":"",
-      "originalPrice":"",
-      "totalDiscountAmount":"",
-      "hasProductCoupon":true,
-      "nodeId":"",
-      "categoryName":"",
-      "qty":12,
-      "picture":"",
-      "parentProductId":"2",
-      "productType":"6",
-      "customerCode":"",
-      "productSeq":12,
-      "attributes":[
-        {
-          "attributeId":"属性名称",
-          "attributeValue":"属性名称"
-        }
-      ]
-    }
-  ]
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"version\":\"1\",\"thirdOrderCode\":\"1232\",\"orderCode\":\"342354324424\",\"products\":[{\"spuId\":\"1\",\"skuId\":\"\",\"spuName\":\"\",\"skuName\":\"\",\"originalPrice\":\"\",\"totalDiscountAmount\":\"\",\"hasProductCoupon\":true,\"nodeId\":\"\",\"categoryName\":\"\",\"qty\":12,\"picture\":\"\",\"parentProductId\":\"\",\"productType\":\"7\",\"customerCode\":\"\",\"weight\":10.00,\"productSeq\":12,\"attributes\":[{\"attributeId\":\"属性名称\",\"attributeValue\":\"属性名称\"}]},{\"spuId\":\"2\",\"skuId\":\"\",\"spuName\":\"\",\"skuName\":\"\",\"originalPrice\":\"\",\"totalDiscountAmount\":\"\",\"hasProductCoupon\":true,\"nodeId\":\"\",\"categoryName\":\"\",\"qty\":12,\"picture\":\"\",\"parentProductId\":\"\",\"productType\":\"6\",\"customerCode\":\"\",\"productSeq\":12,\"attributes\":[{\"attributeId\":\"属性名称\",\"attributeValue\":\"属性名称\"}]},{\"spuId\":\"3\",\"skuId\":\"\",\"spuName\":\"\",\"skuName\":\"\",\"originalPrice\":\"\",\"totalDiscountAmount\":\"\",\"hasProductCoupon\":true,\"nodeId\":\"\",\"categoryName\":\"\",\"qty\":12,\"picture\":\"\",\"parentProductId\":\"2\",\"productType\":\"6\",\"customerCode\":\"\",\"productSeq\":12,\"attributes\":[{\"attributeId\":\"属性名称\",\"attributeValue\":\"属性名称\"}]}]}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -1064,14 +816,14 @@
 | ver     | String | 是       | 1            |
 | message | String | 是       | 请求接口详情 |
 
-- 示例：
+#### 响应示例：
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 ## 获取第三方订单详情(围餐场景新增)
@@ -1095,13 +847,15 @@ post
 | storeId        | String | 是   | 下单门店号                           |
 | barCounter     | String | 是   | 桌台号                               |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
- "orderCode":"",
- "thirdOrderCode":"",
- "orderClient":"19"
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCode\":\"\",\"thirdOrderCode\":\"\",\"orderClient\":\"19\"}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -1127,7 +881,7 @@ post
 |orderItem/productPicUrl|String|商品图片地址|
 |orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
 
-responseBody响应示例
+#### 响应示例（待补充）
 
 ## 修改订单商品信息(围餐场景新增)
 
@@ -1164,19 +918,15 @@ order/updateOrderItem
 | orderItem/productPicUrl        | String  | 否       | 商品图片地址                                                 |
 | orderItemList/productComboList | Array   | 否       | 套餐子商品，其属性同orderItemList当前节点                    |
 
-#### requestBody请求示例
+#### 请求示例
 
 ```json
 {
-  "orderCode":"342354324424",
-  "products":[
-    {
-      "productId":"1",
-      "customerCode":"",
-      "weight":10.00,
-      "productSeq":1
-    }
-  ]
+  "appId":"2eb5c8f1170246429755e6dac313f89d",
+  "partnerId":"1864",
+  "requestBody":"{\"orderCode\":\"342354324424\",\"products\":[{\"productId\":\"1\",\"customerCode\":\"\",\"weight\":10.00,\"productSeq\":1}]}",
+  "sign":"<sign>",
+  "ver":1
 }
 ```
 
@@ -1184,14 +934,14 @@ order/updateOrderItem
 
 只需要返回公共参数 状态码和message 即可
 
-#### responseBody响应示例
+#### 响应示例
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 ## 线下支付信息同步(围餐场景新增)
@@ -1239,7 +989,7 @@ order/payAfterSyncOrderInfo
 | orderItem/productPicUrl | String | 否 | 商品图片地址 |
 | orderItemList/productComboList | Array | 否 | 套餐子商品，其属性同orderItemList当前节点 |
 
-#### requestBody请求示例
+#### 请求示例（待补充）
 
 ```json
 
@@ -1249,14 +999,14 @@ order/payAfterSyncOrderInfo
 
 只需要返回公共参数 状态码和message 即可
 
-#### responseBody响应示例
+#### 响应示例
 
 ```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "statusCode": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 

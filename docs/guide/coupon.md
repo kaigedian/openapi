@@ -1,36 +1,7 @@
 # 开放平台券码接口
-#####所有接口请求参数格式都是
+##### 以下接口说明仅限于 requestBody 和 responseBody 参数内部参数
 
-| **字段**    | **类型** | **必填** | **举例** | **说明**               |
-|-------------|----------|----------|----------|------------------------|
-| ver         | String   | 是       |          | 版本号                 |
-| sign        | String   | 是       |          | 签名                   |
-| appId       | String   | 是       |          | appid                  |
-| partnerId   | String   | 是       |          | 商户号 (由非码颁发商户唯一标识)                |
-| **requestBody** | String   | 是       |          | 核销数据（json字符串） |
-
-#####所有接口返回参数格式都是
-| **字段**     | **类型**  | **必填** | **举例** | **说明**               |
-|--------------|-----------|----------|----------|------------------------|
-| ver          | String    | 是       |          | 版本号                 |
-| statusCode   | String    | 是       |  100     | 100为成功，其他为错误  |
-| message      | String    | 是       | success  | success或错误信息      |
-| sign         | String    | 是       |          | 签名                   |
-| **responseBody** | String    | 是       |          | 核销数据（json字符串） |
-
-#####下面的接口中，只对 requestBody 和 responseBody 参数内部字段做说明
-
--   [查询接口：](#id-开放平台券码接口-查询接口：)
-
--   [核销接口：](#id-开放平台券码接口-核销接口：)
-
--   [冲正接口：](#id-开放平台券码接口-冲正接口：)
-
--   [核销失败日志查询接口：](#id-开放平台券码接口-核销失败日志查询接口：)
-
-## 查询接口：
-
-接口地址 /openapi/coupon/query
+## 查询接口 /coupon/query
 
 **请求参数** 
 requestBody解码：  
@@ -40,18 +11,19 @@ requestBody解码：  
 | storeId        | String   | 否       |          | 非码门店编码 |
 | couponCode     | String   | 是       |          | 优惠券编号   |
 | stationId      | String   | 否       |          | POS机编号    |
-| operatorId     | String   | 否       |          | 营业员编号   |
+| operatorId     | String   | 否       |          | 营业员编号   |
 
-请求示例  
+请求示例
+
 ```json
 {  
-        "ver": 1,  
-        "appId": "RBeR1M1N7PE",  
-        "sign": "skip",  
-        "partnerId": "2491",  
-         "station_id": "03122311",  
-        "requestBody":"{\\"storeId\\":\\"0329\\",\\"couponCode\\":\\"88606513071572960008\\",\\"stationId\\":\\"1\\",\\"operatorId    \\":\\"1\\"}"  
-    }
+  "ver": 1,  
+  "appId": "RBeR1M1N7PE",  
+  "sign": "<sign>",  
+  "partnerId": "2491",  
+  "station_id": "03122311",  
+  "requestBody": "{\"storeId\":\"0329\",\"couponCode\":\"88606513071572960008\",\"stationId\":\"1\",\"operatorId\":\"1\"}"  
+}
 ```
 **返回**
 responseBody解码：
@@ -95,9 +67,7 @@ responseBody解码：
 | codeInfo/groups/products/payment/paid      | Integer   | 是       |            | 线上已付金额，以分为单位                                            |
 | codeInfo/groups/products/payment/remaining | Integer   | 是       |            | 线下需要收取的金额，以分为单位                                      |
 
-## 核销接口：
-
-接口地址 /openapi/coupon/couponRedeem   
+## 核销接口 /coupon/couponRedeem   
 
 **请求参数** 
 requestBody解码：  
@@ -107,7 +77,7 @@ requestBody解码：  
 | thirdStoreId                 | String    | 是       |          | 商户门店编码                |
 | thirdOrderCode               | String    | 是       |          | POS交易序号                 |
 | stationId                    | String    | 否       |          | POS机编号                   |
-| operatorId                   | String    | 否       |          | 营业员编号                  |
+| operatorId                 | String    | 否       |          | 营业员编号                  |
 | memberId                     | String    | 否       |          | 会员id                      |
 | useFlag                      | Integer   | 否       | 1        | 1：核销，目前只支持1。默认1 |
 | channel                      | String    | 否       | pickup   | pickup：到店取餐，delivery：外卖。默认pickup |
@@ -123,13 +93,12 @@ requestBody解码：  
 请求示例  
 ```json
 {  
-        "ver": 1,  
-        "appId": "wxaa246",  
-        "sign": "skip",  
-        "partnerId": "1864",  
-        "requestBody":
-"{\\"thirdStoreId\\":\\"123123aa哈哈\\",\\"thirdOrderCode\\":\\"88606442249231550751\\",\\"transactions\\":[{\\"productCode\\":\\"110101\\",\\"productQuantity\\":1,\\"productPrice\\":900},{\\"productCode\\":\\"110102\\",\\"productQuantity\\":2,\\"productPrice\\":900}],\\"coupons\\":[{\\"code\\":\\"88606469538009667859\\"}]}"  
-    }
+  "ver": 1,  
+  "appId": "wxaa246",  
+  "sign": "<sign>",  
+  "partnerId": "1864",  
+  "requestBody": "{\"thirdStoreId\":\"123123aa哈哈\",\"thirdOrderCode\":\"88606442249231550751\",\"transactions\":[{\"productCode\":\"110101\",\"productQuantity\":1,\"productPrice\":900},{\"productCode\":\"110102\",\"productQuantity\":2,\"productPrice\":900}],\"coupons\":[{\"code\":\"88606469538009667859\"}]}"  
+}
 ```
 **返回**
 responseBody解码：
@@ -153,18 +122,17 @@ responseBody解码：
 | discountInfo/discountProducts/productId      | String    | 是       |          | 非码商品编号             |
 
 返回示例
+
 ```json
-{  
-    "ver": "1",  
-    "statusCode": "100",  
-    "message": "成功",  
-    "responseBody": "{\\"discountAmount\\":99900,\\"discountInfo\\":[{\\"actId\\":\\"V1578966771568602\\",\\"actName\\":\\"14-4\\",\\"couponCode\\":\\"88606509363527402248\\",\\"couponName\\":\\"14-4\\",\\"couponType\\":1,\\"discountAmount\\":99900,\\"discountProducts\\":[{\\"customerCode\\":\\"001\\",\\"discountQty\\":1},{\\"customerCode\\":\\"002\\",\\"discountQty\\":2}],\\"thirdActCode\\":\\"1234\\"}],\\"memberId\\":\\"3577953412544166890\\"}",  
-    "sign": "5OUg2X7gR+Halm6CT1/4A2NqP5J2V+D8PqlsbM3/0nc4KxM7UxLdAa9QGzFju0rOYfu7r6g2LO2xnLkGOHsgotMQV3AhTULaltrnLdtML62aQYOTGlujO6fP3zFqATuhWYGiLt2AM/vBWevJoCn8yb28b6h7EgtOd50zJ1RU8POXeXNk/ue7Kw6ddkvCHRKFXhqpZv3KLqWRue5RRgY4g7Xxj3SbgEffjwUmsUG5kefiSfN3uRw9yUNP2pB+UVAMlX8WtLYBCdAz4ce5PpOWkPauLYjVYiV1Ykq4/joTw3M4X1SLVVfzquchPEwQ+26TzyuBLPJ669xrSjAFfciYaQ=="  
+{
+  "ver": "1",  
+  "statusCode": "100",  
+  "message": "成功",  
+  "responseBody": "{\"discountAmount\":99900,\"discountInfo\":[{\"actId\":\"V1578966771568602\",\"actName\":\"14-4\",\"couponCode\":\"88606509363527402248\",\"couponName\":\"14-4\",\"couponType\":1,\"discountAmount\":99900,\"discountProducts\":[{\"customerCode\":\"001\",\"discountQty\":1},{\"customerCode\":\"002\",\"discountQty\":2}],\"thirdActCode\":\"1234\"}],\"memberId\":\"3577953412544166890\"}",  
+  "sign": "<sign>"  
 }
 ```
-## 冲正接口：
-
-接口地址 /openapi/coupon/couponReverse  
+## 冲正接口 /coupon/couponReverse  
 
 **请求参数** 
 requestBody解码：  
@@ -174,28 +142,26 @@ requestBody解码：  
 | thirdStoreId      | String   | 是       |          | 商户门店编码                 |
 | thirdOrderCode    | String   | 是       |          | POS交易序号（核销时的序号）  |
 | stationId         | String   | 否       |          | POS机编号                    |
-| operatorId        | String   | 否       |          | 营业员编号                   |
+| operatorId      | String   | 否       |          | 营业员编号                   |
 | transactions      | Array    | 是       |          | 优惠券列表                   |
 | transactions/code | String   | 是       |          | 优惠券编码，目前只支持单券冲正 |
 
 请求示例：
 ```json
 {  
-        "ver": 1,  
-        "appId": "RBeR1M1N7PE",  
-        "sign": "skip",  
-        "partnerId": "2491",  
-         "station_id": "03122311",  
-        "requestBody":"{\\"transactions\\":[{\\"code\\":\\"88606513071572960008\\"}],\\"thirdOrderCode\\":\\"1411233345\\",\\"thirdStoreId\\":\\"0329\\"}"  
-    }
+  "ver": 1,  
+  "appId": "RBeR1M1N7PE",  
+  "sign": "<sign>",  
+  "partnerId": "2491",  
+  "station_id": "03122311",  
+  "requestBody":"{\"transactions\":[{\"code\":\"88606513071572960008\"}],\"thirdOrderCode\":\"1411233345\",\"thirdStoreId\":\"0329\"}"  
+}
 ```
 **返回**
 
 statusCode为100 代表成功
 
-## 核销失败日志查询接口：
-
-接口地址 /openapi/coupon/redeemFailLogQuery
+## 核销失败日志查询接口  /coupon/redeemFailLogQuery
 
 **请求参数** 
 requestBody解码：  
@@ -212,31 +178,21 @@ requestBody解码：  
 请求示例1
 ```json
 {
-	"ver": 1,
-	"appId": "wxaa246",
-	"sign": "skip",
-	"partnerId": "1864",
-	"requestBody": {
-		"providerId": 2255,
-		"codes": ["88601425334435792164", "88600017959259233977"]
-	}
-
+  "ver": 1,
+  "appId": "wxaa246",
+  "sign": "<sign>",
+  "partnerId": "1864",
+  "requestBody": "{\"providerId\":2255,\"codes\":[\"88601425334435792164\",\"88600017959259233977\"]}"
 }
 ```
 请求示例2
 ```json
 {
-	"ver": 1,
-	"appId": "wxaa246",
-	"sign": "skip",
-	"partnerId": "1864",
-	"requestBody": {
-		"providerId": 2255,
-		"startTime": "2019-11-22 00:00:00",
-		"endTime": "2019-11-22 23:00:00",
-		"pageNo": 1,
-		"pageSize": 30
-	}
+    "ver": 1,
+    "appId": "wxaa246",
+    "sign": "<sign>",
+    "partnerId": "1864",
+    "requestBody": "{\"providerId\":2255,\"startTime\":\"2019-11-22 00:00:00\",\"endTime\":\"2019-11-22 23:00:00\",\"pageNo\":1,\"pageSize\":30}"
 }
 ```
 **返回**
@@ -260,78 +216,10 @@ responseBody解码：
 | logList/url          | String   | 是       |          | url                         |
 ```json
 {
-	"ver": "1",
-	"statusCode": "100",
-	"message": "成功",
-	"responseBody": {
-		"logList": [{
-			"activeCode": "M1574217926285419",
-			"activeName": "10元商品券全可用",
-			"code": "88600017959259171887",
-			"failReason": "404 ",
-			"orderId": "9cde1caa-4b91-4399-bca1-badcf429c149",
-			"partnerId": 1914,
-			"providerId": 2255,
-			"providerName": "i会员",
-			"redeemTime": "2019-11-22 17:58:20",
-			"storeId": "xiaoyuan",
-			"transId": "16187401391489001200005",
-			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
-		}, {
-			"activeCode": "D1574403515680942",
-			"activeName": "全商品折扣券",
-			"code": "88601425334435792164",
-			"failReason": "404 ",
-			"orderId": "a4378fc4-0990-4217-a12b-bf6bd683a876",
-			"partnerId": 1864,
-			"providerId": 2255,
-			"providerName": "i会员",
-			"redeemTime": "2019-11-22 17:19:30",
-			"storeId": "666666",
-			"transId": "99992151167",
-			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
-		}, {
-			"activeCode": "V1574402138996618",
-			"activeName": "全商品代金券",
-			"code": "88600017959259233977",
-			"failReason": "404 ",
-			"orderId": "da992c89-bd1b-491d-9519-1b4bd54a335a",
-			"partnerId": 1864,
-			"providerId": 2255,
-			"providerName": "i会员",
-			"redeemTime": "2019-11-22 17:14:56",
-			"storeId": "666666",
-			"transId": "3311432",
-			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
-		}, {
-			"activeCode": "M1574322390225796",
-			"activeName": "韩月季的奶茶券",
-			"code": "88600017959393411369",
-			"failReason": "404 ",
-			"orderId": "31cfb5fb-d936-4a39-a940-d15dbae20e21",
-			"partnerId": 1864,
-			"providerId": 2255,
-			"providerName": "i会员",
-			"redeemTime": "2019-11-22 17:01:38",
-			"storeId": "666666",
-			"transId": "99992151119",
-			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
-		}, {
-			"activeCode": "M1574322390225796",
-			"activeName": "韩月季的奶茶券",
-			"code": "88601425334142779527",
-			"failReason": "404 ",
-			"orderId": "ef47bbdc-fc18-468b-92cf-8bea3cf2f429",
-			"partnerId": 1864,
-			"providerId": 2255,
-			"providerName": "i会员",
-			"redeemTime": "2019-11-22 14:06:39",
-			"storeId": "666666",
-			"transId": "99992151199",
-			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
-		}],
-		"totalCount": 5
-	},
-	"sign": "VKXtmHVNoBahbFy/PkTyXgk4838ocOAuPwJj0Hg7XxPxDZXgkH4s4CKVQjn1PdyPz7wQOeFz9U4NxfyySWHBcMwwHnkxzEetoI9jz8k3B85nanHgZAfnWQ31P63Cj/TwqjoJXdAUahUSibRmPQ9n+iXWfME3gwtxV72oEwIXltgWio9kQ3xaUVVInuyEtvSdmbk8KVIvL3UJ9vAMSgOyM1ZdyHmldUgc2OfhLotAFltLqxJt63Oov6fW1lIgNOplvaX/qghz85fncjDevx4jN6akkH+lbiR9goea772LyQ6VZC0BHjFLS99It7OTbT6/l6xqqH4kmrLeeHjVFIrvVA=="
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": "{\"logList\":[{\"activeCode\":\"M1574217926285419\",\"activeName\":\"10元商品券全可用\",\"code\":\"88600017959259171887\",\"failReason\":\"404 \",\"orderId\":\"9cde1caa-4b91-4399-bca1-badcf429c149\",\"partnerId\":1914,\"providerId\":2255,\"providerName\":\"i会员\",\"redeemTime\":\"2019-11-22 17:58:20\",\"storeId\":\"xiaoyuan\",\"transId\":\"16187401391489001200005\",\"url\":\"http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback\"},{\"activeCode\":\"D1574403515680942\",\"activeName\":\"全商品折扣券\",\"code\":\"88601425334435792164\",\"failReason\":\"404 \",\"orderId\":\"a4378fc4-0990-4217-a12b-bf6bd683a876\",\"partnerId\":1864,\"providerId\":2255,\"providerName\":\"i会员\",\"redeemTime\":\"2019-11-22 17:19:30\",\"storeId\":\"666666\",\"transId\":\"99992151167\",\"url\":\"http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback\"},{\"activeCode\":\"V1574402138996618\",\"activeName\":\"全商品代金券\",\"code\":\"88600017959259233977\",\"failReason\":\"404 \",\"orderId\":\"da992c89-bd1b-491d-9519-1b4bd54a335a\",\"partnerId\":1864,\"providerId\":2255,\"providerName\":\"i会员\",\"redeemTime\":\"2019-11-22 17:14:56\",\"storeId\":\"666666\",\"transId\":\"3311432\",\"url\":\"http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback\"},{\"activeCode\":\"M1574322390225796\",\"activeName\":\"韩月季的奶茶券\",\"code\":\"88600017959393411369\",\"failReason\":\"404 \",\"orderId\":\"31cfb5fb-d936-4a39-a940-d15dbae20e21\",\"partnerId\":1864,\"providerId\":2255,\"providerName\":\"i会员\",\"redeemTime\":\"2019-11-22 17:01:38\",\"storeId\":\"666666\",\"transId\":\"99992151119\",\"url\":\"http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback\"},{\"activeCode\":\"M1574322390225796\",\"activeName\":\"韩月季的奶茶券\",\"code\":\"88601425334142779527\",\"failReason\":\"404 \",\"orderId\":\"ef47bbdc-fc18-468b-92cf-8bea3cf2f429\",\"partnerId\":1864,\"providerId\":2255,\"providerName\":\"i会员\",\"redeemTime\":\"2019-11-22 14:06:39\",\"storeId\":\"666666\",\"transId\":\"99992151199\",\"url\":\"http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback\"}],\"totalCount\":5}",
+    "sign": "VKXtmHVNoBahbFy/PkTyXgk4838ocOAuPwJj0Hg7XxPxDZXgkH4s4CKVQjn1PdyPz7wQOeFz9U4NxfyySWHBcMwwHnkxzEetoI9jz8k3B85nanHgZAfnWQ31P63Cj/TwqjoJXdAUahUSibRmPQ9n+iXWfME3gwtxV72oEwIXltgWio9kQ3xaUVVInuyEtvSdmbk8KVIvL3UJ9vAMSgOyM1ZdyHmldUgc2OfhLotAFltLqxJt63Oov6fW1lIgNOplvaX/qghz85fncjDevx4jN6akkH+lbiR9goea772LyQ6VZC0BHjFLS99It7OTbT6/l6xqqH4kmrLeeHjVFIrvVA=="
 }
 ```
