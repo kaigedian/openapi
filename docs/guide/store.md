@@ -184,7 +184,12 @@
 | platformStoreIds | List ||| 平台门店Id{"channelCode":"mt","storeId":"231234"}
 | splicingStoreName | Integer |  |  | 这个字段为1会进行门店名称拼接操作 |
 | concatenateString | String |  |  | 需要拼接的字符串会用门店名称替换字符串中的英文（#） |
-
+| scopeTagIds | String |  |  | 标签id串，多个用英文逗号（,）分隔 |
+| scopeTagNames | String |  |  | 标签名称串，多个用英文逗号（,）分隔 |
+| concatenateString | String |  |  | 需要拼接的字符串会用门店名称替换字符串中的英文（#） |
+| subBrandCode | String | 否 |  | 子品牌code |
+| onlineTime | Date | 否 |  | 开店上线时间 |
+| wxAppids | List | 否 |  | 小程序appid（支持支付宝，微信等小程序appid） |
 ### channelCode
 | 字段      | 类型   |
 | :-------- | ------ |
@@ -361,7 +366,7 @@
 ```
 
 
-### 状态码
+## 状态码
 
 | 状态码 | 描述 |
 | ------ | ---- |
@@ -782,6 +787,942 @@ storeConfig/autoOrderPrintConfig | String |  | 1自动打印2手动打印 |
     "message": "成功",
     "responseBody": "{\"eleme\":1231,\"mtwm\":\"123123\"}",
     "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+
+
+## 查询门店业务模板列表
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryBusinessTemplateList
+
+### 请求参数
+
+| 字段      | 类型   | 是否必传 | 举例               | 说明   |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| storeName | String | 否 |  | 门店名称 |
+| pageNo | Integer | 是 |  | 页码|
+| pageSize | Integer | 是 |  |每页显示条数|
+
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"pageNo\":1,\"pageSize\":10}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段|类型| 举例 |说明     |                                               |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| id | Long |  | 模板id |
+| templateName | String |  | 模板名称 |
+| useCount | Integer |  | 使用门店数量 |
+
+
+
+
+
+#### responseBody返回示例
+
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "requestBody":"[{\"id\": 1,\"templateName\": \"ssdd\",\"useCount\": 3}]",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 根据门店ID查询业务模板
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryBusinessTemplateByStore
+
+### 请求参数
+
+| 字段      | 类型   | 是否必传 | 举例               | 说明   |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| storeId | String | 是 |  | 门店id |
+
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"storeId\":\"000622\"}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段|类型| 举例 |说明     |                                               |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| id | Long |  | 模板id |
+| templateName | String |  | 模板名称 |
+| templateType | Integer |  | 模板类型0:通用 1:个性化 |
+| partnerId | String |  | 所属商户|
+| orderWarnTime | String |  | 预订单提醒时间{1:15分钟;2:30分钟;3:45分钟;4:60分钟;5:5分钟;6:10分钟} |
+| orderPrintConfig | String |  | 预订单打印时间{1：提醒时打印；2：接单时打印} |
+| maxOrderQuantity | Integer |  |最大接单量,单位笔 |
+| isAutoTakeOrder | Integer |  |是否支持自动接单(1是2否)|
+| pickupAutomaticOrderTime | Integer |  |自提-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单）|
+| takeoutAutomaticOrderTime | Integer |  |外卖-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单）|
+| autoChargebackOrderType | Integer |  |退单模式 1手动退单 2自动退单|
+| autoChargebackOrderTime | Integer |  |自动退单时间|
+| overTimeCloseOrder | Integer |  |超时关单 1开启 2关闭|
+| autoSelfmentionTakeOrderWorkflowFinishTime | Integer |  |自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoSelfmentionMakerWorkflowFinishTime | Integer |  |自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoTakeOutTakeOrderWorkflowFinishTime | Integer |  |自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoDeliveryTakeOrderWorkflowFinishTime | Integer |  |自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoSelfmentionTakeOrderWorkflowFinishTime | Integer |  |预约自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoSelfmentionMakerWorkflowFinishTime | Integer |  |预约自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoTakeOutTakeOrderWorkflowFinishTime | Integer |  |预约自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoDeliveryTakeOrderWorkflowFinishTime | Integer |  |预约自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| orderType | String |  |点餐方式(,隔开)：pickup,delivery|
+| invoice | Integer |  |是否支持发票 1是 0否|
+| deliveryHours | String |  |外卖时间：00:00-23:59|
+| expectedTime | Integer |  |预计送达时间（分钟）|
+| createDate | Date |  |创建时间yyyy-MM-dd HH:mm:ss|
+| updateDate | Date |  |更新时间yyyy-MM-dd HH:mm:ss|
+| creator | String |  |创建人|
+| updator | String |  |更新人|
+
+
+#### responseBody返回示例
+
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody":"{\"appointAutoDeliveryTakeOrderWorkflowFinishTime\":6,\"appointAutoSelfmentionMakerWorkflowFinishTime\":6,\"appointAutoSelfmentionTakeOrderWorkflowFinishTime\":6,\"appointAutoTakeOutTakeOrderWorkflowFinishTime\":6,\"autoChargebackOrderType\":1,\"autoDeliveryTakeOrderWorkflowFinishTime\":6,\"autoSelfmentionMakerWorkflowFinishTime\":6,\"autoSelfmentionTakeOrderWorkflowFinishTime\":6,\"autoTakeOutTakeOrderWorkflowFinishTime\":6,\"createDate\":1584440004000,\"creator\":\"system\",\"deliveryHours\":\"00:00-23:59\",\"id\":169506940352764673,\"ids\":[],\"invoice\":0,\"isAutoTakeOrder\":1,\"maxOrderQuantity\":100,\"orderPrintConfig\":\"1\",\"orderType\":\"delivery\",\"orderWarnTime\":\"5\",\"overTimeCloseOrder\":1,\"partnerId\":\"1864\",\"pickupAutomaticOrderTime\":1,\"takeoutAutomaticOrderTime\":1,\"templateName\":\"测试门店的个性化模板\",\"templateType\":1,\"updateDate\":1584440004000,\"updator\":\"\"}",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+## 根据模板ID查询业务模板
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryBusinessTemplateById
+
+### 请求参数
+
+| 字段      | 类型   | 是否必传 | 举例               | 说明   |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| id | Long | 是 |  | 模板id |
+
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"id\":000622}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段|类型| 举例 |说明     |                                               |
+| :-------- | ------ | -------- | ------------------ | ------ |
+| id | Long |  | 模板id |
+| templateName | String |  | 模板名称 |
+| templateType | Integer |  | 模板类型0:通用 1:个性化 |
+| partnerId | String |  | 所属商户|
+| orderWarnTime | String |  | 预订单提醒时间{1:15分钟;2:30分钟;3:45分钟;4:60分钟;5:5分钟;6:10分钟} |
+| orderPrintConfig | String |  | 预订单打印时间{1：提醒时打印；2：接单时打印} |
+| maxOrderQuantity | Integer |  |最大接单量,单位笔 |
+| isAutoTakeOrder | Integer |  |是否支持自动接单(1是2否)|
+| pickupAutomaticOrderTime | Integer |  |自提-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单）|
+| takeoutAutomaticOrderTime | Integer |  |外卖-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单）|
+| autoChargebackOrderType | Integer |  |退单模式 1手动退单 2自动退单|
+| autoChargebackOrderTime | Integer |  |自动退单时间|
+| overTimeCloseOrder | Integer |  |超时关单 1开启 2关闭|
+| autoSelfmentionTakeOrderWorkflowFinishTime | Integer |  |自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoSelfmentionMakerWorkflowFinishTime | Integer |  |自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoTakeOutTakeOrderWorkflowFinishTime | Integer |  |自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| autoDeliveryTakeOrderWorkflowFinishTime | Integer |  |自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoSelfmentionTakeOrderWorkflowFinishTime | Integer |  |预约自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoSelfmentionMakerWorkflowFinishTime | Integer |  |预约自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoTakeOutTakeOrderWorkflowFinishTime | Integer |  |预约自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| appointAutoDeliveryTakeOrderWorkflowFinishTime | Integer |  |预约自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟;|
+| orderType | String |  |点餐方式(,隔开)：pickup,delivery|
+| invoice | Integer |  |是否支持发票 1是 0否|
+| deliveryHours | String |  |外卖时间：00:00-23:59|
+| expectedTime | Integer |  |预计送达时间（分钟）|
+| createDate | Date |  |创建时间yyyy-MM-dd HH:mm:ss|
+| updateDate | Date |  |更新时间yyyy-MM-dd HH:mm:ss|
+| creator | String |  |创建人|
+| updator | String |  |更新人|
+
+
+#### responseBody返回示例
+
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody":"{\"appointAutoDeliveryTakeOrderWorkflowFinishTime\":6,\"appointAutoSelfmentionMakerWorkflowFinishTime\":6,\"appointAutoSelfmentionTakeOrderWorkflowFinishTime\":6,\"appointAutoTakeOutTakeOrderWorkflowFinishTime\":6,\"autoChargebackOrderType\":1,\"autoDeliveryTakeOrderWorkflowFinishTime\":6,\"autoSelfmentionMakerWorkflowFinishTime\":6,\"autoSelfmentionTakeOrderWorkflowFinishTime\":6,\"autoTakeOutTakeOrderWorkflowFinishTime\":6,\"createDate\":1584440004000,\"creator\":\"system\",\"deliveryHours\":\"00:00-23:59\",\"id\":169506940352764673,\"ids\":[],\"invoice\":0,\"isAutoTakeOrder\":1,\"maxOrderQuantity\":100,\"orderPrintConfig\":\"1\",\"orderType\":\"delivery\",\"orderWarnTime\":\"5\",\"overTimeCloseOrder\":1,\"partnerId\":\"1864\",\"pickupAutomaticOrderTime\":1,\"takeoutAutomaticOrderTime\":1,\"templateName\":\"测试门店的个性化模板\",\"templateType\":1,\"updateDate\":1584440004000,\"updator\":\"\"}",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+## 添加业务模板
+
+### 应用场景
+
+
+
+### 请求url：/store/template/addBusinessTemplate
+
+### 请求参数
+
+| 字段                                              | 类型    | 是否必传 | 举例 | 说明                                                         |      |
+| :------------------------------------------------ | ------- | -------- | ---- | ------------------------------------------------------------ | ---- |
+| templateName                                      | String  | 是       |      | 模板名称                                                     |      |
+| orderWarnTime                                     | String  | 是       |      | 预订单提醒时间{1:15分钟;2:30分钟;3:45分钟;4:60分钟;5:5分钟;6:10分钟} |      |
+| orderPrintConfig                                  | String  | 是       |      | 预订单打印时间{1：提醒时打印；2：接单时打印}                 |      |
+| maxOrderQuantity                                  | Integer | 是       |      | 最大接单量,单位笔                                            |      |
+| isAutoTakeOrder                                   | Integer | 是       |      | 是否支持自动接单(1是2否)                                     |      |
+| pickupAutomaticOrderTime                          | Integer | 否       |      | 自提-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单） |      |
+| takeoutAutomaticOrderTime                         | Integer | 否       |      | 外卖-服务端自动接单时间 1:立即;2:1分钟;3:5分钟（顾客下单XX后，订单状态自动更改为已接单） |      |
+| autoChargebackOrderType                           | Integer | 是       |      | 退单模式 1手动退单 2自动退单                                 |      |
+| autoChargebackOrderTime                           | Integer | 否       |      | 自动退单时间                                                 |      |
+| overTimeCloseOrder                                | Integer | 是       |      | 超时关单 1开启 2关闭                                         |      |
+| autoSelfmentionTakeOrderWorkflowFinishTime        | Integer | 是       |      | 自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| autoSelfmentionMakerWorkflowFinishTime            | Integer | 是       |      | 自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| autoTakeOutTakeOrderWorkflowFinishTime            | Integer | 是       |      | 自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| autoDeliveryTakeOrderWorkflowFinishTime           | Integer | 是       |      | 自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| appointAutoSelfmentionTakeOrderWorkflowFinishTime | Integer | 否       |      | 预约自提单接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| appointAutoSelfmentionMakerWorkflowFinishTime     | Integer | 否       |      | 预约自提单制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| appointAutoTakeOutTakeOrderWorkflowFinishTime     | Integer | 否       |      | 预约自建外卖接单后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| appointAutoDeliveryTakeOrderWorkflowFinishTime    | Integer | 是       |      | 预约自建外卖制作完成后自动流程时间 1:2小时;2:1小时;3:30分钟;4:15分钟;5:10分钟;6:5分钟; |      |
+| orderType                                         | String  | 是       |      | 点餐方式(,隔开)：pickup,delivery                             |      |
+| invoice                                           | Integer | 是       |      | 是否支持发票 1是 0否                                         |      |
+| deliveryHours                                     | String  | 是       |      | 外卖时间：00:00-23:59                                        |      |
+| expectedTime                                      | Integer | 是       |      | 预计送达时间（分钟）                                         |      |
+| creator                                           | String  | 是       |      | 创建人                                                       |      |
+
+#### 
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"appointAutoDeliveryTakeOrderWorkflowFinishTime\":6,\"appointAutoSelfmentionMakerWorkflowFinishTime\":6,\"appointAutoSelfmentionTakeOrderWorkflowFinishTime\":6,\"appointAutoTakeOutTakeOrderWorkflowFinishTime\":6,\"autoChargebackOrderType\":1,\"autoDeliveryTakeOrderWorkflowFinishTime\":6,\"autoSelfmentionMakerWorkflowFinishTime\":6,\"autoSelfmentionTakeOrderWorkflowFinishTime\":6,\"autoTakeOutTakeOrderWorkflowFinishTime\":6,\"creator\":\"system\",\"deliveryHours\":\"00:00-23:59\",\"invoice\":0,\"isAutoTakeOrder\":1,\"maxOrderQuantity\":100,\"orderPrintConfig\":\"1\",\"orderType\":\"delivery\",\"orderWarnTime\":\"5\",\"overTimeCloseOrder\":1,\"pickupAutomaticOrderTime\":1,\"takeoutAutomaticOrderTime\":1,\"templateName\":\"测试门店的个性化模板\"}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段|类型| 举例 |说明     |                                               |
+| :-------- | ------ | -------- | ------------------ | ------ |
+
+
+
+#### responseBody返回示例
+
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 获取门店配送范围模板列表
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryDeliveryTemplateList
+
+### 请求参数
+
+| 字段      | 类型    | 是否必传 | 举例 | 说明         |
+| :-------- | ------- | -------- | ---- | ------------ |
+| storeName | String  | 否       |      | 门店名称     |
+| pageNo    | Integer | 是       |      | 页码         |
+| pageSize  | Integer | 是       |      | 每页显示条数 |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"pageNo\":1,\"pageSize\":10}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段         | 类型    | 举例 | 说明         |      |
+| :----------- | ------- | ---- | ------------ | ---- |
+| id           | Long    |      | 模板id       |      |
+| templateName | String  |      | 模板名称     |      |
+| useCount     | Integer |      | 使用门店数量 |      |
+
+
+
+
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "requestBody":"[{\"id\": 1,\"templateName\": \"ssdd\",\"useCount\": 3}]",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 根据门店id查询使用的门店配送范围模板
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryDeliveryTemplateByStore
+
+### 请求参数
+
+| 字段    | 类型   | 是否必传 | 举例 | 说明   |
+| :------ | ------ | -------- | ---- | ------ |
+| storeId | String | 是       |      | 门店id |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"storeId\":\"000622\"}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段              | 类型    | 举例 | 说明                           |      |
+| :---------------- | ------- | ---- | ------------------------------ | ---- |
+| id                | Long    |      | 模板id                         |      |
+| templateName      | String  |      | 模板名称                       |      |
+| templateType      | Integer |      | 模板类型0:通用 1:个性化        |      |
+| partnerId         | String  |      | 所属商户                       |      |
+| scopeConfig       | Integer |      | 配送范围类型 1 自定义 2 半径   |      |
+| deliveryRadius    | Integer |      | 配送半径                       |      |
+| freeDeliveryPrice | Integer |      | 起送价格（单位分）             |      |
+| deliveryRange     | String  |      | 基础配送距离（单位米）         |      |
+| deliveryAmount    | Integer |      | 基础配送费（分）               |      |
+| addRange          | String  |      | 每增加公里（单位米）           |      |
+| addRangeAmount    | Integer |      | 每增加公里增加配送费（单位分） |      |
+| deliveryScope     | String  |      | 手绘经纬度集合                 |      |
+| createDate        | Date    |      | 创建时间yyyy-MM-dd HH:mm:ss    |      |
+| updateDate        | Date    |      | 更新时间yyyy-MM-dd HH:mm:ss    |      |
+| creator           | String  |      | 创建人                         |      |
+| updator           | String  |      | 更新人                         |      |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody":"{\"addRange\":\"8888\",\"addRangeAmount\":8888,\"createDate\":1584194242000,\"creator\":\"4faaas\",\"deliveryAmount\":8888,\"deliveryRadius\":88,\"deliveryRange\":\"8888\",\"deliveryScope\":\"8888\",\"freeDeliveryPrice\":8888,\"id\":169235171803067649,\"ids\":[],\"partnerId\":\"2252\",\"scopeConfig\":8,\"templateName\":\"测试Business模板修改\",\"templateType\":1,\"updateDate\":1584194242000,\"updator\":\"8888\"}",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 根据配送范围模板id查询配送范围详情
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryDeliveryTemplateById
+
+### 请求参数
+
+| 字段 | 类型 | 是否必传 | 举例 | 说明           |
+| :--- | ---- | -------- | ---- | -------------- |
+| id   | Long | 是       |      | 配送范围模板id |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"id\":169235287376939009}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段              | 类型    | 举例 | 说明                           |      |
+| :---------------- | ------- | ---- | ------------------------------ | ---- |
+| id                | Long    |      | 模板id                         |      |
+| templateName      | String  |      | 模板名称                       |      |
+| templateType      | Integer |      | 模板类型0:通用 1:个性化        |      |
+| partnerId         | String  |      | 所属商户                       |      |
+| scopeConfig       | Integer |      | 配送范围类型 1 自定义 2 半径   |      |
+| deliveryRadius    | Integer |      | 配送半径                       |      |
+| freeDeliveryPrice | Integer |      | 起送价格（单位分）             |      |
+| deliveryRange     | String  |      | 基础配送距离（单位米）         |      |
+| deliveryAmount    | Integer |      | 基础配送费（分）               |      |
+| addRange          | String  |      | 每增加公里（单位米）           |      |
+| addRangeAmount    | Integer |      | 每增加公里增加配送费（单位分） |      |
+| deliveryScope     | String  |      | 手绘经纬度集合                 |      |
+| createDate        | Date    |      | 创建时间yyyy-MM-dd HH:mm:ss    |      |
+| updateDate        | Date    |      | 更新时间yyyy-MM-dd HH:mm:ss    |      |
+| creator           | String  |      | 创建人                         |      |
+| updator           | String  |      | 更新人                         |      |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody":"{\"addRange\":\"8888\",\"addRangeAmount\":8888,\"createDate\":1584194242000,\"creator\":\"4faaas\",\"deliveryAmount\":8888,\"deliveryRadius\":88,\"deliveryRange\":\"8888\",\"deliveryScope\":\"8888\",\"freeDeliveryPrice\":8888,\"id\":169235171803067649,\"ids\":[],\"partnerId\":\"2252\",\"scopeConfig\":8,\"templateName\":\"测试Business模板修改\",\"templateType\":1,\"updateDate\":1584194242000,\"updator\":\"8888\"}",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 创建门店配送范围模板
+
+### 应用场景
+
+
+
+### 请求url：/store/template/addDeliveryTemplate
+
+### 请求参数
+
+| 字段              | 类型    | 是否必传 | 举例 | 说明                           |      |
+| :---------------- | ------- | -------- | ---- | ------------------------------ | ---- |
+| templateName      | String  | 是       |      | 模板名称                       |      |
+| scopeConfig       | Integer | 是       |      | 配送范围类型 1 自定义 2 半径   |      |
+| deliveryRadius    | Integer | 是       |      | 配送半径                       |      |
+| freeDeliveryPrice | Integer | 是       |      | 起送价格（单位分）             |      |
+| deliveryRange     | String  | 是       |      | 基础配送距离（单位米）         |      |
+| deliveryAmount    | Integer | 是       |      | 基础配送费（分）               |      |
+| addRange          | String  | 是       |      | 每增加公里（单位米）           |      |
+| addRangeAmount    | Integer | 是       |      | 每增加公里增加配送费（单位分） |      |
+| deliveryScope     | String  | 否       |      | 手绘经纬度集合                 |      |
+| creator           | String  | 是       |      | 创建人                         |      |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"addRange\":\"8888\",\"addRangeAmount\":8888,\"creator\":\"4faaas\",\"deliveryAmount\":8888,\"deliveryRadius\":88,\"deliveryRange\":\"8888\",\"deliveryScope\":\"8888\",\"freeDeliveryPrice\":8888,\"scopeConfig\":8,\"templateName\":\"测试Business模板修改\"}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段 | 类型 | 是否必传 | 举例 | 说明 |      |
+| :--- | ---- | -------- | ---- | ---- | ---- |
+|      |      |          |      |      |      |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+
+## 根据模板id查询使用门店
+
+### 应用场景
+
+
+
+### 请求url：/store/template/queryStoreByTemplateId
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| id       | Long    | 是       |      | 配送范围模板id |
+| pageNo   | Integer | 是       |      | 页码           |
+| pageSize | Integer | 是       |      | 每页显示条数   |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"templateId\":\"169235287376939009\",\"pageNo\":1,\"pageSize\":10}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |      |
+| :-------- | ------ | ---- | -------- | ---- |
+| storeCode | String |      | 门店id   |      |
+| storeName | String |      | 门店名称 |      |
+
+
+
+
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "requestBody":"[{\"storeCode\": \"000622\",\"storeName\": \"大润发\"}]",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+## 删除无下级组织机构
+
+### 应用场景
+
+### 请求url：/store/delNoSubordinateOrg
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |      | 商户ID |
+| organizationId   | String | 是       |      | 组织机构ID       |
+
+#### requestBody请求示例
+
+```json
+{
+    "appId":"2eb5c8f1170246429755e6dac313f89d",
+    "partnerId":"1864",
+    "requestBody":"{\"partnerId\":\"169235287376939009\",\"organizationId\":009}",
+    "sign":"skip",
+    "ver":"1"
+}
+
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |      |
+| :-------- | ------ | ---- | -------- | ---- |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "requestBody":"",
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+
+## 商户标签字典列表
+
+### 应用场景
+用于获取商户门店标签所有字典（带分页）
+
+### 请求url：/store/tagList
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |      | 商户ID |
+| pageSize   | int | 否       |      | 每页显示数量       |
+| pageNo   | int | 否      |      | 分页页码       |
+
+#### requestBody请求示例
+
+```json
+{
+        "ver":1,
+        "partnerId":"1864",
+        "appId":"wxaa246",
+        "requestBody":"{\"partnerId\":\"1864\"}",
+        "sign":"skip"
+}
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |
+| :-------- | ------ | ---- | ---- |
+| id | String |     12345672899000 |    标签编号   |
+| customerCode | String | T12496020932198     |    用户自定义编号 |
+| tagName | String | 24小时营业     |    标签名称 |
+| updateDate | String | 2020-06-22 11:11:10     |    更新时间 |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": "{\"list\":[{\"customerCode\":\"1113111\",\"id\":\"177389242276826627\",\"partnerId\":\"1864\",\"tagName\":\"哈哈\",\"updateDate\":\"2020-06-15 13:39:40\"},{\"customerCode\":\"1111111\",\"id\":\"177389810961562370\",\"partnerId\":\"1864\",\"tagName\":\"2222222\",\"updateDate\":\"2020-06-12 18:12:24\"},{\"customerCode\":\"\",\"id\":\"20e46c02-59ed-4e2f-8e05-e48d0ba4e5e3\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"345d3817-3bfb-4a09-b4ff-14a6410de684\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"4fbb7410-5159-4f05-adba-e34b66c0ae43\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"5fcb3af9-5bdb-4ff8-8a17-258f860bba20\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"6051aa95-7a8d-476f-a6b1-9b052fe3a870\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"60b44de9-5f54-4216-babd-3669d3686357\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"668300ba-6bd0-4453-ab8b-4ba230d61d07\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"},{\"customerCode\":\"\",\"id\":\"74ea6175-8ac6-4b91-aa85-bc6cf45524cb\",\"partnerId\":\"1864\",\"tagName\":\"标签名称\",\"updateDate\":\"\"}],\"pageCount\":2,\"pageNo\":1,\"pageSize\":10,\"recordCount\":18}",
+    "sign": "QfG42qjJmBxmSwM5ynD9WxNeF3boJI2dCYs6hg8Ja253Yc6S7iUUu7YG6xFcB6UiL/ZzSfvT9l0dmWBnuLKddcrRgncB5NWN3NW4yoHMFDbZYXdJOM6Kud1yk9EDV1kRQ76qKIOJq16QFiWEJr6OWCZXDDrqH9UtXej7Ys++3sLQxL+x8taSOohoH+OwT9NJXDB/YekLqMFbEUFsYwov1HIYxFp0EXLYlXmXF5k3RMrLlRK0AfjnV6OA8XxKE4Te4HzgHSmIG2JSJjlpiuQp83HEUyLWubt7w1cUyg+KzTmjQQc6yYbkfdtwodjeGzH4a5kMgSluq+F/iLrY86ayYw=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 新增商户门店标签
+
+### 应用场景
+
+### 请求url：/store/createTag
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |   1864   | 商户ID |
+| customerCode   | string | 否       |   11131131   | 标签自定义编码       |
+| tagName   | string | 是      |    24小时营业  | 标签名称      |
+
+#### requestBody请求示例
+
+```json
+{
+        "ver":1,
+        "partnerId":"1864",
+        "appId":"wxaa246",
+        "requestBody":"{\"partnerId\":\"1864\",\"customerCode\":\"11131131\",\"tagName\":\"24小时营业\"}",
+        "sign":"skip"
+}
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |
+| :-------- | ------ | ---- | ---- |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": null,
+    "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 更新商户门店标签
+
+### 应用场景
+
+### 请求url：/store/updateTag
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |   1864   | 商户ID |
+| id       | String    | 是       |   177389242276826627   | 标签编号 |
+| customerCode   | string | 否       |    1113111  | 标签自定义编码       |
+| tagName   | string | 是      |  24小时营业    |   标签名称    |
+
+#### requestBody请求示例
+
+```json
+{
+        "ver":1,
+        "partnerId":"1864",
+        "appId":"wxaa246",
+        "requestBody":"{\"partnerId\":\"1864\",\"id\":\"177389242276826627\",\"customerCode\":\"1113111\",\"tagName\":\"24小时营业\"}",
+        "sign":"skip"
+}
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |
+| :-------- | ------ | ---- | ---- |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "success",
+    "responseBody": null,
+    "sign": "Zo0pHCy+AkdKnIP7mgd5SN44sZSBpuMd/pC1jJ0hH0duUmDDEXPATqpzTTtuMWQsS889J4YW0aIZ3H8eSCJ0ln0HrKZlNbp6O3ASzN2CEJo5VhY8oAfwy957L6IsrmGGUu2sYndelyfuY6qWpj/nvlodTaefW9VZHaOUAGLJsZBUOM1CVqQLnJAvtMvDN+ROAKyIjnShx6qzMsgbC5PEDEMCv/PFr1lvykY+YZsGX4f/cdjvvn4ZeBw2TmfbaYgvjh2xm7kSTdtdCSu7jnf9hOeSW7lOzLqeaOZEWJIXxpC82acuigqO0l232K6ZpMShSdBYie8/Xxz2tv2lnTGbow=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 获取商户门店标签
+
+### 应用场景
+
+### 请求url：/store/getTag
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |   1864   | 商户ID |
+| id       | String    | 是       |    177389242276826627  | 标签编号 |
+
+#### requestBody请求示例
+
+```json
+{
+        "ver":1,
+        "partnerId":"1864",
+        "appId":"wxaa246",
+        "requestBody":"{\"partnerId\":\"1864\",\"id\":\"177389242276826627\"}",
+        "sign":"skip"
+}
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |
+| :-------- | ------ | ---- | ---- |
+| id | String |     12345672899000 |    标签编号   |
+| partnerId | String |     1864 |    商户编号   |
+| customerCode | String | T12496020932198     |    用户自定义编号 |
+| tagName | String | 24小时营业     |    标签名称 |
+| updateDate | String | 2020-06-22 11:11:10     |    更新时间 |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": "{\"customerCode\":\"1113111\",\"id\":\"177389242276826627\",\"partnerId\":\"1864\",\"tagName\":\"哈哈\",\"updateDate\":\"2020-06-15 13:39:40\"}",
+    "sign": "J9TvD1Dhj5vcINGDUG7nKM3Mukm0T/BemjUPssr8SvZG6Rm5+7ZH9q0OPur7UHaFyfyoWBhH0XTpHxXG2fVaPhns1F17ozB2Bm8t+RQaxdbeCspn7kkOepydG75MqE8RhlitMPKYMyheFduIp49sPKxb8irIUm23m56UXq9wSgZh/tVy9TM18Sr6A5g6ugJoJZRjMJmTliGSpXEF7UM6XHaMYS9+/n/9mbFegumwPEi1ms7YOVdGOXdaForyDjiTH/mwhHhFpzDQE6tTNuD18iKRmZNsEHXXpGbdFaixlIlJ5lIkB0tgxCI5o9WxQrUP2OkZHPKsfPyVOjey/pTg+Q=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 删除商户门店标签
+
+### 应用场景
+
+### 请求url：/store/deleteTag
+
+### 请求参数
+
+| 字段     | 类型    | 是否必传 | 举例 | 说明           |
+| :------- | ------- | -------- | ---- | -------------- |
+| partnerId       | String    | 是       |  1864    | 商户ID |
+| id       | String    | 是       | 177662350492443393     | 标签编号 |
+
+#### requestBody请求示例
+
+```json
+{
+        "ver":1,
+        "partnerId":"1864",
+        "appId":"wxaa246",
+        "requestBody":"{\"partnerId\":\"1864\",\"id\":\"177662350492443393\"}",
+        "sign":"skip"
+}
+```
+
+### 响应参数
+
+| 字段      | 类型   | 举例 | 说明     |
+| :-------- | ------ | ---- | ---- |
+
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": null,
+    "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
 }
 ```
 

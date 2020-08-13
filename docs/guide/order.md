@@ -18,41 +18,35 @@
 ### 请求参数
 |   字段    |  类型  | 是否必传 |                    说明                     |
 | -------|  ----|  ------|  --------------------------------|
-|storeId|String|是|下单门店号|
-|thirdStoreId   | String | 是       | 下单门店号，第三方门店编号，storeId和thirdStoreId二选一 |
-|storeName|String|是|门店名称|
-|posCode|String|否|pos编号|
 |thirdOrderCode| String |否| 第三方平台(饿了么或者美团等)订单号|
-|originalAmount|Integer|是|订单原金额（分）|
+|storeId|String|是|下单门店号|
+|storeName|String|是|门店名称|
 |actualPayAmount|Integer|是|实际支付金额（分）|
-|discountAmount|Int|否|折扣总金额（分）
+|originalAmount|Integer|是|订单原金额（分）|
+|deliverAmount|Integer|是|订单配送费（分）|
+|discountAmount|Integer|是|订单总优惠金额（分）|
 |barCounter|String|否|桌台号|
 |canRefund|Boolean|是|是否能退货|
 |needInvoice|Boolean|否|是否需要开发票|
 |orderInvoice|Object|否|发票信息,暂不支持|
 |orderClient|Integer|是|下单渠道|
+|note|String|否|订单备注|
 |orderStatus|Integer|是|订单状态（见字段描述）|
 |orderType|Integer|是|订单类型（见字段描述）|
-|operator|String|否|操作人|
-|userId|String|是|用户id|
-|userName|String|否|用户姓名|
-|needBonus|Integer|是|是否赠送积分0是1否 暂不支持保存|
-|note|String|否|订单备注|
-|couponCode|String|否|券码code|
 |payChannel|String|否|支付渠道|
 |payChannelName|String|否|支付渠道名称|
 |payStatus|Integer|否|支付状态（见字段描述）|
 |payType|Integer|否|支付类型（见字段描述）|
-|payAmount|Int|否|支付金额|
 |payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
+|posCode|String|否|pos编号|
+|operator|String|否|操作人|
+|userId|String|是|用户id|
+|userName|String|否|用户姓名|
+|needBonus|Integer|是|是否赠送积分0是1否 暂不支持保存|
 |orderItemList|Array||订单商品信息|
-|orderItemList/categoryId|String|否|商品分类如果商品分类有多级<br/>则表示商品上一级分类如：
-|orderItemList/categoryName|String|否|商品分类名称
-|orderItemList/thirdCateCode|String|否|商家商品分类编号
 |orderItemList/productSeq|Integer|是|商品序号|
 |orderItemList/productId|String|是|商品编号|
 |orderItemList/thirdProductId|String|否|商家商品编号|
-|orderItemList/needBonus|Int|是|是否算积分0：不加积分 1：加积分
 |orderItemList/productName|String|是|商品名称|
 |orderItemList/productPrice|Integer|是|商品单价（分）|
 |orderItemList/productQuantity|Integer|是|数量|
@@ -61,6 +55,17 @@
 |orderItemList/weight|Integer|否|商品重量（克）|
 |orderItemList/productSpecName|String|否|商品规格名称（大杯）|
 |orderItemList/productProperty|String|否|商品属性名称（三分糖）|
+|orderItemList/thirdCateCode|String|否|商家商品分类编号|
+|orderItemList/needBonus|String|否|是否算积分|
+|payList|Array||订单支付信息|
+|payList/payChannel|String|否|支付渠道|
+|payList/payChannelName|String|否|支付渠道名称|
+|payList/payType|String|否|支付类型|
+|payList/payAmount|String|否|支付金额|
+|payList/payStatus|String|否|支付状态|
+|payList/payTime|String|否|支付时间（yyyy-MM-dd HH:mm:ss）|
+
+
 
 #### requestBody请求示例
 
@@ -326,6 +331,7 @@
 |itemList/orderItemList|Array|订单商品信息|
 |itemList/orderItemList/productSeq|Integer|商品序号|
 |itemList/orderItemList/productId|String|开个店商品编号|
+|itemList/orderItemList/skuId|String|开个店商品sku编号|
 |itemList/orderItemList/thirdProductId|String|第三方商品编号|
 |itemList/orderItemList/productName|String|商品名称|
 |itemList/orderItemList/productPrice|Integer|商品单价（分）|
@@ -335,6 +341,8 @@
 |itemList/orderItemList/weight|Integer|商品重量（克）|
 |itemList/orderItemList/productSpecName|String|商品规格名称（大杯）|
 |itemList/orderItemList/productProperty|String|商品属性名称（三分糖）|
+|itemList/orderItemList/thirdProductSpecId|String|第三方商品规格编号（多个规格以“,”分割）|
+|itemList/orderItemList/thirdProductPropertyId|String|第三方商品属性编号（多个属性以“,”分割）|
 |orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
 |orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
 |itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
@@ -383,6 +391,7 @@
                 {
                     "productSeq":1,
                     "productId":"138418632407497998",
+                    "skuId": "138418632407497998",
                     "thirdProductId":"188453334",
                     "productName":"测试商品",
                     "productPrice":2000,
@@ -391,7 +400,9 @@
                     "unit":"杯",
                     "weight":1500,
                     "productSpecName":"大杯",
-                    "productProperty":"三分糖"
+                    "productProperty":"三分糖",
+					"thirdProductSpecId":"2664,3434",
+                    "thirdProductPropertyId":"3764,3795"
                 }
             ],
             "pickUpGoodsNo":"4578",
@@ -464,6 +475,7 @@
 |orderItemList|Array|订单商品信息|
 |orderItemList/productSeq|Integer|商品序号|
 |orderItemList/productId|String|开个店商品编号|
+|orderItemList/skuId|String|开个店商品sku编号|
 |orderItemList/thirdProductId|String|第三方商品编号|
 |orderItemList/parentProductId|String|组合套餐商品ID|
 |orderItemList/productName|String|商品名称|
@@ -474,6 +486,8 @@
 |orderItemList/weight|Integer|商品重量（克）|
 |orderItemList/productSpecName|String|商品规格名称（大杯）|
 |orderItemList/productProperty|String|商品属性名称（三分糖）|
+|orderItemList/thirdProductSpecId|String|第三方商品规格编号（多个规格以“,”分割）|
+|orderItemList/thirdProductPropertyId|String|第三方商品属性编号（多个属性以“,”分割）|
 |orderItemList/productType|Integer|商品类型 商品类型1,"普通商品" 3,"组合商品" 6,"套餐商品" 7,"加价套餐商品" 9,"虚拟商品" 10,"过规格商品" 11,"称重商品"|
 |orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
 |orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
@@ -496,9 +510,17 @@
 |longitude|String|收货地址经度|
 |latitude|String|收货地址维度|
 |deliverFee|Long|订单配送费|
-|packageFee|Long|订单包装费|
+|packageFee|Integer|订单包装费|
+|driverFee|Long|商户小费|
 |mobile|String|用户手机号|
 |desensitizedMobile|String|脱敏的手机号|
+|parkingInfo|Object|停车信息|
+|parkingInfo/parkingAreaId|String|停车场ID|
+|parkingInfo/carNumber|String|车牌号|
+|parkingInfo/inTime|String|入场时间|
+|parkingInfo/outTime|String|出场时间|
+
+
 
 #### responseBody返回示例
 
@@ -530,6 +552,7 @@
         {
             "productSeq": 1,
             "productId": "138418632407497998",
+            "skuId": "138418632407497998",
             "thirdProductId": "188453334",
             "productName": "测试商品",
             "productPrice": 2500,
@@ -539,6 +562,8 @@
             "weight": 1500,
             "productSpecName": "大杯",
             "productProperty": "三分糖"
+			"thirdProductSpecId":"2664,3434",
+            "thirdProductPropertyId":"3764,3795"
         }
     ],
     "apportionDetails": [
@@ -564,6 +589,7 @@
     "latitude": "121.3434334",
     "deliverFee": 5,
     "packageFee": 0,
+    "driverFee": 0,
     "mobile": "13602109227",
     "desensitizedMobile": "136****9227"
 }]
@@ -671,7 +697,7 @@
         }
     ],
 }
-```
+``` 
 
 
 ## 订单状态处理
@@ -877,57 +903,6 @@
     "responseBody": ""
 }
 ```
-<!--
-## 运单状态变更推送
-
-### 接口说明
-
-由调用方实现该接口，开个店来调用，需要提供地址给到开个店
-
-### 应用场景
-
-第三方需要提供开个店事件通知地址
-
-开个店有订单配送信息变更时回调第三方地址推送配送信息
-
-### 请求url：由对接方提供
-### 请求参数
-|   字段    |  类型  | 是否必传 |                    说明                     |
-| -------|  ----|  ------|  --------------------------------|
-| orderId | String | 是 | 订单号 |
-| deliveryId | String | 是 | 运单号 |
-| deliveryStatus | String | 是 | 运单状态：0-待接单，1-系统接单，2-分配骑手，3-骑手到店，4-骑手取餐。5-开始配送，6-运单送达，7-运单异常，8-运单取消 |
-| riderPhone | String | 否 | 骑手联系方式 |
-| riderName | String | 否 | 骑手名称 |
-| remark | String | 否 | 备注 |
-| updateTime | String |  是 | 变更时间（yyyy-MM-dd HH:mm:ss） |
-
-#### requestBody请求示例
-
-```json
-{
-    "deliveryId":"68201906351637708892",
-    "deliveryStatus":7,
-    "orderId":"17050475918114082900006",
-    "remark":"系统推单异常",
-    "updateTime":"2020-02-26 00:20:16"
-}
-```
-
-### 响应参数
-
-只需要返回公共参数 状态码和message 即可
-#### 返回示例
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "success",
-    "responseBody": ""
-}
-```
--->
 
 ## 用户申请订单取消/退款 状态变更推送
 
@@ -983,7 +958,7 @@
 
 线上加菜会通过该接口进行回调，由第三方按此接口标准进行实现。
 
-### 请求方法
+### 请求方法 
 
 `POST`
 
@@ -1160,11 +1135,11 @@ responseBody响应示例
 
 针对商品线下称重的商品，可以通过该接口修改商品相关信息
 
-### 请求地址
+### 请求地址 
 
 order/updateOrderItem
 
-### 请求方法
+### 请求方法 
 
 `POST`
 
@@ -1225,11 +1200,11 @@ order/updateOrderItem
 
 线上订单在线下支付，需要将线下支付信息同步给线上订单，防止线上订单商品信息和pos订单商品信息不同步可以在同步支付信息时同时将线下订单商品信息上传。
 
-### 请求地址
+### 请求地址 
 
 order/payAfterSyncOrderInfo
 
-### 请求方法
+### 请求方法 
 
 `POST`
 

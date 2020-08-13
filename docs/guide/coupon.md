@@ -1,665 +1,337 @@
-# 券码类接口
+# 开放平台券码接口
+#####所有接口请求参数格式都是
 
-## 1.1 卡券查询接口
+| **字段**    | **类型** | **必填** | **举例** | **说明**               |
+|-------------|----------|----------|----------|------------------------|
+| ver         | String   | 是       |          | 版本号                 |
+| sign        | String   | 是       |          | 签名                   |
+| appId       | String   | 是       |          | appid                  |
+| partnerId   | String   | 是       |          | 商户号 (由非码颁发商户唯一标识)                |
+| **requestBody** | String   | 是       |          | 核销数据（json字符串） |
 
-### 应用场景
+#####所有接口返回参数格式都是
+| **字段**     | **类型**  | **必填** | **举例** | **说明**               |
+|--------------|-----------|----------|----------|------------------------|
+| ver          | String    | 是       |          | 版本号                 |
+| statusCode   | String    | 是       |  100     | 100为成功，其他为错误  |
+| message      | String    | 是       | success  | success或错误信息      |
+| sign         | String    | 是       |          | 签名                   |
+| **responseBody** | String    | 是       |          | 核销数据（json字符串） |
 
-> 此接口针对线下卡券查询
+#####下面的接口中，只对 requestBody 和 responseBody 参数内部字段做说明
 
-* 请求地址
-  `/coupon/query`
+-   [查询接口：](#id-开放平台券码接口-查询接口：)
 
-* 请求参数
+-   [核销接口：](#id-开放平台券码接口-核销接口：)
 
-| 字段       | 类型   | 是否必传 | 举例      | 说明          |
-| :--------- | ------ | -------- | --------- | ------------- |
-| storeId    | String | 是       | 208888    | 商家门店号    |
-| couponCode | String | 是       | 123456789 | 需要查询的码  |
-| stationId  | String | 否       | 1         | 商家POS机编号 |
-| operatorId | String | 否       | 2         | 营业员编号    |
+-   [冲正接口：](#id-开放平台券码接口-冲正接口：)
 
-* requestBody请求示例
+-   [核销失败日志查询接口：](#id-开放平台券码接口-核销失败日志查询接口：)
 
+## 查询接口：
+
+接口地址 /openapi/coupon/query
+
+**请求参数** 
+requestBody解码：  
+
+| **字段**       | **类型** | **必填** | **举例** | **说明**     |
+|----------------|----------|----------|----------|--------------|
+| storeId        | String   | 否       |          | 非码门店编码 |
+| couponCode     | String   | 是       |          | 优惠券编号   |
+| stationId      | String   | 否       |          | POS机编号    |
+| operatorId     | String   | 否       |          | 营业员编号   |
+
+请求示例  
 ```json
-{
-  "storeId":"208888",
-  "couponCode": "123456789"
+{  
+        "ver": 1,  
+        "appId": "RBeR1M1N7PE",  
+        "sign": "skip",  
+        "partnerId": "2491",  
+         "station_id": "03122311",  
+        "requestBody":"{\\"storeId\\":\\"0329\\",\\"couponCode\\":\\"88606513071572960008\\",\\"stationId\\":\\"1\\",\\"operatorId    \\":\\"1\\"}"  
+    }
+```
+**返回**
+responseBody解码：
+
+| **字段**                                   | **类型**  | **必填** | **举例**   | **说明**                                                            |
+|--------------------------------------------|-----------|----------|------------|---------------------------------------------------------------------|
+| couponType                                 | Integer   | 是       |            | 优惠券类型，1：代金券                                               |
+| codeInfo                                   | Object    | 是       |            | 优惠券信息                                                          |
+| codeInfo/codeState                         | Integer   | 是       |            | 卡券状态：-1：未激活0：已激活1：已使用2：部分使用3：已作废6: 已过期 |
+| codeInfo/actName                           | String    | 是       |            | 活动名称                                                            |
+| codeInfo/actId                             | String    | 是       |            | 活动编号                                                            |
+| codeInfo/endDate                           | String    | 是       | 2016-04-15 | 优惠券过期时间                                                      |
+| codeInfo/code                              | String    | 是       |            | 优惠券编号                                                          |
+| codeInfo/ebCode                            | String    | 是       |            | 优惠券渠道商编号                                                    |
+| codeInfo/ebName                            | Integer   | 是       |            | 优惠券渠道商名称                                                    |
+| codeInfo/amount                            | Integer   | 否       |            | 代金券金额，只有代金券才返回，以分为单位                            |
+| codeInfo/salePrice                         | Integer   | 否       |            | 代金券售价，只有代金券才返回，以分为单位                            |
+| codeInfo/originalPrice                     | Integer   | 否       |            | 代金券原价，只有代金券才返回，以分为单位                            |
+| codeInfo/paid                              | Integer   | 否       |            | 对账价格，只有代金券才返回，以分为单位                              |
+| codeInfo/promotionType                     | String    | 是       |            | 折扣编码                                                            |
+| codeInfo/platformItemId                    | String    | 是       |            | 屏幕编码                                                            |
+| codeInfo/products                          | List      | 否       |            | 商品券时才返回                                                      |
+| codeInfo/products/pid                      | String    | 是       |            | 商户商品编号                                                        |
+| codeInfo/products/name                     | String    | 是       |            | 商品名称                                                            |
+| codeInfo/products/number                    | Integer   | 是       |            | 最大可取商品个数                                                    |
+| codeInfo/products/priceAct                 | Integer   | 是       |            | 商品折扣价，以分为单位                                              |
+| codeInfo/products/priceOriginal            | Integer   | 是       |            | 原价，以分为单位                                                    |
+| codeInfo/products/payment                  | Object    | 否       |            |                                                                     |
+| codeInfo/products/payment/paid             | Integer   | 是       |            | 线上已付金额，以分为单位                                            |
+| codeInfo/products/payment/remaining        | Integer   | 是       |            | 线下需要收取的金额，以分为单位                                      |
+| codeInfo/groups                            | List      | 否       |            | M选N商品券时才返回                                                  |
+| codeInfo/groups/gid                        | Integer   | 是       |            | M选N商品券商品组标识                                                |
+| codeInfo/groups/gMax                       | Integer   | 是       |            | 该组对应的所有商品总最多可选商品数量                                |
+| codeInfo/groups/products                   | List      | 否       |            |                                                                     |
+| codeInfo/groups/products/pid               | String    | 是       |            | 商户商品编号                                                        |
+| codeInfo/groups/products/name              | String    | 是       |            | 商品名称                                                            |
+| codeInfo/groups/products/number            | Integer   | 是       |            | 最大可取商品个数                                                    |
+| codeInfo/groups/products/priceAct          | Integer   | 是       |            | 商品折扣价，以分为单位                                              |
+| codeInfo/groups/products/priceOriginal     | Integer   | 是       |            | 原价，以分为单位                                                    |
+| codeInfo/groups/products/payment           | Object    | 否       |            |                                                                     |
+| codeInfo/groups/products/payment/paid      | Integer   | 是       |            | 线上已付金额，以分为单位                                            |
+| codeInfo/groups/products/payment/remaining | Integer   | 是       |            | 线下需要收取的金额，以分为单位                                      |
+
+## 核销接口：
+
+接口地址 /openapi/coupon/couponRedeem   
+
+**请求参数** 
+requestBody解码：  
+
+| **字段**                     | **类型**  | **必填** | **举例** | **说明**                    |
+|------------------------------|-----------|----------|----------|-----------------------------|
+| thirdStoreId                 | String    | 是       |          | 商户门店编码                |
+| thirdOrderCode               | String    | 是       |          | POS交易序号                 |
+| stationId                    | String    | 否       |          | POS机编号                   |
+| operatorId                   | String    | 否       |          | 营业员编号                  |
+| memberId                     | String    | 否       |          | 会员id                      |
+| useFlag                      | Integer   | 否       | 1        | 1：核销，目前只支持1。默认1 |
+| channel                      | String    | 否       | pickup   | pickup：到店取餐，delivery：外卖。默认pickup |
+| coupons                      | Array     | 是       |          | 优惠券信息                  |
+| coupons/code                 | String    | 是       |          | 优惠券编码，目前只支持单券核销|
+| transactions                 | Array     | 是       |          | 商品列表                    |
+| transactions/productCode     | String    | 是       |          | 商户的商品编码              |
+| transactions/productQuantity | Integer   | 是       |          | 商品数量                    |
+| transactions/productPrice    | String    | 是       |          | 商品价格（单位分）          |
+| transactions/categoryCode    | String    | 否       |          | 商户的商品分类编码          |
+| transactions/categoryName    | String    | 否       |          | 商户的商品分类名称          |
+
+请求示例  
+```json
+{  
+        "ver": 1,  
+        "appId": "wxaa246",  
+        "sign": "skip",  
+        "partnerId": "1864",  
+        "requestBody":
+"{\\"thirdStoreId\\":\\"123123aa哈哈\\",\\"thirdOrderCode\\":\\"88606442249231550751\\",\\"transactions\\":[{\\"productCode\\":\\"110101\\",\\"productQuantity\\":1,\\"productPrice\\":900},{\\"productCode\\":\\"110102\\",\\"productQuantity\\":2,\\"productPrice\\":900}],\\"coupons\\":[{\\"code\\":\\"88606469538009667859\\"}]}"  
+    }
+```
+**返回**
+responseBody解码：
+
+| **字段**                                     | **类型**  | **必填** | **举例** | **说明**                 |
+|----------------------------------------------|-----------|----------|----------|--------------------------|
+| memberId                                     | String    | 是       |          | 返回memberId             |
+| mobile                                       | String    | 是       |          | 会员手机号               |
+| discountAmount                               | Long      | 是       |          | 所有券总优惠，单位：分   |
+| discountInfo                                 | Object    | 是       |          | 优惠信息                 |
+| discountInfo/actId                           | String    | 是       |          | 活动id                   |
+| discountInfo/actName                         | String    | 是       |          | 活动名称                 |
+| discountInfo/thirdActCode                    | String    | 是       |          | 第三方活动编号           |
+| discountInfo/couponName                      | String    | 是       |          | 券名称                   |
+| discountInfo/couponCode                      | String    | 是       |          | 优惠券编号               |
+| discountInfo/couponType                      | Integer   | 是       |          | 优惠券类型，1：代金券    |
+| discountInfo/discountAmount                  | Integer   | 是       |          | 本券总优惠金额，单位为分 |
+| discountInfo/discountProducts                | Array     | 是       |          | 优惠的商品列表           |
+| discountInfo/discountProducts/customerCode   | String    | 是       |          | 商品第三方编号           |
+| discountInfo/discountProducts/discountQty    | Integer   | 是       |          | 优惠数量                 |
+| discountInfo/discountProducts/productId      | String    | 是       |          | 非码商品编号             |
+
+返回示例
+```json
+{  
+    "ver": "1",  
+    "statusCode": "100",  
+    "message": "成功",  
+    "responseBody": "{\\"discountAmount\\":99900,\\"discountInfo\\":[{\\"actId\\":\\"V1578966771568602\\",\\"actName\\":\\"14-4\\",\\"couponCode\\":\\"88606509363527402248\\",\\"couponName\\":\\"14-4\\",\\"couponType\\":1,\\"discountAmount\\":99900,\\"discountProducts\\":[{\\"customerCode\\":\\"001\\",\\"discountQty\\":1},{\\"customerCode\\":\\"002\\",\\"discountQty\\":2}],\\"thirdActCode\\":\\"1234\\"}],\\"memberId\\":\\"3577953412544166890\\"}",  
+    "sign": "5OUg2X7gR+Halm6CT1/4A2NqP5J2V+D8PqlsbM3/0nc4KxM7UxLdAa9QGzFju0rOYfu7r6g2LO2xnLkGOHsgotMQV3AhTULaltrnLdtML62aQYOTGlujO6fP3zFqATuhWYGiLt2AM/vBWevJoCn8yb28b6h7EgtOd50zJ1RU8POXeXNk/ue7Kw6ddkvCHRKFXhqpZv3KLqWRue5RRgY4g7Xxj3SbgEffjwUmsUG5kefiSfN3uRw9yUNP2pB+UVAMlX8WtLYBCdAz4ce5PpOWkPauLYjVYiV1Ykq4/joTw3M4X1SLVVfzquchPEwQ+26TzyuBLPJ669xrSjAFfciYaQ=="  
 }
 ```
+## 冲正接口：
 
-* 响应参数
+接口地址 /openapi/coupon/couponReverse  
 
+**请求参数** 
+requestBody解码：  
 
-| **字段**                            | **类型** | **必填** | **举例**      | **说明**                                                     |
-| ----------------------------------- | -------- | -------- | ------------- | ------------------------------------------------------------ |
-| couponType                          | Integer  | 是       | 0             | 电子凭证码类型: 0：商品券 1：代金券                          |
-| codeInfo                            | Object   |          |               |                                                              |
-| codeInfo \codeState                 | Integer  | 是       | -1            | 卡券状态：-1：未激活0：已激活1：已使用2：部分使用3：已作废6: 已过期 |
-| codeInfo\ actId                     | String   | 否       | TB2014032666  | 活动编号                                                     |
-| codeInfo\ actName                   | String   | 否       | 可乐半价      | 活动名称                                                     |
-| codeInfo\ endDate                   | String   | 是       | 2016-4-15     | 优惠券过期时间                                               |
-| codeInfo\ code                      | String   | 是       | 785227842     | 优惠券编号                                                   |
-| codeInfo\ebCode                     | String   | 是       | ‘0000000004   | 优惠券渠道商编号                                             |
-| codeInfo\ebName                     | String   | 否       | 中国电信      | 优惠券渠道商名称                                             |
-| codeInfo\ amount                    | Integer  | 否       | 1000          | 代金券金额，只有代金券才返回，以分为单位                     |
-| codeInfo\ salePrice                 | Integer  | 是       | 80            | 代金券售价，只有代金券才返回，以分为单位                     |
-| codeInfo\ originalPrice             | Integer  | 是       | 100           | 代金券原价，只有代金券才返回，以分为单位                     |
-| codeInfo\ paid                      | Integer  | 是       | 80            | 对账价格，只有代金券才返回，以分为单位                       |
-| codeInfo\promotionType              | String   | 否       | 0001          | 折扣编码                                                     |
-| codeInfo\platformItemId             | String   | 否       | 0001          | 屏幕编码                                                     |
-| codeInfo\products                   | Array    | 否       |               | 商品券时才返回                                               |
-| codeInfo\products\pid               | String   | 是       | 77842         | 商户商品编号                                                 |
-| codeInfo\products\name              | String   | 否       | 优倍鲜奶200ML | 商品名称                                                     |
-| codeInfo\products\number            | Integer  | 是       | 1             | 最大可取商品个数                                             |
-| codeInfo\products\priceAct          | Integer  | 是       | 1000          | 商品折扣价，以分为单位                                       |
-| codeInfo\products\priceOriginal     | Integer  | 是       | 1000          | 原价，以分为单位                                             |
-| codeInfo\products\payment           | Object   | 是       |               |                                                              |
-| codeInfo\products\payment\paid      | Integer  | 是       | 1000          | 线上已付金额，以分为单位                                     |
-| codeInfo\products\payment\remaining | Integer  | 是       | 0             | 线下需要收取的金额，以分为单位                               |
-| codeInfo\groups                     | Array    | 否       |               | M选N商品券时才返回                                           |
-| codeInfo\groups\gid                 | Integer  | 是       | 2             | M选N商品券商品组标识                                         |
-| codeInfo\groups\gMax                | Integer  | 是       | 1             | 该组对应的所有商品总最多可选商品数量                         |
-| codeInfo\groups\products            | Array    | 是       |               | 同codeInfo\products                                          |
+| **字段**          | **类型** | **必填** | **举例** | **说明**                     |
+|-------------------|----------|----------|----------|------------------------------|
+| thirdStoreId      | String   | 是       |          | 商户门店编码                 |
+| thirdOrderCode    | String   | 是       |          | POS交易序号（核销时的序号）  |
+| stationId         | String   | 否       |          | POS机编号                    |
+| operatorId        | String   | 否       |          | 营业员编号                   |
+| transactions      | Array    | 是       |          | 优惠券列表                   |
+| transactions/code | String   | 是       |          | 优惠券编码，目前只支持单券冲正 |
 
-* responseBody返回示例
-
-- 代金券返回
-
-  ```
-  {
-    "codeInfo": {
-      "actId": "TB2014032666",
-      "actName": "代金券10元",
-      "amount": 1000,
-      "code": "785227842",
-      "ebCode": "0000000004",
-      "ebName": "中国移动",
-      "endDate": "2016-04-15"
-    },
-    "couponType": 1
-  }
-  ```
-
-
-
-- 普通商品券返回
-
-  ```json
-  {
-    "codeInfo": {
-      "actId": "TB2014032688",
-      "actName": "可乐二选一",
-      "code": "249916165",
-      "ebCode": "0000000004",
-      "ebName": "CMCC",
-      "products": [{
-          "number": 3,
-          "payment": {
-            "paid": 500,
-            "remaining": 0
-          },
-          "pid": "0079020",
-          "priceAct": 500
-        },
-        {
-          "number": 3,
-          "payment": {
-            "paid": 110,
-            "remaining": 0
-          },
-          "pid": "0380454",
-          "priceAct": 110
-        }
-      ],
-      "endDate": "2016-04-15"
-    },
-    "couponType": 0
-  }
-  ```
-
-- M选N商品券返回
-
-  ```
-  {
-    "codeInfo": {
-      "actId": "FM2015032401",
-      "actName": "可乐二选一",
-      "code": "905662028",
-      "ebCode": "0000000004",
-      "ebName": "CMCC",
-      "groups": [{
-        "gid": 1,
-        "gmax": 2,
-        "products": [{
-            "number": 1,
-            "payment": {
-              "paid": 500,
-              "remaining": 0
-            },
-            "pid": "2120249",
-            "priceAct": 500
-          },
-          {
-            "number": 1,
-            "payment": {
-              "paid": 500,
-              "remaining": 0
-            },
-            "pid": "0115001",
-            "priceAct": 500
-          }
-        ]
-      }],
-      "endDate": "2016-04-05"
-    },
-    "couponType": 0
-  }
-  ```
-
-
-## 1.2 券批量查询
-
-### 应用场景
-> 批量查询券的问题
-
-* 请求地址
-  ` /coupon/batch/query`
-
-* 请求参数
-  
-| **字段**          | **类型** | **必填** | **举例**  | **说明**      |
-| ----------------- | -------- | -------- | --------- | ------------- |
-| partnerId           | String | 是     | 2034    | 商户号    |
-| storeId           | String   | 非      | 208888    | 商家门店号    |
-| couponCodes       | string []   | 是   | ["123","456","789"]   | 需要查询的券码列表ID的数组     |
-
-
-* 响应参数
-
-| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
-| --------------- | -------- | -------| ----------- | ---------- |
-| couponInfos      | Array  | 是    |        |    券信息数组    |
-| couponInfos/couponType      | integer  | 是    |        |    券类型    |
-| couponInfos/channel       | string     | 是    |        |    渠道   |
-| couponInfos/codeInfo    | Object   | 是      |      | 券明细   |
-| codeInfo/code_state     | integer | 是 |      | 券状态                   |      |
-| codeInfo/act_id         | string  | 是 |      | 活动编号                 |      |
-| codeInfo/act_name       | string  | 是 |      | 活动名称                 |      |
-| codeInfo/vdata          | string  | 是 |      | 有效时间 yyyy-MM-dd      |      |
-| codeInfo/code           | string  | 是 |      | 券号                     |      |
-| codeInfo/ebcode         | string  | 是 |      | 优惠券渠道商编号         |      |
-| codeInfo/ebname         | string  | 是 |      | 优惠券渠道商名称         |      |
-| codeInfo/amount         | integer | 是 |      | 代金券金额                      |      |
-| codeInfo/salePrice      | integer | 是 |      | 活动价                   |      |
-| codeInfo/originalPrice  | integer | 是 |      | 商品原价                 |      |
-| codeInfo/paid           | integer | 是 |      | 线上已付金额，以分为单位 |      |
-| codeInfo/products     | Array  | 非 |      |           |  商品券商品信息   |
-| └products/pid                   | string  | 是 |      | 商品ID       |      |
-| └products/name                  | string  | 是 |      | 商品名称     |      |
-| 　　└products/number                | integer | 是 |      | 商品数量     |      |
-| 　　└products/price_act             | integer | 是 |      | 活动价       |      |
-| 　　└products/price_original        | integer | 是 |      | 原价         |      |
-| 　　└products/merchantdiscountprice | integer | 是 |      | 商户优惠金额 |      |
-| 　　└products/platformdiscountprice | integer | 是 |      | 平台优惠金额 |      |
-| 　　└products/otherdiscountprice    | integer | 是 |      | 其他优惠金额 |      |
-| 　　└products/pricediscount         | integer | 是 |      | 优惠总金额   |      |
-| └products/payment     | Array  | 是 |      |           |  支付信息   |
-| └└payment/paid      | integer | 是 |      | 线上已付金额，分   |      |
-| └└payment/remaining | integer | 是 |      | 线下需收取金额，分 |      |
-| codeInfo/groups     | Array  | 非 |      |        |  商品券商品组信息,只有M选N商品券时返回。商品券对应的商品组信息	|
-| └groups/gid  | integer | 是 |      |  组ID                 |      |
-| └groups/gmax | integer | 是 |      | M选N商品券，该组对应的所有商品总最多可选商品数量 |      |
-| └groups/products     | Array  | 非 |      |           |  商品券商品信息   |
-| └└products/pid                   | string  | 是 |      | 商品ID       |      |
-| └└products/name                  | string  | 是 |      | 商品名称     |      |
-| 　　└└products/number                | integer | 是 |      | 商品数量     |      |
-| 　　└└products/price_act             | integer | 是 |      | 活动价       |      |
-| 　　└└products/price_original        | integer | 是 |      | 原价         |      |
-| 　　└└products/merchantdiscountprice | integer | 是 |      | 商户优惠金额 |      |
-| 　　└└products/platformdiscountprice | integer | 是 |      | 平台优惠金额 |      |
-| 　　└└products/otherdiscountprice    | integer | 是 |      | 其他优惠金额 |      |
-| 　　└└products/pricediscount         | integer | 是 |      | 优惠总金额   |      |
-| └└products/payment     | Array  | 是 |      |           |  支付信息   |
-| └└└payment/paid      | integer | 是 |      | 线上已付金额，分   |      |
-| └└└payment/remaining | integer | 是 |      | 线下需收取金额，分 |      |
-
-
-
-
-## 1.3 券核销
-
-### 应用场景
-> 优惠券使用接口，此接口会判断券折扣规则并返回折扣信息。
-> 调用此接口后券会被使用掉。
-> POS需要使用优惠券的场景包括:营业员模式和C端用户出示模式
-
-### 请求url
-
-  `coupon/couponApply`
-
-* 请求参数 requestBody
-
-  | 字段           | 类型   | 是否必填 | 说明               |
-  | -------------- | ------ | -------- | ------------------ |
-  |storeId        | String | 否       | 开个店对应的门店ID |
-  |thirdStoreId   | String | 是       | 第三方门店编号     |
-  |thirdOrderCode | String | 是       | 第三方订单号       |
-  |operatorId|String|否|操作人ID
-  |memberId|String|否|非码平台会员id如果没有传<br/>则需要通过券码查找会员ID|
-  |useFlag|Int|否|0-不使用 1-使用|
-  |coupons|List|||
-  |└code|String|是|优惠券Code|
-  |transactions|List|是||
-  |└productCode|String|是|商品编码（农工商）|
-  |└productName|String|是|商品名称|
-  |└productPrice|Int|是|商品价格（单位分）|
-  |└productQuantity|Int|是|商品数量|
-  |└categoryCode|String|是|商品分类编码|
-  |└categoryName|String|是|商品分类名称|
-
-* 响应参数
-
-  | 字段                          | 类型   | 是否必填 | 说明       |
-  | ----------------------------- | ------ | -------- | ---------- |
-  | memberId                      | String | 是       | 会员ID     |
-  | mobile | String | 是       | 会员手机号 |
-  |discountAmount|Int|是|券折扣的总金额<br/>如果使用多张则是多张折扣的金额总和
-  |discountInfo|Array|是|每个券使用的折扣信息|
-  |└actId|String|是|活动ID
-  |└actName|String|否|活动名称
-  |└thirdActCode|String|否|第三方活动编号
-  |└couponName|String|是|优惠券名称
-  |└couponCode|String|是|优惠券编号
-  |└couponType|Int|是|优惠券类型：0-商品券 1-代金券
-  |└discountAmount|Int|是|优惠折扣的金额
-  |└discountProducts|Array|是|享受优惠券的商品信息
-  |└└productId|String|是|非码商品ID
-  |└└customerCode|String|是|商家自定义商品编码
-  |└└discountQty|Int|否|享受优惠的商品数量
-
-
-
-
-## **1.3.1** 卡券核销（代金券）接口
-
-### 接口说明
-  >旧接口，不建议继续使用
-
-
-*  请求地址
-  `/coupon/redeem`
-
-* 请求参数
-
-| **字段**            | **类型** | **必填** | **举例**   | **说明**         |
-| ------------------- | -------- | -------- | ---------- | ---------------- |
-| storeId             | String   | 是       | 208888     | 商家门店号       |
-| transId             | String   | 是       | 1111       | POS交易序号      |
-| stationId           | String   | 否       | 1          | 商家POS机编号    |
-| operatorId          | String   | 否       | 2          | 营业员编号       |
-| businessDate        | String   | 否       | 2015-07-01 | 营业日           |
-| transactions        | Array    | 是       |            |                  |
-| transactions\code   | String   | 是       | 123456789  | 优惠券编号       |
-| transactions\ebCode | String   | 可选     | 0000000004 | 优惠券渠道商编号 |
-
-#### requestBody请求示例
-
+请求示例：
 ```json
-{
-    "storeId": "208888",
-    "transId": 1,
-    "businessDate": "2015-07-01",
-    "channel":"pickup",
-    "transactions": [
-        {
-            "code": "785227842",
-            "ebCode": "0000000004"
-        }
-    ]
-}
+{  
+        "ver": 1,  
+        "appId": "RBeR1M1N7PE",  
+        "sign": "skip",  
+        "partnerId": "2491",  
+         "station_id": "03122311",  
+        "requestBody":"{\\"transactions\\":[{\\"code\\":\\"88606513071572960008\\"}],\\"thirdOrderCode\\":\\"1411233345\\",\\"thirdStoreId\\":\\"0329\\"}"  
+    }
 ```
+**返回**
 
-* 响应参数
+statusCode为100 代表成功
 
-| **字段**                              | **类型** | **必填** | **举例**     | **说明**   |
-| ------------------------------------- | -------- | -------- | ------------ | ---------- |
-| actInfo                               | Array    | 是       |              |            |
-| actInfo\actId                         | String   | 是       | TB2014032666 | 活动编号   |
-| actInfo\actName                       | String   | 否       | 可乐半价     | 活动名称   |
-| actInfo\code                          | String   | 是       | 785227842    | 优惠券编号 |
-|discountInfo                           |Object    |是        |优惠信息      |优惠信息
-|discountInfo\discountAmount            |Object    |是        |100           |优惠总金额,单位分|
-|discountInfo\discountProducts          |Array     |否        |享受优惠商品信息|享受优惠商品信息,如果是指定商品可用，会校验商品白名单，非必填|
-|discountInfo\discountProducts\productId|String|否|133444111|非码商品ID|
-|discountInfo\discountProducts\customerCode|String|否|product123|商家自定义商品ID|
-|discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
+## 核销失败日志查询接口：
 
+接口地址 /openapi/coupon/redeemFailLogQuery
 
-* responseBody返回示例
+**请求参数** 
+requestBody解码：  
 
+| **字段**   | **类型**       | **必填** | **举例** | **说明**                                             |
+|------------|----------------|----------|----------|------------------------------------------------------|
+| providerId | Integer        | 是       |          | 渠道                                                 |
+| codes      | List\<String\> | 否       |          | 优惠券编号列表                                       |
+| startTime  | String         | 否       |          | 查询开始时间（codes不传时必填，codes传了该参数无效） |
+| endTime    | String         | 否       |          | 查询结束时间（codes不传时必填，codes传了该参数无效） |
+| pageNo     | Integer        | 否       |          | 页码（codes不传时必填，codes传了该参数无效）         |
+| pageSize   | Integer        | 否       |          | 每页数据条数（codes不传时必填，codes传了该参数无效） |
+
+请求示例1
 ```json
 {
-    "actInfo": [
-        {
-            "actId": "TB2014032666",
-            "actName": "可乐半价",
-            "code": "785227842"
-        }
-    ],
-    "discountInfo": {
-        "discountAmount": 80,
-        "discountProducts": []
-      }
+	"ver": 1,
+	"appId": "wxaa246",
+	"sign": "skip",
+	"partnerId": "1864",
+	"requestBody": {
+		"providerId": 2255,
+		"codes": ["88601425334435792164", "88600017959259233977"]
+	}
 
 }
 ```
-
-
-
-## 1.3.2 卡券核销接口(商品券）
-
-### 接口说明
-> 旧接口，不建议继续使用
-
-
-* 请求地址
-  `/coupon/redeem`
-
-* 请求参数
-
-| **字段**                         | **类型** | **必填** | **举例**   | **说明**              |
-| -------------------------------- | -------- | -------- | ---------- | --------------------- |
-| storeId                          | String   | 是       | 208888     | 商家门店号            |
-| transId                          | String   | 是       | 1111       | 交易流水号            |
-| stationId                        | String   | 否       | 1          | 商家POS机编号         |
-| operatorId                       | String   | 否       | 2          | 营业员编号            |
-| businessDate                     | String   | 否       | 2015-07-01 | 营业日                |
-| transactions                     | Array    | 是       |            |                       |
-| transactions\code                | String   | 是       | 123456789  | 优惠券编号            |
-| transactions\ebCode              | String   | 否       | 0000000004 | 优惠券渠道商编号      |
-| transactions\products            | Array    | 是       |            | 需要兑换的商品信息    |
-| transactions\products\pid        | String   | 是       | 123456789  | 核销商品编号          |
-| transactions\products\seq        | Integer  | 是       | 1          | 核销顺序，从1开始记数 |
-| transactions\products\consumeNum | Integer  | 是       | 1          | 核销个数              |
-
-* requestBody请求示例
-
+请求示例2
 ```json
 {
-    "storeId": "208888",
-    "transId": 3,
-    "businessDate": "2015-07-01",
-    "transactions": [
-        {
-            "code": "249916165",
-            "ebCode": "0000000004",
-            "products": [
-                {
-                    "consumeNum": 1,
-                    "pid": "0079020",
-                    "seq": 1
-                },
-                {
-                    "consumeNum": 1,
-                    "pid": "0077842",
-                    "seq": 2
-                }
-            ]
-        }
-    ]
+	"ver": 1,
+	"appId": "wxaa246",
+	"sign": "skip",
+	"partnerId": "1864",
+	"requestBody": {
+		"providerId": 2255,
+		"startTime": "2019-11-22 00:00:00",
+		"endTime": "2019-11-22 23:00:00",
+		"pageNo": 1,
+		"pageSize": 30
+	}
 }
 ```
+**返回**
+responseBody解码：
 
-* 响应参数
-
-| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
-| --------------- | -------- | -------- | ------------ | ---------- |
-| actInfo         | Array    | 是       |              |            |
-| actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
-| actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
-| actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
-|discountInfo|Object|是|优惠信息|优惠信息|
-|discountInfo\discountAmount|Object|是|100|优惠总金额,单位分|
-|discountInfo\discountProducts|Array|是|享受优惠商品信息|享受优惠商品信息|
-|discountInfo\discountProducts\productId|String|是|133444111|非码商品ID|
-|discountInfo\discountProducts\customerCode|String|是|product123|商家自定义商品ID|
-|discountInfo\discountProducts\discountNum|String|是|1|享受优惠的商品数量|
-
-
-* responseBody返回示例
-
+| **字段**             | **类型** | **必填** | **举例** | **说明**                 |
+|----------------------|----------|----------|----------|--------------------------|
+| totalCount           | Integer  | 是       |          | 符合查询条件的数据总条数 |
+| logList              | List     | 是       |          | 本次查询数据列表         |
+| logList/activeCode   | String   | 是       |          | 活动号                   |
+| logList/activeName   | String   | 是       |          | 活动名称                 |
+| logList/code         | String   | 是       |          | 优惠券编号               |
+| logList/failReason   | String   | 是       |          | 失败原因                 |
+| logList/orderId      | String   | 是       |          | 单号                     |
+| logList/partnerId    | Integer  | 是       |          | 商户号                   |
+| logList/providerId   | Long     | 是       |          | 渠道商编号               |
+| logList/providerName | String   | 是       |          | 渠道商名称               |
+| logList/redeemTime   | String   | 是       |          | 核销时间                 |
+| logList/storeId      | String   | 是       |          | 门店号                   |
+| logList/transId      | String   | 是       |          | 流水号                   |
+| logList/url          | String   | 是       |          | url                         |
 ```json
 {
-  "actInfo": [{
-    "actId": "TB2014032666",
-    "actName": "可乐半价",
-    "code": "785227842"
-  }],
-  "discountInfo": {
-    "discountAmount": 80,
-    "discountProducts": [{
-        "productId": "0079020",
-        "customerCode": "354352",
-        "discountNum": 1
-      },
-      {
-        "productId": "0077842",
-        "customerCode": "3543521",
-        "discountNum": 1
-      }
-    ]
-  }
+	"ver": "1",
+	"statusCode": "100",
+	"message": "成功",
+	"responseBody": {
+		"logList": [{
+			"activeCode": "M1574217926285419",
+			"activeName": "10元商品券全可用",
+			"code": "88600017959259171887",
+			"failReason": "404 ",
+			"orderId": "9cde1caa-4b91-4399-bca1-badcf429c149",
+			"partnerId": 1914,
+			"providerId": 2255,
+			"providerName": "i会员",
+			"redeemTime": "2019-11-22 17:58:20",
+			"storeId": "xiaoyuan",
+			"transId": "16187401391489001200005",
+			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
+		}, {
+			"activeCode": "D1574403515680942",
+			"activeName": "全商品折扣券",
+			"code": "88601425334435792164",
+			"failReason": "404 ",
+			"orderId": "a4378fc4-0990-4217-a12b-bf6bd683a876",
+			"partnerId": 1864,
+			"providerId": 2255,
+			"providerName": "i会员",
+			"redeemTime": "2019-11-22 17:19:30",
+			"storeId": "666666",
+			"transId": "99992151167",
+			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
+		}, {
+			"activeCode": "V1574402138996618",
+			"activeName": "全商品代金券",
+			"code": "88600017959259233977",
+			"failReason": "404 ",
+			"orderId": "da992c89-bd1b-491d-9519-1b4bd54a335a",
+			"partnerId": 1864,
+			"providerId": 2255,
+			"providerName": "i会员",
+			"redeemTime": "2019-11-22 17:14:56",
+			"storeId": "666666",
+			"transId": "3311432",
+			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
+		}, {
+			"activeCode": "M1574322390225796",
+			"activeName": "韩月季的奶茶券",
+			"code": "88600017959393411369",
+			"failReason": "404 ",
+			"orderId": "31cfb5fb-d936-4a39-a940-d15dbae20e21",
+			"partnerId": 1864,
+			"providerId": 2255,
+			"providerName": "i会员",
+			"redeemTime": "2019-11-22 17:01:38",
+			"storeId": "666666",
+			"transId": "99992151119",
+			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
+		}, {
+			"activeCode": "M1574322390225796",
+			"activeName": "韩月季的奶茶券",
+			"code": "88601425334142779527",
+			"failReason": "404 ",
+			"orderId": "ef47bbdc-fc18-468b-92cf-8bea3cf2f429",
+			"partnerId": 1864,
+			"providerId": 2255,
+			"providerName": "i会员",
+			"redeemTime": "2019-11-22 14:06:39",
+			"storeId": "666666",
+			"transId": "99992151199",
+			"url": "http://customer-application-service.koderover-qa-open-store.svc:9213/customer/coupon/couponVerifyCallback"
+		}],
+		"totalCount": 5
+	},
+	"sign": "VKXtmHVNoBahbFy/PkTyXgk4838ocOAuPwJj0Hg7XxPxDZXgkH4s4CKVQjn1PdyPz7wQOeFz9U4NxfyySWHBcMwwHnkxzEetoI9jz8k3B85nanHgZAfnWQ31P63Cj/TwqjoJXdAUahUSibRmPQ9n+iXWfME3gwtxV72oEwIXltgWio9kQ3xaUVVInuyEtvSdmbk8KVIvL3UJ9vAMSgOyM1ZdyHmldUgc2OfhLotAFltLqxJt63Oov6fW1lIgNOplvaX/qghz85fncjDevx4jN6akkH+lbiR9goea772LyQ6VZC0BHjFLS99It7OTbT6/l6xqqH4kmrLeeHjVFIrvVA=="
 }
 ```
-## 1.3.3 卡券核销接口(折扣券）
-
-### 接口说明
-> 旧接口，不建议继续使用
-
-
-* 请求地址
-  `/coupon/redeem`
-
-* 请求参数
-
-| **字段**                         | **类型** | **必填** | **举例**   | **说明**              |
-| -------------------------------- | -------- | -------- | ---------- | --------------------- |
-| storeId                          | String   | 是       | 208888     | 商家门店号            |
-| transId                          | String   | 是       | 1111       | 交易流水号            |
-| stationId                        | String   | 否       | 1          | 商家POS机编号         |
-| operatorId                       | String   | 否       | 2          | 营业员编号            |
-| businessDate                     | String   | 否       | 2015-07-01 | 营业日                |
-| transactions                     | Array    | 是       |            |                       |
-| transactions\code                | String   | 是       | 123456789  | 优惠券编号            |
-| transactions\ebCode              | String   | 否       | 0000000004 | 优惠券渠道商编号      |
-|transactions\totalAmount      | String   | 否       | 100 | 实际优惠总金额，折扣券是由应用层计算，非必填    |
-| transactions\products            | Array    | 否       |            | 享受折扣的商品，如果是指定商品享受折扣券，会校验商品白名单，非必填   |
-| transactions\products\pid        | String   | 否       | 123456789  | 核销商品编号          |
-| transactions\products\seq        | Integer  | 否      | 1          | 核销顺序，从1开始记数 |
-| transactions\products\consumeNum | Integer  | 否       | 1          | 核销个数              |
-
-* requestBody请求示例
-
-```json
-{
-    "storeId": "208888",
-    "transId": 3,
-    "businessDate": "2015-07-01",
-    "transactions": [
-        {
-            "code": "249916165",
-            "ebCode": "0000000004",
-            "totalAmount":"100",
-            "products": []
-        }
-    ]
-}
-```
-
-* 响应参数
-
-| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
-| --------------- | -------- | -------- | ------------ | ---------- |
-| actInfo         | Array    | 是       |              |            |
-| actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
-| actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
-| actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
-|discountInfo|Object|是|优惠信息|优惠信息|
-|discountInfo\discountAmount|Object|是|100|优惠总金额,单位分|
-|discountInfo\discountProducts|Array|否|享受优惠商品信息|享受优惠商品信息|
-|discountInfo\discountProducts\productId|String|否|133444111|非码商品ID|
-|discountInfo\discountProducts\customerCode|String|否|product123|商家自定义商品ID|
-|discountInfo\discountProducts\discountNum|String|否|1|享受优惠的商品数量|
-
-
-* responseBody返回示例
-
-```json
-{
-  "actInfo": [{
-    "actId": "TB2014032666",
-    "actName": "可乐半价",
-    "code": "785227842"
-  }],
-  "discountInfo": {
-    "discountAmount": 100,
-    "discountProducts": []
-  }
-}
-```
-
-
-## 1.3.4 卡券核销接口(M选N券）
-
-### 接口说明
-> 旧接口，不建议继续使用
-
-
-* 请求地址
-  `/coupon/redeem`
-
-* 请求参数
-
-| **字段**                         | **类型** | **必填** | **举例**   | **说明**                 |
-| -------------------------------- | -------- | -------- | ---------- | ------------------------ |
-| storeId                          | String   | 是       | 208888     | 商家门店号               |
-| transId                          | String   | 是       | 1111       | 交易流水号               |
-| stationId                        | String   | 否       | 1          | 商家POS机编号            |
-| operatorId                       | String   | 否       | 2          | 营业员编号               |
-| businessDate                     | String   | 否       | 2015-07-01 | 营业日                   |
-| transactions                     | Array    | 是       |            |                          |
-| transactions\code                | String   | 是       | 123456789  | 优惠券编号               |
-| transactions\ebCode              | String   | 否       | 0000000004 | 优惠券渠道商编号         |
-| transactions\products            | Array    | 是       |            | 需要兑换的商品信息       |
-| transactions\products\pid        | String   | 是       | 123456789  | 核销商品编号             |
-| transactions\products\seq        | Integer  | 是       | 1          | 核销顺序，从1开始记数    |
-| transactions\products\consumeNum | Integer  | 是       | 1          | 核销个数                 |
-| transactions\products\gid        | Integer  | 是       | 2          | 核销对应的M选N商品组编号 |
-
-* requestBody请求示例
-
-```json
-{
-    "storeId": "208888",
-    "transId": 3,
-    "businessDate": "2015-07-01",
-    "transactions": [
-        {
-            "code": "249916165",
-            "ebCode": "0000000004",
-            "products": [
-                {
-                    "consumeNum": 3,
-                    "pid": "0079020",
-                    "seq": 1
-                },
-                {
-                    "consumeNum": 4,
-                    "pid": "0077842",
-                    "seq": 2
-                }
-            ]
-        }
-    ]
-}
-```
-
-* 响应参数
-
-| **字段**        | **类型** | **必填** | **举例**     | **说明**   |
-| --------------- | -------- | -------- | ------------ | ---------- |
-| actInfo         | Array    | 是       |              |            |
-| actInfo\actId   | String   | 是       | TB2014032666 | 活动编号   |
-| actInfo\actName | String   | 否       | 可乐半价     | 活动名称   |
-| actInfo\code    | String   | 是       | 785227842    | 优惠券编号 |
-
-* responseBody返回示例
-
-```json
-{
-    "actInfo": [
-        {
-            "actId": "TB2014032666",
-            "actName": "可乐半价",
-            "code": "785227842"
-        }
-    ]
-}
-```
-
-
-## 1.4 卡券冲正接口
-
-### 应用场景
-
-> **NOTE：请求参数为核销的参数，只需要把reqType 修改为3,其他的参数不变(其他的参数一定要和之前核销的参数一样)**
-
-
-* 请求地址
-  `/coupon/reverse`
-
-* 请求参数
-
-| **字段**          | **类型** | **必填** | **举例**  | **说明**      |
-| ----------------- | -------- | -------- | --------- | ------------- |
-| storeId           | String   | 是       | 208888    | 商家门店号    |
-| transId           | String   | 是       | 1111      | 交易流水号    |
-| stationId         | String   | 否       | 1         | 商家POS机编号 |
-| operatorId        | String   | 否       | 2         | 营业员编号    |
-| transactions      | Array    | 是       |           |               |
-| transactions\code | String   | 是       | 123456789 | 优惠券编号    |
-
-
-
-* requestBody请求示例
-
-```json
-{
-    "storeId": "208888",
-    "transId": 3,
-    "transactions": [
-        {
-            "code": "249916165"
-        }
-    ]
-}
-```
-
-* 响应参数
-
-无
-
-* responseBody返回示例
-
-```json
-
-```
-
-
-## 状态码
-
-|  状态码   |  描述 |
-| -------|  ----|
-|100|成功|
-|21|缺少必要的请求参数|
-|500|内部服务异常|
