@@ -166,6 +166,8 @@
 
 statusCode为100 代表成功
 
+#### 返回示例（待补充）
+
 ## 核销失败日志查询接口
 
 ### 请求地址 /coupon/redeemFailLogQuery
@@ -233,3 +235,45 @@ statusCode为100 代表成功
   "sign": "VKXtmHVNoBahbFy/PkTyXgk4838ocOAuPwJj0Hg7XxPxDZXgkH4s4CKVQjn1PdyPz7wQOeFz9U4NxfyySWHBcMwwHnkxzEetoI9jz8k3B85nanHgZAfnWQ31P63Cj/TwqjoJXdAUahUSibRmPQ9n+iXWfME3gwtxV72oEwIXltgWio9kQ3xaUVVInuyEtvSdmbk8KVIvL3UJ9vAMSgOyM1ZdyHmldUgc2OfhLotAFltLqxJt63Oov6fW1lIgNOplvaX/qghz85fncjDevx4jN6akkH+lbiR9goea772LyQ6VZC0BHjFLS99It7OTbT6/l6xqqH4kmrLeeHjVFIrvVA=="
 }
 ```
+## 查询核销明细：
+
+### 请求地址 /coupon/queryRedeemLogList
+
+### 请求参数 
+
+| **字段**   | **类型**       | **必填** | **举例** | **说明**                                             |
+|------------|----------------|----------|----------|------------------------------------------------------|
+| storeId    | Integer        | 是       |          | 非码门店编号（和第三方门店编号二选一，都传以此为准） |
+| thirdStoreId | String | 是       |          | 第三方门店编号（和非码门店编号二选一）              |
+| redeemTimeBegin  | String         | 是       |  2020-07-01 00:00:00  | 查询起始核销时间 |
+| redeemTimeEnd    | String         | 是       |  2020-07-01 23:59:59 | 查询终止核销时间 |
+| page     | Integer        | 是       |          |查询页数，最小1         |
+| pageSize   | Integer        | 是       |     10     | 每页数据条数，最小1，最大50 |
+
+#### 请求示例（待补充）
+
+### 响应参数
+| **字段**   | **类型**       | **必填** | **举例** | **说明**                                             |
+|------------|----------------|----------|----------|------------------------------------------------------|
+| dataCount | integer | 是 | | 总数据条数 |
+| dataList | object[] | 否 | | |
+| dataList/activeCode | string | 是 |          |活动编号|
+| dataList/activeName | string | 是 | | 活动名称 |
+| dataList/couponCode | string | 是 | | 券号 |
+| dataList/couponEndTime | Date | 是 | | 券截止日期 |
+| dataList/amount | Integer | 是 | | 兑换数量 |
+| dataList/couponState | Integer | 是 | | 券状态： 0 可用，1 已核销， 2 部分核销 |
+| dataList/ebCode | string | 是 | | 渠道编号 |
+| dataList/operatorId | string | 是 | | 操作员编号 |
+| dataList/orderId | string | 是 | | 订单号 |
+| dataList/redeemDate | string | 是 | | 核销时间 |
+| dataList/stationId | string | 是 | | POS 机编号 |
+| dataList/storeId | string | 是 | | 非码门店编号 |
+| dataList/storeName | string | 否 | | 门店名称 |
+| dataList/storeLocation | string | 否 | | 门店编号 |
+| dataList/storeSignChar | string | 否 | | 区域编号 |
+| dataList/transId | string | 是 | | POS 交易流水号 |
+| dataList/type | Integer | 是 | | 券类型： 0 商品券，1 代金券， 3 折扣券，4 换购券 |
+| dataList/providerId | string | 否 | | 渠道ID |
+
+#### 返回示例（待补充）
