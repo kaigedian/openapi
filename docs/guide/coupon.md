@@ -250,7 +250,17 @@ statusCode为100 代表成功
 | page     | Integer        | 是       |          |查询页数，最小1         |
 | pageSize   | Integer        | 是       |     10     | 每页数据条数，最小1，最大50 |
 
-#### 请求示例（待补充）
+#### 请求示例
+
+```json
+{
+  "ver": "1",
+  "appId": "a5382dc5f13c4e5f89e5b0223986cebe",
+  "partnerId": "2227",
+  "requestBody": "{\"StoreId\":\"622000\",\"page\":\"1\",\"pageSize\":\"10\",\"redeemTimeBegin\":\"2020-07-01 00:00:00\",\"redeemTimeEnd\":\"2020-07-20 23:59:59\"}",
+  "sign": "QvdPR5uru9ptdtE17pO/FgV+CwCrWR/LY1sxK+WUzzwYUrEyRGwH6cgoZXccXRGCqqCl5vILW3MVnIJ9FDGpC1Vg94i31XB+ygia5txCE3a42olXgZMt+RQ2a48D3lJ0ImcRxCCXvYyq3avo/c6cxvlQwUilNl1GUYxPgRFdSttW8chd+NEQjQ6CwBqexz1d/BEyTraopKUmoafoOGfHjcJkadMQZ8lbOg6PGPQyKxg41u0Qi/FoZeem8RQee6Nlxua6KBh8SDCUAaA3CM2jCtB9KnKEWlb+Cscnd/CLCy2blUP/0TlDqKMBKW0Ay0BKH5ymtJQYUYR7nJTOzwp07g=="
+}
+```
 
 ### 响应参数
 | **字段**   | **类型**       | **必填** | **举例** | **说明**                                             |
@@ -276,4 +286,15 @@ statusCode为100 代表成功
 | dataList/type | Integer | 是 | | 券类型： 0 商品券，1 代金券， 3 折扣券，4 换购券 |
 | dataList/providerId | string | 否 | | 渠道ID |
 
-#### 返回示例（待补充）
+#### 返回示例
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"dataCount\":4,\"dataList\":[{\"activeCode\":\"V1593535155276545\",\"activeName\":\"0.5券\",\"couponCode\":\"88707105117297666563\",\"couponEndTime\":1594223999000,\"couponState\":1,\"ebCode\":\"0000000864\",\"operatorId\":\"-1\",\"orderId\":\"703f2e0fcfa8417daf4e356935c7a705\",\"redeemDate\":1593535217000,\"stationId\":\"-1\",\"storeId\":\"622000\",\"storeLocation\":\"上海市\",\"storeName\":\"柚子的测试门店1\",\"storeSignChar\":\"shfmwlkjyxgsQp\",\"transId\":\"18192124302548257000002\",\"type\":1},{\"activeCode\":\"D1593534786040863\",\"activeName\":\"折扣--部分\",\"couponCode\":\"88707105106205086729\",\"couponEndTime\":1593791999000,\"couponState\":1,\"ebCode\":\"0000000912\",\"operatorId\":\"-1\",\"orderId\":\"181920911176398396000041\",\"redeemDate\":1593535351000,\"stationId\":\"-1\",\"storeId\":\"622000\",\"storeLocation\":\"上海市\",\"storeName\":\"柚子的测试门店1\",\"storeSignChar\":\"shfmwlkjyxgsQp\",\"transId\":\"18192138329459672600004\",\"type\":3},{\"activeCode\":\"M1592308980819375\",\"activeName\":\"柚子的油券\",\"amount\":1.00,\"couponCode\":\"88707134984413664049\",\"couponEndTime\":1594828799000,\"couponState\":1,\"ebCode\":\"0000001108\",\"operatorId\":\"-1\",\"orderId\":\"3e02c86b96074b589dbe935093cb4d51\",\"redeemDate\":1594276753000,\"stationId\":\"-1\",\"storeId\":\"622000\",\"storeLocation\":\"上海市\",\"storeName\":\"柚子的测试门店1\",\"storeSignChar\":\"shfmwlkjyxgsQp\",\"transId\":\"18269879685199514800004\",\"type\":0},{\"activeCode\":\"V1594647756406169\",\"activeName\":\"回归1\",\"couponCode\":\"88707150691341601283\",\"couponEndTime\":1594655999000,\"couponState\":1,\"ebCode\":\"0000001108\",\"operatorId\":\"-1\",\"orderId\":\"57845d2234d741958b3ef6f977fd5e85\",\"redeemDate\":1594652651000,\"stationId\":\"-1\",\"storeId\":\"622000\",\"storeLocation\":\"上海市\",\"storeName\":\"柚子的测试门店1\",\"storeSignChar\":\"shfmwlkjyxgsQp\",\"transId\":\"18309295384845389900002\",\"type\":1}]}",
+  "sign": "bgy3SOt7bhs7IAxjIMgy55ZZDOQNPZrCHEtuoJFcB3oXFrXRGQCuJPNyyAzjVq3QZ7VrjiY29xUofC9lRC72XpklqCf3ZyUeDJUo0JNoAp4PlpB5TshWrygNbCzbYiXJcu4W2twVGs1Dw/DGhcwvQbHr+Gt96URqngtm+4fY7ZjbGdr9CmWM0v7EJUn1MScqPEdTelkXK1cbDBS7EsF9QnBX00aHNBKe4GiK5b7e1fR3PSg60IvYzXdJx3xyFcEgY9u0Gz+snM1i67H6LfJfhCQStDz0cjG5S5IXcxJ1EvfwPi1RUcgdSG1WqymxxSCLVNXvOR80oJS+i86Cg2+jFQ=="
+}
+```
+

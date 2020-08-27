@@ -292,7 +292,15 @@
 
 #### 返回示例（待补充）
 
-无
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "sign": "sign"
+}
+
+```
 
 
 ##  推送会员积分变动信息接口
@@ -354,7 +362,6 @@
 |appId|String|是|应用编码||
 |mobile|String|是|手机号码||
 |unionId|String|否|微信unionId||
-|registerType|String|是|注册类型{1门店，2/页面注册、3领卡、4扫码、5支付即会员||
 |thirdPartyCode|String|是|微信oppenid、等||
 |cardCode|String|否|卡号||
 |cardId|String|否|原生卡ID{微信原生卡ID、支付宝模板ID、商户自定义原生卡ID}||
@@ -365,6 +372,7 @@
 |sexFlag|String|否|性别{0未知1男2女}||
 |registerInitData|String|是|是否需要初始化|0:初始化积分1：初始化余额2：注册送4：推送微信消息1/需要(默认需要) 2不需要1#2#2#2#2|
 |registerStoreCode|String|否|注册门店||
+|birthday|String|否|生日日期||
 
 #### 请求示例
 
@@ -426,8 +434,6 @@
 | activityCode  | String | 否|  | 活动编号|
 | operator  | String | 否|  | 操作人|
 | operatorId  | String | 否|  | operatorId|
-| orgCode  | String | 否|  | 机构编码|
-| orgType  | Integer | 否|  | 机构类型{1总公司2分公司3门店}|
 | remark  | String | 否|  | 备注|
 
 #### 请求示例
@@ -480,8 +486,6 @@
 | operationName  | String | 否| 1 | 操作名称{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠}|
 | orderId  | String | 否|  | 订单编号|
 | activityCode  | String | 否|  | 活动编号|
-| orgCode  | String | 否|  | 机构编码|
-| orgType  | Integer | 否|  | 机构类型{1总公司2分公司3门店}|
 | remark  | String | 否|  | 备注|
 | idempotencyBussinessId  | String | 是|  | 业务ID(保持唯一)|
 | idempotencyBussinessType  | String | 是|  | 业务类型{1注册送 2发放经验值 3等级升级 4等级降级 5积分支付 6消费送积分 7消费满赠 8生日送 9定时送 10储值支付 11储值充值 12完善资料送 13等级升级送积分 14储值卡投放 15会员消费数据增加 16会员消费数据冲正}|
@@ -535,6 +539,7 @@
 | orderId  | String | 否|  | 订单编号|
 | activityCode  | String | 否|  | 活动编号|
 | remark  | String | 否|  | 备注|
+| operationName  | String | 否|  | 操作人|
 
 #### 请求示例
 
@@ -616,6 +621,88 @@
 ```
 
 
+#   查询会员
+
+### 应用场景
+
+查询会员
+
+### 请求url：/member/getMembersByCondition
+
+### 请求参数
+
+| 字段      | 类型   | 是否必传                        | 举例               | 说明   |
+| -------- | ------ | ------------------------------- | ------------------ | ------ |
+|partnerId|String|是|1864|商户id|
+|appId|String|是|98290e1b36634fcf953da89df9c8a527|由非码颁发平台唯一标识,用来验签数据 |
+|ver|String|是||版本号|
+|sign|String|是||签名|
+|requestBody|String|是||请求主体|
+|requestBody/partnerId | String | 是  | 6   | 商户编号 |
+|requestBody/nickName | String | 否  | 6   | 用户昵称 |
+|requestBody/mobile | String | 否  | 6   | 手机号码 |
+|requestBody/startTime | String | 否  | 6   | 开始时间 |
+|requestBody/endTime | String | 否  | 6   | 结束时间 |
+|requestBody/pageNum | String | 是  | 6   | 页号，最小为1 |
+|requestBody/pageSize | String | 是  | 6   | 一页数据大小,最小为1 |
+
+#### 请求示例
+
+```json
+{
+  "partnerId":"1864",
+  "appId":"98290e1b36634fcf953da89df9c8a527",
+  "requestBody":"{\"partnerId\":\"1864\",\"mobile\":\"13262725815\",\"nickName\":\"\",\"startTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}",
+  "ver":"1",
+  "sign":"aG3A3D4Hzt3Vq/EWbG4SfOT3LncB1moNwLJOVyQxuxMd3BkSTRsGq17MoGLTpXPDHFVkbAIypTK3hIKNOgWC6M4uSIGZTFNIU+UdjiUEWh1EqUAUvXAZjO+nTzLtNUgASor+ZVFx97EDd/h0UgA6Q0Mu2MJBVULDcl6fGPigBGqVP0AFk6hojjctUrfHzvrzKCazhArIh5mGuK7XPrn8FiZVdCnaDMZ/LDH+q3Q/ke2yZUT7vvmjW9cVHxzlyQBAX9oEOD4lMyMjNUmmffmgHqmWsY9O8/nJiEr4MDO4L7D1JFWOgcRhRvYQgCozkxvdVk3AQ8m9vCgGI5TxliMPzA=="
+}
+```
+
+#### 响应参数
+
+| **字段**                         | **类型** | 举例 | **说明**                                                     |
+| -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
+| totalCount                         | Integer   |  1    | 总记录数                                                     
+| pageSize                         | Integer   |   1   | 一页数据大小                                                     
+| pageNum                         | Integer   |    10  | 页号                                                     
+| totalPages                         | Integer   |   1   | 总页数
+| memberList                         |    |      | 会员列表
+| memberList/partnerId                         |  String   |  1864    | 商户编号
+| memberList/memberId                         |  String   |  3595577290888658005    | 用户ID
+| memberList/nickName                         |  String   |  不像话的小孩    | 微信昵称
+| memberList/mobile                         |  String   |  13262725815    | 手机号
+| memberList/birthday                         |  String   |      | 生日
+| memberList/sexFlag                         |  String   |  1    | 性别，{0未知1男2女}
+| memberList/registerTime                         |  String   |      | 注册时间
+| memberList/channelList                         |    |      | 渠道信息
+| memberList/channelList/channelId                         |  String  |      | 渠道主键id
+| memberList/channelList/memberId                         |  String  |      | 会员编号
+| memberList/channelList/partnerId                         |  String  |      | 商户编号
+| memberList/channelList/channelCode                         |  String  |      | 渠道编码{wxgzpt:微信公众平台,xcx:会员小程序,dcxcx:点餐小程序,ptxcx:拼团小程序,dsf:第三方}
+| memberList/channelList/appId                         |  String  |      | 应用编号
+| memberList/channelList/thirdPartyCode                         |  String  |      | 第三方编码{openid、userid}
+| memberList/channelList/registerType                         |  String  |      | 注册类型
+| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号}
+| memberList/channelList/cardId                         |  String  |      | 原生卡ID{微信原生卡ID、支付宝模板ID、商户自定义原生卡ID}
+| memberList/channelList/unionId                         |  String  |      | 微信unionId
+| memberList/channelList/cardCode                         |  String  |      | 卡号{原生卡卡号}
+| memberList/channelList/createTime                         |  String  |      | 创建时间
+| memberList/channelList/updateTime                         |  String  |      | 更新时间
+| memberList/channelList/registerStoreCode                         |  String  |      | 注册门店
+
+
+
+#### 返回示例
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"memberList\":[{\"birthday\":\"\",\"channelList\":[{\"appId\":\"wxb78fb7c6218cb52c\",\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"3595577290907658006\",\"createTime\":1595577291000,\"memberId\":\"3595577290888658005\",\"partnerId\":\"1864\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"oORZK5O2CRQeC6-N7xn7JXOo0abo\",\"unionId\":\"okRmn1FXwxBseieLsHJQTyu1QFCE\",\"updateTime\":1596005361000}],\"memberId\":\"3595577290888658005\",\"mobile\":\"13262725815\",\"nickName\":\"不像话的小孩\",\"partnerId\":\"1864\",\"registerTime\":1595577291000}],\"pageNum\":1,\"pageSize\":10,\"totalCount\":1,\"totalPages\":1}",
+  "sign": "hG/XiAwtOigUSB0lhTu+t0orK8TycXmtrTqcACsHeXsWCVwd0tjaGV2E/guv3gaXbus4UbppBoCbjpgh9U5vv4Jx0j26vcXbYWz/S1XPsPXN4DPlc9uxGIQChD/sxBukZobO5U8Rj78yA2rtgKebx9E4+ZlwIu5nUZvoqLcyYdFzXZ0CfoDfrqO5/NpJo4+CNcyhNr1Gw9U4j0bGSgpbzZrngwNq9Vcssufvu3tWHDXNVgoQd38bko5FmOSlpMc8yZGw74QK3kahrhnnmhExm1mVHrcwwVJdRznLHbD9oEBtLFmt9fn4aWCX0iN9C/uVI95zuXzIif0CEO10WEj+2w=="
+}
+```
 # 积分流水
 
 ### 应用场景
