@@ -233,9 +233,11 @@
 | ------|  -----|  ------|
 |  total   | Integer |   总数   |
 |   itemList   |  Array  | 订单列表 |
+|itemList/partnerId  | String | 商户号 |
 |itemList/orderCode  | String | 订单号 |
 |itemList/thirdOrderCode| String |第三方平台订单号|
 |itemList/storeId|String|下单门店号|
+|itemList/thirdStoreId|String|三方门店号|
 |itemList/storeName|String|门店名称|
 |itemList/actualPayAmount|Integer|实际支付金额（分）|
 |itemList/originalAmount|Integer|订单原金额（分）|
@@ -256,6 +258,19 @@
 |itemList/userId|String|用户id|
 |itemList/userName|String|用户姓名|
 |itemList/pickUpGoodsNo|String|取餐号|
+|itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
+|itemList/longitude|String|收货地址经度|
+|itemList/latitude|String|收货地址维度|
+|itemList/deliverFee|Integer|订单配送费|
+|itemList/packageFee|Integer|订单包装费|
+|itemList/mobile|String|用户手机号|
 |itemList/orderItemList|Array|订单商品信息|
 |itemList/orderItemList/productSeq|Integer|商品序号|
 |itemList/orderItemList/productId|String|开个店商品编号|
@@ -271,21 +286,26 @@
 |itemList/orderItemList/productProperty|String|商品属性名称（三分糖）|
 |itemList/orderItemList/thirdProductSpecId|String|第三方商品规格编号（多个规格以“,”分割）|
 |itemList/orderItemList/thirdProductPropertyId|String|第三方商品属性编号（多个属性以“,”分割）|
-|orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
-|orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
-|itemList/createTime|String|下单时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/acceptTime|String|接单时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/pickUpTime|String|拣货时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/deliveryTime|String|配送时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/estimateDeliveryCompleteTime|String|预计送达时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/actualArrivalTime|String|实际到达时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/receiveTime|String|签收送达时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/expectTime|String|用户期望送达时间（yyyy-MM-dd HH:mm:ss）|
-|itemList/longitude|String|收货地址经度|
-|itemList/latitude|String|收货地址维度|
-|itemList/deliverFee|Integer|订单配送费|
-|itemList/packageFee|Integer|订单包装费|
-|itemList/mobile|String|用户手机号|
+|itemList/orderItemList/isFixedProduct|Boolean|是否为套餐商品中固定商品|
+|itemList/orderItemList/productComboList|Array|套餐子商品，其属性同orderItemList当前节点|
+|itemList/orderItemList/materialList|Array|套加料商品，其属性同orderItemList当前节点|
+|itemList/deliveryContactInfoList|Array|订单配送信息|
+|itemList/deliveryContactInfoList/relateObjectType|Integer|地址类型 1:订单地址 2:售后单地址 3:配送员信息|
+|itemList/deliveryContactInfoList/infoType|Integer|联系方式类型 1:取件 2:收件|
+|itemList/deliveryContactInfoList/thirdDeliveryId|String|配送运单号|
+|itemList/deliveryContactInfoList/contactsName|String|联系人姓名|
+|itemList/deliveryContactInfoList/province|String|省份|
+|itemList/deliveryContactInfoList/city|String|城市|
+|itemList/deliveryContactInfoList/region|String|区域|
+|itemList/deliveryContactInfoList/street|String|街道|
+|itemList/deliveryContactInfoList/addressDetail|String|详细地址|
+|itemList/deliveryContactInfoList/mobile|String|手机号码|
+|itemList/deliveryContactInfoList/telephone|String|电话号码|
+|itemList/deliveryContactInfoList/longitude|String|经度|
+|itemList/deliveryContactInfoList/latitude|String|维度|
+|itemList/deliveryContactInfoList/expressNo|String|运单号|
+
+
 
 #### 返回示例
 
@@ -294,7 +314,7 @@
   "ver": "1",
   "statusCode": "100",
   "message": "success",
-  "responseBody": "{\"total\":50,\"itemList\":[{\"orderCode\":\"21343343\",\"thirdOrderCode\":\"1343534298\",\"storeId\":\"1001\",\"storeName\":\"开个店徐汇店\",\"actualPayAmount\":2000,\"originalAmount\":2500,\"barCounter\":\"06\",\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"测试支付\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"12545445\",\"posCode\":\"39938289509032322\",\"operator\":\"MRX\",\"userId\":\"198004522\",\"userName\":\"MRX\",\"orderItemList\":[{\"productSeq\":1,\"productId\":\"138418632407497998\",\"skuId\":\"138418632407497998\",\"thirdProductId\":\"188453334\",\"productName\":\"测试商品\",\"productPrice\":2000,\"productQuantity\":1,\"productSharePrice\":1800,\"unit\":\"杯\",\"weight\":1500,\"productSpecName\":\"大杯\",\"productProperty\":\"三分糖\",					\"thirdProductSpecId\":\"2664,3434\",\"thirdProductPropertyId\":\"3764,3795\"}],\"pickUpGoodsNo\":\"4578\",\"createTime\":\"1557367505\",\"acceptTime\":\"1557368643\",\"pickUpTime\":\"\",\"deliveryTime\":\"1557398566\",\"estimateDeliveryCompleteTime\":\"1557457545\",\"actualArrivalTime\":\"1557458545\",\"receiveTime\":\"1557458545\",\"expectTime\":\"1557389003\",\"longitude\":\"31.43434\",\"latitude\":\"121.3434334\",\"deliverFee\":5,\"packageFee\":0}]}",
+  "responseBody": "\"total\":50,\"itemList\":[{\"orderCode\":\"21343343\",\"thirdOrderCode\":\"1343534298\",\"storeId\":\"1001\",\"storeName\":\"开个店徐汇店\",\"actualPayAmount\":2000,\"originalAmount\":2500,\"barCounter\":\"06\",\"needInvoice\":false,\"orderClient\":1,\"note\":\"订单备注\",\"orderStatus\":1,\"orderType\":1,\"payChannel\":\"测试支付\",\"payChannelName\":\"微信支付\",\"payStatus\":1,\"payType\":1,\"payTime\":\"12545445\",\"posCode\":\"39938289509032322\",\"operator\":\"MRX\",\"userId\":\"198004522\",\"userName\":\"MRX\",\"orderItemList\":[{\"productSeq\":1,\"productId\":\"138418632407497998\",\"skuId\":\"138418632407497998\",\"thirdProductId\":\"188453334\",\"productName\":\"测试商品\",\"productPrice\":2000,\"productQuantity\":1,\"productSharePrice\":1800,\"unit\":\"杯\",\"weight\":1500,\"productSpecName\":\"大杯\",\"productProperty\":\"三分糖\",					\"thirdProductSpecId\":\"2664,3434\",\"thirdProductPropertyId\":\"3764,3795\"}],\"pickUpGoodsNo\":\"4578\",\"createTime\":\"1557367505\",\"acceptTime\":\"1557368643\",\"pickUpTime\":\"\",\"deliveryTime\":\"1557398566\",\"estimateDeliveryCompleteTime\":\"1557457545\",\"actualArrivalTime\":\"1557458545\",\"receiveTime\":\"1557458545\",\"expectTime\":\"1557389003\",\"longitude\":\"31.43434\",\"latitude\":\"121.3434334\",\"deliverFee\":5,\"packageFee\":0}]}",
   "sign": "<sign>"
 }
 ```
