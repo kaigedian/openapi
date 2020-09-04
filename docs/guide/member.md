@@ -466,7 +466,7 @@
 }
 ```
 
-#  添加积分
+##  添加积分
 
 ### 应用场景
 
@@ -521,7 +521,7 @@
 }
 ```
 
-#   积分回退
+##   积分回退
 
 ### 应用场景
 
@@ -572,7 +572,7 @@
 }
 ```
 
-#   积分统计
+##   积分统计
 
 ### 应用场景
 
@@ -621,7 +621,7 @@
 ```
 
 
-#   查询会员
+##   查询会员
 
 ### 应用场景
 
@@ -703,7 +703,7 @@
   "sign": "hG/XiAwtOigUSB0lhTu+t0orK8TycXmtrTqcACsHeXsWCVwd0tjaGV2E/guv3gaXbus4UbppBoCbjpgh9U5vv4Jx0j26vcXbYWz/S1XPsPXN4DPlc9uxGIQChD/sxBukZobO5U8Rj78yA2rtgKebx9E4+ZlwIu5nUZvoqLcyYdFzXZ0CfoDfrqO5/NpJo4+CNcyhNr1Gw9U4j0bGSgpbzZrngwNq9Vcssufvu3tWHDXNVgoQd38bko5FmOSlpMc8yZGw74QK3kahrhnnmhExm1mVHrcwwVJdRznLHbD9oEBtLFmt9fn4aWCX0iN9C/uVI95zuXzIif0CEO10WEj+2w=="
 }
 ```
-# 积分流水
+## 积分流水
 
 ### 应用场景
 
