@@ -82,6 +82,7 @@
 | memberCoupons/cuoponType        | Integer     |      | 券类型 0：商品 券 1：代金券 3 折扣券 |
 | memberCoupons/couponRule        | String     |      | 规则文字描述，支持富文本 (暂时不支持) |
 | memberCoupons/couponLimit        | String     |      | 如：2019-10-1 至 2019-10-10 当天有效 |
+| memberCoupons/status        | String   |      | 状态：-1:未激活  0:可用(剔除过期) 1:已使用  2:部分使用   3:取消  6:已过期(根据生失效日期) 99：未知（目前暂不支持）          |
 | memberCards                      | List     |      | 储值卡列表                     |
 | memberCards/amount               | Integer  |      | 实充余额，单位分                     |
 | memberCards/vamount              | Integer  |      | 赠送余额，单位分                     |
@@ -100,82 +101,12 @@
   "sign": "sign"
 }
 ```
+### 状态码
 
-## 会员列表信息接口
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
 
-### 应用场景
-
-查询会员列表信息
-
-### 请求url：/member/getMembers
-
-### 请求参数
-
-| 字段       | 类型    | 是否必传 | 举例        | 说明                 |
-| --------- | ------- | -------- | ----------- | -------------------- |
-| partnerId  | String  | 是       | 1864        | 商户id               |
-| nickName   | String  | 否       |             | 微信昵称             |
-| mobile     | String  | 否       | 18616703980 | 会员id               |
-| paidId     | String  | 否       |             | 付费会员卡Id         |
-| labelName  | String  | 否       |             | 标签名称             |
-| ruleCode   | String  | 否       |             | 等级编号             |
-| startScore | Integer | 否       |             | 查询开始积分         |
-| endScore   | Integer | 否       |             | 查询结束积分         |
-| statusFlag | Integer | 否       |             | 状态标识{0禁用1激活} |
-| startTime  | Date    | 否       |             | 查询开始时间         |
-| endTime    | Date    | 否       |             | 查询结束时间         |
-| pageNum    | Integer | 是       |             | 页号                 |
-| pageSize   | Integer | 是       |             | 一页数据大小         |
-
-#### 请求示例
-
-```json
-{
-  "ver":1,
-  "partnerId":"1000",
-  "appId":"2eb5c8f117dac313f89d",
-  "requestBody":"{\"pageNum\":1,\"pageSize\":20}",
-  "sign": "sign"
-}
-
-```
-
-### 响应参数
-
-
-
-| **字段**                             | **类型**     | 举例               | **说明**                            |
-| ------------------------------------ | ------------ | ------------------ | ----------------------------------- |
-| totalCount                           | Integer      |                    | 记录总数                            |
-| totalPages                           | Integer      |                    | 总页数                              |
-| pageNum                              | Integer      |                    | 页号                                |
-| pageSize                             | Integer      |                    | 一页数据大小                        |
-| memberList                           | List         |                    | 会员信息集合                        |
-| memberList/memberId                  | String       |                    | 会员编号                            |
-| memberList/nickName                  | String       |                    | 昵称                                |
-| memberList/mobile                    | String       |                    | 手机号                              |
-| memberList/labels                    | List<String> |                    | 会员标签集合                        |
-| memberList/registerTime              | Date         |                    | 注册时间{格式：yyyy-MM-dd HH:mm:ss} |
-| memberList/memberPaidList/paidName   | String       |                    | 付费会员卡名称                      |
-| memberList/memberPaidList/expiryTime | String       | 付费会员卡到期时间 |                                     |
-| memberList/consumeCount              | String       |                    | 累计消费次数                        |
-| memberList/consumeMoney              | String       |                    | 累计消费金额                        |
-| memberList/ruleName                  | String       |                    | 等级名称                            |
-| memberList/currentScore              | String       |                    | 当前积分                            |
-| memberList/statusFlag                | Date         |                    | 状态标识{0禁用1激活}                |
-
-
-#### 返回示例
-
-```json
-{
-  "ver":1,
-  "partnerId":"1000",
-  "appId":"2eb5c8f117dac313f89d",
-  "requestBody":"{\"memberList\":[{\"consumeMoney\":\"\",\"currentScore\":0,\"labelList\":[],\"memberId\":\"115604222300254410\",\"memberPaidList\":[],\"mobile\":\"13621758805\",\"nickName\":\"森屿海港@\",\"registerTime\":\"2019-06-13 18:37:10\",\"ruleName\":\"\",\"statusFlag\":1},{\"consumeMoney\":\"\",\"currentScore\":0,\"labelList\":[],\"memberId\":\"115591161789102515\",\"memberPaidList\":[],\"mobile\":\"15956904546\",\"nickName\":\"三虎\",\"registerTime\":\"2019-05-29 15:49:38\",\"ruleName\":\"\",\"statusFlag\":1}],\"pageNum\":1,\"pageSize\":20,\"totalCount\":15,\"totalPages\":1}",
-  "sign": "sign"
-}
-```
 ##  会员加减积分
 
 ### 应用场景
@@ -769,5 +700,60 @@
   "message": "成功",
   "responseBody": "{\"pageNum\":1,\"pageSize\":100,\"scoreRecords\":[{\"changeScore\":100,\"changeType\":1,\"createTime\":1585650535000,\"memberId\":\"3585650454703946215\",\"memberType\":0,\"mobile\":\"\",\"nickName\":\"hold.Y\",\"operationName\":\"注册送\",\"operationType\":4,\"operator\":\"RegisterActivity\",\"operatorId\":\"\",\"orgCode\":\"123456\",\"orgType\":3,\"partnerId\":\"2654\",\"recordId\":\"3585650534868766166\",\"remark\":\"注册有礼送积分\",\"storeId\":\"123456\",\"storeName\":\"ngs\",\"subBrandCode\":\"001\",\"subBrandName\":\"子品牌by李勇\"},{\"changeScore\":100,\"changeType\":1,\"createTime\":1585648914000,\"memberId\":\"3585648851764946213\",\"memberType\":0,\"mobile\":\"\",\"nickName\":\"hold.Y\",\"operationName\":\"注册送\",\"operationType\":4,\"operator\":\"RegisterActivity\",\"operatorId\":\"\",\"orgCode\":\"123456\",\"orgType\":3,\"partnerId\":\"2654\",\"recordId\":\"3585648914372766162\",\"remark\":\"注册有礼送积分\",\"storeId\":\"123456\",\"storeName\":\"ngs\",\"subBrandCode\":\"001\",\"subBrandName\":\"子品牌by李勇\"}],\"totalCount\":2,\"totalPages\":1}",
   "sign": "syLgIjjNUUFEM1x84kCXgqcKMcXqCYFx39obzD/2hQ71RS1apv4fQGXw5kS/Q0E0l8Vfc8unDUUvMNDraUJfdTdFv92xQcnwavlqCdOQW1YdtOnv0Wy9lxO3D9h1vi3FVLLpcErH55h7TvFPrrQXo6+21i6r7tbzLsf+IR5ls7pzleWiWYwRwoN5dLRLDTbwh6sRMA3VeQodCIiHShAfkGamU0WXtmNgZR5ZhnRYVz0G8Dx+DW5gg51VbJc66uTDpJ/POctnw2xvNSCUmM/B60qMzKPNpfbGRzDeIf+xZysB8KV6zg+bkiBZ2N5soChxsfdQam3sQlmnJhq7TR3XHw=="
+}
+```
+
+
+##   储值卡流水
+
+### 应用场景
+
+储值卡流水记录
+
+### 请求url：/member/card/getCardRecords
+
+### 请求参数
+
+| 字段      | 类型   | 是否必传                        | 举例               | 说明   |
+| -------- | ------ | ------------------------------- | ------------------ | ------ |
+| partnerId | String | 是  | 1864   | 商户编号 |
+| memberId | String | 是  | 3597739376070140025   | 会员编号 |
+| startTime | String | 是  |    | 查询开始时间,时间范围最多90天, yyyy-MM-dd hh:mm:ss |
+| endTime | String | 是  |    | 查询结束时间,时间范围最多90天, yyyy-MM-dd hh:mm:ss |
+| pageNum | Integer | 是  | 1   | 页号,最小为1 |
+| pageSize | Integer | 是  | 10   | 一页数据大小, 范围:1-15 |
+
+#### requestBody请求示例
+
+```json
+{
+        "appId": "98290e1b36634fcf953da89df9c8a527",
+        "partnerId": "1864",
+        "requestBody": "{\"partnerId\": \"1864\",\"memberId\": \"3597739376070140025\",\"startTime\": \"2020-06-05 00:00:00\",\"endTime\": \"2020-09-03 00:00:00\",\"pageNum\":\"1\",\"pageSize\": \"10\"}",
+        "ver": "1",
+        "sign": "skip"
+}
+```
+
+### 响应参数
+
+| **字段**                         | **类型** | 举例 | **说明**                                                     |
+| -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
+| applyName                         | String   |      | 卡档案名称   
+| cardCode                        | String   |      | 卡号                                                     |
+| moneyStr                         | String   |      | 金额Str，单位元，不带符号                                                     |
+| tradeId                         | String   |      | 订单号                                                     |
+| tradeTimeStr                         | String   |      | 时间Str，yyyy-MM-dd HH:mm:ss                                                     |
+| tradeType                         | Integer   |      | 交易类型                                                     |
+| typeStr                         | String   |      | 类型，充值/消费/退款                                                    |
+#### responseBody返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": "{\"pageNum\":1,\"pageSize\":10,\"totalCount\":1,\"totalPages\":1,\"tradeRecords\":[{\"applyName\":\"生意兴隆卡\",\"cardCode\":\"5818640000000010000\",\"moneyStr\":\"100.01\",\"tradeId\":\"200903000000000100011Dfau9\",\"tradeTimeStr\":\"2020-09-03 18:04:13\",\"tradeType\":9,\"typeStr\":\"激活\"}]}",
+    "sign": "LRRP6s3RHP+CUISIuYOzfdecgd6A4kNZ2vh5C3kI5JDXern84hiUF9DYKDvn4X7PtpBU8awUOANFFvF9kGL55JlGgNfnsAiX/YSFDXNuKRQ1ZcL6mQSfx+Dcy1TKWNc2k3/IAvlNIN0wJh38yeXJdGTRF/Mgnc/oRoyk8qz2bMSG/VSpPo8gNNbLaQ0ow1Zo3iF7Y0SW3WKRyhHvNosaoEP3CyqUsbCzBrEH58LcvM7t/1YY48bV+EZ2GYiAHNgm4dVuUpkhlC5KZbOYNclEJld4MnTw4vaFdCsRtB4hGw4iuoppjCOgFhDOIFvn7ORHV/LeXGDhmMFsToxl8FckBQ=="
 }
 ```

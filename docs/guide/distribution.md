@@ -2,10 +2,6 @@
 
 ## 下单(配送单)
 
-### 接口说明
-
-# **1.1** 创建配送单
-
 ### 应用场景
 
 第三方调用此接口发起开个店外卖订单配送
@@ -76,9 +72,6 @@
 | -------------------------------- | --------  | ------------------------------------------------------------ |
 | deliveryId| String | 运单id| 
 
-## 
-
-
 #### responseBody返回示例
 
 - 
@@ -94,14 +87,14 @@
   ```
 
 
-## 状态码
+### 状态码
 
 | 状态码 | 描述 |
 | ------ | ---- |
 | 100    | 成功 |
 
 
-# **1.2** 查询运单详情
+## 查询运单详情
 
 ### 应用场景
 
@@ -145,8 +138,6 @@
 | orderActualAmount  | Integer |  订单实付金额(分) |
 | depatchWeight  | Number | 订单重量（kg） |
 | invoiceTitle  | String  |  发票抬头 |
-| depatchId  | String  |  批次号 |
-| seq  | Integer  |  配送顺序 |
 | partnerId  | String  |  商户号 |
 | partnerRemark  | String   | 商户信息备注 |
 | orderChannel  | String  | 订单渠道 |
@@ -157,7 +148,6 @@
 | storeName  | String      | 门店名称 |
 | deliveryStatus  | Integer    | 配送状态(-1：待处理,0:待接单,1:系统接单,2:分配骑手,3:骑手到店,4:骑手取餐,5:开始配送,6:运单送达,7:运单异常,8:运单取消) |
 | distance  | Integer      | 距离(米) |
-| duration  | Integer      | 配送时长(分钟) |
 | sendFee  | Integer      | 配送费(分)|
 | sendFeeExtra  | Integer    | 额外追加费用（小费单位分） |
 | settleType  | String      | 结算方式 |
@@ -183,7 +173,6 @@
 | orderCancelDescription  | String  | 订单取消描述 |
 | orderCancelCode  | Integer  | 取消原因码 |
 | sysStatus  | Integer  | 系统状态 |
-| isOpenPoll  | Integer | 是否开启自动轮询（0：否，1：是） |
 | orderTime  | String  | 用户下单时间 |
 | expectTime  | String    | 用户期望送达时间 |
 | assignTimeoutTime  | String   | 待分配超时时间 |
@@ -213,97 +202,93 @@
 | productInfos/productPrice  | Integer| 商品价格（分） |
 | productInfos/productSize  | Integer  | 商品尺寸 |
 | productInfos/productRemark  | String    | 商品备注 |
-## 
-
 
 #### responseBody返回示例
 
-- 
-
-  ```
-  {
-      "ver": "1",
-      "statusCode": "100",
-      "message": "成功",
-      "responseBody":"{
-                          'id': 347,
-                          'deliveryId': '3426e25f34b1403e9c21036a6e49f7ab',
-                          'orderId': '1234567821',
-                          'orderSource': '美团',
-                          'orderRemark': '订单备注',
-                          'orderTotalAmount': 3500,
-                          'orderActualAmount': 3500,
-                          'depatchWeight': 2.5,
-                          'invoiceTitle': null,
-                          'depatchId': '571fd743ff6a44bd86da6eb928bdbd6b',
-                          'seq': null,
-                          'partnerId': '999',
-                          'partnerRemark': 'remark',
-                          'storeId': 'store-00002',
-                          'storeName': '一号店',
-                          'isAvailable': 1,
-                          'orderChannel': '美团',
-                          'deliveryChannel': 'SelfDelivery',
-                          'isPre': 0,
-                          'deliveryStatus': 2,
-                          'distance': null,
-                          'duration': null,
-                          'sendFee': null,
-                          'sendFeeExtra': null,
-                          'settleType': null,
-                          'companyId': null,
-                          'storeCode': '11047059',
-                          'depatchTime': null,
-                          'appointTime': null,
-                          'sendTime': null,
-                          'arriveShopTime': null,
-                          'completeTime': null,
-                          'customerSecondPhone': null,
-                          'orginName': '上海',
-                          'orginPoint': '121.377436,42.267283',
-                          'orginPhone': '15689565265',
-                          'destName': '上海',
-                          'destPoint': '116.352764,40.014098',
-                          'destRemark': null,
-                          'cityName': '上海',
-                          'customer': '刘德华',
-                          'customerPhone': '1578565612356',
-                          'deliveryServiceCode': 4011,
-                          'productType': 1,
-                          'remark': null,
-                          'createDate': '2018-11-23 14:42:01',
-                          'createUser': 'fm_sys',
-                          'updateDate': '2018-11-23 15:03:41',
-                          'updateUser': null,
-                          'channelDeliveryId': null,
-                          'orderCancelCode': null,
-                          'orderCancelDescription': null,
-                          'callbackUrl': 'baidu.com',
-                          'sysStatus': 3,
-                          'orderTime': '2018-09-21 10:34:14',
-                          'expectTime': '2018-09-21 10:34:14',
-                          'searchKey': '1234567821,刘德华,关羽',
-                          'riderId': '9455b505f4ff42cb9e99c75ed6e11928',
-                          'riderName': '关羽',
-                          'riderPhone': '1800000002',
-                          'serialNumber': null,
-                          'productInfoList': [
-                            {
-                              'productCode': null,
-                              'productName': '鱼香肉丝',
-                              'productNumber': 1,
-                              'productPrice': 2500,
-                              'productSize': 26,
-                              'productRemark': '商品信息'
-                            }
-                          ]
-                        }"
-      "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
-  }
-  ```
+```
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody":"{
+                        'id': 347,
+                        'deliveryId': '3426e25f34b1403e9c21036a6e49f7ab',
+                        'orderId': '1234567821',
+                        'orderSource': '美团',
+                        'orderRemark': '订单备注',
+                        'orderTotalAmount': 3500,
+                        'orderActualAmount': 3500,
+                        'depatchWeight': 2.5,
+                        'invoiceTitle': null,
+                        'depatchId': '571fd743ff6a44bd86da6eb928bdbd6b',
+                        'seq': null,
+                        'partnerId': '999',
+                        'partnerRemark': 'remark',
+                        'storeId': 'store-00002',
+                        'storeName': '一号店',
+                        'isAvailable': 1,
+                        'orderChannel': '美团',
+                        'deliveryChannel': 'SelfDelivery',
+                        'isPre': 0,
+                        'deliveryStatus': 2,
+                        'distance': null,
+                        'duration': null,
+                        'sendFee': null,
+                        'sendFeeExtra': null,
+                        'settleType': null,
+                        'companyId': null,
+                        'storeCode': '11047059',
+                        'depatchTime': null,
+                        'appointTime': null,
+                        'sendTime': null,
+                        'arriveShopTime': null,
+                        'completeTime': null,
+                        'customerSecondPhone': null,
+                        'orginName': '上海',
+                        'orginPoint': '121.377436,42.267283',
+                        'orginPhone': '15689565265',
+                        'destName': '上海',
+                        'destPoint': '116.352764,40.014098',
+                        'destRemark': null,
+                        'cityName': '上海',
+                        'customer': '刘德华',
+                        'customerPhone': '1578565612356',
+                        'deliveryServiceCode': 4011,
+                        'productType': 1,
+                        'remark': null,
+                        'createDate': '2018-11-23 14:42:01',
+                        'createUser': 'fm_sys',
+                        'updateDate': '2018-11-23 15:03:41',
+                        'updateUser': null,
+                        'channelDeliveryId': null,
+                        'orderCancelCode': null,
+                        'orderCancelDescription': null,
+                        'callbackUrl': 'baidu.com',
+                        'sysStatus': 3,
+                        'orderTime': '2018-09-21 10:34:14',
+                        'expectTime': '2018-09-21 10:34:14',
+                        'searchKey': '1234567821,刘德华,关羽',
+                        'riderId': '9455b505f4ff42cb9e99c75ed6e11928',
+                        'riderName': '关羽',
+                        'riderPhone': '1800000002',
+                        'serialNumber': null,
+                        'productInfoList': [
+                          {
+                            'productCode': null,
+                            'productName': '鱼香肉丝',
+                            'productNumber': 1,
+                            'productPrice': 2500,
+                            'productSize': 26,
+                            'productRemark': '商品信息'
+                          }
+                        ]
+                      }"
+    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
 
 
-## 状态码
+### 状态码
 
 | 状态码 | 描述 |
 | ------ | ---- |
@@ -465,11 +450,11 @@
 }
 ```
 
-### 错误状态码
+### 状态码
 
-| ***\*状态码\**** | ***\*说明\**** |
-| ---------------- | -------------- |
-| 100              | 成功           |
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
 
 ## 取消配送单
 
@@ -541,9 +526,9 @@
 | ***\*状态码\**** | ***\*说明\**** |
 | ---------------- | -------------- |
 | 100              | 成功           |
-| 1301             | 配送单不存在   |
-| 1303             | 配送单状态有误 |
-| 1311             | 取消失败       |
+| 8001             | 创建运单失败   |
+| 8002             | 运单详情查询失败 |
+| 8003             | 获取骑手位置失败       |
 
 ## 心跳检测
 
@@ -586,8 +571,8 @@
 } 
 ```
 
-### 错误状态码
+### 状态码
 
-| ***\*状态码\**** | ***\*说明\**** |
-| ---------------- | -------------- |
-| 100              | 成功           |
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
