@@ -82,7 +82,7 @@
 | memberCoupons/cuoponType        | Integer     |      | 券类型 0：商品 券 1：代金券 3 折扣券 |
 | memberCoupons/couponRule        | String     |      | 规则文字描述，支持富文本 (暂时不支持) |
 | memberCoupons/couponLimit        | String     |      | 如：2019-10-1 至 2019-10-10 当天有效 |
-| memberCoupons/status        | String   |      | 状态：-1:未激活  0:可用(剔除过期) 1:已使用  2:部分使用   3:取消  6:已过期(根据生失效日期) 99：未知（目前暂不支持）          |
+| memberCoupons/status        | Integer |      | 状态：-1:未激活  0:可用(剔除过期) 1:已使用  2:部分使用   3:取消  6:已过期(根据生失效日期) 99：未知（目前暂不支持）          |
 | memberCards                      | List     |      | 储值卡列表                     |
 | memberCards/amount               | Integer  |      | 实充余额，单位分                     |
 | memberCards/vamount              | Integer  |      | 赠送余额，单位分                     |
