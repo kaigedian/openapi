@@ -302,7 +302,7 @@
 
 | 字段      | 类型   | 是否必传 | 举例               | 说明   |
 | :-------- | ------ | -------- | ------------------ | ------ |
-| activeFlag | Integer | 否 | 是否有效 |
+| activeFlag | Integer | 否 | 是否有效（1-有效、0-无效、99-所有状态） |
 | pageNo | Integer | 是 | 页码 |
 | pageSize | Integer | 是 | 每页显示条数 |
 | typeFlag | Integer | 否 | 类型（1总公司 2公司3门店），不传默认为3 |
