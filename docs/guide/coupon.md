@@ -87,7 +87,8 @@
 | coupons                      | Array     | 是       |          | 优惠券信息                  |
 | coupons/code                 | String    | 是       |          | 优惠券编码，目前只支持单券核销|
 | transactions                 | Array     | 是       |          | 商品列表                    |
-| transactions/productCode     | String    | 是       |          | 商户的商品编码              |
+| transactions/kgdProductId    | String    | 条件     |          | 开个店商品编码，商品券必传              |
+| transactions/productCode     | String    | 条件     |          | 商户的商品编码，代金券、折扣券必传              |
 | transactions/productQuantity | Integer   | 是       |          | 商品数量                    |
 | transactions/productPrice    | String    | 是       |          | 商品价格（单位分）          |
 | transactions/categoryCode    | String    | 否       |          | 商户的商品分类编码          |
