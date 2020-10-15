@@ -576,3 +576,61 @@
 | 状态码 | 描述 |
 | ------ | ---- |
 | 100    | 成功 |
+
+## 订单异常/取消重推
+
+### 接口说明
+
+运单异常/运单取消后进行重推
+
+### 应用场景
+
+运单异常;或者运单取消后,订单可能依旧需要重新推送一次
+
+
+### 请求url：由对接方提供
+### 请求参数
+|   字段    |  类型  | 是否必传 |                    说明                     |
+| -------|  ----|  ------|  --------------------------------|
+| orderId | String |    是    |        订单编号     |
+
+#### requestBody请求示例
+
+```json
+{
+    "orderId": "14947740098045346600002"
+}
+```
+
+### 响应参数
+
+只需要返回公共参数 状态码和message 即可
+#### 返回示例
+
+```json
+{
+    "ver": "1",
+    "statusCode": "100",
+    "message": "成功",
+    "responseBody": "{\"deliveryId\":\"d7c81664a83647c38c837141fba7c7fe\"}",
+    "sign": "JjdGZRWnTECnS44AkRVIPDacyJzSkx7VpXA8uHBGeLQw+Sj1/pYwe0xhCR5WuvbCYzZCB/SVPPIBUAgBPyi8qEpSHdI7aAf3NCWsREV6YLfLeqJymS/pE3NLyhwHaSiGzieuLoy1UlIIekdN+4ODiKeRenvlmHbL58lxtz+ahTaRf0tvbZwZXRbDUg9MFLSLo25HMwmcoQ+vPo6JBIMR02qCDUOAeodkU5Osfhzc9bMfNTfDy9+esNsJw5f8s9PztC2fcUozytSrUZ6zEP/KFFDEUJCoKx2q3Xofic29aWhrPmLtks1xM97Uwburzym/iaO767K2ijq8vde/7uItvA=="
+}
+```
+```asp
+{
+    "ver": "1",
+    "statusCode": "8007",
+    "message": "订单号下存在非异常状态进行中运单,运单号: d7c81664a83647c38c837141fba7c7fe",
+    "responseBody": null,
+    "sign": "AQYTCvuD/51WzBJFw+8o6QyOROyUFLO4hJjdUk1IpW9Gs0sW/o6VW/n1X/Ta7mdfyyQG4vmSv106nq00vbhguX8J6TXWb2/QmPZduqvYLxcqyKs+tv9MBVhhopWy9oYpkt6xRKRaxpvx5N5Y6FnF6OxFSXvzqsa3J1tpI0Y/CCD8cN4Fl09eLbOnllRzAMSglr5s3sF2bJfVk0DeFs2Zd5ZYtTjhwLaiS6shj/mTxRf13tXHXaZu19nE03vu3QEnvQ4Pk/RJTdbRVtSVTyFsWiESKyAbGsMWbGNwmtOXidVvZPtMO1rvB7Lk+aXXCvhRETF4NVZWdxN9EFrbeJqiww=="
+}
+```
+
+## 字段描述
+
+### 配送渠道
+
+| SelfDelivery   | 自配送   |
+| ---- | ---------------- |
+| deliveryId    | 最新的运单号             |
+
