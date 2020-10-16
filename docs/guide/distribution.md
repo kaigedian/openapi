@@ -588,7 +588,7 @@
 运单异常;或者运单取消后,订单可能依旧需要重新推送一次
 
 
-### 请求url：由对接方提供
+### 请求url：  delivery/reDistribution
 ### 请求参数
 |   字段    |  类型  | 是否必传 |                    说明                     |
 | -------|  ----|  ------|  --------------------------------|
@@ -598,7 +598,11 @@
 
 ```json
 {
-    "orderId": "14947740098045346600002"
+  "ver": 1,
+  "partnerId":1864,
+  "appId":"a5382dc5f13c4e5f89e5b0223986cebe",
+  "sign":"skip",
+  "requestBody":  "{\"orderId\":\"214188689587340629254\"}"
 }
 ```
 
@@ -634,3 +638,54 @@
 | ---- | ---------------- |
 | deliveryId    | 最新的运单号             |
 
+## 运单状态回调 
+
+### 接口说明
+
+运单状态发生变更后回调上游
+
+### 应用场景
+
+创建运单后,如果运单的状态发生变更会同步给上游
+
+### 请求url：  由调用方提供,创建运单时传入
+### 请求参数
+|   字段    |  类型  | 是否必传 |                    说明                     |
+| -------|  ----|  ------|  --------------------------------|
+| orderId | String |    是    |        订单编号 : 状态回调时请以订单号为准,运单号内部流转会有变更可能    |
+| deliveryId | String |    是    |        运单编号:当前运单号   |
+| deliveryStatus | Integer |    是    |       运单状态: 0,"待接单" 1,"系统接单" 2,"分配骑手" 3,"骑手到店" 4,"骑手取餐" 5,"开始配送"  6,"运单送达"  7,"运单异常"  8,"运单取消"|
+| riderPhone | String |    否    |        骑手手机号    |
+| remark | String |    否    |       描述    |
+| riderName | String |    否    |    骑手姓名   |
+| channelDeliveryId | String |    否    |        第三方平台的运单号   |
+| partnerId | String |    是    |       商户号   |
+| storeId | String |    是    |       门店号    |
+| channelName | String |    否    |       渠道名称    |
+| channelCode | String |    否    |       渠道短码 :如 FengNiao    |
+| cancelReasonId | Integer |    否    |       取消回调时: 配送平台取消原因码    |
+| exceptionReasonId | Integer |    否    |     异常回调时:  配送平台异常状态码  1: 系统推单异常   |
+| pushfailsReasonId | Integer |    否    |      轮询失败时: 最后一个渠道返回的异常码    |
+| reviewStatus | Integer |    否    |       审核状态     |
+
+
+
+
+#### requestBody请求示例
+
+```json
+{
+    "channelCode":"MeiTuan",
+    "channelDeliveryId":"1602810271558155508",
+    "channelName":"美团",
+    "deliveryId":"7665873672220794880e",
+    "deliveryStatus":7,
+    "exceptionReasonId":10001,
+    "orderId":"213188750773378667828",
+    "partnerId":"c0860ff0-a5e8-4813-8b1f-e1dfd3e5d32e",
+    "remark":"联系不上顾客",
+    "riderName":"王明艳",
+    "riderPhone":"18260253511",
+    "storeId":"235276"
+}
+```
