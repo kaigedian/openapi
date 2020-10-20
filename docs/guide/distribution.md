@@ -51,6 +51,7 @@
 | productInfos/productPrice  | Integer | 是| 商品价格（分） |
 | productInfos/productSize  | Integer | 否| 商品尺寸 |
 | productInfos/productRemark  | String | 否|  商品备注 |
+| orderClient  | Integer | 否| 订单渠道（开个店微信小程序:2；开个店支付宝小程序:3；饿了么:8；饿百:9；京东:10；美团外卖:11；美团聚宝盆:20；口碑:22；非码微店:25）|
 
 
 #### requestBody请求示例
