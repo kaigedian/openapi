@@ -110,10 +110,10 @@
 
 ```json
 {
-	"ver":1,
-	"partnerId":"2282",
-	"appId":"d64ffb6dec2e498a814579b4b080706f",
-	"requestBody":"{'deliveryId':'8a69475d72e9468abba383bc97f0b593'}",
+  "ver":1,
+  "partnerId":"2282",
+  "appId":"d64ffb6dec2e498a814579b4b080706f",
+  "requestBody":"{'deliveryId':'8a69475d72e9468abba383bc97f0b593'}",
   "sign":"hFfOn1cyjGwnE7FF3DHjL5NSn+2YNsOABu41vv5EDbekNUWD9Xad2PVnPEHU2EFF+1fKSv6lL3lcJeNhmSaVsS9YLnadjc5qNymBl0AVw3wUwMC0syx02ttyHEwgNwFcxcxiz2khhNBMxTF5ueQGPBRfF6dtjmuTRRPpo39L9QhJHsixMi6C8OI874i/ZAPXzxLhwBZt7cJtqETvGLqLFJJv/9WRHKCjx3ZitmIgtazSxyAUzvw8HyDS4aeif+/Du7bTHTmc3Un+VzgiJFnpOBSEJX6OTVzY2scX6rt4ZCXcmYEgDMALbpmwonOuPKgJSpgPaQUOhKW9NrPRRFOXLg=="
 }
 ```
