@@ -97,8 +97,8 @@
   "ver": "1",
   "statusCode": "100",
   "message": "成功",
-  "responseBody": "{\"birthday\":\"\",\"email\":\"\",\"idCard\":\"\",\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"215589208394967421\",\"createTime\":\"2019-05-27 09:33:59\",\"memberId\":\"115589208394311926\",\"partnerId\":\"2282\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"orZZ75W27gmvtJmS6qy4dOXokK6U\",\"unionId\":\"oeAlw1VjDr2hUynN5E_fQigVmcGk\",\"updateTime\":\"2019-05-27 09:33:59\"}],\"memberId\":\"115589208394311926\",\"memberName\":\"\",\"mobile\":\"\",\"nickName\":\"童百良\",\"photoUrl\":\"https://wx.qlogo.cn/mmhead/VB1rsYrhNqpEPqThmWiafBJKBSJsAtb9nPdObl2AibPib0/132\",\"sexFlag\":\"0\"}",
-  "sign": "sign"
+  "responseBody": "{\"birthday\":\"\",\"currentScore\":111,\"email\":\"\",\"idCard\":\"\",\"memberCards\":[{\"amount\":0,\"applyId\":\"760\",\"cardCode\":\"5818640000025160012\",\"cardName\":\"生意兴隆卡\",\"vamount\":0},{\"amount\":0,\"applyId\":\"756\",\"cardCode\":\"5818640000025160004\",\"cardName\":\"储值卡名称测试\",\"vamount\":11000}],\"memberChannels\":[{\"cardCode\":\"\",\"cardId\":\"\",\"channelCode\":\"dcxcx\",\"channelId\":\"3592202421605852200\",\"createTime\":1592202422000,\"memberId\":\"3592202421581852199\",\"partnerId\":\"1864\",\"registerStoreCode\":\"\",\"registerType\":\"2\",\"thirdPartyCode\":\"oORZK5LYINQPJ6buPFf2YIWKu7co\",\"unionId\":\"okRmn1MS7tF7l9s8TPKB8Z7zmHq4\",\"updateTime\":1592202428000}],\"memberCoupons\":[{\"couponCode\":\"88607281470195928321\",\"couponLimit\":\"2020-08-19至2020-08-19当天有效\",\"couponName\":\"自动化测试\",\"cuoponType\":0},{\"couponCode\":\"88607281470314671367\",\"couponLimit\":\"2020-08-19至2020-08-19当天有效\",\"couponName\":\"自动化测试\",\"cuoponType\":3}],\"memberId\":\"3592202421581852199\",\"memberName\":\"\",\"mobile\":\"15001755061\",\"nickName\":\"\",\"photoUrl\":\"\",\"registerStoreCode\":\"\",\"registerTime\":1592202422000,\"scoreRule\":{\"overlayOffers\":0,\"reduceLimitType\":2,\"reduceLimitValue\":10000,\"reducePriceLimit\":1,\"reduceRatio\":\"10:1\",\"reduceStatus\":2,\"ruleId\":\"3584520426879766005\",\"scoreRemark\":\"\",\"storeId\":\"\",\"subBrandCode\":\"\"},\"sexFlag\":\"0\",\"totalScore\":111,\"usedScore\":0}",
+  "sign": "d9m8tlGiJn2QClI7UcveJUWgmHxhE4t1fC1CYNRgTrh2hxiSUPahsU0gfCS5Of9TOMSamfYdddU1nAAzeNcvNBLyVl/5GpO2jKRwrFtIcXG6EVc/aV+EDn+0HNlKwkfOpcOBMBp4mXu+m80AEiIC+nVXlGfYo6Z364pG657nWsXmxuBXt96gjhaPebHpXEpiBr8eajRN1kR9kX0fRmBcChNpkWdF/aG7UxqXU+/IqNl0BgI5h+yv2bmI5YUv6+/Emgh9eKWdlstC5/2YMyIIb54iBaHwD14jgudTBEACRA340Fnyc7Ds4occ40Ehf+GKxZEC5dX5fqHCliVFAa/7iA=="
 }
 ```
 ### 状态码
@@ -564,18 +564,15 @@
 
 | 字段      | 类型   | 是否必传                        | 举例               | 说明   |
 | -------- | ------ | ------------------------------- | ------------------ | ------ |
-|partnerId|String|是|1864|商户id|
-|appId|String|是|98290e1b36634fcf953da89df9c8a527|由非码颁发平台唯一标识,用来验签数据 |
-|ver|String|是||版本号|
-|sign|String|是||签名|
-|requestBody|String|是||请求主体|
-|requestBody/partnerId | String | 是  | 6   | 商户编号 |
-|requestBody/nickName | String | 否  | 6   | 用户昵称 |
-|requestBody/mobile | String | 否  | 6   | 手机号码 |
-|requestBody/startTime | String | 否  | 6   | 开始时间 |
-|requestBody/endTime | String | 否  | 6   | 结束时间 |
-|requestBody/pageNum | String | 是  | 6   | 页号，最小为1 |
-|requestBody/pageSize | String | 是  | 6   | 一页数据大小,最小为1 |
+|partnerId | String | 是  | 6   | 商户编号 |
+|nickName | String | 否  | 6   | 用户昵称 |
+|mobile | String | 否  | 6   | 手机号码 |
+|startTime | String | 否  | 6   | 开始时间 |
+|endTime | String | 否  | 6   | 结束时间 |
+|startUpdateTime | String | 否  | 6   | 更新开始时间 |
+|endUpdateTime | String | 否  | 6   | 更新结束时间 |
+|pageNum | String | 是  | 6   | 页号，最小为1 |
+|pageSize | String | 是  | 6   | 一页数据大小,最小为1 |
 
 #### 请求示例
 
@@ -668,28 +665,33 @@
 
 | **字段**                         | **类型** | 举例 | **说明**                                                     |
 | -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
-| recordId                         | String   |      | 积分变动记录ID   |
-| partnerId                        | String   |      | 商户编号                                                     |
-| memberId                         | String   |      | 会员编号                                                     |
-| nickName                         | String   |      | 会员昵称                                                     |
-| mobile                         | String   |      | 手机号                                                     |
-| memberType                         | Integer   |      | 会员类型 0普通会员1付费会员默认为0                                                     |
-| changeType                         | Integer   |      | 变动类型{1新增 2扣减}                                                     |
-| changeScore                         | Integer   |      | 变动积分                                                    |
-| operationType                         | Integer   |      | 操作类型{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回}                                                     |
-| operationName                         | String   |      | 操作名称{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回}                                                     |
-| orderId                         | String   |      | 订单编号                                                     |
-| activityCode                         | String   |      | 活动编号                                                     |
-| orgType                         | Integer   |      | 机构类型{1总公司2分公司3门店}                                                     |
-| orgCode                         | String   |      | 机构编码                                                    |
-| storeId                         | String   |      | 门店Id                                                    |
-| storeName                         | String   |      | 门店名称                                                    |
-| operatorId                         | String   |      | 操作人id                                                    |
-| operator                         | String   |      | 操作人                                                    |
-| createTime                         | Date   |      | 创建时间yyyy-MM-dd HH:mm:ss                                                    |
-| subBrandCode                         | String   |      | 子品牌编号                                                    |
-| subBrandName                         | String   |      | 子品牌名称                                                    |
-| appId                         | String   |      | 应用ID                                                    |
+| totalCount                       | Integer   |  1    | 总记录数 |
+| pageSize                         | Integer   |   1   | 一页数据大小 |
+| pageNum                          | Integer   |    10  | 页号 |
+| totalPages                       | Integer   |   1   | 总页数 |
+| scoreRecords                     |           |      | 积分流水列表 |
+| scoreRecords/recordId                         | String   |      | 积分变动记录ID  |
+| scoreRecords/partnerId                        | String   |      | 商户编号 |
+| scoreRecords/memberId                         | String   |      | 会员编号 |
+| scoreRecords/nickName                         | String   |      | 会员昵称 |
+| scoreRecords/mobile                         | String   |      | 手机号 |
+| scoreRecords/memberType                         | Integer   |      | 会员类型 0普通会员1付费会员默认为0                                                     |
+| scoreRecords/changeType                         | Integer   |      | 变动类型{1新增 2扣减}                                                     |
+| scoreRecords/changeScore                         | Integer   |      | 变动积分                                                    |
+| scoreRecords/operationType                         | Integer   |      | 操作类型{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回}                                                     |
+| scoreRecords/operationName                         | String   |      | 操作名称{1消费送积分2积分支付退回3积分签到4手动赠送5等级升级送积分6割接7生日送8注册送9完善送10消费满赠11手动扣减12积分兑换13积分清理14积分支付15消费送积分扣回16等级升级退积分17消费满赠扣回}                                                     |
+| scoreRecords/orderId                         | String   |      | 订单编号                                                     |
+| scoreRecords/activityCode                         | String   |      | 活动编号                                                     |
+| scoreRecords/orgType                         | Integer   |      | 机构类型{1总公司2分公司3门店}                                                     |
+| scoreRecords/orgCode                         | String   |      | 机构编码                                                    |
+| scoreRecords/storeId                         | String   |      | 门店Id                                                    |
+| scoreRecords/storeName                         | String   |      | 门店名称                                                    |
+| scoreRecords/operatorId                         | String   |      | 操作人id                                                    |
+| scoreRecords/operator                         | String   |      | 操作人                                                    |
+| scoreRecords/createTime                         | Date   |      | 创建时间yyyy-MM-dd HH:mm:ss                                                    |
+| scoreRecords/subBrandCode                         | String   |      | 子品牌编号                                                    |
+| scoreRecords/subBrandName                         | String   |      | 子品牌名称                                                    |
+| scoreRecords/appId                         | String   |      | 应用ID                                                    |
 
 #### 返回示例
 
@@ -700,60 +702,5 @@
   "message": "成功",
   "responseBody": "{\"pageNum\":1,\"pageSize\":100,\"scoreRecords\":[{\"changeScore\":100,\"changeType\":1,\"createTime\":1585650535000,\"memberId\":\"3585650454703946215\",\"memberType\":0,\"mobile\":\"\",\"nickName\":\"hold.Y\",\"operationName\":\"注册送\",\"operationType\":4,\"operator\":\"RegisterActivity\",\"operatorId\":\"\",\"orgCode\":\"123456\",\"orgType\":3,\"partnerId\":\"2654\",\"recordId\":\"3585650534868766166\",\"remark\":\"注册有礼送积分\",\"storeId\":\"123456\",\"storeName\":\"ngs\",\"subBrandCode\":\"001\",\"subBrandName\":\"子品牌by李勇\"},{\"changeScore\":100,\"changeType\":1,\"createTime\":1585648914000,\"memberId\":\"3585648851764946213\",\"memberType\":0,\"mobile\":\"\",\"nickName\":\"hold.Y\",\"operationName\":\"注册送\",\"operationType\":4,\"operator\":\"RegisterActivity\",\"operatorId\":\"\",\"orgCode\":\"123456\",\"orgType\":3,\"partnerId\":\"2654\",\"recordId\":\"3585648914372766162\",\"remark\":\"注册有礼送积分\",\"storeId\":\"123456\",\"storeName\":\"ngs\",\"subBrandCode\":\"001\",\"subBrandName\":\"子品牌by李勇\"}],\"totalCount\":2,\"totalPages\":1}",
   "sign": "syLgIjjNUUFEM1x84kCXgqcKMcXqCYFx39obzD/2hQ71RS1apv4fQGXw5kS/Q0E0l8Vfc8unDUUvMNDraUJfdTdFv92xQcnwavlqCdOQW1YdtOnv0Wy9lxO3D9h1vi3FVLLpcErH55h7TvFPrrQXo6+21i6r7tbzLsf+IR5ls7pzleWiWYwRwoN5dLRLDTbwh6sRMA3VeQodCIiHShAfkGamU0WXtmNgZR5ZhnRYVz0G8Dx+DW5gg51VbJc66uTDpJ/POctnw2xvNSCUmM/B60qMzKPNpfbGRzDeIf+xZysB8KV6zg+bkiBZ2N5soChxsfdQam3sQlmnJhq7TR3XHw=="
-}
-```
-
-
-##   储值卡流水
-
-### 应用场景
-
-储值卡流水记录
-
-### 请求url：/member/card/getCardRecords
-
-### 请求参数
-
-| 字段      | 类型   | 是否必传                        | 举例               | 说明   |
-| -------- | ------ | ------------------------------- | ------------------ | ------ |
-| partnerId | String | 是  | 1864   | 商户编号 |
-| memberId | String | 是  | 3597739376070140025   | 会员编号 |
-| startTime | String | 是  |    | 查询开始时间,时间范围最多90天, yyyy-MM-dd hh:mm:ss |
-| endTime | String | 是  |    | 查询结束时间,时间范围最多90天, yyyy-MM-dd hh:mm:ss |
-| pageNum | Integer | 是  | 1   | 页号,最小为1 |
-| pageSize | Integer | 是  | 10   | 一页数据大小, 范围:1-15 |
-
-#### requestBody请求示例
-
-```json
-{
-        "appId": "98290e1b36634fcf953da89df9c8a527",
-        "partnerId": "1864",
-        "requestBody": "{\"partnerId\": \"1864\",\"memberId\": \"3597739376070140025\",\"startTime\": \"2020-06-05 00:00:00\",\"endTime\": \"2020-09-03 00:00:00\",\"pageNum\":\"1\",\"pageSize\": \"10\"}",
-        "ver": "1",
-        "sign": "skip"
-}
-```
-
-### 响应参数
-
-| **字段**                         | **类型** | 举例 | **说明**                                                     |
-| -------------------------------- | -------- | ---- | ------------------------------------------------------------ |
-| applyName                         | String   |      | 卡档案名称   
-| cardCode                        | String   |      | 卡号                                                     |
-| moneyStr                         | String   |      | 金额Str，单位元，不带符号                                                     |
-| tradeId                         | String   |      | 订单号                                                     |
-| tradeTimeStr                         | String   |      | 时间Str，yyyy-MM-dd HH:mm:ss                                                     |
-| tradeType                         | Integer   |      | 交易类型                                                     |
-| typeStr                         | String   |      | 类型，充值/消费/退款                                                    |
-#### responseBody返回示例
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"pageNum\":1,\"pageSize\":10,\"totalCount\":1,\"totalPages\":1,\"tradeRecords\":[{\"applyName\":\"生意兴隆卡\",\"cardCode\":\"5818640000000010000\",\"moneyStr\":\"100.01\",\"tradeId\":\"200903000000000100011Dfau9\",\"tradeTimeStr\":\"2020-09-03 18:04:13\",\"tradeType\":9,\"typeStr\":\"激活\"}]}",
-    "sign": "LRRP6s3RHP+CUISIuYOzfdecgd6A4kNZ2vh5C3kI5JDXern84hiUF9DYKDvn4X7PtpBU8awUOANFFvF9kGL55JlGgNfnsAiX/YSFDXNuKRQ1ZcL6mQSfx+Dcy1TKWNc2k3/IAvlNIN0wJh38yeXJdGTRF/Mgnc/oRoyk8qz2bMSG/VSpPo8gNNbLaQ0ow1Zo3iF7Y0SW3WKRyhHvNosaoEP3CyqUsbCzBrEH58LcvM7t/1YY48bV+EZ2GYiAHNgm4dVuUpkhlC5KZbOYNclEJld4MnTw4vaFdCsRtB4hGw4iuoppjCOgFhDOIFvn7ORHV/LeXGDhmMFsToxl8FckBQ=="
 }
 ```

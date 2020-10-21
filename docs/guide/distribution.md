@@ -58,12 +58,11 @@
 
 ```json
 {
-	"ver":1,
-	"partnerId":"2282",
-	"appId":"d64ffb6dec2e498a814579b4b080706f",
-	"requestBody":"{'callbackUrl': 'baidu.com','cityName': '上海','deliveryServiceCode': 4011,'depatchWeight': 2.5,'expectTime': '2018-11-26 11:11:11','isPre': 0,'orderActualAmount': '3500','orderChannel': '美团','orderId': '123456782118','orderRemark': '订单备注','orderSource': '美团','orderTime': '2018-11-26 11:11:11','orderTotalAmount': '3500','partnerRemark': 'remark','productInfos': [    {        'productName': '鱼香肉丝',        'productNumber': 1,        'productPrice': 2500,        'productRemark': '商品信息',        'productSize': 26    }],'productType': 1,'receiverAddress': '上海','receiverLat': 40.014098,'receiverLng': 116.352764,'receiverName': '刘德华','receiverPrimaryPhone': '1578565612356','receiverSecondPhone': '15895652365','serialNumber': '123','storeAddress': '上海','storeCode': '11047059','storeContact': '李姐','storeId': 'store-00002','storeLat': 42.267283,'storeLng': 121.377436,'storeName': '一号店','storePhone': '15689565265'}",
-	"sign":"hFfOn1cyjGwnE7FF3DHjL5NSn+2YNsOABu41vv5EDbekNUWD9Xad2PVnPEHU2EFF+1fKSv6lL3lcJeNhmSaVsS9YLnadjc5qNymBl0AVw3wUwMC0syx02ttyHEwgNwFcxcxiz2khhNBMxTF5ueQGPBRfF6dtjmuTRRPpo39L9QhJHsixMi6C8OI874i/ZAPXzxLhwBZt7cJtqETvGLqLFJJv/9WRHKCjx3ZitmIgtazSxyAUzvw8HyDS4aeif+/Du7bTHTmc3Un+VzgiJFnpOBSEJX6OTVzY2scX6rt4ZCXcmYEgDMALbpmwonOuPKgJSpgPaQUOhKW9NrPRRFOXLg=="
-	
+  "ver":1,
+  "partnerId":"2282",
+  "appId":"d64ffb6dec2e498a814579b4b080706f",
+  "requestBody":"{\"callbackUrl\":\"baidu.com\",\"cityName\":\"上海\",\"deliveryServiceCode\":4011,\"depatchWeight\":2.5,\"expectTime\":\"2018-11-2611:11:11\",\"isPre\":0,\"orderActualAmount\":\"3500\",\"orderChannel\":\"美团\",\"orderId\":\"123456782118\",\"orderRemark\":\"订单备注\",\"orderSource\":\"美团\",\"orderTime\":\"2018-11-2611:11:11\",\"orderTotalAmount\":\"3500\",\"partnerRemark\":\"remark\",\"productInfos\":[{\"productName\":\"鱼香肉丝\",\"productNumber\":1,\"productPrice\":2500,\"productRemark\":\"商品信息\",\"productSize\":26}],\"productType\":1,\"receiverAddress\":\"上海\",\"receiverLat\":40.014098,\"receiverLng\":116.352764,\"receiverName\":\"刘德华\",\"receiverPrimaryPhone\":\"1578565612356\",\"receiverSecondPhone\":\"15895652365\",\"serialNumber\":\"123\",\"storeAddress\":\"上海\",\"storeCode\":\"11047059\",\"storeContact\":\"李姐\",\"storeId\":\"store-00002\",\"storeLat\":42.267283,\"storeLng\":121.377436,\"storeName\":\"一号店\",\"storePhone\":\"15689565265\"}",
+  "sign":"hFfOn1cyjGwnE7FF3DHjL5NSn+2YNsOABu41vv5EDbekNUWD9Xad2PVnPEHU2EFF+1fKSv6lL3lcJeNhmSaVsS9YLnadjc5qNymBl0AVw3wUwMC0syx02ttyHEwgNwFcxcxiz2khhNBMxTF5ueQGPBRfF6dtjmuTRRPpo39L9QhJHsixMi6C8OI874i/ZAPXzxLhwBZt7cJtqETvGLqLFJJv/9WRHKCjx3ZitmIgtazSxyAUzvw8HyDS4aeif+/Du7bTHTmc3Un+VzgiJFnpOBSEJX6OTVzY2scX6rt4ZCXcmYEgDMALbpmwonOuPKgJSpgPaQUOhKW9NrPRRFOXLg=="	
 }
 ```
 
@@ -71,21 +70,19 @@
 
 | **字段**                         | **类型** | **说明**                                                     |
 | -------------------------------- | --------  | ------------------------------------------------------------ |
-| deliveryId| String | 运单id| 
+| deliveryId| String | 运单id|
 
 #### responseBody返回示例
 
-- 
-
-  ```
-  {
-      "ver": "1",
-      "statusCode": "100",
-      "message": "成功",
-      "responseBody":"{'deliveryId':'8a69475d72e9468abba383bc97f0b593'}"
-      "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
-  }
-  ```
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody":"{'deliveryId':'8a69475d72e9468abba383bc97f0b593'}",
+  "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+}
+```
 
 
 ### 状态码
@@ -109,9 +106,6 @@
 | :-------- | ------ | -------- | ------ |
 | deliveryId | String | 是      |运单id |
 
-
-
-
 #### requestBody请求示例
 
 ```json
@@ -120,8 +114,7 @@
 	"partnerId":"2282",
 	"appId":"d64ffb6dec2e498a814579b4b080706f",
 	"requestBody":"{'deliveryId':'8a69475d72e9468abba383bc97f0b593'}",
-	"sign":"hFfOn1cyjGwnE7FF3DHjL5NSn+2YNsOABu41vv5EDbekNUWD9Xad2PVnPEHU2EFF+1fKSv6lL3lcJeNhmSaVsS9YLnadjc5qNymBl0AVw3wUwMC0syx02ttyHEwgNwFcxcxiz2khhNBMxTF5ueQGPBRfF6dtjmuTRRPpo39L9QhJHsixMi6C8OI874i/ZAPXzxLhwBZt7cJtqETvGLqLFJJv/9WRHKCjx3ZitmIgtazSxyAUzvw8HyDS4aeif+/Du7bTHTmc3Un+VzgiJFnpOBSEJX6OTVzY2scX6rt4ZCXcmYEgDMALbpmwonOuPKgJSpgPaQUOhKW9NrPRRFOXLg=="
-	
+  "sign":"hFfOn1cyjGwnE7FF3DHjL5NSn+2YNsOABu41vv5EDbekNUWD9Xad2PVnPEHU2EFF+1fKSv6lL3lcJeNhmSaVsS9YLnadjc5qNymBl0AVw3wUwMC0syx02ttyHEwgNwFcxcxiz2khhNBMxTF5ueQGPBRfF6dtjmuTRRPpo39L9QhJHsixMi6C8OI874i/ZAPXzxLhwBZt7cJtqETvGLqLFJJv/9WRHKCjx3ZitmIgtazSxyAUzvw8HyDS4aeif+/Du7bTHTmc3Un+VzgiJFnpOBSEJX6OTVzY2scX6rt4ZCXcmYEgDMALbpmwonOuPKgJSpgPaQUOhKW9NrPRRFOXLg=="
 }
 ```
 
@@ -206,85 +199,13 @@
 
 #### responseBody返回示例
 
-```
+```json
 {
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody":"{
-                        'id': 347,
-                        'deliveryId': '3426e25f34b1403e9c21036a6e49f7ab',
-                        'orderId': '1234567821',
-                        'orderSource': '美团',
-                        'orderRemark': '订单备注',
-                        'orderTotalAmount': 3500,
-                        'orderActualAmount': 3500,
-                        'depatchWeight': 2.5,
-                        'invoiceTitle': null,
-                        'depatchId': '571fd743ff6a44bd86da6eb928bdbd6b',
-                        'seq': null,
-                        'partnerId': '999',
-                        'partnerRemark': 'remark',
-                        'storeId': 'store-00002',
-                        'storeName': '一号店',
-                        'isAvailable': 1,
-                        'orderChannel': '美团',
-                        'deliveryChannel': 'SelfDelivery',
-                        'isPre': 0,
-                        'deliveryStatus': 2,
-                        'distance': null,
-                        'duration': null,
-                        'sendFee': null,
-                        'sendFeeExtra': null,
-                        'settleType': null,
-                        'companyId': null,
-                        'storeCode': '11047059',
-                        'depatchTime': null,
-                        'appointTime': null,
-                        'sendTime': null,
-                        'arriveShopTime': null,
-                        'completeTime': null,
-                        'customerSecondPhone': null,
-                        'orginName': '上海',
-                        'orginPoint': '121.377436,42.267283',
-                        'orginPhone': '15689565265',
-                        'destName': '上海',
-                        'destPoint': '116.352764,40.014098',
-                        'destRemark': null,
-                        'cityName': '上海',
-                        'customer': '刘德华',
-                        'customerPhone': '1578565612356',
-                        'deliveryServiceCode': 4011,
-                        'productType': 1,
-                        'remark': null,
-                        'createDate': '2018-11-23 14:42:01',
-                        'createUser': 'fm_sys',
-                        'updateDate': '2018-11-23 15:03:41',
-                        'updateUser': null,
-                        'channelDeliveryId': null,
-                        'orderCancelCode': null,
-                        'orderCancelDescription': null,
-                        'callbackUrl': 'baidu.com',
-                        'sysStatus': 3,
-                        'orderTime': '2018-09-21 10:34:14',
-                        'expectTime': '2018-09-21 10:34:14',
-                        'searchKey': '1234567821,刘德华,关羽',
-                        'riderId': '9455b505f4ff42cb9e99c75ed6e11928',
-                        'riderName': '关羽',
-                        'riderPhone': '1800000002',
-                        'serialNumber': null,
-                        'productInfoList': [
-                          {
-                            'productCode': null,
-                            'productName': '鱼香肉丝',
-                            'productNumber': 1,
-                            'productPrice': 2500,
-                            'productSize': 26,
-                            'productRemark': '商品信息'
-                          }
-                        ]
-                      }"
-    "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody":"{\"id\":347,\"deliveryId\":\"3426e25f34b1403e9c21036a6e49f7ab\",\"orderId\":\"1234567821\",\"orderSource\":\"美团\",\"orderRemark\":\"订单备注\",\"orderTotalAmount\":3500,\"orderActualAmount\":3500,\"depatchWeight\":2.5,\"invoiceTitle\":null,\"depatchId\":\"571fd743ff6a44bd86da6eb928bdbd6b\",\"seq\":null,\"partnerId\":\"999\",\"partnerRemark\":\"remark\",\"storeId\":\"store-00002\",\"storeName\":\"一号店\",\"isAvailable\":1,\"orderChannel\":\"美团\",\"deliveryChannel\":\"SelfDelivery\",\"isPre\":0,\"deliveryStatus\":2,\"distance\":null,\"duration\":null,\"sendFee\":null,\"sendFeeExtra\":null,\"settleType\":null,\"companyId\":null,\"storeCode\":\"11047059\",\"depatchTime\":null,\"appointTime\":null,\"sendTime\":null,\"arriveShopTime\":null,\"completeTime\":null,\"customerSecondPhone\":null,\"orginName\":\"上海\",\"orginPoint\":\"121.377436,42.267283\",\"orginPhone\":\"15689565265\",\"destName\":\"上海\",\"destPoint\":\"116.352764,40.014098\",\"destRemark\":null,\"cityName\":\"上海\",\"customer\":\"刘德华\",\"customerPhone\":\"1578565612356\",\"deliveryServiceCode\":4011,\"productType\":1,\"remark\":null,\"createDate\":\"2018-11-2314:42:01\",\"createUser\":\"fm_sys\",\"updateDate\":\"2018-11-2315:03:41\",\"updateUser\":null,\"channelDeliveryId\":null,\"orderCancelCode\":null,\"orderCancelDescription\":null,\"callbackUrl\":\"baidu.com\",\"sysStatus\":3,\"orderTime\":\"2018-09-2110:34:14\",\"expectTime\":\"2018-09-2110:34:14\",\"searchKey\":\"1234567821,刘德华,关羽\",\"riderId\":\"9455b505f4ff42cb9e99c75ed6e11928\",\"riderName\":\"关羽\",\"riderPhone\":\"1800000002\",\"serialNumber\":null,\"productInfoList\":[{\"productCode\":null,\"productName\":\"鱼香肉丝\",\"productNumber\":1,\"productPrice\":2500,\"productSize\":26,\"productRemark\":\"商品信息\"}]}",
+  "sign": "NPCioG7Nr0t4BtrgCS2PeBX9VVqvvOPmtDzFEtc0wavJaexvDKhCjIgfVsI0xcubIFCOVbGk5fTS1vJxPLyHZIfxoVYh9giqCIQb4WoeELREm/MzebHrlki0tGKhQ0uOq68iWlGfOu8SXLjabWYEVg8C/FqBrz0Ed5sghDHuNbWxX/pxPjPAhN22o/2sF1BdAT9/vd/xcz3VhLu9Zzue6LggGV+Rl9WkAffkcqGGd79To5eA+e7b6ZD4fXrYnTOvpxRS8R76j15ZclTjsieCu5qmRoUegAB6aiyBJeJdFS8nx1DF9JRgO7GYHgELYpnY6WL9pQCTsXtSSgW8m4UclA=="
 }
 ```
 
@@ -332,12 +253,11 @@
 
 ```json
 {
-    "deliveryId": "3426e25f34b1403e9c21036a6e49f7ab",
-    "deliveryStatus": 8,
-    "cancelReasonId": 2,
-    "orderId": "14947740098045346600002",
-    "partnerId": "2282",
-    "storeId": "1030"
+  "appId":"wxaa246",
+  "partnerId":"1864",
+  "requestBody":"{\"deliveryId\":\"3426e25f34b1403e9c21036a6e49f7ab\",\"deliveryStatus\":8,\"cancelReasonId\":2,\"orderId\":\"14947740098045346600002\",\"partnerId\":\"2282\",\"storeId\":\"1030\"}",
+  "sign":"<sign>",
+  "ver":"1"
 }
 ```
 
@@ -348,14 +268,293 @@
 
 ```json
 {
-    "ver": "1",
-    "code": "100",
-    "message": "success",
-    "responseBody": ""
+  "ver": "1",
+  "code": "100",
+  "message": "success",
+  "responseBody": ""
 }
 ```
 
-## 字段描述
+## 根据运单id查询骑手位置
+
+### 应用场景
+
+根据运单ID，订单ID查询骑手位置
+
+### 请求url：/delivery/getRiderAddress
+
+### 请求参数
+
+| ***\*字段\**** | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
+| -------------- | ------------------ | ------------------ | ------------------ |
+| deliveryId     | String             | 是                 | 运单编号           |
+| orderId        | String             | 否                 | 订单编号           |
+
+#### requestBody请求示例
+
+```json
+{
+  "appId":"wxaa246",
+  "partnerId":"1864",
+  "requestBody":"{\"deliveryId\":\"3426e25f34b1403e9c21036a6e49f7ab\",\"orderId\":\"14947740098045346600002\"}",
+  "sign":"<sign>",
+  "ver":"1"
+}
+```
+
+### 响应参数
+
+| ***\*字段\****  | ***\*字段类型\**** | ***\*字段说明\**** |
+| --------------- | ------------------ | ------------------ |
+| riderName       | String             | 骑手名称           |
+| riderPhone      | String             | 骑手手机           |
+| riderPoint      | String             | 骑手位置           |
+| deliveryRiderId | String             |                    |
+| deliveryId      | String             |                    |
+
+#### responseBody响应参数
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "",
+  "sign": "YsAMGx/AMDiMGe9OFOxhtJTBX904Vuk1o+KLmGbmjQHkhyRmN0Be1aRTliAzvBwKRb96i9ZTTJcTx2htWQJgbfa3IdJYvk3CVjaW2TQC3rlHEuOgijNn6PLU1M75dode9PVPBaw7BVFZGAv3HcjdzXMWzPZZZaDK9jEW8gmwj7AqjnhHvSGOLrwzvoqrHzk2KzOtQGagHNwLmmaQGbWmRdzKNmPvFeSqJ52tZ7KPeTFEsdlFXkVdh3ChAAsL+R+JwXm7bWxrivwq2jkYaiHzBNniVGvKaZQxLUwiSkYnZqLP251BCaVqdHPFJnOHGHeUMiQX9Y/rOOkFkNR/4q3+8w=="
+}
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 取消配送单
+
+### 功能描述
+
+通过请求取消配送单接口，取消第三方渠道的配送单
+
+### 请求url：/delivery/cancelOrder
+
+### 请求参数
+
+| ***\*字段\****         | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
+| ---------------------- | ------------------ | ------------------ | ------------------ |
+| deliveryId             | string             | 是                 | 配送单ID           |
+| orderCancelCode        | int                | 是                 | 取消原因类型       |
+| orderCancelDescription | string             | 否                 | 取消原因描述       |
+
+#### requestBody请求示例
+
+```json
+{
+  "appId":"wxaa246",
+  "partnerId":"1864",
+  "requestBody":"{\"deliveryId\":\"11111\"}",
+  "sign":"<sign>",
+  "ver":"1"
+}
+```
+
+#### 取消原因类型 （orderCancelCode枚举值）
+
+| 状态码 | 描述                             |
+| ------ | -------------------------------- |
+| 1      | 没有配送员接单                   |
+| 2      | 配送员没来取货                   |
+| 3      | 配送员态度太差                   |
+| 4      | 顾客取消订单                     |
+| 5      | 商户取消订单                     |
+| 6      | 配送员让我取消此单               |
+| 7      | 我不需要配送了                   |
+| 8      | 商户发错单                       |
+| 9      | 门店原因导致无法派单             |
+| 10     | 订单填写错误                     |
+| 11     | 顾客自取/不在家/要求另改时间配送 |
+| 12     | 异常取消                         |
+
+### 响应参数
+
+| ***\*字段\**** | ***\*字段类型\**** | ***\*字段说明\**** |
+| -------------- | ------------------ | ------------------ |
+| code           | int                | 接口响应code       |
+| data           | object             | 消息体             |
+| msg            | string             | 描述               |
+
+#### responseBody响应参数
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": null,
+  "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
+}
+```
+
+### 错误状态码
+
+| ***\*状态码\**** | ***\*说明\**** |
+| ---------------- | -------------- |
+| 100              | 成功           |
+| 8001             | 创建运单失败   |
+| 8002             | 运单详情查询失败 |
+| 8003             | 获取骑手位置失败       |
+
+## 心跳检测
+
+### 应用场景
+
+心跳检测
+
+### 请求url：/delivery/heartbeatDetection
+
+### 请求参数
+
+| ***\*字段\**** | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
+| -------------- | ------------------ | ------------------ | ------------------ |
+
+#### requestBody请求示例
+
+```json
+{
+  "appId":"wxaa246",
+  "partnerId":"1864",
+  "requestBody":"1",
+  "sign":"<sign>",
+  "ver":"1"
+}
+```
+
+### 响应参数
+
+| ***\*字段\****  | ***\*字段类型\**** | ***\*字段说明\**** |
+
+#### responseBody响应参数
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": null,
+  "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
+} 
+```
+
+### 状态码
+
+| 状态码 | 描述 |
+| ------ | ---- |
+| 100    | 成功 |
+
+## 订单异常/取消重推
+
+### 接口说明
+
+运单异常/运单取消后进行重推
+
+### 应用场景
+
+运单异常;或者运单取消后,订单可能依旧需要重新推送一次
+
+
+### 请求url：  delivery/reDistribution
+### 请求参数
+|   字段    |  类型  | 是否必传 |                    说明                     |
+| -------|  ----|  ------|  --------------------------------|
+| orderId | String |    是    |        订单编号     |
+
+#### requestBody请求示例
+
+```json
+{
+  "ver": 1,
+  "partnerId":1864,
+  "appId":"a5382dc5f13c4e5f89e5b0223986cebe",
+  "sign":"<sign>",
+  "requestBody":  "{\"orderId\":\"214188689587340629254\"}"
+}
+```
+
+### 响应参数
+
+
+|   字段    |  类型  | 是否必传 |                    说明                     |
+| -------|  ----|  ------|  --------------------------------|
+| deliveryId    | String       | 是 | 最新的运单号 |
+
+只需要返回公共参数 状态码和message 即可
+#### 返回示例
+
+```json
+{
+  "ver": "1",
+  "statusCode": "100",
+  "message": "成功",
+  "responseBody": "{\"deliveryId\":\"d7c81664a83647c38c837141fba7c7fe\"}",
+  "sign": "JjdGZRWnTECnS44AkRVIPDacyJzSkx7VpXA8uHBGeLQw+Sj1/pYwe0xhCR5WuvbCYzZCB/SVPPIBUAgBPyi8qEpSHdI7aAf3NCWsREV6YLfLeqJymS/pE3NLyhwHaSiGzieuLoy1UlIIekdN+4ODiKeRenvlmHbL58lxtz+ahTaRf0tvbZwZXRbDUg9MFLSLo25HMwmcoQ+vPo6JBIMR02qCDUOAeodkU5Osfhzc9bMfNTfDy9+esNsJw5f8s9PztC2fcUozytSrUZ6zEP/KFFDEUJCoKx2q3Xofic29aWhrPmLtks1xM97Uwburzym/iaO767K2ijq8vde/7uItvA=="
+}
+```
+```json
+{
+  "ver": "1",
+  "statusCode": "8007",
+  "message": "订单号下存在非异常状态进行中运单,运单号: d7c81664a83647c38c837141fba7c7fe",
+  "responseBody": null,
+  "sign": "AQYTCvuD/51WzBJFw+8o6QyOROyUFLO4hJjdUk1IpW9Gs0sW/o6VW/n1X/Ta7mdfyyQG4vmSv106nq00vbhguX8J6TXWb2/QmPZduqvYLxcqyKs+tv9MBVhhopWy9oYpkt6xRKRaxpvx5N5Y6FnF6OxFSXvzqsa3J1tpI0Y/CCD8cN4Fl09eLbOnllRzAMSglr5s3sF2bJfVk0DeFs2Zd5ZYtTjhwLaiS6shj/mTxRf13tXHXaZu19nE03vu3QEnvQ4Pk/RJTdbRVtSVTyFsWiESKyAbGsMWbGNwmtOXidVvZPtMO1rvB7Lk+aXXCvhRETF4NVZWdxN9EFrbeJqiww=="
+}
+```
+
+## 运单状态回调 
+
+### 接口说明
+
+运单状态发生变更后回调上游
+
+### 应用场景
+
+创建运单后,如果运单的状态发生变更会同步给上游
+
+### 请求url：  由调用方提供,创建运单时传入
+### 请求参数
+|   字段    |  类型  | 是否必传 |                    说明                     |
+| -------|  ----|  ------|  --------------------------------|
+| orderId | String |    是    |        订单编号 : 状态回调时请以订单号为准,运单号内部流转会有变更可能    |
+| deliveryId | String |    是    |        运单编号:当前运单号   |
+| deliveryStatus | Integer |    是    |       运单状态: 0,"待接单" 1,"系统接单" 2,"分配骑手" 3,"骑手到店" 4,"骑手取餐" 5,"开始配送"  6,"运单送达"  7,"运单异常"  8,"运单取消"|
+| riderPhone | String |    否    |        骑手手机号    |
+| remark | String |    否    |       描述    |
+| riderName | String |    否    |    骑手姓名   |
+| channelDeliveryId | String |    否    |        第三方平台的运单号   |
+| partnerId | String |    是    |       商户号   |
+| storeId | String |    是    |       门店号    |
+| channelName | String |    否    |       渠道名称    |
+| channelCode | String |    否    |       渠道短码 :如 FengNiao    |
+| cancelReasonId | Integer |    否    |       取消回调时: 配送平台取消原因码    |
+| exceptionReasonId | Integer |    否    |     异常回调时:  配送平台异常状态码  10001：顾客电话关机10002：顾客电话已停机10003：顾客电话无人接听10004：顾客电话为空号 10005：顾客留错电话10006：联系不上顾客其他原因10101：顾客更改收货地址10201：送货地址超区10202：顾客拒收货品10203：顾客要求延迟配送10401：商家关店/未营业 |
+| pushfailsReasonId | Integer |    否    |      轮询失败时: 最后一个渠道返回的异常码    |
+| reviewStatus | Integer |    否    |       审核状态     |
+| exceptionType | Integer |    否    |      异常类型 5:骑手未接单|
+
+
+
+#### requestBody请求示例
+
+```json
+{
+  "ver": 1,
+  "partnerId":1864,
+  "appId":"a5382dc5f13c4e5f89e5b0223986cebe",
+  "requestBody":  "{\"channelCode\":\"MeiTuan\",\"channelDeliveryId\":\"1602810271558155508\",\"channelName\":\"美团\",\"deliveryId\":\"7665873672220794880e\",\"deliveryStatus\":7,\"exceptionReasonId\":10001,\"orderId\":\"213188750773378667828\",\"partnerId\":\"c0860ff0-a5e8-4813-8b1f-e1dfd3e5d32e\",\"remark\":\"联系不上顾客\",\"riderName\":\"王明艳\",\"riderPhone\":\"18260253511\",\"storeId\":\"235276\"}",
+  "sign":"<sign>"
+}
+
+```
+## 参数字典
 
 ### 配送渠道
 
@@ -400,293 +599,3 @@
 | 11    | 顾客自取/不在家/要求另改时间配送             |
 | 12    | 异常取消             |
 | 13    | 第三方接单超时取消             |
-
-
-## 根据运单id查询骑手位置
-
-### 应用场景
-
-根据运单ID，订单ID查询骑手位置
-
-### 请求url：/delivery/getRiderAddress
-
-### 请求参数
-
-| ***\*字段\**** | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
-| -------------- | ------------------ | ------------------ | ------------------ |
-| deliveryId     | String             | 是                 | 运单编号           |
-| orderId        | String             | 否                 | 订单编号           |
-
-#### requestBody请求示例
-
-```json
-{
-    "appId":"wxaa246",
-    "partnerId":"1864",
-    "requestBody":"",
-    "sign":"skip",
-    "ver":"1"
-}
-```
-
-### 响应参数
-
-| ***\*字段\****  | ***\*字段类型\**** | ***\*字段说明\**** |
-| --------------- | ------------------ | ------------------ |
-| riderName       | String             | 骑手名称           |
-| riderPhone      | String             | 骑手手机           |
-| riderPoint      | String             | 骑手位置           |
-| deliveryRiderId | String             |                    |
-| deliveryId      | String             |                    |
-
-#### responseBody响应参数
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "",
-    "sign": "YsAMGx/AMDiMGe9OFOxhtJTBX904Vuk1o+KLmGbmjQHkhyRmN0Be1aRTliAzvBwKRb96i9ZTTJcTx2htWQJgbfa3IdJYvk3CVjaW2TQC3rlHEuOgijNn6PLU1M75dode9PVPBaw7BVFZGAv3HcjdzXMWzPZZZaDK9jEW8gmwj7AqjnhHvSGOLrwzvoqrHzk2KzOtQGagHNwLmmaQGbWmRdzKNmPvFeSqJ52tZ7KPeTFEsdlFXkVdh3ChAAsL+R+JwXm7bWxrivwq2jkYaiHzBNniVGvKaZQxLUwiSkYnZqLP251BCaVqdHPFJnOHGHeUMiQX9Y/rOOkFkNR/4q3+8w=="
-}
-```
-
-### 状态码
-
-| 状态码 | 描述 |
-| ------ | ---- |
-| 100    | 成功 |
-
-## 取消配送单
-
-### 功能描述
-
-通过请求取消配送单接口，取消第三方渠道的配送单
-
-### 请求url：/delivery/cancelOrder
-
-### 请求参数
-
-| ***\*字段\****         | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
-| ---------------------- | ------------------ | ------------------ | ------------------ |
-| deliveryId             | string             | 是                 | 配送单ID           |
-| orderCancelCode        | int                | 是                 | 取消原因类型       |
-| orderCancelDescription | string             | 否                 | 取消原因描述       |
-
-#### requestBody请求示例
-
-```json
-{
-    "appId":"wxaa246",
-    "partnerId":"1864",
-    "requestBody":"{\"deliveryId\":\"11111\"}",
-    "sign":"skip",
-    "ver":"1"
-}
-```
-
-#### 取消原因类型 （orderCancelCode枚举值）
-
-| 状态码 | 描述                             |
-| ------ | -------------------------------- |
-| 1      | 没有配送员接单                   |
-| 2      | 配送员没来取货                   |
-| 3      | 配送员态度太差                   |
-| 4      | 顾客取消订单                     |
-| 5      | 商户取消订单                     |
-| 6      | 配送员让我取消此单               |
-| 7      | 我不需要配送了                   |
-| 8      | 商户发错单                       |
-| 9      | 门店原因导致无法派单             |
-| 10     | 订单填写错误                     |
-| 11     | 顾客自取/不在家/要求另改时间配送 |
-| 12     | 异常取消                         |
-
-### 响应参数
-
-| ***\*字段\**** | ***\*字段类型\**** | ***\*字段说明\**** |
-| -------------- | ------------------ | ------------------ |
-| code           | int                | 接口响应code       |
-| data           | object             | 消息体             |
-| msg            | string             | 描述               |
-
-#### responseBody响应参数
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": null,
-    "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
-}
-```
-
-### 错误状态码
-
-| ***\*状态码\**** | ***\*说明\**** |
-| ---------------- | -------------- |
-| 100              | 成功           |
-| 8001             | 创建运单失败   |
-| 8002             | 运单详情查询失败 |
-| 8003             | 获取骑手位置失败       |
-
-## 心跳检测
-
-### 应用场景
-
-心跳检测
-
-### 请求url：/delivery/heartbeatDetection
-
-### 请求参数
-
-| ***\*字段\**** | ***\*字段类型\**** | ***\*是否必填\**** | ***\*字段说明\**** |
-| -------------- | ------------------ | ------------------ | ------------------ |
-
-#### requestBody请求示例
-
-```json
-{
-    "appId":"wxaa246",
-    "partnerId":"1864",
-    "requestBody":"1",
-    "sign":"skip",
-    "ver":"1"
-}
-```
-
-### 响应参数
-
-| ***\*字段\****  | ***\*字段类型\**** | ***\*字段说明\**** |
-
-#### responseBody响应参数
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": null,
-    "sign": "WSqhCU8+LZwsY3csJwDI75e/d1+vSsVmcqZMa4avS7B7ZyJpmBlN+Hyxd16n242QW5Pq+3crEl5WjzBCBbBsWJAAhvG5muwz3mQfZ/mkgNw61iY/SpHPPINZpQ5rQqLUC3u7yb+qPPAnS1Bxb1P8Of4XwLLwQtj1f+WoznYEfQ0/nUyMN/L8xwgY9bkZ22Gzl4zc39I37zkyddTCOrwSylxbH+fHB3y8NWG0Pa8x0/aJbXRvH0BggIPk2lUi8ZeBMOG+OR9UdHXSuBOD+FsRAaBzYvIACAeWa8evZlAahxxKaELGX9wWus1NxU7s0WvqlvBJzTtj1+g5spffWRhcUA=="
-} 
-```
-
-### 状态码
-
-| 状态码 | 描述 |
-| ------ | ---- |
-| 100    | 成功 |
-
-## 订单异常/取消重推
-
-### 接口说明
-
-运单异常/运单取消后进行重推
-
-### 应用场景
-
-运单异常;或者运单取消后,订单可能依旧需要重新推送一次
-
-
-### 请求url：  delivery/reDistribution
-### 请求参数
-|   字段    |  类型  | 是否必传 |                    说明                     |
-| -------|  ----|  ------|  --------------------------------|
-| orderId | String |    是    |        订单编号     |
-
-#### requestBody请求示例
-
-```json
-{
-  "ver": 1,
-  "partnerId":1864,
-  "appId":"a5382dc5f13c4e5f89e5b0223986cebe",
-  "sign":"skip",
-  "requestBody":  "{\"orderId\":\"214188689587340629254\"}"
-}
-```
-
-### 响应参数
-
-只需要返回公共参数 状态码和message 即可
-#### 返回示例
-
-```json
-{
-    "ver": "1",
-    "statusCode": "100",
-    "message": "成功",
-    "responseBody": "{\"deliveryId\":\"d7c81664a83647c38c837141fba7c7fe\"}",
-    "sign": "JjdGZRWnTECnS44AkRVIPDacyJzSkx7VpXA8uHBGeLQw+Sj1/pYwe0xhCR5WuvbCYzZCB/SVPPIBUAgBPyi8qEpSHdI7aAf3NCWsREV6YLfLeqJymS/pE3NLyhwHaSiGzieuLoy1UlIIekdN+4ODiKeRenvlmHbL58lxtz+ahTaRf0tvbZwZXRbDUg9MFLSLo25HMwmcoQ+vPo6JBIMR02qCDUOAeodkU5Osfhzc9bMfNTfDy9+esNsJw5f8s9PztC2fcUozytSrUZ6zEP/KFFDEUJCoKx2q3Xofic29aWhrPmLtks1xM97Uwburzym/iaO767K2ijq8vde/7uItvA=="
-}
-```
-```asp
-{
-    "ver": "1",
-    "statusCode": "8007",
-    "message": "订单号下存在非异常状态进行中运单,运单号: d7c81664a83647c38c837141fba7c7fe",
-    "responseBody": null,
-    "sign": "AQYTCvuD/51WzBJFw+8o6QyOROyUFLO4hJjdUk1IpW9Gs0sW/o6VW/n1X/Ta7mdfyyQG4vmSv106nq00vbhguX8J6TXWb2/QmPZduqvYLxcqyKs+tv9MBVhhopWy9oYpkt6xRKRaxpvx5N5Y6FnF6OxFSXvzqsa3J1tpI0Y/CCD8cN4Fl09eLbOnllRzAMSglr5s3sF2bJfVk0DeFs2Zd5ZYtTjhwLaiS6shj/mTxRf13tXHXaZu19nE03vu3QEnvQ4Pk/RJTdbRVtSVTyFsWiESKyAbGsMWbGNwmtOXidVvZPtMO1rvB7Lk+aXXCvhRETF4NVZWdxN9EFrbeJqiww=="
-}
-```
-
-## 字段描述
-
-### 配送渠道
-
-| SelfDelivery   | 自配送   |
-| ---- | ---------------- |
-| deliveryId    | 最新的运单号             |
-
-## 运单状态回调 
-
-### 接口说明
-
-运单状态发生变更后回调上游
-
-### 应用场景
-
-创建运单后,如果运单的状态发生变更会同步给上游
-
-### 请求url：  由调用方提供,创建运单时传入
-### 请求参数
-|   字段    |  类型  | 是否必传 |                    说明                     |
-| -------|  ----|  ------|  --------------------------------|
-| orderId | String |    是    |        订单编号 : 状态回调时请以订单号为准,运单号内部流转会有变更可能    |
-| deliveryId | String |    是    |        运单编号:当前运单号   |
-| deliveryStatus | Integer |    是    |       运单状态: 0,"待接单" 1,"系统接单" 2,"分配骑手" 3,"骑手到店" 4,"骑手取餐" 5,"开始配送"  6,"运单送达"  7,"运单异常"  8,"运单取消"|
-| riderPhone | String |    否    |        骑手手机号    |
-| remark | String |    否    |       描述    |
-| riderName | String |    否    |    骑手姓名   |
-| channelDeliveryId | String |    否    |        第三方平台的运单号   |
-| partnerId | String |    是    |       商户号   |
-| storeId | String |    是    |       门店号    |
-| channelName | String |    否    |       渠道名称    |
-| channelCode | String |    否    |       渠道短码 :如 FengNiao    |
-| cancelReasonId | Integer |    否    |       取消回调时: 配送平台取消原因码    |
-| exceptionReasonId | Integer |    否    |     异常回调时:  配送平台异常状态码  1: 系统推单异常   |
-| pushfailsReasonId | Integer |    否    |      轮询失败时: 最后一个渠道返回的异常码    |
-| reviewStatus | Integer |    否    |       审核状态     |
-
-
-
-
-#### requestBody请求示例
-
-```json
-{
-    "channelCode":"MeiTuan",
-    "channelDeliveryId":"1602810271558155508",
-    "channelName":"美团",
-    "deliveryId":"7665873672220794880e",
-    "deliveryStatus":7,
-    "exceptionReasonId":10001,
-    "orderId":"213188750773378667828",
-    "partnerId":"c0860ff0-a5e8-4813-8b1f-e1dfd3e5d32e",
-    "remark":"联系不上顾客",
-    "riderName":"王明艳",
-    "riderPhone":"18260253511",
-    "storeId":"235276"
-}
-```
