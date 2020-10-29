@@ -124,6 +124,16 @@
 | discountInfo/discountProducts/customerCode   | String    | 是       |          | 商品第三方编号           |
 | discountInfo/discountProducts/discountQty    | Integer   | 是       |          | 优惠数量                 |
 | discountInfo/discountProducts/productId      | String    | 是       |          | 非码商品编号             |
+|shareCalculates								|Array 			|否		|	|分摊计算结果|
+|shareCalculates\partnerId						|Integer		|否		|	|商户号|
+|shareCalculates\transId						|String			|否		|	|pos交易序号|
+|shareCalculates\productCode					|String			|否		|	|商品编号|
+|shareCalculates\num							|Integer		|否		|	|商品数量|
+|shareCalculates\merchantDiscountPrice			|BigDecimal		|否		|	|门店分摊金额，单位:分|
+|shareCalculates\platformDiscountPrice			|BigDecimal		|否		|	|总部分摊金额，单位:分|
+|shareCalculates\supplierDiscountPrice			|BigDecimal		|否		|	|供应商分摊金额，单位:分|
+|shareCalculates\otherDiscountPrice				|BigDecimal		|否		|	|其他分摊金额，单位:分|
+|shareCalculates\allDiscountPrice				|BigDecimal		|否		|	|商品分摊总金额，单位:分|
 
 #### 返回示例
 

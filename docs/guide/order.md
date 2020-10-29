@@ -211,7 +211,8 @@
 | ------------|  -------------|  ------|  ------------------------------|
 | timestamp |     Long     |    是    |  查询时间戳（单位：毫秒） |
 | storeId   |     String      |    是    |              门店号              |
-| pageSize | Integer | 是 | 数量 |
+| thirdStoreId | String | 否 | 或非空则根据该值查询对应的 storeId |
+| pageSize | Integer | 是 | 数量（最大100） |
 | pageNum | Integer |  是|第几页 |
 
 
