@@ -51,8 +51,8 @@
 |orderItemList/productPrice|Integer|是|商品单价（分）|
 |orderItemList/productQuantity|Integer|是|数量|
 |orderItemList/productSharePrice|Integer|否|优惠分摊金额（分）|
-|orderItemList/productWeightUnit|String|否|商品单位|
-|orderItemList/weight|Integer|否|商品重量（克）|
+|orderItemList/productUnit|String|否|商品单位|
+|orderItemList/weight|Double|否|商品重量（克）|
 |orderItemList/productSpecName|String|否|商品规格名称（大杯）|
 |orderItemList/productProperty|String|否|商品属性名称（三分糖）|
 |orderItemList/thirdCateCode|String|否|商家商品分类编号|
@@ -1038,8 +1038,8 @@ order/payAfterSyncOrderInfo
 
 | 1    | 自营微信小程序   |
 | ---- | ---------------- |
-| 2    | SAAS             |
-| 3    | 自营支付宝小程序 |
+| 2    | 微信小程序             |
+| 3    | 支付宝小程序 |
 | 4    | 自营H5           |
 | 5    | 自营安卓APP      |
 | 6    | 自营苹果APP      |
