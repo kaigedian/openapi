@@ -809,7 +809,6 @@
 ### 请求参数
 |字段   | 类型  |是否必传|说明|
 | ------------ | ------------ | ------------ | ------------ |
-| timeStamp  | String  |是 |订单状态变更时间戳（毫秒）|
 | orderCode | String  |是 | 订单号 |
 | eventType  | String  |是 |事件类型 1：备餐提醒|
 
@@ -818,7 +817,7 @@
 {
   "appId":"2eb5c8f1170246429755e6dac313f89d",
   "partnerId":"1864",
-  "requestBody":"{\"eventType\":\"1\",\"orderCode\":\"14947740098045346600002\",\"timeStamp\":\"1562595367000\"}",
+  "requestBody":"{\"eventType\":\"1\",\"orderCode\":\"14947740098045346600002\"}",
   "sign":"<sign>",
   "ver":1
 }
