@@ -1092,6 +1092,8 @@ order/payAfterSyncOrderInfo
 | 13   | 开个店会员       |
 | 14   | 开个店订货       |
 | 15   | POS              |
+| 27   | 美团点评         |
+
 
 ### 订单状态
 
