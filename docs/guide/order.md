@@ -277,6 +277,7 @@
 |itemList/orderItemList/productId|String|开个店商品编号|
 |itemList/orderItemList/skuId|String|开个店商品sku编号|
 |itemList/orderItemList/thirdProductId|String|第三方商品编号|
+|itemList/orderItemList/productCode|String|商品货号|
 |itemList/orderItemList/productName|String|商品名称|
 |itemList/orderItemList/productPrice|Integer|商品单价（分）|
 |itemList/orderItemList/productQuantity|int|数量|
@@ -379,6 +380,7 @@
 |orderItemList/skuId|String|开个店商品sku编号|
 |orderItemList/thirdProductId|String|第三方商品编号|
 |orderItemList/parentProductId|String|组合套餐商品ID|
+|orderItemList/productCode|String|商品货号|
 |orderItemList/productName|String|商品名称|
 |orderItemList/productPrice|Integer|商品单价（分）|
 |orderItemList/productQuantity|int|数量|
